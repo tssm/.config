@@ -1,0 +1,23 @@
+[user]
+	name = Tae Sandoval
+	email = taecilla@users.noreply.github.com
+[color]
+	ui = true
+[color "status"]
+	branch = red
+[core]
+	editor = nvim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[grep]
+	linenumber = true
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+[pager]
+	grep = false
+[push]
+	default = simple

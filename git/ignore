@@ -1,0 +1,8 @@
+Session.vim
+# Neovim's Black Magic
+
+.DS_Store
+# OS X crap
+
+.tern-project
+# Tern Black Magic

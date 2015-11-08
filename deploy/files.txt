@@ -1,0 +1,16 @@
+bash/
+git/
+inputrc
+Makefile
+nvim/autoload/
+nvim/init.vim
+nvim/plug-ins/H.vim/
+nvim/plug-ins/auto-pairs/
+nvim/plug-ins/deoplete.nvim/
+nvim/plug-ins/gundo.vim/
+nvim/plug-ins/papercolor-theme/
+nvim/plug-ins/probe/
+nvim/plug-ins/vim-choosewin/
+nvim/plug-ins/vim-commentary/
+nvim/plug-ins/vim-hardtime/
+nvim/plug-ins/vim-surround/
