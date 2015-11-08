@@ -1,0 +1,16 @@
+[core]
+	editor = nvim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
+[push]
+	default = simple
+[user]
+	name = Tae Selene Sandoval Murgan
+	email = taecilla@users.noreply.github.com

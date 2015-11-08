@@ -1,0 +1,5 @@
+# Neovim
+nvim/autoload/
+nvim/plug-ins/
+nvim/spell/
+nvim/.init.vim-rplugin~
