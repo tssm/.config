@@ -1,16 +1,21 @@
 scriptencoding utf-8
 " Declares the encoding of this script
 
+let s:nvim_cache_path='~/.cache/nvim'
+let s:nvim_config_path='~/.config/nvim'
+let s:nvim_plug_ins_path=s:nvim_config_path . '/plug-ins'
+" Common paths
+
 " Plug-ins definition and loading {{{
 
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
+if empty(glob(s:nvim_config_path . '/autoload/plug.vim'))
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
 	silent! execute UpdateRemotePlugins
 endif
 " Install Plug automatically
 
-call plug#begin('~/.config/nvim/plug-ins')
+call plug#begin(s:nvim_plug_ins_path)
 
 " Color schemes
 Plug 'https://github.com/NLKNguyen/papercolor-theme.git'
@@ -335,7 +340,7 @@ let g:netrw_altv=0
 let g:netrw_banner=0
 " Supress the help banner
 
-let g:netrw_home=expand('~/.cache/nvim')
+let g:netrw_home=expand(s:nvim_cache_path)
 " Place to store .netrwhist & .netrwbook
 
 let g:netrw_list_hide='"' . &wildignore . '"'
@@ -357,14 +362,16 @@ let g:netrw_winsize=80
 
 " Probe {{{
 
-let g:probe_cache_dir='~/.cache/nvim/probe'
+let g:probe_cache_dir=s:nvim_cache_path . '/probe'
 
 let g:probe_use_wildignore=1
 
 " }}}
 
 " Racer {{{
-	let g:racer_cmd = '~/.config/vim/plug-ins/racer/target/release/racer'
+
+let g:racer_cmd = s:nvim_plug_ins_path . '/racer/target/release/racer'
+
 " }}}
 
 " ToggleSpellLang {{{
