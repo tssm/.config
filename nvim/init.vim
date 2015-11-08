@@ -42,6 +42,7 @@ Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'https://github.com/torbiak/probe.git'
 Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/aperezdc/vim-template.git'
 
 Plug '~/Documents/sessionmatic.vim'
 Plug '~/Documents/vertical-help.vim'
@@ -371,6 +372,16 @@ let g:probe_use_wildignore=1
 " Racer {{{
 
 let g:racer_cmd = s:nvim_plug_ins_path . '/racer/target/release/racer'
+
+" }}}
+
+" Template {{{
+
+let g:templates_directory=[s:nvim_config_path . '/templates']
+
+let g:templates_global_name_prefix='template.'
+
+let g:templates_no_builtin_templates=1
 
 " }}}
 
