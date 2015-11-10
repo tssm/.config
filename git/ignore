@@ -1,4 +1,5 @@
 .DS_Store
 Session.vim
+*.log
 
 .tern-project
