@@ -177,10 +177,10 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 set smartindent
 " Do smart autoindenting when starting a new line
 
-set tabstop=4
+set tabstop=2
 " Number of spaces that a <Tab> in the file counts for
 
-set shiftwidth=4
+set shiftwidth=2
 " Number of spaces to use for each step of indent
 
 " }}}
