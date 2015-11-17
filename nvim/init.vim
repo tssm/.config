@@ -38,6 +38,7 @@ Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/Shougo/deoplete.nvim.git'
+Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'https://github.com/torbiak/probe.git'
@@ -135,12 +136,6 @@ set foldmethod=syntax
 
 set nofoldenable
 " Open folds by default
-
-" }}}
-
-" grep {{{
-
-set grepprg=grep\ -niR\ --exclude-dir=.git\ --exclude-dir=node_modules\ --exclude=Session\.vim\ $*\ .
 
 " }}}
 
@@ -310,6 +305,30 @@ let g:deoplete#auto_completion_start_length=1
 
 let g:deoplete#sources={}
 let g:deoplete#sources._=['omni', 'member', 'buffer', 'dictionary']
+
+" }}}
+
+" Grepper {{{
+
+nnoremap <Leader>g :Grepper! -tool ag<cr>
+
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+function! s:handleGrepperResults()
+	let l:quickfixLength = len(getqflist())
+
+	if l:quickfixLength == 1
+		cfirst
+	elseif l:quickfixLength > 1
+		botright cwindow
+	endif
+endfunction
+
+augroup Grepper
+	autocmd!
+	autocmd User Grepper call s:handleGrepperResults()
+augroup END
 
 " }}}
 
