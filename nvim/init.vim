@@ -18,7 +18,10 @@ endif
 call plug#begin(s:nvim_plug_ins_path)
 
 " Color schemes
-Plug 'https://github.com/NLKNguyen/papercolor-theme.git'
+Plug 'https://github.com/abra/vim-abra.git'
+Plug 'https://github.com/chriskempson/base16-vim.git'
+Plug 'https://github.com/zenorocha/dracula-theme.git', {'rtp': 'vim'}
+Plug 'https://github.com/freeo/vim-kalisi.git'
 
 " CSS plug-ins
 Plug 'https://github.com/jaxbot/browserlink.vim.git', {'for': 'css'}
@@ -36,6 +39,7 @@ Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
+Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/Shougo/deoplete.nvim.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
@@ -91,9 +95,9 @@ set visualbell
 
 " Color schemes {{{
 
-syntax on
+set background=dark
 
-colorscheme PaperColor
+syntax on
 
 " augroup SetCursorLine
 " 	au!
@@ -104,7 +108,7 @@ colorscheme PaperColor
 " augroup END
 " Highlights the cursor line only on the focused window
 
-" set fillchars+=vert:\ 
+set fillchars+=vert:\ 
 " Hides the decoration of the vertical separator of splited windows
 
 " }}}
@@ -294,6 +298,36 @@ let g:choosewin_overlay_enable=1
 let g:choosewin_statusline_replace=0
 
 nmap <C-w>w <Plug>(choosewin)
+
+" }}}
+
+" Color scheme switcher {{{
+
+let g:colorscheme_switcher_exclude=[
+	\ 'base16-3024',
+	\ 'base16-atelierheath',
+	\ 'base16-brewer',
+	\ 'base16-bright',
+	\ 'base16-codeschool',
+	\ 'base16-colors',
+	\ 'base16-embers',
+	\ 'base16-grayscale',
+	\ 'base16-greenscreen',
+	\ 'base16-isotope',
+	\ 'base16-londontube',
+	\ 'base16-marrakesh',
+	\ 'base16-pop',
+	\ 'base16-shapeshifter'
+	\ ]
+
+let g:colorscheme_switcher_exclude_builtins=1
+
+let g:colorscheme_switcher_keep_background=1
+
+augroup RandomColorScheme
+	autocmd!
+	autocmd VimEnter * :RandomColorScheme
+augroup END
 
 " }}}
 
