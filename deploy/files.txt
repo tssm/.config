@@ -10,7 +10,6 @@ nvim/plug-ins/auto-pairs/
 nvim/plug-ins/deoplete.nvim/
 nvim/plug-ins/gundo.vim/
 nvim/plug-ins/probe/
-nvim/plug-ins/vim-abra/
 nvim/plug-ins/vim-choosewin/
 nvim/plug-ins/vim-colorscheme-switcher/
 nvim/plug-ins/vim-commentary/
@@ -18,6 +17,7 @@ nvim/plug-ins/vim-grepper/
 nvim/plug-ins/vim-hardtime/
 nvim/plug-ins/vim-kalisi/
 nvim/plug-ins/vim-misc/
+nvim/plug-ins/vim-obsidian/
 nvim/plug-ins/vim-surround/
 nvim/plug-ins/vim-template/
 nvim/templates/

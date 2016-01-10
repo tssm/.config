@@ -18,10 +18,10 @@ endif
 call plug#begin(s:nvim_plug_ins_path)
 
 " Color schemes
-Plug 'https://github.com/abra/vim-abra.git'
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/zenorocha/dracula-theme.git', {'rtp': 'vim'}
 Plug 'https://github.com/freeo/vim-kalisi.git'
+Plug 'https://github.com/abra/vim-obsidian.git'
 
 " CSS plug-ins
 Plug 'https://github.com/jaxbot/browserlink.vim.git', {'for': 'css'}
