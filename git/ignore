@@ -3,3 +3,4 @@ Session.vim
 *.log
 
 .tern-project
+.wakatime-project
