@@ -8,3 +8,6 @@ Session.vim
 
 .tern-project
 # Tern Black Magic
+
+.wakatime-project
+# wakatime.com
