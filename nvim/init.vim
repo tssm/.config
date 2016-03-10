@@ -38,6 +38,7 @@ Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 " General plug-ins
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/t9md/vim-choosewin.git'
+Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
