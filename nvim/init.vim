@@ -48,6 +48,7 @@ Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'https://github.com/torbiak/probe.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
+Plug 'https://github.com/wakatime/vim-wakatime'
 
 Plug '~/Documents/sessionmatic.vim'
 Plug '~/Documents/vertical-help.vim'
