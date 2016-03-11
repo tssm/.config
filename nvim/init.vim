@@ -36,7 +36,6 @@ Plug 'https://github.com/phildawes/racer.git', {'for': 'rust', 'do': 'cargo buil
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 
 " General plug-ins
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
@@ -47,6 +46,7 @@ Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'https://github.com/torbiak/probe.git'
+Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
 Plug 'https://github.com/wakatime/vim-wakatime'
