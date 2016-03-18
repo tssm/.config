@@ -346,7 +346,7 @@ let g:deoplete#sources._=['omni', 'member', 'buffer', 'dictionary']
 
 " Grepper {{{
 
-nnoremap <Leader>g :Grepper! -tool ag<cr>
+nnoremap <Leader>g :Grepper -tool ag -nojump -noopen<cr>
 
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
