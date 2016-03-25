@@ -1,0 +1,12 @@
+\set QUIET on
+\pset border 2
+\pset linestyle unicode
+\pset null '(null)'
+\pset pager off
+\set HISTFILE ~/.cache/psql_history/:DBNAME
+\set PROMPT1 '%[%033[1;35;40m%]user%[%033[0m%] %[%033[1;33;40m%]%n%[%033[0m%] %[%033[1;35;40m%]in database%[%033[0m%] %[%033[1;32;40m%]%/%[%033[0m%] \n%[%033[1;34;40m%]↳%[%033[0m%] '
+\set PROMPT2 '%[%033[1;34;40m%]…%[%033[0m%] '
+\set VERBOSITY verbose
+\timing
+\x auto
+\unset QUIET

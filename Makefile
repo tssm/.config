@@ -4,6 +4,8 @@ setup:
 	ln -s ~/.config/ctags ~/.ctags
 	ln -s ~/.config/nvim/init.vim ~/.ideavimrc
 	ln -s ~/.config/inputrc ~/.inputrc
+	ln -s ~/.config/psqlrc ~/.psqlrc
+	mkdir -p ~/.cache/psql_history
 
 .PHONY: deploy
 deploy:
