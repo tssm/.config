@@ -271,7 +271,7 @@ set wildignore=.git, " Git stuff
 set wildignore+=.DS_Store, " OS crap
 set wildignore+=*.a,*.class,*.marko.js,*.mo,*.o,*.pyc, " Compiled stuff
 set wildignore+=*.gif,*.jpeg,*.jpg,*.png,*.xib, " Graphic stuff
-set wildignore+=Session.vim, " Neovim stuff
+set wildignore+=.nvimrc,Session.vim, " Neovim stuff
 set wildignore+=*/node_modules/*,.tern-project, " JavaScript stuff
 set wildignore+=*.log
 " Files ignored by the wildmenu
