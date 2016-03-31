@@ -35,6 +35,9 @@ Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 " Rust plug-ins
 Plug 'https://github.com/phildawes/racer.git', {'for': 'rust', 'do': 'cargo build --release'}
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
+" Swift plug-ins
+Plug 'https://github.com/landaire/deoplete-swift.git', {'for': 'swift'}
+Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 
 " General plug-ins
 Plug 'https://github.com/t9md/vim-choosewin.git'
@@ -87,6 +90,9 @@ augroup ResizeWindowsProportionally
 	autocmd!
 	autocmd VimResized * :wincmd =
 augroup END
+
+
+set secure exrc
 
 set shada=
 " Disable shada file
@@ -428,6 +434,12 @@ let g:probe_use_wildignore=1
 " Racer {{{
 
 let g:racer_cmd = s:nvim_plug_ins_path . '/racer/target/release/racer'
+
+" }}}
+
+" Swift {{{
+
+let g:deoplete#sources#swift#daemon_autostart = 1
 
 " }}}
 
