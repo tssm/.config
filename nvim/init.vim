@@ -42,7 +42,7 @@ Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/Shougo/deoplete.nvim.git'
+Plug 'https://github.com/Konfekt/FastFold.git' | Plug 'https://github.com/Shougo/deoplete.nvim.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
