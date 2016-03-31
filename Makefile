@@ -3,7 +3,6 @@ install:
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	echo source ~/.config/bash/profile >> ~/.bash_profile
 	echo source ~/.config/bash/bashrc >> ~/.bash_profile
-	ln -s ~/.config/ctags ~/.ctags
 	ln -s ~/.config/nvim/init.vim ~/.ideavimrc
 	ln -s ~/.config/inputrc ~/.inputrc
 	ln -s ~/.config/psqlrc ~/.psqlrc
