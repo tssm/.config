@@ -29,6 +29,7 @@ Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
 " HTML plug-ins
 Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
 " JavaScript plug-ins
+Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
 Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 " Rust plug-ins
