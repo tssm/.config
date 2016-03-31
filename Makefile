@@ -1,4 +1,4 @@
-setup:
+install:
 	echo source ~/.config/bash/profile >> ~/.bash_profile
 	echo source ~/.config/bash/bashrc >> ~/.bash_profile
 	ln -s ~/.config/ctags ~/.ctags
@@ -7,6 +7,6 @@ setup:
 	ln -s ~/.config/psqlrc ~/.psqlrc
 	mkdir -p ~/.cache/psql_history
 
-.PHONY: deploy
-deploy:
+.PHONY: distribute
+distribute:
 	sh deploy/to.sh $(machine)
