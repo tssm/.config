@@ -81,7 +81,7 @@ set hidden
 " Allows hidden buffers without writing them
 
 set nojoinspaces
-" Use only 1 space after "." when joining lines
+" Use only 1 space after '.' when joining lines
 
 set noshowmode
 " Because Neovim's cursor shape
