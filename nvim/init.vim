@@ -267,7 +267,7 @@ set statusline=%{GetFilename()}%=%{GetWarnings()}
 
 " Wildmenu {{{
 
-set wildignore=.git,.gitignore, " Git stuff
+set wildignore=.git, " Git stuff
 set wildignore+=.DS_Store, " OS crap
 set wildignore+=*.a,*.class,*.marko.js,*.mo,*.o,*.pyc, " Compiled stuff
 set wildignore+=*.gif,*.jpeg,*.jpg,*.png,*.xib, " Graphic stuff
