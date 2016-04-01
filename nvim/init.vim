@@ -91,8 +91,8 @@ augroup ResizeWindowsProportionally
 	autocmd VimResized * :wincmd =
 augroup END
 
-
 set secure exrc
+" Load .nvimrc from current directory
 
 set shada=
 " Disable shada file
@@ -244,13 +244,13 @@ set showtabline=0
 " Never show the tabline
 
 function! GetFilename()
-	let filename = expand('%:t')
 	return
-		\ &filetype == 'qf' ? 'Quickfix' :
-		\ filename == '__Gundo__' ? 'Gundo Tree' :
-		\ filename == '__Gundo_Preview__' ? 'Gundo Preview' :
-		\ filename == '[Plugins]' ? 'Plug' :
-		\ filename
+		\ &filetype == 'gundo' ? 'Gundo Tree' :
+		\ &filetype == 'help' ? 'Neovim Help: ' . expand('%:t:r') :
+		\ &filetype == 'qf' ? 'Quickfix List' :
+		\ &filetype == 'vim-plug' ? 'Plug' :
+		\ expand('%:t') == '__Gundo_Preview__' ? 'Gundo Preview' :
+		\ expand('%:p')
 endfunction
 
 function! GetWarnings()
@@ -260,6 +260,8 @@ function! GetWarnings()
 		\ ' ' . &fileformat == 'unix' ? '' : &fileformat .
 		\ ' ' . strlen(&fileencoding) ? (&fileencoding == 'utf-8' ? '' : &fileencoding) : (&encoding == 'utf-8' ? '' : &encoding)
 endfunction
+
+autocmd Filetype qf setlocal statusline=
 
 set statusline=%{GetFilename()}%=%{GetWarnings()}
 
@@ -293,7 +295,7 @@ set breakindent
 " Indents wrapped text
 
 " set list listchars=extends:…,precedes:…,tab:\ \ ,trail:😠
-" Displays 😠 for trailing spaces
+" Display trailing spaces as 😠
 
 " }}}
 
