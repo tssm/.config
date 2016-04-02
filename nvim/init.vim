@@ -20,7 +20,10 @@ call plug#begin(s:nvim_plug_ins_path)
 " Color schemes
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/zenorocha/dracula-theme.git', {'rtp': 'vim'}
+Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'https://github.com/AlessandroYorba/Sierra.git'
 Plug 'https://github.com/freeo/vim-kalisi.git'
+Plug 'https://github.com/Sclarki/neonwave.vim.git'
 Plug 'https://github.com/abra/vim-obsidian.git'
 
 " CSS plug-ins
