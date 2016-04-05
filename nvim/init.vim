@@ -36,8 +36,10 @@ Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
 Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 " Rust plug-ins
-Plug 'https://github.com/phildawes/racer.git', {'for': 'rust', 'do': 'cargo build --release'}
-Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
+if (executable("cargo"))
+	Plug 'https://github.com/phildawes/racer.git', {'for': 'rust', 'do': 'cargo build --release'}
+	Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
+endif
 " Swift plug-ins
 Plug 'https://github.com/landaire/deoplete-swift.git', {'for': 'swift'}
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
