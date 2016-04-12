@@ -276,10 +276,10 @@ set statusline=%{GetFilename()}%=%{GetWarnings()}
 
 set wildignore=.git, " Git stuff
 set wildignore+=.DS_Store, " OS crap
-set wildignore+=*/build/*,*.a,*.class,*.marko.js,*.mo,*.o,*.pyc, " Compiled stuff
+set wildignore+=build/**,*.a,*.class,*.marko.js,*.mo,*.o,*.pyc, " Compiled stuff
 set wildignore+=*.gif,*.jpeg,*.jpg,*.pdf,*.png,*.xib, " Graphic stuff
 set wildignore+=.nvimrc,Session.vim, " Neovim stuff
-set wildignore+=*/node_modules/*,.tern-project, " JavaScript stuff
+set wildignore+=node_modules/**,.tern-project, " JavaScript stuff
 set wildignore+=*.log
 " Files ignored by the wildmenu
 
