@@ -137,19 +137,6 @@ set fileencodings=utf-8
 
 " }}}
 
-" File type {{{
-
-filetype on
-" Enables the file type detection
-
-filetype indent on
-" Enables indentation based on file type
-
-filetype plugin on
-" Loads plugins based on filetype
-
-" }}}
-
 " Folding {{{
 
 set foldmethod=syntax
