@@ -49,6 +49,7 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 " General plug-ins
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
+Plug 'https://github.com/tpope/vim-endwise.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
