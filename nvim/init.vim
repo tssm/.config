@@ -21,6 +21,8 @@ call plug#begin(s:nvim_plug_ins_path)
 Plug 'https://github.com/chriskempson/base16-vim.git'
 Plug 'https://github.com/zenorocha/dracula-theme.git', {'rtp': 'vim'}
 Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'https://github.com/nanotech/jellybeans.vim.git'
+Plug 'https://github.com/justinmk/molokai.git'
 Plug 'https://github.com/AlessandroYorba/Sierra.git'
 Plug 'https://github.com/freeo/vim-kalisi.git'
 Plug 'https://github.com/Sclarki/neonwave.vim.git'
