@@ -1,21 +1,21 @@
 scriptencoding utf-8
 " Declares the encoding of this script
 
-let s:nvim_cache_path='~/.cache/nvim'
-let s:nvim_config_path='~/.config/nvim'
-let s:nvim_plug_ins_path=s:nvim_config_path . '/plug-ins'
+let s:cache_path='~/.cache/nvim'
+let s:config_path='~/.config/nvim'
+let s:data_path='~/.local/share/nvim/site'
 " Common paths
 
 " Plug-ins definition and loading {{{
 
-if empty(glob(s:nvim_config_path . '/autoload/plug.vim'))
-	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob(s:data_path . '/autoload/plug.vim'))
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall | source $MYVIMRC
-	silent! execute UpdateRemotePlugins
+	silent execute UpdateRemotePlugins
 endif
 " Install Plug automatically
 
-call plug#begin(s:nvim_plug_ins_path)
+call plug#begin(s:data_path)
 
 " Color schemes
 Plug 'https://github.com/chriskempson/base16-vim.git'
@@ -401,7 +401,7 @@ let g:netrw_altv=0
 let g:netrw_banner=0
 " Supress the help banner
 
-let g:netrw_home=expand(s:nvim_cache_path)
+let g:netrw_home=expand(s:cache_path)
 " Place to store .netrwhist & .netrwbook
 
 let g:netrw_list_hide='"' . &wildignore . '"'
@@ -423,7 +423,7 @@ let g:netrw_winsize=80
 
 " Probe {{{
 
-let g:probe_cache_dir=s:nvim_cache_path . '/probe'
+let g:probe_cache_dir=s:cache_path . '/probe'
 
 let g:probe_use_wildignore=1
 
@@ -431,7 +431,7 @@ let g:probe_use_wildignore=1
 
 " Racer {{{
 
-let g:racer_cmd = s:nvim_plug_ins_path . '/racer/target/release/racer'
+let g:racer_cmd = s:data_path . '/racer/target/release/racer'
 
 " }}}
 
@@ -443,7 +443,7 @@ let g:deoplete#sources#swift#daemon_autostart = 1
 
 " Template {{{
 
-let g:templates_directory=[s:nvim_config_path . '/templates']
+let g:templates_directory=[s:config_path . '/templates']
 
 let g:templates_global_name_prefix='template.'
 
