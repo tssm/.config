@@ -250,10 +250,24 @@ endfunction
 
 function! GetWarnings()
 	return
-		\ &modified ? 'M' : '' .
-		\ ' ' . &filetype == 'help' || !&readonly ? '' : 'RO' .
-		\ ' ' . &fileformat == 'unix' ? '' : &fileformat .
-		\ ' ' . strlen(&fileencoding) ? (&fileencoding == 'utf-8' ? '' : &fileencoding) : (&encoding == 'utf-8' ? '' : &encoding)
+		\ (&fileformat == 'unix' ?
+			\ '' :
+			\ ' ' . &fileformat) .
+		\ (strlen(&fileencoding) ?
+			\ (&fileencoding == 'utf-8' ?
+				\ '' :
+				\ ' ' . &fileencoding) :
+			\ (&encoding == 'utf-8' ?
+				\ '' :
+				\ ' ' . &encoding)
+		\ ) .
+		\ (&modified ? ' 💾 ' : '') .
+		\ ((&filetype == 'gundo' ||
+			\ &filetype == 'help' ||
+			\ &filetype == 'qf' ||
+			\ &filetype == 'vim-plug' ||
+			\ expand('%:t') == '__Gundo_Preview__') ||
+			\ !&readonly ? '' : ' 🔒 ')
 endfunction
 
 autocmd Filetype qf setlocal statusline=
