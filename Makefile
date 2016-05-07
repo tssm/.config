@@ -1,6 +1,4 @@
 install:
-	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs\
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	echo source ~/.config/bash/profile >> ~/.bash_profile
 	echo source ~/.config/bash/bashrc >> ~/.bash_profile
 	ln -s ~/.config/nvim/init.vim ~/.ideavimrc
@@ -14,4 +12,4 @@ distribute:
 		--archive\
 		--verbose\
 		--delete\
-		bash git inputrc Makefile nvim/init.vim nvim/templates $(MACHINE):.config
+		bash git inputrc Makefile nvim $(MACHINE):.config
