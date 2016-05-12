@@ -130,13 +130,6 @@ set fillchars+=vert:\
 
 " }}}
 
-" Encoding {{{
-
-set fileencodings=utf-8
-" Sets the files character encoding
-
-" }}}
-
 " Folding {{{
 
 set foldmethod=syntax
