@@ -128,6 +128,9 @@ syntax on
 set fillchars+=vert:\ 
 " Hides the decoration of the vertical separator of splited windows
 
+set termguicolors
+" Enable true color
+
 " }}}
 
 " Folding {{{
