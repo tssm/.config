@@ -282,6 +282,7 @@ set wildignore+=.nvimrc,Session.vim " Neovim stuff
 set wildignore+=node_modules/**,.tern-project " JavaScript stuff
 set wildignore+=*.log
 set wildignore+=.vagrant/**
+set wildignore+=.keep
 " Files ignored by the wildmenu
 
 set wildignorecase
