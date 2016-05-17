@@ -475,17 +475,17 @@ let g:toggle_spell_lang_mapping='<F7>'
 
 let s:diff_tab=0
 function! s:DiffTab()
-    if s:diff_tab > 0
-        windo diffoff
+	if s:diff_tab > 0
+		windo diffoff
 		windo set noscrollbind
-        let s:diff_tab=0
-    else
+		let s:diff_tab=0
+	else
 		windo diffthis
 		windo set scrollbind
-    let s:diff_tab=1
-    endif
+		let s:diff_tab=1
+	endif
 endfunction
-:command! D call <SID>DiffTab()
+command! D call <SID>DiffTab()
 " Toggle diff of current tab
 
 augroup DirectoryExists
