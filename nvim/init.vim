@@ -294,7 +294,7 @@ set breakat=\	\
 set breakindent
 " Indents wrapped text
 
-" set list listchars=extends:…,precedes:…,tab:\ \ ,trail:😠
+set list listchars=extends:…,precedes:…,tab:\ \ ,trail:😠
 " Display trailing spaces as 😠
 
 " }}}
