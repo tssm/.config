@@ -1,6 +1,3 @@
-scriptencoding utf-8
-" Declares the encoding of this script
-
 let s:cache_path='~/.cache/nvim'
 let s:config_path='~/.config/nvim'
 let s:data_path='~/.local/share/nvim/site'
@@ -114,8 +111,6 @@ set visualbell
 
 set background=dark
 
-syntax on
-
 " augroup SetCursorLine
 " 	au!
 " 	au VimEnter * setlocal cursorline
@@ -173,14 +168,11 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Indentation {{{
 
-set smartindent
-" Do smart autoindenting when starting a new line
-
 set tabstop=2
 " Number of spaces that a <Tab> in the file counts for
 
-set shiftwidth=2
-" Number of spaces to use for each step of indent
+set shiftwidth=0
+" Number of spaces to use for each step of indent. 0 = tabstop
 
 " }}}
 
