@@ -55,6 +55,7 @@ Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'https://github.com/torbiak/probe.git'
+Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
@@ -354,6 +355,19 @@ let g:deoplete#sources._=['omni', 'member', 'buffer', 'dictionary']
 
 " }}}
 
+" FileBeagle {{{
+
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+let g:filebeagle_suppress_keymaps = 1
+nmap <silent> - <Plug>FileBeagleOpenCurrentBufferDir
+nmap <silent> _ <Plug>FileBeagleOpenCurrentWorkingDir
+
+let g:filebeagle_check_gitignore = 1
+
+" }}}
+
 " Grepper {{{
 
 nnoremap <Leader>g :Grepper -tool ag -nojump -noopen<cr>
@@ -392,37 +406,9 @@ let g:hardtime_allow_different_key=1
 
 let g:hardtime_default_on=1
 
-let g:list_of_normal_keys=['h', 'j', 'k', 'l', 'x', '-', '+', '<Up>', '<Down>', '<Left>', '<Right>', '<Space>', '<Enter>', '<BS>']
+let g:list_of_normal_keys=['h', 'j', 'k', 'l', 'x', '+', '<Up>', '<Down>', '<Left>', '<Right>', '<Space>', '<Enter>', '<BS>']
 
 let g:list_of_visual_keys=g:list_of_normal_keys
-
-" }}}
-
-" Netrw {{{
-
-let g:netrw_altv=0
-" Creates new vertical windows at the right
-
-let g:netrw_banner=0
-" Supress the help banner
-
-let g:netrw_home=expand(s:cache_path)
-" Place to store .netrwhist & .netrwbook
-
-let g:netrw_list_hide='"' . &wildignore . '"'
-" Ignore the same that wildignore
-
-let g:netrw_liststyle=0
-" Displays one file per line
-
-let g:netrw_sort_options='i'
-" Ignores case when sorting files
-
-let g:netrw_preview=1
-" Creates vertical preview windows
-
-let g:netrw_winsize=80
-" Specify initial size of new windows
 
 " }}}
 
