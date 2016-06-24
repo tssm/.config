@@ -370,18 +370,15 @@ let g:filebeagle_check_gitignore = 1
 
 " Grepper {{{
 
-nnoremap <Leader>g :Grepper -tool ag -nojump -noopen<cr>
+nnoremap <Leader>g :Grepper -tool ag -nojump<cr>
 
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
 function! s:handleGrepperResults()
-	let l:quickfixLength = len(getqflist())
-
-	if l:quickfixLength == 1
+	if len(getqflist()) == 1
 		cfirst
-	elseif l:quickfixLength > 1
-		botright cwindow
+		cclose
 	endif
 endfunction
 
