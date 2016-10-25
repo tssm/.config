@@ -3,7 +3,7 @@
 [color]
 	ui = true
 [color "status"]
-	branch = red
+	branch = blue
 [core]
 	editor = nvim
 [diff]
