@@ -6,9 +6,3 @@ export HISTCONTROL=erasedups:ignorespace
 
 # Neovim
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-# npm
-export npm_config_prefix=~/.node_modules
-
-# PATH
-export PATH=~/.node_modules/bin:$PATH
