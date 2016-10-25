@@ -2,6 +2,7 @@
 
 .nvimrc
 Session.vim
+.tags
 # Neovim's Black Magic
 
 .DS_Store
