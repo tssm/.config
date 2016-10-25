@@ -47,6 +47,7 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/tpope/vim-endwise.git'
+Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
@@ -54,7 +55,6 @@ Plug 'https://github.com/Konfekt/FastFold.git' | Plug 'https://github.com/Shougo
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
-Plug 'https://github.com/torbiak/probe.git'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -368,6 +368,12 @@ let g:filebeagle_check_gitignore = 1
 
 " }}}
 
+" FZY {{{
+
+nnoremap <Leader>f :FuzzyOpen<cr>
+
+" }}}
+
 " Grepper {{{
 
 nnoremap <Leader>g :Grepper -tool ag -nojump<cr>
@@ -406,14 +412,6 @@ let g:hardtime_default_on=1
 let g:list_of_normal_keys=['h', 'j', 'k', 'l', 'x', '+', '<Up>', '<Down>', '<Left>', '<Right>', '<Space>', '<Enter>', '<BS>']
 
 let g:list_of_visual_keys=g:list_of_normal_keys
-
-" }}}
-
-" Probe {{{
-
-let g:probe_cache_dir=s:cache_path . '/probe'
-
-let g:probe_use_wildignore=1
 
 " }}}
 
