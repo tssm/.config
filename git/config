@@ -8,13 +8,13 @@
 [core]
 	editor = nvim
 [diff]
-	tool = vimdiff
+	tool = nvim -d
 [difftool]
 	prompt = false
 [grep]
 	linenumber = true
 [merge]
-	tool = vimdiff
+	tool = nvim -d
 [mergetool]
 	prompt = false
 [pager]
