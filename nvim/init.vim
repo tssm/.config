@@ -26,7 +26,6 @@ Plug 'https://github.com/Sclarki/neonwave.vim.git'
 Plug 'https://github.com/abra/vim-obsidian.git'
 
 " CSS plug-ins
-Plug 'https://github.com/jaxbot/browserlink.vim.git', {'for': 'css'}
 Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
 " HTML plug-ins
 Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
