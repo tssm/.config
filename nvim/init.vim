@@ -226,41 +226,81 @@ set showmatch
 set showtabline=0
 " Never show the tabline
 
+function! GetCurrentDir()
+	return IsSpecialBuffer() || (stridx(expand('%:p:h'), getcwd()) == -1)
+			\ ? ''
+			\ : getcwd() == $HOME ? '~/' : split(getcwd(), '/')[-1] . '/'
+endfunction
+
+function! GetCursorPosition()
+	let l:position = getcurpos()
+
+	return IsSpecialBuffer()
+			\ ? ''
+			\ : l:position[1] . ':' . l:position[2]
+endfunction
+
+function! GetFileStatus()
+	let l:filepath = expand('%:p')
+
+	return
+		\ ((IsSpecialBuffer() || empty(glob('%')) || !strlen(l:filepath) || (!&readonly && filewritable(filepath)))
+			\ ? ''
+			\ : '🔒') .
+		\ (&modified ? '⚠️' : '')
+endfunction
+
 function! GetFilename()
 	return
-		\ &filetype == 'gundo' ? 'Gundo Tree' :
-		\ &filetype == 'help' ? 'Neovim Help: ' . expand('%:t:r') :
-		\ &filetype == 'qf' ? 'Quickfix List' :
-		\ &filetype == 'vim-plug' ? 'Plug' :
-		\ expand('%:t') == '__Gundo_Preview__' ? 'Gundo Preview' :
-		\ expand('%:p')
+		\ &filetype == 'gundo' ? 'Gundo Tree ' :
+		\ &filetype == 'help' ? expand('%:t:r') . ' help ' :
+		\ &filetype == 'qf' ? 'Quickfix list ' :
+		\ &filetype == 'vim-plug' ? 'Plug ' :
+		\ expand('%:t') == '__Gundo_Preview__' ? 'Gundo Preview ' :
+		\ strlen(expand('%')) > 0 ? expand('%') : '🆕'
+endfunction
+
+function! GetIndentation()
+	return IsSpecialBuffer()
+			\ ? ''
+			\ : (&expandtab ? 'spaces' : 'tabs') . '(' . &tabstop . ')'
 endfunction
 
 function! GetWarnings()
 	return
-		\ (&fileformat == 'unix' ?
-			\ '' :
-			\ ' ' . &fileformat) .
-		\ (strlen(&fileencoding) ?
-			\ (&fileencoding == 'utf-8' ?
-				\ '' :
-				\ ' ' . &fileencoding) :
-			\ (&encoding == 'utf-8' ?
-				\ '' :
-				\ ' ' . &encoding)
-		\ ) .
-		\ (&modified ? ' 💾 ' : '') .
-		\ ((&filetype == 'gundo' ||
-			\ &filetype == 'help' ||
-			\ &filetype == 'qf' ||
-			\ &filetype == 'vim-plug' ||
-			\ expand('%:t') == '__Gundo_Preview__') ||
-			\ !&readonly ? '' : ' 🔒 ')
+		\ (&fileformat == 'unix'
+			\ ? ''
+			\ : ' ' . &fileformat) .
+		\ (strlen(&fileencoding)
+			\ ? (&fileencoding == 'utf-8'
+				\ ? ''
+				\ : ' ' . &fileencoding)
+			\ : (&encoding == 'utf-8'
+				\ ? ''
+				\ : ' ' . &encoding)
+		\ )
+endfunction
+
+function! IsSpecialBuffer()
+	return
+		\ &buftype ==# 'terminal' ||
+		\ &filetype == 'gundo' ||
+		\ &filetype == 'help' ||
+		\ &filetype == 'qf' ||
+		\ &filetype == 'vim-plug' ||
+		\ expand('%:t') == '__Gundo_Preview__'
 endfunction
 
 autocmd Filetype qf setlocal statusline=
 
-set statusline=%{GetFilename()}:%l:%c%=%{GetWarnings()}
+set statusline=
+set statusline+=%{GetCurrentDir()}
+set statusline+=%{GetFilename()}\ 
+set statusline+=%{GetFileStatus()}
+set statusline+=%=
+set statusline+=%{GetWarnings()}\ 
+set statusline+=%{GetIndentation()}\ 
+set statusline+=%{GetCursorPosition()}
 
 " }}}
 
