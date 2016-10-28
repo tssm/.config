@@ -58,7 +58,6 @@ Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/kana/vim-smartinput.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
-Plug 'https://github.com/wakatime/vim-wakatime'
 
 Plug '~/Documents/sessionmatic.vim'
 Plug '~/Documents/vertical-help.vim'
