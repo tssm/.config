@@ -56,7 +56,6 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 " General plug-ins
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
-Plug 'https://github.com/tpope/vim-endwise.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
@@ -66,7 +65,8 @@ Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'https://github.com/kana/vim-smartinput.git'
+Plug 'https://github.com/cohama/lexima.vim.git'
+Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
 
