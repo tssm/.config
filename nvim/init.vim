@@ -130,8 +130,8 @@ set background=dark
 " augroup END
 " Highlights the cursor line only on the focused window
 
-set fillchars+=vert:\ 
-" Hides the decoration of the vertical separator of splited windows
+ set fillchars=fold:\ ,vert:┃
+ " Hides the decoration of folds and sets a continuous vertical windows separator
 
 set termguicolors
 " Enable true color
