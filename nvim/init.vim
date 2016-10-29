@@ -130,9 +130,6 @@ set background=dark
 " augroup END
 " Highlights the cursor line only on the focused window
 
- set fillchars=fold:\ ,vert:┃
- " Hides the decoration of folds and sets a continuous vertical windows separator
-
 set termguicolors
 " Enable true color
 
@@ -222,42 +219,20 @@ set sessionoptions=curdir,tabpages,winsize
 
 " }}}
 
-" Tab pages {{{
-
-set splitbelow
-" Creates new horizontal windows at the bottom
-
-set splitright
-" Creates new vertical windows at the right
-
-" }}}
-
-" User interface {{{
-
-set relativenumber
-" Displays how far away each line is from the current one
-
-set showcmd
-" Always show the command line
-
-set showmatch
-" Highlight matching braces when cursor is over one of them
-
-set showtabline=0
-" Never show the tabline
+" Statusline {{{
 
 function! GetCurrentDir()
 	return IsSpecialBuffer() || (stridx(expand('%:p:h'), getcwd()) == -1)
-			\ ? ''
-			\ : getcwd() == $HOME ? '~/' : split(getcwd(), '/')[-1] . '/'
+		\ ? ''
+		\ : getcwd() == $HOME ? '~/' : split(getcwd(), '/')[-1] . '/'
 endfunction
 
 function! GetCursorPosition()
 	let l:position = getcurpos()
 
 	return IsSpecialBuffer()
-			\ ? ''
-			\ : l:position[1] . ':' . l:position[2]
+		\ ? ''
+		\ : l:position[1] . ':' . l:position[2]
 endfunction
 
 function! GetFileStatus()
@@ -282,8 +257,8 @@ endfunction
 
 function! GetIndentation()
 	return IsSpecialBuffer()
-			\ ? ''
-			\ : (&expandtab ? 'spaces' : 'tabs') . '(' . &tabstop . ')'
+		\ ? ''
+		\ : (&expandtab ? 'spaces' : 'tabs') . '(' . &tabstop . ')'
 endfunction
 
 function! GetWarnings()
@@ -324,6 +299,40 @@ set statusline+=%{GetCursorPosition()}
 
 " }}}
 
+" Tab pages {{{
+
+set splitbelow
+" Creates new horizontal windows at the bottom
+
+set splitright
+" Creates new vertical windows at the right
+
+" }}}
+
+" User interface {{{
+
+set fillchars=fold:\ ,vert:┃
+" Hides the decoration of folds and sets a continuous vertical windows separator
+
+set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
+" Display trailing spaces as ☠
+
+set numberwidth=3
+
+set relativenumber
+" Displays how far away each line is from the current one
+
+set showcmd
+" Always show the command line
+
+set showmatch
+" Highlight matching braces when cursor is over one of them
+
+set showtabline=0
+" Never show the tabline
+
+" }}}
+
 " Wildmenu {{{
 
 set wildignore+=.DS_Store,*.log,.nvimrc,Session.vim,.tern-project
@@ -353,9 +362,6 @@ set breakat=\	\
 
 set breakindent
 " Indents wrapped text
-
-set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
-" Display trailing spaces as ☠
 
 " }}}
 
