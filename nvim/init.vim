@@ -15,15 +15,26 @@ endif
 call plug#begin(s:data_path)
 
 " Color schemes
-Plug 'https://github.com/chriskempson/base16-vim.git'
-Plug 'https://github.com/zenorocha/dracula-theme.git', {'rtp': 'vim'}
-Plug 'https://github.com/cocopon/iceberg.vim'
-Plug 'https://github.com/nanotech/jellybeans.vim.git'
-Plug 'https://github.com/justinmk/molokai.git'
-Plug 'https://github.com/AlessandroYorba/Sierra.git'
-Plug 'https://github.com/freeo/vim-kalisi.git'
-Plug 'https://github.com/Sclarki/neonwave.vim.git'
-Plug 'https://github.com/abra/vim-obsidian.git'
+Plug 'https://github.com/sonjapeterson/1989.vim.git'
+Plug 'https://github.com/carriercomm/cobalt2.vim.git'
+Plug 'https://github.com/tyrannicaltoucan/vim-deep-space.git'
+Plug 'https://github.com/dracula/vim.git'
+Plug '~/Documents/fairyfloss.vim'
+Plug 'https://github.com/MvanDiemen/ghostbuster.git'
+Plug 'https://github.com/scwood/vim-hybrid.git'
+Plug 'https://github.com/aereal/vim-colors-japanesque.git'
+Plug 'https://github.com/raphamorim/lucario.git'
+Plug 'https://github.com/cseelus/vim-colors-lucid.git'
+Plug 'https://github.com/trevordmiller/nova-vim.git'
+Plug 'https://github.com/rakr/vim-one.git'
+Plug 'https://github.com/geoffharcourt/one-dark.vim.git'
+Plug 'https://github.com/yous/vim-open-color.git'
+Plug 'https://github.com/reedes/vim-colors-pencil.git'
+Plug 'https://github.com/juanedi/predawn.vim.git'
+Plug 'https://github.com/colepeters/spacemacs-theme.vim.git'
+Plug 'https://github.com/rakr/vim-two-firewatch.git'
+Plug 'https://github.com/bcicen/vim-vice.git'
+Plug 'https://github.com/lifepillar/vim-wwdc16-theme.git'
 
 " CSS plug-ins
 Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
@@ -124,6 +135,16 @@ set fillchars+=vert:\
 
 set termguicolors
 " Enable true color
+
+augroup FixColorSchemes
+	autocmd!
+	autocmd ColorScheme *
+		\ highlight EndOfBuffer guibg=bg guifg=bg |
+		\ highlight LineNr guibg=bg |
+		\ highlight CursorLineNr guibg=bg |
+		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
+		\ highlight SpecialKey guibg=bg
+augroup END
 
 " }}}
 
@@ -354,30 +375,13 @@ nmap <C-w>w <Plug>(choosewin)
 
 " Color scheme switcher {{{
 
-let g:colorscheme_switcher_exclude=[
-	\ 'base16-3024',
-	\ 'base16-atelierheath',
-	\ 'base16-brewer',
-	\ 'base16-bright',
-	\ 'base16-codeschool',
-	\ 'base16-colors',
-	\ 'base16-embers',
-	\ 'base16-grayscale',
-	\ 'base16-greenscreen',
-	\ 'base16-isotope',
-	\ 'base16-londontube',
-	\ 'base16-marrakesh',
-	\ 'base16-pop',
-	\ 'base16-shapeshifter'
-	\ ]
-
 let g:colorscheme_switcher_exclude_builtins=1
 
 let g:colorscheme_switcher_keep_background=1
 
 augroup RandomColorScheme
 	autocmd!
-	autocmd VimEnter * :RandomColorScheme
+	autocmd VimEnter * RandomColorScheme
 augroup END
 
 " }}}
