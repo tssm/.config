@@ -67,6 +67,7 @@ Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
+Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
 
