@@ -176,6 +176,8 @@ noremap yd d
 noremap yD D
 noremap ydd dd
 
+xnoremap p "_dP
+
 nnoremap Y y$
 " Makes Y behaves like C and D.
 
