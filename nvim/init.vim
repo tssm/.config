@@ -198,6 +198,11 @@ set shiftwidth=0
 
 " Search and replace {{{
 
+nnoremap n nzz
+nnoremap N Nzz
+vnoremap n nzz
+vnoremap N Nzz
+
 set gdefault
 " Substitutes all matches on a line by default
 
