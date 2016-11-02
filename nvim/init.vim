@@ -240,7 +240,7 @@ function! GetCursorPosition()
 
 	return IsSpecialBuffer()
 		\ ? ''
-		\ : l:position[1] . ':' . l:position[2]
+		\ : '☰' . l:position[1] . ' ' . '☷' . l:position[2]
 endfunction
 
 function! GetFileStatus()
@@ -250,7 +250,7 @@ function! GetFileStatus()
 		\ ((IsSpecialBuffer() || empty(glob('%')) || !strlen(l:filepath) || (!&readonly && filewritable(filepath)))
 			\ ? ''
 			\ : '🔒') .
-		\ (&modified ? '⚠️' : '')
+		\ (&modified ? '💡' : '')
 endfunction
 
 function! GetFilename()
