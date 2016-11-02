@@ -62,11 +62,11 @@ Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vi
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/Konfekt/FastFold.git' | Plug 'https://github.com/Shougo/deoplete.nvim.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
-Plug 'https://github.com/sjl/gundo.vim.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
+Plug 'https://github.com/simnalamburt/vim-mundo.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/aperezdc/vim-template.git'
@@ -255,11 +255,9 @@ endfunction
 
 function! GetFilename()
 	return
-		\ &filetype == 'gundo' ? 'Gundo Tree ' :
 		\ &filetype == 'help' ? expand('%:t:r') . ' help ' :
 		\ &filetype == 'qf' ? 'Quickfix list ' :
 		\ &filetype == 'vim-plug' ? 'Plug ' :
-		\ expand('%:t') == '__Gundo_Preview__' ? 'Gundo Preview ' :
 		\ strlen(expand('%')) > 0 ? expand('%') : '🆕'
 endfunction
 
@@ -287,11 +285,11 @@ endfunction
 function! IsSpecialBuffer()
 	return
 		\ &buftype ==# 'terminal' ||
-		\ &filetype == 'gundo' ||
+		\ &filetype == 'mundo' ||
 		\ &filetype == 'help' ||
 		\ &filetype == 'qf' ||
 		\ &filetype == 'vim-plug' ||
-		\ expand('%:t') == '__Gundo_Preview__'
+		\ expand('%:t') == '__Mundo_Preview__'
 endfunction
 
 autocmd Filetype qf setlocal statusline=
@@ -451,13 +449,6 @@ augroup END
 
 " }}}
 
-" Gundo {{{
-
-let g:gundo_help=0
-" Hiddes help
-
-" }}}
-
 " Hardtime {{{
 
 let g:hardtime_allow_different_key=1
@@ -468,6 +459,17 @@ let g:hardtime_default_on=1
 let g:list_of_normal_keys=['h', 'j', 'k', 'l', 'x', '+', '<Up>', '<Down>', '<Left>', '<Right>', '<Space>', '<Enter>', '<BS>']
 
 let g:list_of_visual_keys=g:list_of_normal_keys
+
+" }}}
+
+" Mundo {{{
+
+let g:mundo_help=0
+" Hiddes help
+
+let g:mundo_preview_statusline="Mundo Preview"
+
+let g:mundo_tree_statusline="Mundo Tree"
 
 " }}}
 
