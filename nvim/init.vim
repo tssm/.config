@@ -444,10 +444,14 @@ nnoremap <Leader>f :FuzzyOpen<cr>
 
 " Grepper {{{
 
-nnoremap <Leader>g :Grepper -tool ag -nojump<cr>
+let g:grepper = {
+	\ 'simple_prompt': 1
+	\ }
 
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
+nnoremap <Leader>g :Grepper -tool rg -nojump -highlight<cr>
+
+nmap <Leader>* <plug>(GrepperOperator)
+xmap <Leader>* <plug>(GrepperOperator)
 
 function! s:handleGrepperResults()
 	if len(getqflist()) == 1
