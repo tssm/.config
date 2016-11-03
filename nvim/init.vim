@@ -183,6 +183,10 @@ nnoremap Y y$
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " Replace the word under cursor.
 
+xnoremap <expr> v
+	\ (mode() ==# 'v' ? "\<C-V>"
+	\ : mode() ==# 'V' ? 'v' : 'V')
+
 " }}}
 
 " Indentation {{{
