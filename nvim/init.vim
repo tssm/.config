@@ -42,6 +42,7 @@ Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
 Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
 " JavaScript plug-ins
 Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
+Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': 'javascript'}
 Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 " Rust plug-ins
@@ -89,9 +90,7 @@ augroup END
 set clipboard=unnamed,unnamedplus
 " Uses the clipboard as the unnamed register
 
-set complete=t,i,kspell,.,w,b
-
-set completeopt=menu
+set completeopt=menuone,noinsert
 
 set hidden
 " Allows hidden buffers without writing them
@@ -400,12 +399,17 @@ augroup END
 
 " Deoplete {{{
 
+let g:deoplete#auto_complete_start_length=1
+
 let g:deoplete#enable_at_startup=1
 
-let g:deoplete#auto_completion_start_length=1
+let g:deoplete#file#enable_buffer_path=1
 
-let g:deoplete#sources={}
-let g:deoplete#sources._=['omni', 'member', 'buffer', 'dictionary']
+let g:deoplete#sources={
+	\ '_': ['tag', 'omni', 'file'],
+	\ 'javascript': ['ternjs'],
+	\ 'markdown': ['dictionary']
+	\ }
 
 " }}}
 
