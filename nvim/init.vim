@@ -350,17 +350,16 @@ set showtabline=0
 
 " Wildmenu {{{
 
-set wildignore+=.DS_Store,*.log,.nvimrc,Session.vim,.tern-project
+set wildignore+=.DS_Store,*.log,.nvimrc,.tern-project,Session.vim
 " Should be read from global .gitignore
 set wildignore+=build/**,node_modules/**,tmp/**
 " Should be read from project .gitignore
-set wildignore+=*.a,*.class,*.gem,*.lock,*.marko.js,*.mo,*.o,*.pyc,.vagrant
+set wildignore+=*.a,*.class,*.gem,*.lock,*.marko.js,*.mo,*.o,*.pyc
 " Should be read from project .gitignore
 set wildignore+=*.gif,*.jpeg,*.jpg,*.pdf,*.png,*.svg,*.xib
 " Graphic stuff
-set wildignore+=.git
-set wildignore+=.keep
-" Files ignored by the wildmenu
+set wildignore+=.*
+" Hidden stuff
 
 set wildignorecase
 " Use case-insensitive file search in the wildmenu
