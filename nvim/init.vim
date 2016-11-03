@@ -314,6 +314,12 @@ set splitright
 
 " }}}
 
+" Terminal {{{
+
+let g:terminal_scrollback_buffer_size=100000
+
+" }}}
+
 " User interface {{{
 
 set fillchars=fold:\ ,vert:┃
