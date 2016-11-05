@@ -55,6 +55,7 @@ Plug 'https://github.com/landaire/deoplete-swift.git', {'for': 'swift'}
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 
 " General plug-ins
+Plug 'https://github.com/pgdouyon/vim-accio.git'
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
@@ -398,6 +399,12 @@ set breakindent
 " }}}
 
 " Scripts
+
+" Accio {{{
+
+let g:accio_create_empty_quickfix=0
+
+" }}}
 
 " Choosewin {{{
 
