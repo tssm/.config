@@ -71,6 +71,7 @@ Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround.git'
+Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
 Plug 'https://github.com/aperezdc/vim-template.git'
 
 Plug '~/Documents/sessionmatic.vim'
@@ -542,30 +543,5 @@ let g:templates_no_builtin_templates=1
 let g:toggle_spell_lang_alternate_languages=['es']
 
 let g:toggle_spell_lang_mapping='<F7>'
-
-" }}}
-
-" {{{ Useful stuff that could be different plug-ins
-
-augroup DirectoryExists
-	autocmd!
-	autocmd BufNewFile * call s:DirectoryExists()
-augroup END
-
-function! s:DirectoryExists()
-	let required_dir = expand("%:h")
-
-	if !isdirectory(required_dir)
-		if !confirm("Directory '" . required_dir . "' doesn't exist. Create it?")
-			return
-		endif
-
-		try
-			call mkdir(required_dir, 'p')
-		catch
-			echoerr "Can't create '" . required_dir . "'"
-		endtry
-	endif
-endfunction
 
 " }}}
