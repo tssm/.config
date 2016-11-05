@@ -73,6 +73,7 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
 Plug 'https://github.com/aperezdc/vim-template.git'
+Plug 'https://github.com/Dimercel/todo-vim.git'
 
 Plug '~/Documents/sessionmatic.vim'
 Plug '~/Documents/vertical-help.vim'
@@ -279,8 +280,9 @@ endfunction
 function! GetFilename()
 	return
 		\ &filetype == 'help' ? expand('%:t:r') . ' help ' :
-		\ &filetype == 'qf' ? 'Quickfix list ' :
 		\ &filetype == 'vim-plug' ? 'Plug ' :
+		\ &filetype == 'qf' ? 'Quickfix list ' :
+		\ &filetype == 'todo' ? 'TODO' :
 		\ strlen(expand('%')) > 0 ? expand('%') : '🆕'
 endfunction
 
@@ -308,10 +310,11 @@ endfunction
 function! IsSpecialBuffer()
 	return
 		\ &buftype ==# 'terminal' ||
-		\ &filetype == 'mundo' ||
 		\ &filetype == 'help' ||
-		\ &filetype == 'qf' ||
+		\ &filetype == 'mundo' ||
 		\ &filetype == 'vim-plug' ||
+		\ &filetype == 'qf' ||
+		\ &filetype == 'todo' ||
 		\ expand('%:t') == '__Mundo_Preview__'
 endfunction
 
@@ -535,6 +538,14 @@ let g:templates_directory=[s:config_path . '/templates']
 let g:templates_global_name_prefix='template.'
 
 let g:templates_no_builtin_templates=1
+
+" }}}
+
+" Todo {{{
+
+let g:todo_winheight=10
+
+nmap <F5> :TODOOpen<cr>
 
 " }}}
 
