@@ -556,3 +556,5 @@ let g:toggle_spell_lang_alternate_languages=['es']
 let g:toggle_spell_lang_mapping='<F7>'
 
 " }}}
+
+" vim: foldenable foldmethod=marker
