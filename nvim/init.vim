@@ -57,6 +57,7 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 " General plug-ins
 Plug 'https://github.com/pgdouyon/vim-accio.git'
 Plug 'https://github.com/t9md/vim-choosewin.git'
+Plug 'metakirby5/codi.vim'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
