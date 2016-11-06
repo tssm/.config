@@ -1,4 +1,3 @@
-let s:cache_path='~/.cache/nvim'
 let s:config_path='~/.config/nvim'
 let s:data_path='~/.local/share/nvim/site'
 " Common paths
