@@ -78,6 +78,7 @@ Plug 'https://github.com/Dimercel/todo-vim.git'
 
 Plug '~/Documents/sessionmatic.vim'
 Plug '~/Documents/vertical-help.vim'
+Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
 Plug '~/Documents/toggle-spell-lang.vim/'
 
 call plug#end()
