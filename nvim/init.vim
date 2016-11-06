@@ -474,8 +474,11 @@ nnoremap <Leader>f :FuzzyOpen<cr>
 " Grepper {{{
 
 let g:grepper = {
+	\ 'rg': {
+		\ 'grepprg': 'rg --no-heading --smart-case --vimgrep --with-filename'
+	\ },
 	\ 'simple_prompt': 1
-	\ }
+\ }
 
 nnoremap <Leader>g :Grepper -tool rg -nojump -highlight<cr>
 
