@@ -55,6 +55,7 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 
 " General plug-ins
 Plug 'https://github.com/pgdouyon/vim-accio.git'
+Plug 'https://github.com/Chiel92/vim-autoformat.git'
 Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'metakirby5/codi.vim'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
