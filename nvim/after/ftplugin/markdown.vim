@@ -1,3 +1,5 @@
+setlocal colorcolumn=67
 setlocal textwidth=66
 
-setlocal colorcolumn=67
+
+autocmd BufWritePre <buffer> Autoformat
