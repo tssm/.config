@@ -431,6 +431,8 @@ nmap <C-w>w <Plug>(choosewin)
 
 " Color scheme switcher {{{
 
+let g:colorscheme_switcher_define_mappings=0
+
 let g:colorscheme_switcher_exclude_builtins=1
 
 let g:colorscheme_switcher_keep_background=1
