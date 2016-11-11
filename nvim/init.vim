@@ -72,6 +72,7 @@ Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
 Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
 Plug 'https://github.com/aperezdc/vim-template.git'
 Plug 'https://github.com/Dimercel/todo-vim.git'
@@ -535,6 +536,18 @@ let g:racer_cmd = s:data_path . '/racer/target/release/racer'
 " Swift {{{
 
 let g:deoplete#sources#swift#daemon_autostart = 1
+
+" }}}
+
+" Tagbar {{{
+
+let g:tagbar_autofocus = 1
+
+let g:tagbar_compact = 1
+
+let g:tagbar_zoomwidth = 0
+
+nmap <F6> :TagbarToggle<CR>
 
 " }}}
 
