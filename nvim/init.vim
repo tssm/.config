@@ -483,10 +483,11 @@ let g:grepper = {
 	\ 'rg': {
 		\ 'grepprg': 'rg --no-heading --smart-case --vimgrep --with-filename'
 	\ },
+	\ 'highlight': 1,
 	\ 'simple_prompt': 1
 \ }
 
-nnoremap <Leader>g :Grepper -tool rg -nojump -highlight<cr>
+nnoremap <Leader>g :Grepper -tool rg<cr>
 
 nmap <Leader>* <plug>(GrepperOperator)
 xmap <Leader>* <plug>(GrepperOperator)
