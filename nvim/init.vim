@@ -284,11 +284,13 @@ endfunction
 
 function! GetFilename()
 	return
-		\ &filetype == 'help' ? expand('%:t:r') . ' help ' :
-		\ &filetype == 'vim-plug' ? 'Plug ' :
-		\ &filetype == 'qf' ? 'Quickfix list ' :
+		\ &filetype == 'help' ? expand('%:t:r') . ' help' :
+		\ &filetype == 'vim-plug' ? 'Plug' :
+		\ &filetype == 'qf' ? 'Quickfix list' :
 		\ &filetype == 'todo' ? 'TODO' :
-		\ strlen(expand('%')) > 0 ? expand('%') : '🆕'
+		\ strlen(expand('%')) > 0
+			\ ? expand('%')
+			\ : '🆕'
 endfunction
 
 function! GetIndentation()
