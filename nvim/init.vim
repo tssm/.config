@@ -71,16 +71,15 @@ Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
+Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
+Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
 Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
+Plug '~/Documents/toggle-spell-lang.vim/' " https://github.com/tssm/toggle-spell-lang.vim
 Plug 'https://github.com/aperezdc/vim-template.git'
 Plug 'https://github.com/Dimercel/todo-vim.git'
-
-Plug '~/Documents/sessionmatic.vim'
-Plug '~/Documents/vertical-help.vim'
-Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
-Plug '~/Documents/toggle-spell-lang.vim/'
+Plug '~/Documents/vertical-help.vim' " https://github.com/tssm/vertical-help.vim
 
 call plug#end()
 
