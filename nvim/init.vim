@@ -100,6 +100,8 @@ set completeopt=menuone,noinsert
 set hidden
 " Allows hidden buffers without writing them
 
+set inccommand=split
+
 set nojoinspaces
 " Use only 1 space after '.' when joining lines
 
