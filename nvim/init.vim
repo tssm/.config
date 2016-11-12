@@ -78,7 +78,6 @@ Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
 Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
 Plug '~/Documents/toggle-spell-lang.vim/' " https://github.com/tssm/toggle-spell-lang.vim
 Plug 'https://github.com/aperezdc/vim-template.git'
-Plug 'https://github.com/Dimercel/todo-vim.git'
 Plug '~/Documents/vertical-help.vim' " https://github.com/tssm/vertical-help.vim
 
 call plug#end()
@@ -286,7 +285,6 @@ function! GetFilename()
 		\ &filetype == 'help' ? expand('%:t:r') . ' help' :
 		\ &filetype == 'vim-plug' ? 'Plug' :
 		\ &filetype == 'qf' ? 'Quickfix list' :
-		\ &filetype == 'todo' ? 'TODO' :
 		\ strlen(expand('%')) > 0
 			\ ? expand('%')
 			\ : '🆕'
@@ -320,7 +318,6 @@ function! IsSpecialBuffer()
 		\ &filetype == 'mundo' ||
 		\ &filetype == 'vim-plug' ||
 		\ &filetype == 'qf' ||
-		\ &filetype == 'todo' ||
 		\ expand('%:t') == '__Mundo_Preview__'
 endfunction
 
@@ -489,6 +486,7 @@ let g:grepper = {
 \ }
 
 nnoremap <Leader>g :Grepper -tool rg<cr>
+nnoremap <F5> :Grepper -tool rg -query '\bBUG\b\|\bFIXME\b\|\bHACK\b\|\bTODO\b\|\bUNDONE\b\|\bXXX\b'<cr>
 
 nmap <Leader>* <plug>(GrepperOperator)
 xmap <Leader>* <plug>(GrepperOperator)
@@ -562,14 +560,6 @@ let g:templates_directory=[s:config_path . '/templates']
 let g:templates_global_name_prefix='template.'
 
 let g:templates_no_builtin_templates=1
-
-" }}}
-
-" Todo {{{
-
-let g:todo_winheight=10
-
-nmap <F5> :TODOOpen<cr>
 
 " }}}
 
