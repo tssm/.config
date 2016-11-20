@@ -56,7 +56,6 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 " General plug-ins
 Plug 'https://github.com/pgdouyon/vim-accio.git'
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
-Plug 'https://github.com/t9md/vim-choosewin.git'
 Plug 'metakirby5/codi.vim'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
@@ -321,9 +320,14 @@ function! IsSpecialBuffer()
 		\ expand('%:t') == '__Mundo_Preview__'
 endfunction
 
+function! GetWindowNumber()
+	return winnr('$') == 1 ? '' : winnr() . ': '
+endfunction
+
 autocmd Filetype qf setlocal statusline=
 
 set statusline=
+set statusline+=%{GetWindowNumber()}
 set statusline+=%{GetCurrentDir()}
 set statusline+=%{GetFilename()}\ 
 set statusline+=%{GetFileStatus()}
@@ -410,18 +414,6 @@ set breakindent
 " Accio {{{
 
 let g:accio_create_empty_quickfix=0
-
-" }}}
-
-" Choosewin {{{
-
-let g:choosewin_blink_on_land=0
-
-let g:choosewin_overlay_enable=1
-
-let g:choosewin_statusline_replace=0
-
-nmap <C-w>w <Plug>(choosewin)
 
 " }}}
 
