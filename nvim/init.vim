@@ -69,6 +69,7 @@ Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
+Plug 'https://github.com/chrisbra/Recover.vim.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
 Plug 'https://github.com/tpope/vim-surround.git'
