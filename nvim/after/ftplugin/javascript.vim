@@ -1,6 +1,5 @@
 setlocal suffixesadd=.js
 
-autocmd BufReadPost,BufWritePost <buffer> Accio eslint
 
 nnoremap <buffer> <C-]> :TernDef<cr>
 " Use Tern to go to definition instead of :tags

@@ -54,9 +54,9 @@ Plug 'https://github.com/landaire/deoplete-swift.git', {'for': 'swift'}
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 
 " General plug-ins
-Plug 'https://github.com/pgdouyon/vim-accio.git'
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
 Plug 'metakirby5/codi.vim'
+Plug 'https://github.com/w0rp/ale.git'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
@@ -412,9 +412,10 @@ set breakindent
 
 " Scripts
 
-" Accio {{{
+" Ale {{{
 
-let g:accio_create_empty_quickfix=0
+let g:ale_sign_error = '⨉'
+let g:ale_sign_warning = '⚠'
 
 " }}}
 
