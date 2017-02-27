@@ -45,10 +45,8 @@ Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': 'javascrip
 Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 " Rust plug-ins
-if (executable("cargo"))
-	Plug 'https://github.com/phildawes/racer.git', {'for': 'rust', 'do': 'cargo build --release'}
-	Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
-endif
+Plug 'https://github.com/racer-rust/vim-racer.git', {'for': 'rust'}
+Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 " Swift plug-ins
 Plug 'https://github.com/landaire/deoplete-swift.git', {'for': 'swift'}
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
@@ -445,7 +443,8 @@ let g:deoplete#file#enable_buffer_path=1
 let g:deoplete#sources={
 	\ '_': ['tag', 'omni', 'file'],
 	\ 'javascript': ['ternjs'],
-	\ 'markdown': ['dictionary']
+	\ 'markdown': ['dictionary'],
+	\ 'rust': ['racer', 'file']
 	\ }
 
 " }}}
@@ -525,7 +524,9 @@ let g:mundo_tree_statusline="Mundo Tree"
 
 " Racer {{{
 
-let g:racer_cmd = s:data_path . '/racer/target/release/racer'
+let g:racer_cmd = '~/.cargo/bin/racer'
+
+let g:racer_experimental_completer = 1
 
 " }}}
 
