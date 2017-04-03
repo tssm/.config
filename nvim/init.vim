@@ -144,6 +144,7 @@ augroup FixColorSchemes
 		\ highlight LineNr guibg=bg |
 		\ highlight CursorLineNr guibg=bg |
 		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
+		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg
 augroup END
 
