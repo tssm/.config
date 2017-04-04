@@ -41,26 +41,25 @@ Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
 Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
 " JavaScript plug-ins
 Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
-Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': 'javascript'}
 Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
+Plug 'roxma/nvim-cm-tern', {'do': 'npm install', 'for': 'javascript'}
 " Rust plug-ins
 Plug 'https://github.com/racer-rust/vim-racer.git', {'for': 'rust'}
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 " Swift plug-ins
-Plug 'https://github.com/landaire/deoplete-swift.git', {'for': 'swift'}
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 
 " General plug-ins
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
 Plug 'metakirby5/codi.vim'
 Plug 'https://github.com/w0rp/ale.git'
+Plug 'roxma/nvim-completion-manager'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/Konfekt/FastFold.git' | Plug 'https://github.com/Shougo/deoplete.nvim.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
@@ -433,20 +432,13 @@ augroup END
 
 " }}}
 
-" Deoplete {{{
+" Completion Manager {{{
 
-let g:deoplete#auto_complete_start_length=1
+let g:cm_refresh_default_min_word_len=1
 
-let g:deoplete#enable_at_startup=1
-
-let g:deoplete#file#enable_buffer_path=1
-
-let g:deoplete#sources={
-	\ '_': ['tag', 'omni', 'file'],
-	\ 'javascript': ['ternjs'],
-	\ 'markdown': ['dictionary'],
-	\ 'rust': ['racer', 'file']
-	\ }
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use tab to select the popup menu
 
 " }}}
 
@@ -528,12 +520,6 @@ let g:mundo_tree_statusline="Mundo Tree"
 let g:racer_cmd = '~/.cargo/bin/racer'
 
 let g:racer_experimental_completer = 1
-
-" }}}
-
-" Swift {{{
-
-let g:deoplete#sources#swift#daemon_autostart = 1
 
 " }}}
 
