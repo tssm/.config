@@ -88,10 +88,15 @@ augroup AutoLoadVimrcChanges
 	autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
+augroup RestoreCursorShapeOnExit
+	autocmd!
+	autocmd VimLeave * set guicursor=a:ver35-blinkon1
+augroup END
+
 set clipboard=unnamed,unnamedplus
 " Uses the clipboard as the unnamed register
 
-set completeopt=menuone,noinsert
+" set completeopt=menuone,noinsert
 
 set hidden
 " Allows hidden buffers without writing them

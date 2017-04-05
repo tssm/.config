@@ -9,11 +9,7 @@ git-branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-reset-cursor() {
-  printf '\033]50;CursorShape=1\x7'
-}
-
-PS1="$(reset-cursor)\n\[$USER_COLOR\]\u \[$PROMPT_COLOR\]at \[$HOST_COLOR\]\h \[$PROMPT_COLOR\]in \[$DIR_COLOR\]\w\[$GIT_COLOR\]\$(git-branch)\[$RESET\]\n\[$PROMPT_COLOR\]»\[$RESET\] "
+PS1="\n\[$USER_COLOR\]\u \[$PROMPT_COLOR\]at \[$HOST_COLOR\]\h \[$PROMPT_COLOR\]in \[$DIR_COLOR\]\w\[$GIT_COLOR\]\$(git-branch)\[$RESET\]\n\[$PROMPT_COLOR\]»\[$RESET\] "
 
 PS2="\[$PROMPT_COLOR\]…\[$RESET\] "
 
