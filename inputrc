@@ -1,8 +1,9 @@
 set completion-ignore-case
 # set editing-mode vi
 set mark-symlinked-directories
+set show-all-if-ambiguous
 
-TAB: menu-complete
+# TAB: menu-complete
 
 "\e[A": ""
 "\e[B": ""
