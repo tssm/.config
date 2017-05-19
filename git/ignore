@@ -8,6 +8,7 @@ Session.vim
 .DS_Store
 # OS X crap
 
+.tern-port
 .tern-project
 # Tern Black Magic
 
