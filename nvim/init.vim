@@ -334,15 +334,15 @@ function! IsSpecialBuffer()
 endfunction
 
 function! GetWindowNumber()
-	return winnr('$') == 1 ? '' : winnr() . ': '
+	return winnr('$') == 1 ? '' : '(' . winnr() . ')'
 endfunction
 
 autocmd Filetype qf setlocal statusline=
 
 set statusline=
-set statusline+=%{GetWindowNumber()}
 set statusline+=%{GetCurrentDir()}
-set statusline+=%{GetFilename()}\ 
+set statusline+=%{GetFilename()}
+set statusline+=%{GetWindowNumber()}
 set statusline+=%{GetFileStatus()}
 set statusline+=%=
 set statusline+=%{GetWarnings()}\ 
