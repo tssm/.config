@@ -2,4 +2,9 @@
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 
+shopt -s cmdhist # Use one command per line
 export HISTCONTROL=erasedups:ignorespace
+export HISTIGNORE='bg:exit:fg:history'
+export HISTFILESIZE=1000
+export HISTSIZE=1000
+export PROMPT_COMMAND='history -a' # Immediately store comands
