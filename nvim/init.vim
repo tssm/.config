@@ -377,7 +377,7 @@ set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
 
 set numberwidth=3
 
-set relativenumber
+set number relativenumber
 " Displays how far away each line is from the current one
 
 set showcmd
