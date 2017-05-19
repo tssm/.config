@@ -392,7 +392,7 @@ set showtabline=0
 
 set wildignore+=.DS_Store,*.log,.nvimrc,.tern-project,Session.vim
 " Should be read from global .gitignore
-set wildignore+=build/**,node_modules/**,tmp/**
+set wildignore+=.vagrant/**,build/**,node_modules/**,tmp/**
 " Should be read from project .gitignore
 set wildignore+=*.a,*.class,*.gem,*.lock,*.marko.js,*.mo,*.o,*.pyc
 " Should be read from project .gitignore
