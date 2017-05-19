@@ -56,6 +56,8 @@ Plug 'https://github.com/racer-rust/vim-racer.git', {'for': 'rust'}
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 " Swift plug-ins
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
+" TLS
+Plug 'chr4/sslsecure.vim'
 
 " General plug-ins
 Plug 'https://github.com/Chiel92/vim-autoformat.git'
