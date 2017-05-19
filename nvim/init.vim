@@ -380,9 +380,6 @@ set numberwidth=3
 set number relativenumber
 " Displays how far away each line is from the current one
 
-set showcmd
-" Always show the command line
-
 set showmatch
 " Highlight matching braces when cursor is over one of them
 
