@@ -398,8 +398,8 @@ set wildignore+=*.a,*.class,*.gem,*.lock,*.marko.js,*.mo,*.o,*.pyc
 " Should be read from project .gitignore
 set wildignore+=*.gif,*.jpeg,*.jpg,*.pdf,*.png,*.svg,*.xib
 " Graphic stuff
-set wildignore+=.*
-" Hidden stuff
+set wildignore+=*.lock
+" Lock stuff that is part of the project but shouldn't be modified by hand
 
 set wildignorecase
 " Use case-insensitive file search in the wildmenu
