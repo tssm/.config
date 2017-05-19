@@ -423,8 +423,11 @@ set breakindent
 
 " Ale {{{
 
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '⛔'
+let g:ale_sign_warning = '⚠️'
+
+hi ALEErrorSign guifg=fg guibg=bg gui=NONE ctermfg=0
+hi ALEWarningSign guifg=fg guibg=bg gui=NONE ctermfg=0
 
 " }}}
 
