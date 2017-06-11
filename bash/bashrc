@@ -6,10 +6,18 @@ PROMPT_COLOR=$(tput setaf 5)
 RESET=$(tput sgr0)
 
 git-branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
-PS1="\n\[$USER_COLOR\]\u \[$PROMPT_COLOR\]at \[$HOST_COLOR\]\h \[$PROMPT_COLOR\]in \[$DIR_COLOR\]\w\[$GIT_COLOR\]\$(git-branch)\[$RESET\]\n\[$PROMPT_COLOR\]»\[$RESET\] "
+on-git-branch() {
+ if [ $(git rev-parse --is-inside-work-tree 2>/dev/null) ]; then
+		echo "on"
+	 else
+		 echo ""
+	 fi
+ }
+
+PS1="\n\[$USER_COLOR\]\u \[$PROMPT_COLOR\]at \[$HOST_COLOR\]\h \[$PROMPT_COLOR\]in \[$DIR_COLOR\]\w \[$PROMPT_COLOR\]\$(on-git-branch)\[$GIT_COLOR\]\$(git-branch)\[$RESET\]\n\[$PROMPT_COLOR\]»\[$RESET\] "
 
 PS2="\[$PROMPT_COLOR\]…\[$RESET\] "
 
