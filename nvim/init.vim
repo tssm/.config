@@ -48,13 +48,10 @@ Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
 Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
 " JavaScript plug-ins
 Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
-Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
-Plug 'roxma/nvim-cm-tern', {'do': 'npm install', 'for': 'javascript'}
 " Marko
 Plug 'https://github.com/Epitrochoid/marko-vim-syntax.git'
 " Rust plug-ins
-Plug 'https://github.com/racer-rust/vim-racer.git', {'for': 'rust'}
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 " Swift plug-ins
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
@@ -62,9 +59,7 @@ Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 Plug 'chr4/sslsecure.vim'
 
 " General plug-ins
-Plug 'https://github.com/Chiel92/vim-autoformat.git'
 Plug 'metakirby5/codi.vim'
-Plug 'https://github.com/w0rp/ale.git'
 Plug 'roxma/nvim-completion-manager'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
@@ -74,6 +69,7 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'do': ':UpdateRemotePlugins'}
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
@@ -423,16 +419,6 @@ set breakindent
 
 " Scripts
 
-" Ale {{{
-
-let g:ale_sign_error = '⛔'
-let g:ale_sign_warning = '⚠️'
-
-hi ALEErrorSign guifg=fg guibg=bg gui=NONE ctermfg=0
-hi ALEWarningSign guifg=fg guibg=bg gui=NONE ctermfg=0
-
-" }}}
-
 " Color scheme switcher {{{
 
 let g:colorscheme_switcher_define_mappings=0
@@ -517,6 +503,44 @@ let g:hardtime_default_on=1
 let g:list_of_normal_keys=['h', 'j', 'k', 'l', 'x', '+', '<Up>', '<Down>', '<Left>', '<Right>', '<Space>', '<Enter>', '<BS>']
 
 let g:list_of_visual_keys=g:list_of_normal_keys
+
+" }}}
+
+" {{{ Language Client
+
+let g:LanguageClient_autoStart = 1
+
+let g:LanguageClient_diagnosticsDisplay = {
+	\ 1: {
+		\ "name": "Error",
+		\ "texthl": "SyntasticError",
+		\ "signText": "⛔",
+		\ "signTexthl": "Error"
+	\ },
+	\ 2: {
+		\ "name": "Warning",
+		\ "texthl": "SyntasticWarning",
+		\ "signText": "⚠️",
+		\ "signTexthl": "SignWarning"
+	\ },
+	\ 3: {
+		\ "name": "Information",
+		\ "texthl": "LanguageClientInformation",
+		\ "signText": "ℹ️",
+		\ "signTexthl": "SignInformation"
+	\ },
+	\ 4: {
+		\ "name": "Hint",
+		\ "texthl": "LanguageClientHint",
+		\ "signText": "💡",
+		\ "signTexthl": "SignHint"
+	\ }
+\ }
+
+let g:LanguageClient_serverCommands = {
+	\ 'javascript': ['flow-language-server', '--stdio'],
+	\ 'rust': ['rls']
+\ }
 
 " }}}
 
