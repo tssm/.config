@@ -51,6 +51,8 @@ Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
 Plug 'https://github.com/marijnh/tern_for_vim.git', {'do': 'npm install', 'for': 'javascript'}
 Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 Plug 'roxma/nvim-cm-tern', {'do': 'npm install', 'for': 'javascript'}
+" Marko
+Plug 'https://github.com/Epitrochoid/marko-vim-syntax.git'
 " Rust plug-ins
 Plug 'https://github.com/racer-rust/vim-racer.git', {'for': 'rust'}
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
