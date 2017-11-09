@@ -88,6 +88,13 @@ call plug#end()
 
 " }}}
 
+" Custom commands {{{
+
+command T vsplit | terminal
+" Open the terminal in a vertical split
+
+" }}}
+
 " Behavior {{{
 
 augroup AutoLoadVimrcChanges
