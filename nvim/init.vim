@@ -134,6 +134,8 @@ set secure exrc
 set shada=
 " Disable shada file
 
+set shortmess+=c
+
 set visualbell
 " Turns off annoying sound
 
