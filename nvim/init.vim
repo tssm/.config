@@ -107,6 +107,13 @@ augroup RestoreCursorShapeOnExit
 	autocmd VimLeave * set guicursor=a:ver35-blinkon1
 augroup END
 
+augroup ChangeNumberLineFormatAccordingToFocus
+	autocmd!
+	autocmd VimEnter,WinEnter * set number relativenumber
+	" Displays how far away each line is from the current one
+	autocmd WinLeave * set number norelativenumber
+augroup END
+
 set clipboard=unnamed,unnamedplus
 " Uses the clipboard as the unnamed register
 
@@ -383,9 +390,6 @@ set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
 " Display trailing spaces as ☠
 
 set numberwidth=3
-
-set number relativenumber
-" Displays how far away each line is from the current one
 
 set showmatch
 " Highlight matching braces when cursor is over one of them
