@@ -377,7 +377,7 @@ set splitright
 
 " Terminal {{{
 
-let g:terminal_scrollback_buffer_size=100000
+set scrollback=-1
 
 " }}}
 
