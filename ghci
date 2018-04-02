@@ -5,3 +5,5 @@
 :set -Wredundant-constraints
 
 :set -Werror
+
+:set -Wno-tabs
