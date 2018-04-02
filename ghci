@@ -1,0 +1,5 @@
+:set -Wall
+:set -Wcompat
+:set -Wincomplete-record-updates
+:set -Wincomplete-uni-patterns
+:set -Wredundant-constraints
