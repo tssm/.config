@@ -44,6 +44,8 @@ Plug 'https://github.com/rupertqin/ThyName.git'
 
 " CSS plug-ins
 Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
+" Haskell
+Plug 'https://github.com/zenzike/vim-haskell-unicode.git'
 " HTML plug-ins
 Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
 " JavaScript plug-ins
@@ -53,6 +55,8 @@ Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
 Plug 'https://github.com/Epitrochoid/marko-vim-syntax.git'
 " Rust plug-ins
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
+" Shakespeare
+Plug 'https://github.com/pbrisbin/vim-syntax-shakespeare.git'
 " Swift plug-ins
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 " TLS
@@ -551,6 +555,7 @@ let g:LanguageClient_diagnosticsDisplay = {
 \ }
 
 let g:LanguageClient_serverCommands = {
+	\ 'haskell': ['hie', '--lsp'],
 	\ 'javascript': ['flow-language-server', '--stdio'],
 	\ 'rust': ['rls']
 \ }
