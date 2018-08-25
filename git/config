@@ -3,7 +3,7 @@
 [color]
 	ui = true
 [core]
-	editor = nvim
+	editor = $EDITOR --wait --nvim
 [diff]
 	tool = nvim -d
 [difftool]
