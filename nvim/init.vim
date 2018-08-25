@@ -88,6 +88,7 @@ Plug 'https://github.com/ncm2/ncm2-path.git'
 
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
+Plug 'https://github.com/mhinz/vim-startify.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
 Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
@@ -149,9 +150,6 @@ augroup END
 
 set secure exrc
 " Load .nvimrc from current directory
-
-set shada=
-" Disable shada file
 
 set shortmess+=c
 
@@ -601,6 +599,20 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:racer_cmd = '~/.cargo/bin/racer'
 
 let g:racer_experimental_completer = 1
+
+" }}}
+
+" Startify {{{
+
+let g:startify_change_to_vcs_root = 1
+
+let g:startify_fortune_use_unicode = 1
+
+let g:startify_lists = [
+	\ { 'type': 'files', 'header': [ ' Recent files' ] }
+	\ ]
+
+let g:startify_update_oldfiles = 1
 
 " }}}
 
