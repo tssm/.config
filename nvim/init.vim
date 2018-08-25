@@ -64,7 +64,6 @@ Plug 'chr4/sslsecure.vim'
 
 " General plug-ins
 Plug 'metakirby5/codi.vim'
-Plug 'roxma/nvim-completion-manager'
 Plug 'https://github.com/editorconfig/editorconfig-vim.git'
 Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
@@ -76,8 +75,17 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next',
 
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
+
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
 Plug 'https://github.com/chrisbra/Recover.vim.git'
+
+Plug 'https://github.com/roxma/nvim-yarp.git'
+Plug 'https://github.com/ncm2/ncm2.git'
+Plug 'https://github.com/ncm2/ncm2-bufword.git'
+Plug 'https://github.com/ncm2/ncm2-cssomni.git'
+Plug 'https://github.com/ncm2/ncm2-html-subscope.git'
+Plug 'https://github.com/ncm2/ncm2-path.git'
+
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -563,6 +571,28 @@ let g:mundo_help=0
 let g:mundo_preview_statusline="Mundo Preview"
 
 let g:mundo_tree_statusline="Mundo Tree"
+
+" }}}
+
+" NCM2 {{{
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+autocmd TextChangedI * call ncm2#auto_trigger()
+
+let g:ncm2#complete_length=1
+
+inoremap <c-c> <ESC>
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <TAB> to select the popup menu:
 
 " }}}
 
