@@ -71,7 +71,6 @@ Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
-Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next', 'do': 'bash install.sh'}
 
@@ -508,19 +507,6 @@ augroup Grepper
 	autocmd!
 	autocmd User Grepper call s:handleGrepperResults()
 augroup END
-
-" }}}
-
-" Hardtime {{{
-
-let g:hardtime_allow_different_key=1
-" Makes it is possible to input 'jh', but not 'jj'
-
-let g:hardtime_default_on=1
-
-let g:list_of_normal_keys=['h', 'j', 'k', 'l', 'x', '+', '<Up>', '<Down>', '<Left>', '<Right>', '<Space>', '<Enter>', '<BS>']
-
-let g:list_of_visual_keys=g:list_of_normal_keys
 
 " }}}
 
