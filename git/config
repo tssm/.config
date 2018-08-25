@@ -11,3 +11,5 @@
 	prompt = false
 [pager]
 	grep = false
+[alias]
+	graph = log --graph --pretty=format:'%Cred%h%Creset %s'; %Cgreen(%cr) %C(bold blue)<%an>%Creset'
