@@ -4,6 +4,10 @@ else
 	export EDITOR=nvim
 fi
 
+export MANPATH=~/.local/share/man:$MANPATH
+
+export PATH=~/.local/bin:$PATH
+
 shopt -s cmdhist # Use one command per line
 export HISTCONTROL=erasedups:ignorespace
 export HISTIGNORE='bg:exit:fg:history'
