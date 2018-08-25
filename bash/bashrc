@@ -21,7 +21,7 @@ PS1="\n\[$USER_COLOR\]\u \[$PROMPT_COLOR\]at \[$HOST_COLOR\]\h \[$PROMPT_COLOR\]
 
 PS2="\[$PROMPT_COLOR\]…\[$RESET_COLOR\] "
 
-alias grep="grep --color=auto"
+alias vb=VBoxManage
 
 if [ $(uname) == 'Darwin' ]; then
 	alias ls="ls -G"
