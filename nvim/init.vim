@@ -73,7 +73,8 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'https://github.com/takac/vim-hardtime.git'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next', 'do': 'git checkout Cargo.lock; make release'}
+Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next', 'do': 'bash install.sh'}
+
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
@@ -553,6 +554,12 @@ let g:LanguageClient_diagnosticsDisplay = {
 		\ "signTexthl": "SignHint"
 	\ }
 \ }
+
+let g:LanguageClient_rootMarkers = {
+	\ 'haskell': ['*.cabal'],
+	\ 'javascript': ['project.json'],
+	\ 'rust': ['Cargo.toml'],
+	\ }
 
 let g:LanguageClient_serverCommands = {
 	\ 'haskell': ['hie', '--lsp'],
