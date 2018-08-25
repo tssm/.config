@@ -1,5 +1,5 @@
 [core]
-	editor = nvim
+	editor = $EDITOR --wait --nvim
 [diff]
 	tool = vimdiff
 [difftool]

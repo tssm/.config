@@ -1,6 +1,8 @@
-# Bash
-export EDITOR=nvim
-export SUDO_EDITOR=nvim
+if [ $(uname) == 'Darwin' ]; then
+	export EDITOR=/Applications/VimR.app/Contents/Resources/vimr
+else
+	export EDITOR=nvim
+fi
 
 shopt -s cmdhist # Use one command per line
 export HISTCONTROL=erasedups:ignorespace

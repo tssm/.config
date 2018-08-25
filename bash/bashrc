@@ -22,7 +22,6 @@ PS1="\n\[$USER_COLOR\]\u \[$PROMPT_COLOR\]at \[$HOST_COLOR\]\h \[$PROMPT_COLOR\]
 PS2="\[$PROMPT_COLOR\]…\[$RESET\] "
 
 alias grep="grep --color=auto"
-alias vi="nvim"
 
 if [ $(uname) == 'Darwin' ]; then
 	alias ls="ls -G"
