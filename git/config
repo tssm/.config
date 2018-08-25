@@ -4,17 +4,9 @@
 	ui = true
 [core]
 	editor = $EDITOR --wait --nvim
-[diff]
-	tool = nvim -d
-[difftool]
-	prompt = false
 [grep]
 	linenumber = true
 [merge]
-	tool = nvim -d
-[mergetool]
 	prompt = false
 [pager]
 	grep = false
-[push]
-	default = simple
