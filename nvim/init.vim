@@ -394,6 +394,14 @@ set splitright
 
 " Terminal {{{
 
+augroup StartTerminalOnInsertMode
+	autocmd!
+	autocmd TermOpen *
+		\ if match(b:term_title, ':/bin/bash') != -1 || match(b:term_title, 'ssh') != -1 |
+		\   startinsert |
+		\ endif
+augroup END
+
 set scrollback=-1
 
 " }}}
