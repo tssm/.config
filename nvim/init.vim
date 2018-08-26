@@ -88,6 +88,7 @@ Plug 'https://github.com/ncm2/ncm2-path.git'
 
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
+Plug 'https://github.com/tpope/vim-sleuth.git'
 Plug 'https://github.com/mhinz/vim-startify.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
