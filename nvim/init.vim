@@ -299,18 +299,12 @@ set sessionoptions=curdir,tabpages,winsize
 
 " Statusline {{{
 
-function! GetCurrentDir()
-	return IsSpecialBuffer() || (stridx(expand('%:p:h'), getcwd()) == -1)
-		\ ? ''
-		\ : getcwd() == $HOME ? '~/' : split(getcwd(), '/')[-1] . '/'
-endfunction
-
 function! GetCursorPosition()
 	let l:position = getcurpos()
 
-	return IsSpecialBuffer()
+	return IsSpecialBuffer() && &buftype != 'help'
 		\ ? ''
-		\ : '☰' . l:position[1] . ' ' . '☷' . l:position[2]
+		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷'
 endfunction
 
 function! GetFileStatus()
@@ -324,60 +318,66 @@ function! GetFileStatus()
 endfunction
 
 function! GetFilename()
+	let l:filepath = expand('%')
+
 	return
-		\ &filetype == 'help' ? expand('%:t:r') . ' help' :
-		\ &filetype == 'vim-plug' ? 'Plug' :
-		\ &filetype == 'qf' ? 'Quickfix list' :
-		\ strlen(expand('%')) > 0
-			\ ? expand('%')
-			\ : '🆕'
+		\ &buftype ==# 'help' ? expand('%:t:r') . ' Help' :
+		\ &buftype ==# 'quickfix' ? 'Quickfix List' :
+		\ &buftype ==# 'terminal' ? GetRunningCommand() :
+		\ &filetype ==# 'vim-plug' ? 'Plug' :
+		\ &filetype ==# 'startify' ? 'Startify' :
+		\ strlen(l:filepath) > 0 ? l:filepath : '🆕'
 endfunction
 
-function! GetIndentation()
-	return IsSpecialBuffer()
-		\ ? ''
-		\ : (&expandtab ? 'spaces' : 'tabs') . '(' . &tabstop . ')'
+function! GetRunningCommand()
+	if match(b:term_title, 'term://') == 0
+		let l:title_parts = split(b:term_title, ':')
+		return l:title_parts[2]
+	else
+		return b:term_title
+	endif
 endfunction
 
 function! GetWarnings()
-	return
-		\ (&fileformat == 'unix'
-			\ ? ''
-			\ : ' ' . &fileformat) .
-		\ (strlen(&fileencoding)
-			\ ? (&fileencoding == 'utf-8'
+	let l:indent_by = &shiftwidth == 0 ? &tabstop : &shiftwidth
+
+	return IsSpecialBuffer()
+		\ ? ''
+		\ :
+			\ (&fileformat ==# 'unix'
 				\ ? ''
-				\ : ' ' . &fileencoding)
-			\ : (&encoding == 'utf-8'
+				\ : '  ' . &fileformat) .
+			\ (&fileencoding ==# 'utf-8' || &fileencoding == ''
 				\ ? ''
-				\ : ' ' . &encoding)
-		\ )
+				\ : '  ' . &fileencoding) .
+			\ '  ' . (&expandtab
+				\ ? l:indent_by . ' space' . (l:indent_by == 1 ? '' : 's')
+				\ : (&tabstop == 2 ? '' : '  tab stop of ' . &tabstop))
 endfunction
 
 function! IsSpecialBuffer()
 	return
+		\ &buftype ==# 'help' ||
+		\ &buftype ==# 'quickfix' ||
 		\ &buftype ==# 'terminal' ||
-		\ &filetype == 'help' ||
-		\ &filetype == 'mundo' ||
-		\ &filetype == 'vim-plug' ||
-		\ &filetype == 'qf' ||
-		\ expand('%:t') == '__Mundo_Preview__'
+		\ &filetype ==# 'mundo' ||
+		\ &filetype ==# 'vim-plug' ||
+		\ &filetype ==# 'startify' ||
+		\ expand('%:t') ==# '__Mundo_Preview__'
 endfunction
 
 function! GetWindowNumber()
-	return winnr('$') == 1 ? '' : '(' . winnr() . ')'
+	return winnr('$') == 1 ? '' : winnr() . ' ∙ '
 endfunction
 
 autocmd Filetype qf setlocal statusline=
 
 set statusline=
-set statusline+=%{GetCurrentDir()}
-set statusline+=%{GetFilename()}
 set statusline+=%{GetWindowNumber()}
+set statusline+=%{GetFilename()}
 set statusline+=%{GetFileStatus()}
 set statusline+=%=
-set statusline+=%{GetWarnings()}\ 
-set statusline+=%{GetIndentation()}\ 
+set statusline+=%{GetWarnings()}
 set statusline+=%{GetCursorPosition()}
 
 " }}}
