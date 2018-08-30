@@ -129,9 +129,17 @@ augroup END
 
 augroup ChangeNumberLineFormatAccordingToFocus
 	autocmd!
-	autocmd VimEnter,WinEnter * set number relativenumber
-	" Displays how far away each line is from the current one
-	autocmd WinLeave * set number norelativenumber
+	autocmd BufEnter,WinEnter *
+		\ if &buftype == '' |
+		\ 	set number relativenumber |
+		\ elseif &buftype ==# 'terminal' |
+		\ 	set nonumber relativenumber |
+		\ endif
+	autocmd TermOpen * set nonumber
+	autocmd WinLeave *
+		\ if &buftype == '' |
+		\ 	set norelativenumber |
+		\ endif
 augroup END
 
 set clipboard=unnamed,unnamedplus
