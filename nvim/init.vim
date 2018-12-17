@@ -69,6 +69,7 @@ Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
 Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
 Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/lifecrisis/vim-difforig.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next', 'do': 'bash install.sh'}
@@ -77,7 +78,6 @@ Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
 
 Plug 'https://github.com/simnalamburt/vim-mundo.git'
-Plug 'https://github.com/chrisbra/Recover.vim.git'
 
 Plug 'https://github.com/roxma/nvim-yarp.git'
 Plug 'https://github.com/ncm2/ncm2.git'
