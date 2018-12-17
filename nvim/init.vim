@@ -590,8 +590,8 @@ let g:LanguageClient_rootMarkers = {
 	\ }
 
 let g:LanguageClient_serverCommands = {
-	\ 'haskell': ['hie', '--lsp'],
 	\ 'javascript': ['flow-language-server', '--stdio'],
+	\ 'haskell': ['hie-wrapper'],
 	\ 'rust': ['rls']
 \ }
 
