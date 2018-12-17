@@ -192,6 +192,8 @@ augroup FixColorSchemes
 		\ highlight SpecialKey guibg=bg
 augroup END
 
+let g:ganymede_solid_background=1
+
 " }}}
 
 " Diff {{{
