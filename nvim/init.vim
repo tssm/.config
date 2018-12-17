@@ -428,7 +428,7 @@ set scrollback=-1
 
 " User interface {{{
 
-set fillchars=fold:\ ,vert:┃
+set fillchars=fold:\ ",vert:┃
 " Hides the decoration of folds and sets a continuous vertical windows separator
 
 set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
