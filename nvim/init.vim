@@ -135,7 +135,8 @@ augroup END
 set clipboard=unnamed,unnamedplus
 " Uses the clipboard as the unnamed register
 
-" set completeopt=menuone,noinsert
+set completeopt=menuone,noinsert,noselect
+" noinsert is required by ncm2
 
 set hidden
 " Allows hidden buffers without writing them
