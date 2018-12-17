@@ -44,6 +44,8 @@ Plug 'https://github.com/Epitrochoid/marko-vim-syntax.git'
 Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
 " Shakespeare
 Plug 'https://github.com/pbrisbin/vim-syntax-shakespeare.git'
+" SQL
+Plug 'https://github.com/lifepillar/pgsql.vim.git'
 " Swift plug-ins
 Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
 " TLS
@@ -60,6 +62,7 @@ Plug 'https://github.com/lifecrisis/vim-difforig.git'
 Plug 'https://github.com/mhinz/vim-grepper.git'
 Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next', 'do': 'bash install.sh'}
+Plug 'https://github.com/whatyouhide/vim-lengthmatters.git'
 
 Plug 'https://github.com/cohama/lexima.vim.git'
 Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
