@@ -142,6 +142,8 @@ set hidden
 
 set inccommand=split
 
+set mouse=a
+
 set nojoinspaces
 " Use only 1 space after '.' when joining lines
 
