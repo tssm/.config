@@ -94,7 +94,6 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
 Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
 Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
-Plug '~/Documents/toggle-spell-lang.vim/' " https://github.com/tssm/toggle-spell-lang.vim
 Plug 'https://github.com/aperezdc/vim-template.git'
 Plug '~/Documents/vertical-help.vim' " https://github.com/tssm/vertical-help.vim
 
@@ -302,6 +301,21 @@ augroup END
 " Sessions {{{
 
 set sessionoptions=curdir,tabpages,winsize
+
+" }}}
+
+" Spell {{{
+
+augroup EnableSpellChecking
+	autocmd!
+	autocmd BufWinEnter *
+		\ if &buftype == '' |
+		\ 	set spell spelllang=en,es |
+		\ else |
+		\ 	set nospell |
+		\ endif
+	autocmd TermOpen * set nospell
+augroup END
 
 " }}}
 
@@ -658,14 +672,6 @@ let g:templates_directory=[s:config_path . '/templates']
 let g:templates_global_name_prefix='template.'
 
 let g:templates_no_builtin_templates=1
-
-" }}}
-
-" ToggleSpellLang {{{
-
-let g:toggle_spell_lang_alternate_languages=['es']
-
-let g:toggle_spell_lang_mapping='<F7>'
 
 " }}}
 
