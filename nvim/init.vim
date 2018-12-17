@@ -76,6 +76,7 @@ Plug 'https://github.com/ncm2/ncm2-cssomni.git'
 Plug 'https://github.com/ncm2/ncm2-html-subscope.git'
 Plug 'https://github.com/ncm2/ncm2-path.git'
 
+Plug 'https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b' " Do not close if there are terminal buffers
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
 Plug 'https://github.com/tpope/vim-sleuth.git'
