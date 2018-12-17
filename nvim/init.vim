@@ -229,6 +229,9 @@ set nofoldenable
 let mapleader="\<Tab>"
 " Tab is located in the center of my keyboard
 
+noremap! <c-\> <esc>
+tnoremap <c-\> <c-\><c-n>
+
 noremap d "_d
 noremap dd "_dd
 noremap D "_D
