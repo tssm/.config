@@ -600,10 +600,11 @@ let g:LanguageClient_serverCommands = {
 
 " Mundo {{{
 
-let g:mundo_help=0
-" Hiddes help
+let g:mundo_preview_bottom=1
 
 let g:mundo_preview_statusline="Mundo Preview"
+
+let g:mundo_right=1
 
 let g:mundo_tree_statusline="Mundo Tree"
 
