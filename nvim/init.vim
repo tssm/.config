@@ -388,7 +388,7 @@ function! IsSpecialBuffer()
 endfunction
 
 function! GetWindowNumber()
-	return winnr('$') == 1 ? '' : winnr() . ' ∙ '
+	return winnr('$') < 3 ? '' : winnr() . ' ∙ '
 endfunction
 
 autocmd Filetype qf setlocal statusline=
