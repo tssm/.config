@@ -14,5 +14,3 @@ export HISTIGNORE='bg:exit:fg:history'
 export HISTFILESIZE=1000
 export HISTSIZE=1000
 export PROMPT_COMMAND='history -a' # Immediately store comands
-
-source ~/.nix-profile/etc/profile.d/nix.sh
