@@ -476,7 +476,22 @@ set breakindent
 
 " }}}
 
-" Scripts
+" Packages
+
+" call pkgs#setUp()
+
+" Anzu {{{
+
+call luaeval("require('pack')
+	\ .install('https://github.com/osyo-manga/vim-anzu.git',
+	\ 'general/start/anzu', 'master')")
+
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+
+" }}}
 
 " Color scheme switcher {{{
 
@@ -594,6 +609,14 @@ let g:LanguageClient_serverCommands = {
 	\ 'haskell': ['hie-wrapper'],
 	\ 'rust': ['rls']
 \ }
+
+" }}}
+
+" Missing filetypes {{{
+
+call luaeval("require('pack')
+	\ .install('https://github.com/jceb/vim-orgmode.git',
+	\ 'filetypes/opt/orgmode', 'master')")
 
 " }}}
 
