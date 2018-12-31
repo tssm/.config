@@ -654,14 +654,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " }}}
 
-" Racer {{{
-
-let g:racer_cmd = '~/.cargo/bin/racer'
-
-let g:racer_experimental_completer = 1
-
-" }}}
-
 " Startify {{{
 
 let g:startify_change_to_vcs_root = 1
