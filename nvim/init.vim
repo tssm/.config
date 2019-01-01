@@ -1,96 +1,5 @@
 let s:config_path='~/.config/nvim'
-let s:data_path='~/.local/share/nvim/site'
 " Common paths
-
-" Plug-ins definition and loading {{{
-
-if empty(glob(s:data_path . '/autoload/plug.vim'))
-	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall | source $MYVIMRC
-	silent execute UpdateRemotePlugins
-endif
-" Install Plug automatically
-
-call plug#begin(s:data_path)
-
-" Color schemes
-Plug 'https://github.com/dennougorilla/azuki.vim.git'
-Plug 'https://github.com/thenewvu/vim-colors-blueprint.git'
-Plug 'https://github.com/vim-scripts/C64.vim.git'
-Plug 'https://github.com/Jimeno0/vim-chito.git'
-Plug 'https://github.com/agreco/vim-citylights.git'
-Plug 'https://github.com/archSeer/colibri.vim.git'
-Plug '~/Documents/fairyfloss.vim'
-Plug 'https://github.com/MaxSt/FlatColor.git'
-Plug 'https://github.com/charlespeters/ganymede.vim.git'
-Plug 'https://github.com/aereal/vim-colors-japanesque.git'
-Plug 'https://github.com/trevordmiller/nova-vim.git'
-Plug 'https://github.com/nightsense/snow.git'
-Plug 'https://github.com/nightsense/strawberry.git'
-Plug 'https://github.com/rupertqin/ThyName.git'
-
-" CSS plug-ins
-Plug 'https://github.com/JulesWang/css.vim.git', {'for': 'css'}
-" Haskell
-Plug 'https://github.com/zenzike/vim-haskell-unicode.git'
-" HTML plug-ins
-Plug 'https://github.com/othree/html5.vim.git', {'for': 'html'}
-" JavaScript plug-ins
-Plug 'https://github.com/gavocanov/vim-js-indent', {'for': 'javascript'}
-Plug 'https://github.com/othree/yajs.vim.git', {'for': 'javascript'}
-" Marko
-Plug 'https://github.com/Epitrochoid/marko-vim-syntax.git'
-" Rust plug-ins
-Plug 'https://github.com/rust-lang/rust.vim.git', {'for': 'rust'}
-" Shakespeare
-Plug 'https://github.com/pbrisbin/vim-syntax-shakespeare.git'
-" SQL
-Plug 'https://github.com/lifepillar/pgsql.vim.git'
-" Swift plug-ins
-Plug 'https://github.com/keith/swift.vim.git', {'for': 'swift'}
-" TLS
-Plug 'chr4/sslsecure.vim'
-
-" General plug-ins
-Plug 'metakirby5/codi.vim'
-Plug 'https://github.com/editorconfig/editorconfig-vim.git'
-Plug 'https://github.com/cloudhead/neovim-fuzzy.git'
-Plug 'https://github.com/chrisbra/color_highlight.git', {'on': 'ColorToggle'}
-Plug 'https://github.com/xolox/vim-misc.git' | Plug 'https://github.com/xolox/vim-colorscheme-switcher.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/lifecrisis/vim-difforig.git'
-Plug 'https://github.com/mhinz/vim-grepper.git'
-Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'https://github.com/autozimu/LanguageClient-neovim.git', {'branch': 'next', 'do': 'bash install.sh'}
-Plug 'https://github.com/whatyouhide/vim-lengthmatters.git'
-
-Plug 'https://github.com/cohama/lexima.vim.git'
-Plug 'https://github.com/zandrmartin/lexima-template-rules.git'
-
-Plug 'https://github.com/simnalamburt/vim-mundo.git'
-
-Plug 'https://github.com/roxma/nvim-yarp.git'
-Plug 'https://github.com/ncm2/ncm2.git'
-Plug 'https://github.com/ncm2/ncm2-bufword.git'
-Plug 'https://github.com/ncm2/ncm2-cssomni.git'
-Plug 'https://github.com/ncm2/ncm2-html-subscope.git'
-Plug 'https://github.com/ncm2/ncm2-path.git'
-
-Plug 'https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b' " Do not close if there are terminal buffers
-Plug 'https://github.com/tpope/vim-repeat.git'
-Plug '~/Documents/sessionmatic.vim' " https://github.com/tssm/sessionmatic.vim
-Plug 'https://github.com/tpope/vim-sleuth.git'
-Plug 'https://github.com/mhinz/vim-startify.git'
-Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
-Plug '~/Documents/tagsmatic.vim/' " https://github.com/tssm/tagsmatic.vim
-Plug '~/Documents/tectonic.vim' " https://github.com/tssm/tectonic.vim
-Plug 'https://github.com/aperezdc/vim-template.git'
-Plug '~/Documents/vertical-help.vim' " https://github.com/tssm/vertical-help.vim
-
-call plug#end()
-
-" }}}
 
 " Custom commands {{{
 
@@ -167,6 +76,24 @@ set visualbell
 " }}}
 
 " Color schemes {{{
+
+lua <<EOF
+local pack = require('pack')
+pack('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
+pack('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
+pack('https://github.com/vim-scripts/C64.vim.git', 'colors/opt/c64', 'master')
+pack('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
+pack('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
+pack('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
+pack('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
+pack('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
+pack('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
+pack('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
+pack('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
+pack('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
+pack('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
+pack('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
+EOF
 
 set background=dark
 
@@ -299,6 +226,8 @@ augroup END
 
 " Sessions {{{
 
+call luaeval("require('pack')('git@github.com:tssm/sessionmatic.vim.git', 'general/start/sessionmatic', 'master')")
+
 set sessionoptions=curdir,tabpages,winsize
 
 " }}}
@@ -345,7 +274,6 @@ function! GetFilename()
 		\ &buftype ==# 'help' ? expand('%:t:r') . ' Help' :
 		\ &buftype ==# 'quickfix' ? 'Quickfix List' :
 		\ &buftype ==# 'terminal' ? GetRunningCommand() :
-		\ &filetype ==# 'vim-plug' ? 'Plug' :
 		\ &filetype ==# 'startify' ? 'Startify' :
 		\ strlen(l:filepath) > 0 ? l:filepath : '🆕'
 endfunction
@@ -382,7 +310,6 @@ function! IsSpecialBuffer()
 		\ &buftype ==# 'quickfix' ||
 		\ &buftype ==# 'terminal' ||
 		\ &filetype ==# 'mundo' ||
-		\ &filetype ==# 'vim-plug' ||
 		\ &filetype ==# 'startify' ||
 		\ expand('%:t') ==# '__Mundo_Preview__'
 endfunction
@@ -478,12 +405,32 @@ set breakindent
 
 " Packages
 
-" call pkgs#setUp()
+lua <<EOF
+local pack = require('pack')
+pack('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master')
+pack('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
+pack('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')
+pack('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
+pack('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
+pack('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
+
+pack('https://github.com/cohama/lexima.vim.git', 'lexima/start/lexima', 'master')
+pack('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/start/template-rules', 'master')
+
+pack('https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b', 'general/start/keep-terminal', 'master')
+pack('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
+pack('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
+pack('https://github.com/chr4/sslsecure.vim', 'general/start/sslsecure', 'master')
+pack('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
+pack('git@github.com:tssm/tagsmatic.vim.git', 'general/start/tagsmatic', 'master')
+pack('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
+pack('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
+EOF
 
 " Anzu {{{
 
 call luaeval("require('pack')
-	\ .install('https://github.com/osyo-manga/vim-anzu.git',
+	\ ('https://github.com/osyo-manga/vim-anzu.git',
 	\ 'general/start/anzu', 'master')")
 
 nmap n <Plug>(anzu-n-with-echo)
@@ -494,6 +441,12 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " }}}
 
 " Color scheme switcher {{{
+
+lua <<EOF
+local pack = require('pack')
+pack('https://github.com/xolox/vim-misc.git', 'colors/start/misc', 'master')
+pack('https://github.com/xolox/vim-colorscheme-switcher.git', 'colors/start/switcher', 'master')
+EOF
 
 let g:colorscheme_switcher_define_mappings=0
 
@@ -510,6 +463,8 @@ augroup END
 
 " FileBeagle {{{
 
+call luaeval("require('pack')('https://github.com/jeetsukumaran/vim-filebeagle.git', 'general/start/filebeagle', 'master')")
+
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 
@@ -523,11 +478,15 @@ let g:filebeagle_check_gitignore = 1
 
 " FZY {{{
 
+call luaeval("require('pack')('https://github.com/cloudhead/neovim-fuzzy.git', 'general/start/fuzzy', 'master')")
+
 nnoremap <Leader>f :FuzzyOpen<cr>
 
 " }}}
 
 " Grepper {{{
+
+call luaeval("require('pack')('https://github.com/mhinz/vim-grepper.git', 'general/start/grepper', 'master')")
 
 let g:grepper = {
 	\ 'rg': {
@@ -558,6 +517,8 @@ augroup END
 " }}}
 
 " {{{ Language Client
+
+call luaeval("require('pack')('https://github.com/autozimu/LanguageClient-neovim.git', 'general/start/languageclient', 'next', 'bash install.sh')")
 
 let g:LanguageClient_autoStart = 1
 
@@ -604,13 +565,26 @@ let g:LanguageClient_serverCommands = {
 
 " Missing filetypes {{{
 
-call luaeval("require('pack')
-	\ .install('https://github.com/jceb/vim-orgmode.git',
-	\ 'filetypes/opt/orgmode', 'master')")
+lua <<EOF
+local pack = require('pack')
+pack('https://github.com/JulesWang/css.vim.git', 'filetypes/opt/css', 'master')
+pack('https://github.com/othree/html5.vim.git', 'filetypes/opt/html', 'master')
+pack('https://github.com/Epitrochoid/marko-vim-syntax.git', 'filetypes/opt/marko', 'master')
+
+-- Haskell
+pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/opt/shakespeare', 'master')
+pack('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/opt/unicode', 'master')
+
+pack('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/opt/pgsql', 'master')
+pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/opt/rust', 'master')
+pack('https://github.com/keith/swift.vim.git', 'filetypes/opt/swift', 'master')
+EOF
 
 " }}}
 
 " Mundo {{{
+
+call luaeval("require('pack')('https://github.com/simnalamburt/vim-mundo.git', 'general/start/mundo', 'master')")
 
 let g:mundo_preview_bottom=1
 
@@ -623,6 +597,16 @@ let g:mundo_tree_statusline="Mundo Tree"
 " }}}
 
 " NCM2 {{{
+
+lua <<EOF
+local pack = require('pack')
+pack('https://github.com/roxma/nvim-yarp.git', 'ncm2/start/yarp', 'master')
+pack('https://github.com/ncm2/ncm2.git', 'ncm2/start/ncm2', 'master')
+pack('https://github.com/ncm2/ncm2-bufword.git', 'ncm2/start/bufword', 'master')
+pack('https://github.com/ncm2/ncm2-cssomni.git', 'ncm2/start/css', 'master')
+pack('https://github.com/ncm2/ncm2-html-subscope.git', 'ncm2/start/html-subscope', 'master')
+pack('https://github.com/ncm2/ncm2-path.git', 'ncm2/start/path', 'master')
+EOF
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
@@ -646,6 +630,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Startify {{{
 
+call luaeval("require('pack')('https://github.com/mhinz/vim-startify.git', 'general/start/startify', 'master')")
+
 let g:startify_change_to_vcs_root = 1
 
 let g:startify_fortune_use_unicode = 1
@@ -660,6 +646,8 @@ let g:startify_update_oldfiles = 1
 
 " Tagbar {{{
 
+call luaeval("require('pack')('https://github.com/majutsushi/tagbar.git', 'general/start/tagbar', 'master')")
+
 let g:tagbar_autofocus = 1
 
 let g:tagbar_compact = 1
@@ -671,6 +659,8 @@ nmap <F6> :TagbarToggle<CR>
 " }}}
 
 " Template {{{
+
+call luaeval("require('pack')('https://github.com/aperezdc/vim-template.git', 'general/start/template', 'master')")
 
 let g:templates_directory=[s:config_path . '/templates']
 
