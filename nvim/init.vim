@@ -97,15 +97,6 @@ EOF
 
 set background=dark
 
-" augroup SetCursorLine
-" 	au!
-" 	au VimEnter * setlocal cursorline
-" 	au WinEnter * setlocal cursorline
-" 	au BufWinEnter * setlocal cursorline
-" 	au WinLeave * setlocal nocursorline
-" augroup END
-" Highlights the cursor line only on the focused window
-
 set termguicolors
 " Enable true color
 
