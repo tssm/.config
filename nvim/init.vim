@@ -508,16 +508,6 @@ augroup END
 
 " }}}
 
-" Completion Manager {{{
-
-let g:cm_refresh_default_min_word_len=1
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" Use tab to select the popup menu
-
-" }}}
-
 " FileBeagle {{{
 
 let g:loaded_netrw = 1
