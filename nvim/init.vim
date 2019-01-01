@@ -1,19 +1,6 @@
 let s:config_path='~/.config/nvim'
 " Common paths
 
-" Custom commands {{{
-
-command T vsplit | terminal
-" Open the terminal in a vertical split
-
-command! -nargs=1 -complete=dir -bang E %bwipeout<bang> | cd <args> | FileBeagle
-" cd into <args> and start FileBeagle. E is short for explore
-
-command! -nargs=1 -complete=dir -bang S %bwipeout<bang> | cd <args> | execute 'terminal'
-" cd into <args> and start a terminal. S is short for shell
-
-" }}}
-
 " Behavior {{{
 
 augroup AutoLoadVimrcChanges
@@ -341,6 +328,12 @@ augroup StartTerminalOnInsertMode
 		\ endif
 augroup END
 
+command T vsplit | terminal
+" Open the terminal in a vertical split
+
+command! -nargs=1 -complete=dir -bang S %bwipeout<bang> | cd <args> | terminal
+" cd into <args> and start a terminal. S is short for shell
+
 set scrollback=-1
 
 " }}}
@@ -455,6 +448,9 @@ augroup END
 " FileBeagle {{{
 
 call luaeval("require('pack')('https://github.com/jeetsukumaran/vim-filebeagle.git', 'general/start/filebeagle', 'master')")
+
+command! -nargs=1 -complete=dir -bang E %bwipeout<bang> | cd <args> | FileBeagle
+" cd into <args> and start FileBeagle. E is short for explore
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
