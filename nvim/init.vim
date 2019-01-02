@@ -251,10 +251,8 @@ function! GetFilename()
 	let l:filepath = expand('%')
 
 	return
-		\ &buftype ==# 'help' ? expand('%:t:r') . ' Help' :
-		\ &buftype ==# 'quickfix' ? 'Quickfix List' :
+		\ &buftype ==# 'help' ? expand('%:t:r') . ' help' :
 		\ &buftype ==# 'terminal' ? GetRunningCommand() :
-		\ &filetype ==# 'startify' ? 'Startify' :
 		\ strlen(l:filepath) > 0 ? l:filepath : '🆕'
 endfunction
 
@@ -285,20 +283,12 @@ function! GetWarnings()
 endfunction
 
 function! IsSpecialBuffer()
-	return
-		\ &buftype ==# 'help' ||
-		\ &buftype ==# 'quickfix' ||
-		\ &buftype ==# 'terminal' ||
-		\ &filetype ==# 'mundo' ||
-		\ &filetype ==# 'startify' ||
-		\ expand('%:t') ==# '__Mundo_Preview__'
+	return &buftype != ''
 endfunction
 
 function! GetWindowNumber()
 	return winnr('$') < 3 ? '' : winnr() . ' ∙ '
 endfunction
-
-autocmd Filetype qf setlocal statusline=
 
 set statusline=
 set statusline+=%{GetWindowNumber()}
@@ -479,7 +469,9 @@ endfunction
 
 augroup Grepper
 	autocmd!
-	autocmd User Grepper call s:handleGrepperResults()
+	autocmd User Grepper |
+		\ call s:handleGrepperResults() |
+		\ setlocal statusline=%{w:quickfix_title}
 augroup END
 
 " }}}
@@ -609,6 +601,8 @@ let g:startify_lists = [
 	\ ]
 
 let g:startify_update_oldfiles = 1
+
+autocmd User StartifyReady setlocal statusline=Startify
 
 " }}}
 
