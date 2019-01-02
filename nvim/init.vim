@@ -80,6 +80,8 @@ pack('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master
 pack('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
 pack('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
 pack('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
+
+pack('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')
 EOF
 
 set background=dark
@@ -421,27 +423,6 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
-
-" }}}
-
-" Color scheme switcher {{{
-
-lua <<EOF
-local pack = require('pack')
-pack('https://github.com/xolox/vim-misc.git', 'colors/start/misc', 'master')
-pack('https://github.com/xolox/vim-colorscheme-switcher.git', 'colors/start/switcher', 'master')
-EOF
-
-let g:colorscheme_switcher_define_mappings=0
-
-let g:colorscheme_switcher_exclude_builtins=1
-
-let g:colorscheme_switcher_keep_background=1
-
-augroup RandomColorScheme
-	autocmd!
-	autocmd VimEnter * RandomColorScheme
-augroup END
 
 " }}}
 
