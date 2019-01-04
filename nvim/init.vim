@@ -31,9 +31,6 @@ augroup END
 set clipboard=unnamed,unnamedplus
 " Uses the clipboard as the unnamed register
 
-set completeopt=menuone,noinsert,noselect
-" noinsert is required by ncm2
-
 set hidden
 " Allows hidden buffers without writing them
 
@@ -101,6 +98,40 @@ augroup FixColorSchemes
 augroup END
 
 let g:ganymede_solid_background=1
+
+" }}}
+
+" Completion {{{
+
+lua <<EOF
+local pack = require('pack')
+pack('https://github.com/roxma/nvim-yarp.git', 'completion/start/yarp', 'master')
+pack('https://github.com/ncm2/ncm2.git', 'completion/start/ncm2', 'master')
+pack('https://github.com/ncm2/ncm2-bufword.git', 'completion/start/bufword', 'master')
+pack('https://github.com/ncm2/ncm2-cssomni.git', 'completion/start/css', 'master')
+pack('https://github.com/ncm2/ncm2-html-subscope.git', 'completion/start/html-subscope', 'master')
+pack('https://github.com/ncm2/ncm2-path.git', 'completion/start/path', 'master')
+EOF
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd TextChangedI * call ncm2#auto_trigger()
+
+inoremap <c-c> <ESC>
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <TAB> to select the popup menu:
+
+let g:ncm2#complete_length=1
+
+set completeopt=menuone,noinsert,noselect
+" noinsert is required by ncm2
 
 " }}}
 
@@ -553,38 +584,6 @@ let g:mundo_preview_statusline="Mundo Preview"
 let g:mundo_right=1
 
 let g:mundo_tree_statusline="Mundo Tree"
-
-" }}}
-
-" NCM2 {{{
-
-lua <<EOF
-local pack = require('pack')
-pack('https://github.com/roxma/nvim-yarp.git', 'ncm2/start/yarp', 'master')
-pack('https://github.com/ncm2/ncm2.git', 'ncm2/start/ncm2', 'master')
-pack('https://github.com/ncm2/ncm2-bufword.git', 'ncm2/start/bufword', 'master')
-pack('https://github.com/ncm2/ncm2-cssomni.git', 'ncm2/start/css', 'master')
-pack('https://github.com/ncm2/ncm2-html-subscope.git', 'ncm2/start/html-subscope', 'master')
-pack('https://github.com/ncm2/ncm2-path.git', 'ncm2/start/path', 'master')
-EOF
-
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-autocmd TextChangedI * call ncm2#auto_trigger()
-
-let g:ncm2#complete_length=1
-
-inoremap <c-c> <ESC>
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" Use <TAB> to select the popup menu:
 
 " }}}
 
