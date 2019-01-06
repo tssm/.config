@@ -591,11 +591,23 @@ let g:mundo_tree_statusline="Mundo Tree"
 
 " }}}
 
+" Rooter {{{
+
+call luaeval("require('pack')('https://github.com/airblade/vim-rooter.git', 'general/start/rooter', 'master')")
+
+let g:rooter_patterns=[ '.git', '.git/', '.pijul/' ]
+
+let g:rooter_resolve_links=1
+
+let g:rooter_silent_chdir=1
+
+" }}}
+
 " Startify {{{
 
 call luaeval("require('pack')('https://github.com/mhinz/vim-startify.git', 'general/start/startify', 'master')")
 
-let g:startify_change_to_vcs_root = 1
+let g:startify_change_to_dir=0
 
 let g:startify_fortune_use_unicode = 1
 
