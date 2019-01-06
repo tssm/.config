@@ -351,7 +351,7 @@ augroup StartTerminalOnInsertMode
 		\ endif
 augroup END
 
-command T vsplit | terminal
+command! T vsplit | terminal
 " Open the terminal in a vertical split
 
 command! -nargs=1 -complete=dir -bang S %bwipeout<bang> | cd <args> | terminal
