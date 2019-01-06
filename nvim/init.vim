@@ -416,7 +416,6 @@ lua <<EOF
 local pack = require('pack')
 pack('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master')
 pack('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
-pack('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')
 pack('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
 pack('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
 pack('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
@@ -444,6 +443,18 @@ nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 nmap * <Plug>(anzu-star-with-echo)
 nmap # <Plug>(anzu-sharp-with-echo)
+
+" }}}
+
+" Colorize {{{
+
+call luaeval("require('pack')('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')")
+
+let g:colorizer_colornames=0
+
+let g:colorizer_disable_bufleave=1
+
+let g:colorizer_skip_comments=1
 
 " }}}
 
