@@ -65,7 +65,7 @@ lua <<EOF
 local pack = require('pack')
 pack('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
 pack('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
-pack('https://github.com/vim-scripts/C64.vim.git', 'colors/opt/c64', 'master')
+pack('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
 pack('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
 pack('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
 pack('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
