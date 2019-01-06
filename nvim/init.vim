@@ -212,11 +212,6 @@ set shiftwidth=0
 
 " Search and replace {{{
 
-nnoremap n nzz
-nnoremap N Nzz
-vnoremap n nzz
-vnoremap N Nzz
-
 set gdefault
 " Substitutes all matches on a line by default
 
@@ -232,6 +227,10 @@ augroup ToggleSearchHighlighting
 	autocmd InsertLeave * setlocal hlsearch
 augroup END
 " Toggles search highlighting off/on according to current mode. Source: http://blog.sanctum.geek.nz/vim-search-highlighting/
+
+call luaeval("require('pack')('https://github.com/henrik/vim-indexed-search.git', 'general/start/indexed-search', 'master')")
+
+let g:indexed_search_center=1
 
 " }}}
 
@@ -431,19 +430,6 @@ pack('git@github.com:tssm/tagsmatic.vim.git', 'general/start/tagsmatic', 'master
 pack('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
 pack('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
 EOF
-
-" Anzu {{{
-
-call luaeval("require('pack')
-	\ ('https://github.com/osyo-manga/vim-anzu.git',
-	\ 'general/start/anzu', 'master')")
-
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-
-" }}}
 
 " Colorize {{{
 
