@@ -539,12 +539,14 @@ let g:LanguageClient_diagnosticsDisplay = {
 let g:LanguageClient_rootMarkers = {
 	\ 'haskell': ['*.cabal'],
 	\ 'javascript': ['project.json'],
+	\ 'lua': ['.luacompleterc'],
 	\ 'rust': ['Cargo.toml'],
 	\ }
 
 let g:LanguageClient_serverCommands = {
 	\ 'javascript': ['flow-language-server', '--stdio'],
 	\ 'haskell': ['hie-wrapper'],
+	\ 'lua': ['lua-lsp'],
 	\ 'rust': ['rls']
 \ }
 

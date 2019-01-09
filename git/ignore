@@ -4,5 +4,7 @@
 Session.vim
 *.log
 
+.luacompleterc
+
 .tern-port
 .tern-project
