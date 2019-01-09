@@ -7,6 +7,7 @@ fi
 export MANPATH=~/.local/share/man:$MANPATH
 
 export PATH=~/.local/bin:$PATH
+export PATH=~/.luarocks/bin:$PATH
 
 shopt -s cmdhist # Use one command per line
 export HISTCONTROL=erasedups:ignorespace
