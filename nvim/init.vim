@@ -236,8 +236,6 @@ let g:indexed_search_center=1
 
 " Sessions {{{
 
-call luaeval("require('pack')('git@github.com:tssm/sessionmatic.vim.git', 'general/start/sessionmatic', 'master')")
-
 set sessionoptions=curdir,tabpages,winsize
 
 " }}}
@@ -610,10 +608,14 @@ call luaeval("require('pack')('https://github.com/mhinz/vim-startify.git', 'gene
 
 let g:startify_change_to_dir=0
 
-let g:startify_fortune_use_unicode = 1
+let g:startify_commands=[ { 't': 'terminal' } ]
+
+let g:startify_custom_header=''
 
 let g:startify_lists = [
-	\ { 'type': 'files', 'header': [ ' Recent files' ] }
+	\ { 'type': 'sessions', 'header': [ ' Sessions' ] },
+	\ { 'type': 'files', 'header': [ ' Recent files' ] },
+	\ { 'type': 'commands', 'header': [ ' Commands' ] }
 	\ ]
 
 let g:startify_update_oldfiles = 1
