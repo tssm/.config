@@ -378,11 +378,11 @@ set showtabline=0
 
 " Wildmenu {{{
 
-set wildignore+=.DS_Store,*.log,.nvimrc,.tern-project,Session.vim
+set wildignore+=.DS_Store,*.log,.nvimrc,Session.vim
 " Should be read from global .gitignore
 set wildignore+=.vagrant/**,build/**,node_modules/**,tmp/**
 " Should be read from project .gitignore
-set wildignore+=*.a,*.class,*.gem,*.lock,*.marko.js,*.mo,*.o,*.pyc
+set wildignore+=*.a,*.class,*.gem,*.lock,*.mo,*.o,*.pyc
 " Should be read from project .gitignore
 set wildignore+=*.gif,*.jpeg,*.jpg,*.pdf,*.png,*.svg,*.xib
 " Graphic stuff
@@ -535,15 +535,15 @@ let g:LanguageClient_diagnosticsDisplay = {
 
 let g:LanguageClient_rootMarkers = {
 	\ 'haskell': ['*.cabal'],
-	\ 'javascript': ['project.json'],
 	\ 'lua': ['.luacompleterc'],
+	\ 'purescript': ['psc-package.json'],
 	\ 'rust': ['Cargo.toml'],
 	\ }
 
 let g:LanguageClient_serverCommands = {
-	\ 'javascript': ['flow-language-server', '--stdio'],
 	\ 'haskell': ['hie-wrapper'],
 	\ 'lua': ['lua-lsp'],
+	\ 'purescript': ['purescript-language-server', '--stdio', '--config', '{}'],
 	\ 'rust': ['rls']
 \ }
 
@@ -563,13 +563,13 @@ lua <<EOF
 local pack = require('pack')
 pack('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master')
 pack('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
-pack('https://github.com/Epitrochoid/marko-vim-syntax.git', 'filetypes/start/marko', 'master')
 
 -- Haskell
 pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
 pack('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/start/unicode', 'master')
 
 pack('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/start/pgsql', 'master')
+pack('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescript', 'master')
 pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
 pack('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
 EOF
