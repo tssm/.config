@@ -426,7 +426,6 @@ pack('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master'
 pack('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
 pack('https://github.com/chr4/sslsecure.vim', 'general/start/sslsecure', 'master')
 pack('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
-pack('git@github.com:tssm/tagsmatic.vim.git', 'general/start/tagsmatic', 'master')
 pack('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
 pack('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
 EOF
@@ -620,20 +619,6 @@ let g:startify_lists = [
 let g:startify_update_oldfiles = 1
 
 autocmd User StartifyReady setlocal statusline=Startify
-
-" }}}
-
-" Tagbar {{{
-
-call luaeval("require('pack')('https://github.com/majutsushi/tagbar.git', 'general/start/tagbar', 'master')")
-
-let g:tagbar_autofocus = 1
-
-let g:tagbar_compact = 1
-
-let g:tagbar_zoomwidth = 0
-
-nmap <F6> :TagbarToggle<CR>
 
 " }}}
 
