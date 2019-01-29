@@ -4,10 +4,22 @@ else
 	export EDITOR=nvim
 fi
 
-export MANPATH=~/.local/share/man:$MANPATH
+if [ -z "$XDG_CONFIG_HOME" ]; then
+	export XDG_CONFIG_HOME="$HOME/.config"
+	export XDG_DATA_HOME="$HOME/.local/share"
+	export XDG_CACHE_HOME="$HOME/.cache"
+fi
+
+NPM_PACKAGES="${XDG_DATA_HOME}/node_modules"
+
+export MANPATH="$XDG_DATA_HOME/man:$MANPATH"
+export MANPATH="$NPM_PACKAGES/share/man:$MANPATH"
+
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 
 export PATH=~/.local/bin:$PATH
 export PATH=~/.luarocks/bin:$PATH
+export PATH="node_modules/.bin:$NPM_PACKAGES/bin:$PATH"
 
 shopt -s cmdhist # Use one command per line
 export HISTCONTROL=erasedups:ignorespace
