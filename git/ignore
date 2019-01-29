@@ -1,6 +1,5 @@
 .DS_Store
 .nvimrc
-.tags/
 Session.vim
 *.log
 
