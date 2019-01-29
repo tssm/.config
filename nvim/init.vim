@@ -504,32 +504,30 @@ augroup END
 
 call luaeval("require('pack')('https://github.com/autozimu/LanguageClient-neovim.git', 'general/start/languageclient', 'next', 'bash install.sh')")
 
+augroup LanguageClient
+	autocmd!
+	autocmd User LanguageClientStarted set signcolumn=yes
+	autocmd User LanguageClientStopped set signcolumn=auto
+augroup END
+
 let g:LanguageClient_autoStart = 1
 
 let g:LanguageClient_diagnosticsDisplay = {
 	\ 1: {
 		\ "name": "Error",
-		\ "texthl": "SyntasticError",
 		\ "signText": "⛔",
-		\ "signTexthl": "Error"
 	\ },
 	\ 2: {
 		\ "name": "Warning",
-		\ "texthl": "SyntasticWarning",
 		\ "signText": "⚠️",
-		\ "signTexthl": "SignWarning"
 	\ },
 	\ 3: {
 		\ "name": "Information",
-		\ "texthl": "LanguageClientInformation",
 		\ "signText": "ℹ️",
-		\ "signTexthl": "SignInformation"
 	\ },
 	\ 4: {
 		\ "name": "Hint",
-		\ "texthl": "LanguageClientHint",
 		\ "signText": "💡",
-		\ "signTexthl": "SignHint"
 	\ }
 \ }
 
