@@ -561,17 +561,17 @@ autocmd FixColorSchemes ColorScheme * highlight OverLength guibg=fg guifg=bg
 
 lua <<EOF
 local pack = require('pack')
-pack('https://github.com/JulesWang/css.vim.git', 'filetypes/opt/css', 'master')
-pack('https://github.com/othree/html5.vim.git', 'filetypes/opt/html', 'master')
-pack('https://github.com/Epitrochoid/marko-vim-syntax.git', 'filetypes/opt/marko', 'master')
+pack('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master')
+pack('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
+pack('https://github.com/Epitrochoid/marko-vim-syntax.git', 'filetypes/start/marko', 'master')
 
 -- Haskell
-pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/opt/shakespeare', 'master')
-pack('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/opt/unicode', 'master')
+pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
+pack('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/start/unicode', 'master')
 
-pack('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/opt/pgsql', 'master')
-pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/opt/rust', 'master')
-pack('https://github.com/keith/swift.vim.git', 'filetypes/opt/swift', 'master')
+pack('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/start/pgsql', 'master')
+pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
+pack('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
 EOF
 
 " }}}
