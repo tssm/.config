@@ -165,6 +165,15 @@ set nofoldenable
 
 " Mappings {{{
 
+cnoremap <C-A> <Home> " Go to the beginning of the line
+cnoremap <C-B> <Left> " Go back one character
+cnoremap <C-F> <Right> " Go forward one character
+cnoremap ∫ <S-Left> " Go back one word
+cnoremap ƒ <S-Right> " Go forward one word
+cnoremap <C-P> <Up> " Search prefix backwards
+cnoremap <C-N> <Down> " Search prefix forward
+" Makes the command line behave like Fish
+
 let mapleader="\<Tab>"
 " Tab is located in the center of my keyboard
 
@@ -343,7 +352,7 @@ set splitright
 augroup StartTerminalOnInsertMode
 	autocmd!
 	autocmd TermOpen *
-		\ if match(b:term_title, ':/bin/bash') != -1 || match(b:term_title, 'ssh') != -1 |
+		\ if match(b:term_title, 'fish') != -1 || match(b:term_title, 'ssh') != -1 |
 		\   startinsert |
 		\ endif
 augroup END
@@ -561,6 +570,8 @@ lua <<EOF
 local pack = require('pack')
 pack('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master')
 pack('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
+
+pack('https://github.com/dag/vim-fish.git', 'filetypes/start/fish', 'master')
 
 -- Haskell
 pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
