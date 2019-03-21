@@ -7,7 +7,7 @@ end
 
 # Nix
 set NIX_LINK $HOME/.nix-profile
-set --export NIX_PATH $NIX_PATH:$HOME/.nix-defexpr/channels/nixpkgs
+set --export NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
 set --export SSL_CERT_FILE $NIX_LINK/etc/ssl/certs/ca-bundle.crt
 
 # XDG
