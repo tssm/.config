@@ -163,13 +163,20 @@ set nofoldenable
 
 " Mappings {{{
 
-cnoremap <C-A> <Home> " Go to the beginning of the line
-cnoremap <C-B> <Left> " Go back one character
-cnoremap <C-F> <Right> " Go forward one character
-cnoremap ∫ <S-Left> " Go back one word
-cnoremap ƒ <S-Right> " Go forward one word
-cnoremap <C-P> <Up> " Search prefix backwards
-cnoremap <C-N> <Down> " Search prefix forward
+cnoremap <C-A> <Home>
+" Go to the beginning of the line
+cnoremap <C-B> <Left>
+" Go back one character
+cnoremap <C-F> <Right>
+" Go forward one character
+cnoremap ∫ <S-Left>
+" Go back one word
+cnoremap ƒ <S-Right>
+" Go forward one word
+cnoremap <C-P> <Up>
+" Search prefix backwards
+cnoremap <C-N> <Down>
+" Search prefix forward
 " Makes the command line behave like Fish
 
 let mapleader="\<Tab>"
