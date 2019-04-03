@@ -77,8 +77,6 @@ pack('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master
 pack('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
 pack('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
 pack('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
-
-pack('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')
 EOF
 
 set background=dark
@@ -596,6 +594,14 @@ let g:mundo_preview_statusline="Mundo Preview"
 let g:mundo_right=1
 
 let g:mundo_tree_statusline="Mundo Tree"
+
+" }}}
+
+" Random Colors {{{
+
+call luaeval("require('pack')('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')")
+
+command! RandomColorScheme call luaeval("require('random-colors')()")
 
 " }}}
 
