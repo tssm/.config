@@ -518,11 +518,16 @@ augroup END
 
 call luaeval("require('pack')('https://github.com/autozimu/LanguageClient-neovim.git', 'general/start/languageclient', 'next', 'bash install.sh')")
 
-augroup LanguageClient
-	autocmd!
-	autocmd User LanguageClientStarted set signcolumn=yes
-	autocmd User LanguageClientStopped set signcolumn=auto
-augroup END
+autocmd User LanguageClientStarted |
+	\ set signcolumn=yes |
+	\ nnoremap <silent> <c-]> :call LanguageClient#textDocument_definition()<cr> |
+	\ nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr> |
+	\ nnoremap <silent> <f6> :call LanguageClient_textDocument_documentSymbol()<cr>
+autocmd User LanguageClientStopped |
+	\ set signcolumn=auto |
+	\ nunmap <c-]> |
+	\ nunmap K |
+	\ nunmap <f6>
 
 let g:LanguageClient_autoStart = 1
 
