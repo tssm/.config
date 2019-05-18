@@ -646,6 +646,8 @@ let g:startify_lists = [
 	\ { 'type': 'commands', 'header': [ ' Commands' ] }
 	\ ]
 
+let g:startify_session_persistence=1
+
 let g:startify_update_oldfiles = 1
 
 autocmd User StartifyReady setlocal statusline=Startify
