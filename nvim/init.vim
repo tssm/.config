@@ -276,7 +276,8 @@ function! GetCursorPosition()
 
 	return IsSpecialBuffer() && &buftype != 'help'
 		\ ? ''
-		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷'
+		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷' . ' '
+		" The last empty space is necessary to compensate for bad Unicode font
 endfunction
 
 function! GetFileStatus()
@@ -315,13 +316,13 @@ function! GetWarnings()
 		\ :
 			\ (&fileformat ==# 'unix'
 				\ ? ''
-				\ : '  ' . &fileformat) .
+				\ : '   ' . &fileformat) .
 			\ (&fileencoding ==# 'utf-8' || &fileencoding == ''
 				\ ? ''
-				\ : '  ' . &fileencoding) .
-			\ '  ' . (&expandtab
-				\ ? l:indent_by . ' space' . (l:indent_by == 1 ? '' : 's')
-				\ : (&tabstop == 2 ? '' : '  tab stop of ' . &tabstop))
+				\ : '   ' . &fileencoding) .
+			\ (&expandtab
+				\ ? '   ' . l:indent_by . ' space' . (l:indent_by == 1 ? '' : 's')
+				\ : (&tabstop == 2 ? '' : '   tab stop of ' . &tabstop))
 endfunction
 
 function! IsSpecialBuffer()
