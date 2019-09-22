@@ -89,7 +89,7 @@ augroup FixColorSchemes
 	autocmd ColorScheme *
 		\ highlight EndOfBuffer guibg=bg guifg=bg |
 		\ highlight LineNr guibg=bg |
-		\ highlight CursorLineNr guibg=bg |
+		\ highlight CursorLineNr guibg=bg guifg=bg |
 		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg
