@@ -92,7 +92,8 @@ augroup FixColorSchemes
 		\ highlight CursorLineNr guibg=bg guifg=bg |
 		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
 		\ highlight SignColumn guibg=bg |
-		\ highlight SpecialKey guibg=bg
+		\ highlight SpecialKey guibg=bg |
+		\ highlight TermCursorNC guibg=bg guifg=bg
 augroup END
 
 let g:ganymede_solid_background=1
