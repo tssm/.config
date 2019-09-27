@@ -584,6 +584,7 @@ pack('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master'
 pack('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
 
 pack('https://github.com/dag/vim-fish.git', 'filetypes/start/fish', 'master')
+pack('https://github.com/LnL7/vim-nix', 'filetypes/start/nix', 'master')
 
 -- Haskell
 pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
