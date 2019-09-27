@@ -557,13 +557,15 @@ let g:LanguageClient_rootMarkers = {
 	\ 'lua': ['.luacompleterc'],
 	\ 'purescript': ['psc-package.json'],
 	\ 'rust': ['Cargo.toml'],
+	\ 'scala': ['*.sbt']
 	\ }
 
 let g:LanguageClient_serverCommands = {
 	\ 'haskell': ['hie-wrapper'],
 	\ 'lua': ['lua-lsp'],
 	\ 'purescript': ['purescript-language-server', '--stdio', '--config', '{}'],
-	\ 'rust': ['rls']
+	\ 'rust': ['rls'],
+	\ 'scala': ['metals-vim-lsc']
 \ }
 
 " }}}
