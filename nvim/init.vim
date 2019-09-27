@@ -296,17 +296,8 @@ function! GetFilename()
 
 	return
 		\ &buftype ==# 'help' ? expand('%:t:r') . ' help' :
-		\ &buftype ==# 'terminal' ? GetRunningCommand() :
+		\ &buftype ==# 'terminal' ? b:term_title :
 		\ strlen(l:filepath) > 0 ? l:filepath : '🆕'
-endfunction
-
-function! GetRunningCommand()
-	if match(b:term_title, 'term://') == 0
-		let l:title_parts = split(b:term_title, ':')
-		return l:title_parts[2]
-	else
-		return b:term_title
-	endif
 endfunction
 
 function! GetWarnings()
