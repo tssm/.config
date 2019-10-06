@@ -591,20 +591,6 @@ EOF
 
 " }}}
 
-" Mundo {{{
-
-call luaeval("require('pack')('https://github.com/simnalamburt/vim-mundo.git', 'general/start/mundo', 'master')")
-
-let g:mundo_preview_bottom=1
-
-let g:mundo_preview_statusline="Mundo Preview"
-
-let g:mundo_right=1
-
-let g:mundo_tree_statusline="Mundo Tree"
-
-" }}}
-
 " Random Colors {{{
 
 call luaeval("require('pack')('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')")
@@ -658,6 +644,16 @@ let g:templates_directory=[s:config_path . '/templates']
 let g:templates_global_name_prefix='template.'
 
 let g:templates_no_builtin_templates=1
+
+" }}}
+
+" Undotree {{{
+
+call luaeval("require('pack')('https://github.com/mbbill/undotree.git', 'general/start/undotree', 'master')")
+
+let g:undotree_HelpLine=0
+
+let g:undotree_SetFocusWhenToggle=1
 
 " }}}
 
