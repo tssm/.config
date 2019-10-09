@@ -412,6 +412,8 @@ set breakat=\	\
 set breakindent
 " Indents wrapped text
 
+set nowrap
+
 " }}}
 
 " Packages
