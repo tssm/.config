@@ -13,11 +13,3 @@ install:
 		--output $(nvim_spell_dest)en$(nvim_spell_extension)
 	curl $(nvim_spell_source)es$(nvim_spell_extension) \
 		--output $(nvim_spell_dest)es$(nvim_spell_extension)
-
-.PHONY: distribute
-distribute:
-	rsync\
-		--archive\
-		--verbose\
-		--delete\
-		bash git inputrc Makefile nvim $(MACHINE):.config
