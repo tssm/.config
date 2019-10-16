@@ -14,9 +14,9 @@ local pack = function(source, dest, branch, callback)
 		-- added
 		n.nvim_call_function('jobstart', { job, { detach = 1 }})
 	else
-		local job = 'PREV_COMMIT=`git rev-parse HEAD` && git pull && ' ..
-			'if [ "$PREV_COMMIT" != "`git rev-parse HEAD`" ]; then ' ..
-			(callback or 'false') .. ' || exit 0; fi'
+		local job = 'sh -c "PREV_COMMIT=`git rev-parse HEAD` && git pull && ' ..
+			'if [ $PREV_COMMIT != `git rev-parse HEAD` ]; then ' ..
+			(callback or 'exit 0') .. '; fi"'
 		n.nvim_call_function('jobstart', { job,
 			{ cwd = dest_full_path, detach = 1 }})
 		-- TODO Assign the callback to on_exit when support for Lua's functions is
