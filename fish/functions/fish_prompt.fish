@@ -24,6 +24,12 @@ function fish_prompt
 			set_color $fish_color_user
 			echo -n (whoami)
 			echo -n " "
+		else
+			if [ $IN_NIX_SHELL ]
+				set_color $fish_color_user
+				echo -n $IN_NIX_SHELL
+				echo -n " nix-shell "
+			end
 		end
 		if not $home
 			set_color $fish_color_normal
