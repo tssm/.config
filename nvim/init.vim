@@ -428,6 +428,7 @@ pack('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig',
 pack('https://github.com/cohama/lexima.vim.git', 'lexima/start/lexima', 'master')
 pack('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/start/template-rules', 'master')
 
+pack('https://github.com/yssl/QFEnter.git', 'general/start/qfenter', 'master')
 pack('https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b', 'general/start/keep-terminal', 'master')
 pack('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
 pack('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
