@@ -468,14 +468,6 @@ let g:filebeagle_check_gitignore = 1
 
 " }}}
 
-" FZY {{{
-
-call luaeval("require('pack')('https://github.com/cloudhead/neovim-fuzzy.git', 'general/start/fuzzy', 'master')")
-
-nnoremap <Leader>f :FuzzyOpen<cr>
-
-" }}}
-
 " Grepper {{{
 
 call luaeval("require('pack')('https://github.com/mhinz/vim-grepper.git', 'general/start/grepper', 'master')")
@@ -591,6 +583,20 @@ pack('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescrip
 pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
 pack('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
 EOF
+
+" }}}
+
+" Picker {{{
+
+call luaeval("require('pack')('https://github.com/srstevenson/vim-picker.git', 'general/start/picker', 'master')")
+
+let g:picker_custom_find_executable='rg'
+let g:picker_custom_find_flags='--color never --files'
+
+let g:picker_split='rightbelow'
+
+nnoremap <silent> <leader>b :PickerBuffer<cr>
+nnoremap <silent> <leader>f :PickerEdit<cr>
 
 " }}}
 
