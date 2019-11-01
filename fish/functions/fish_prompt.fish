@@ -41,12 +41,12 @@ function fish_prompt
 		if [ $git_branch ]
 			set_color $fish_color_normal
 			echo -n "on git's "
-			set_color magenta
+			set_color $fish_color_error
 			echo -n $git_branch " "
 		else if [ $pijul_branch ]
 			set_color $fish_color_normal
 			echo -n "on pijul's "
-			set_color magenta
+			set_color $fish_color_error
 			echo -n $pijul_branch " "
 		end
 	end
