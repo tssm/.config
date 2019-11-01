@@ -8,7 +8,7 @@ function fish_prompt
 		else if [ $pijul_branch ]
 			set_color $fish_color_normal
 			echo -n "on pijul's "
-			set_color magenta
+			set_color $fish_color_error
 			echo -n $pijul_branch " "
 	set home [ (pwd) = $HOME ]
 	set remote [ -n "$SSH_CLIENT" -o -n "$SSH_CONNECTION" -o -n "$SSH_TTY" ]
@@ -48,7 +48,7 @@ function fish_prompt
 		if [ $git_branch ]
 			set_color $fish_color_normal
 			echo -n "on "
-			set_color magenta
+			set_color $fish_color_error
 			echo -n $git_branch
 			echo -n " "
 		end
