@@ -106,7 +106,6 @@ lua <<EOF
 local pack = require('pack')
 pack('https://github.com/roxma/nvim-yarp.git', 'completion/start/yarp', 'master')
 pack('https://github.com/ncm2/ncm2.git', 'completion/start/ncm2', 'master')
-pack('https://github.com/ncm2/ncm2-bufword.git', 'completion/start/bufword', 'master')
 pack('https://github.com/ncm2/ncm2-cssomni.git', 'completion/start/css', 'master')
 pack('https://github.com/ncm2/ncm2-path.git', 'completion/start/path', 'master')
 EOF
