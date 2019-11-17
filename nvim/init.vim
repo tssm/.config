@@ -181,9 +181,6 @@ cnoremap <C-N> <Down>
 let mapleader="\<Tab>"
 " Tab is located in the center of my keyboard
 
-noremap! <c-\> <esc>
-tnoremap <c-\> <c-\><c-n>
-
 noremap d "_d
 noremap dd "_dd
 noremap D "_D
@@ -206,6 +203,10 @@ nnoremap Y y$
 
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " Replace the word under cursor.
+
+noremap! <c-\> <esc>
+tnoremap <c-\> <c-\><c-n>
+tnoremap <esc> <c-\><c-n>
 
 xnoremap <expr> v
 	\ (mode() ==# 'v' ? "\<C-V>"
