@@ -588,7 +588,7 @@ EOF
 call luaeval("require('pack')('https://github.com/srstevenson/vim-picker.git', 'general/start/picker', 'master')")
 
 let g:picker_custom_find_executable='rg'
-let g:picker_custom_find_flags='--color never --files'
+let g:picker_custom_find_flags='--color never --files --hiden'
 
 let g:picker_split='rightbelow'
 
