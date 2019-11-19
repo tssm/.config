@@ -494,9 +494,7 @@ endfunction
 
 augroup Grepper
 	autocmd!
-	autocmd User Grepper |
-		\ call s:handleGrepperResults() |
-		\ setlocal statusline=%{w:quickfix_title}
+	autocmd User Grepper call s:handleGrepperResults()
 augroup END
 
 " }}}
