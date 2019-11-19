@@ -250,7 +250,7 @@ let g:indexed_search_center=1
 
 " Sessions {{{
 
-set sessionoptions=curdir,tabpages,winsize
+set sessionoptions=curdir,help,tabpages,winsize
 
 " }}}
 
