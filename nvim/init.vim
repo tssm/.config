@@ -254,21 +254,6 @@ set sessionoptions=curdir,help,tabpages,winsize
 
 " }}}
 
-" Spell {{{
-
-augroup EnableSpellChecking
-	autocmd!
-	autocmd BufWinEnter *
-		\ if &buftype == '' |
-		\ 	set spell spelllang=en,es |
-		\ else |
-		\ 	set nospell |
-		\ endif
-	autocmd TermOpen * set nospell
-augroup END
-
-" }}}
-
 " Statusline {{{
 
 function! GetCursorPosition()
