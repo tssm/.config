@@ -1,6 +1,3 @@
-let s:config_path='~/.config/nvim'
-" Common paths
-
 " Behavior {{{
 
 augroup AutoLoadVimrcChanges
@@ -630,7 +627,7 @@ autocmd User StartifyReady setlocal statusline=Startify
 
 call luaeval("require('pack')('https://github.com/aperezdc/vim-template.git', 'general/start/template', 'master')")
 
-let g:templates_directory=[s:config_path . '/templates']
+let g:templates_directory=[stdpath('config') . '/templates']
 
 let g:templates_global_name_prefix='template.'
 
