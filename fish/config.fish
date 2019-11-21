@@ -20,6 +20,9 @@ end
 # NPM
 set --export NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/config
 
+# Postgres
+set --export PSQLRC $XDG_CONFIG_HOME/psqlrc
+
 # Python
 set PYTHON_VERSION (find $NIX_LINK/lib -regex '.*/python[0-9]*\.[0-9]*' \
 	| sort --version-sort \
