@@ -4,7 +4,6 @@ nvim_spell_source = http://ftp.vim.org/vim/runtime/spell/
 
 install:
 	ln -s ~/.config/ghci ~/.ghci
-	ln -s ~/.config/psqlrc ~/.psqlrc
 	mkdir -p ~/.cache/psql_history
 	# Neovim spell
 	mkdir -p $(nvim_spell_dest)
