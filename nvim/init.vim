@@ -325,14 +325,6 @@ set splitright
 
 " Terminal {{{
 
-augroup StartTerminalOnInsertMode
-	autocmd!
-	autocmd TermOpen *
-		\ if match(b:term_title, 'fish') != -1 || match(b:term_title, 'ssh') != -1 |
-		\   startinsert |
-		\ endif
-augroup END
-
 command! -nargs=* -complete=shellcmd T vsplit | terminal <args>
 " Open the terminal in a vertical split
 
