@@ -46,9 +46,6 @@ augroup ResizeWindowsProportionally
 	autocmd VimResized * :wincmd =
 augroup END
 
-set secure exrc
-" Load .nvimrc from current directory
-
 set shortmess+=c
 
 set visualbell

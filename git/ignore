@@ -3,7 +3,6 @@
 .luacompleterc
 # Lua
 
-.nvimrc
 Session.vim
 # Neovim's Black Magic
 
