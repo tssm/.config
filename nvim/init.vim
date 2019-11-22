@@ -479,7 +479,8 @@ autocmd User LanguageClientStarted |
 	\ set signcolumn=yes |
 	\ nnoremap <silent> <c-]> :call LanguageClient#textDocument_definition()<cr> |
 	\ nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr> |
-	\ nnoremap <silent> <f6> :call LanguageClient_textDocument_documentSymbol()<cr>
+	\ nnoremap <silent> <f6> :call LanguageClient_textDocument_documentSymbol()<cr> |
+	\ nnoremap <leader>e :call LanguageClient#explainErrorAtPoint()<cr>
 autocmd User LanguageClientStopped |
 	\ set signcolumn=auto |
 	\ nunmap <c-]> |
