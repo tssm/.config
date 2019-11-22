@@ -394,6 +394,7 @@ pack('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master
 pack('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
 pack('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
 pack('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
+pack('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
 
 pack('https://github.com/cohama/lexima.vim.git', 'lexima/start/lexima', 'master')
 pack('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/start/template-rules', 'master')
@@ -519,14 +520,6 @@ let g:LanguageClient_serverCommands = {
 	\ 'purescript': ['purescript-language-server', '--stdio', '--config', '{}'],
 	\ 'rust': ['rls']
 \ }
-
-" }}}
-
-" Lengthmatters {{{
-
-call luaeval("require('pack')('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')")
-
-autocmd FixColorSchemes ColorScheme * highlight OverLength guibg=fg guifg=bg
 
 " }}}
 
