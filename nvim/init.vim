@@ -172,8 +172,7 @@ cnoremap <C-N> <Down>
 " Search prefix forward
 " Makes the command line behave like Fish
 
-let mapleader="\<Tab>"
-" Tab is located in the center of my keyboard
+let mapleader="\<bs>"
 
 noremap d "_d
 noremap dd "_dd
