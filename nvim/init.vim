@@ -408,6 +408,18 @@ pack('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
 pack('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
 EOF
 
+" Clap {{{
+
+call luaeval("require('pack')('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master')")
+
+nnoremap <silent> <leader>b :Clap buffers<cr>
+
+nnoremap <silent> <leader>f :Clap files ++finder=rg --files --hidden<cr>
+
+nnoremap <silent> <leader>g :Clap grep<cr>
+
+" }}}
+
 " Colorize {{{
 
 call luaeval("require('pack')('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')")
@@ -435,38 +447,6 @@ nmap <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 nmap <silent> _ <Plug>FileBeagleOpenCurrentWorkingDir
 
 let g:filebeagle_check_gitignore = 1
-
-" }}}
-
-" Grepper {{{
-
-call luaeval("require('pack')('https://github.com/mhinz/vim-grepper.git', 'general/start/grepper', 'master')")
-
-let g:grepper = {
-	\ 'rg': {
-		\ 'grepprg': 'rg --no-heading --smart-case --vimgrep --with-filename'
-	\ },
-	\ 'highlight': 1,
-	\ 'simple_prompt': 1
-\ }
-
-nnoremap <Leader>g :Grepper -tool rg<cr>
-nnoremap <F5> :Grepper -tool rg -query '\bBUG\b\|\bFIXME\b\|\bHACK\b\|\bTODO\b\|\bUNDONE\b\|\bXXX\b'<cr>
-
-nmap <Leader>* <plug>(GrepperOperator)
-xmap <Leader>* <plug>(GrepperOperator)
-
-function! s:handleGrepperResults()
-	if len(getqflist()) == 1
-		cfirst
-		cclose
-	endif
-endfunction
-
-augroup Grepper
-	autocmd!
-	autocmd User Grepper call s:handleGrepperResults()
-augroup END
 
 " }}}
 
@@ -542,20 +522,6 @@ pack('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescrip
 pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
 pack('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
 EOF
-
-" }}}
-
-" Picker {{{
-
-call luaeval("require('pack')('https://github.com/srstevenson/vim-picker.git', 'general/start/picker', 'master')")
-
-let g:picker_custom_find_executable='rg'
-let g:picker_custom_find_flags='--color never --files --hiden'
-
-let g:picker_split='rightbelow'
-
-nnoremap <silent> <leader>b :PickerBuffer<cr>
-nnoremap <silent> <leader>f :PickerEdit<cr>
 
 " }}}
 
