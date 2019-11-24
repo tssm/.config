@@ -490,7 +490,7 @@ let g:LanguageClient_diagnosticsDisplay = {
 let g:LanguageClient_rootMarkers = {
 	\ 'haskell': ['*.cabal'],
 	\ 'lua': ['.luacompleterc'],
-	\ 'purescript': ['psc-package.json'],
+	\ 'purescript': ['psc-package.json', 'spago.dhall'],
 	\ 'rust': ['Cargo.toml'],
 	\ }
 
