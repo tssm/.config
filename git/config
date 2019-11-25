@@ -1,5 +1,4 @@
 [core]
-	editor = $EDITOR --wait --nvim
 	pager = less --chop-long-lines
 [diff]
 	tool = vimdiff
