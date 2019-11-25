@@ -1,6 +1,7 @@
 set vimr /Applications/VimR.app/Contents/Resources/vimr
 if [ -e $vimr ]
 	set --export EDITOR $vimr
+	set --export GIT_EDITOR $vimr --wait --nvim
 else
 	set --export EDITOR nvim
 end

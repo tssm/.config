@@ -3,7 +3,6 @@
 [color]
 	ui = true
 [core]
-	editor = $EDITOR --wait --nvim
 	pager = less --chop-long-lines
 [grep]
 	linenumber = true
