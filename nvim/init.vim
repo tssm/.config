@@ -456,10 +456,10 @@ call luaeval("require('pack')('https://github.com/autozimu/LanguageClient-neovim
 
 autocmd User LanguageClientStarted |
 	\ set signcolumn=yes |
-	\ nnoremap <silent> <c-]> :call LanguageClient#textDocument_definition()<cr> |
-	\ nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr> |
-	\ nnoremap <silent> <f6> :call LanguageClient_textDocument_documentSymbol()<cr> |
-	\ nnoremap <leader>e :call LanguageClient#explainErrorAtPoint()<cr>
+	\ nnoremap <buffer> <silent> <c-]> :call LanguageClient#textDocument_definition()<cr> |
+	\ nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr> |
+	\ nnoremap <buffer> <silent> <f6> :call LanguageClient_textDocument_documentSymbol()<cr> |
+	\ nnoremap <buffer> <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<cr>
 autocmd User LanguageClientStopped |
 	\ set signcolumn=auto |
 	\ nunmap <c-]> |
