@@ -57,6 +57,9 @@ set visualbell
 
 lua <<EOF
 local pack = require('pack')
+pack('https://github.com/ayu-theme/ayu-vim', 'colors/opt/ayu', 'master')
+let g:ayucolor="mirage"
+
 pack('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
 pack('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
 pack('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
@@ -64,13 +67,25 @@ pack('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
 pack('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
 pack('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
 pack('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
+pack('https://github.com/whatyouhide/vim-gotham.git', 'colors/opt/gotham', 'master')
 pack('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
+
 pack('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
+let g:ganymede_solid_background=1
+
 pack('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
+pack('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'master')
+pack('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
 pack('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
+pack('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
+pack('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
+pack('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
+pack('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
 pack('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
+pack('https://github.com/nightsense/stellarized.git', 'colors/opt/stellarized', 'master')
 pack('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
 pack('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
+pack('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'master')
 EOF
 
 set background=dark
@@ -89,8 +104,6 @@ augroup FixColorSchemes
 		\ highlight SpecialKey guibg=bg |
 		\ highlight TermCursorNC guibg=bg guifg=bg
 augroup END
-
-let g:ganymede_solid_background=1
 
 " }}}
 
