@@ -15,7 +15,7 @@ augroup ChangeNumberLineFormatAccordingToFocus
 	autocmd BufEnter,WinEnter *
 		\ if &buftype == '' |
 		\ 	set number relativenumber |
-		\ elseif &buftype ==# 'terminal' |
+		\ elseif &buftype ==# 'help' || &buftype ==# 'terminal' |
 		\ 	set nonumber relativenumber |
 		\ endif
 	autocmd TermOpen * set nonumber
