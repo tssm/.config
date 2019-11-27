@@ -48,7 +48,7 @@ augroup ResizeWindowsProportionally
 	autocmd VimResized * :wincmd =
 augroup END
 
-set shortmess+=c
+set shortmess=csFS
 
 set visualbell
 " Turns off annoying sound
