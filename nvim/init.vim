@@ -109,38 +109,6 @@ augroup END
 
 " }}}
 
-" Completion {{{
-
-lua <<EOF
-local pack = require('pack')
-pack('https://github.com/roxma/nvim-yarp.git', 'completion/start/yarp', 'master')
-pack('https://github.com/ncm2/ncm2.git', 'completion/start/ncm2', 'master')
-pack('https://github.com/ncm2/ncm2-cssomni.git', 'completion/start/css', 'master')
-pack('https://github.com/ncm2/ncm2-path.git', 'completion/start/path', 'master')
-EOF
-
-autocmd BufEnter * call ncm2#enable_for_buffer()
-autocmd TextChangedI * call ncm2#auto_trigger()
-
-inoremap <c-c> <ESC>
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" Use <TAB> to select the popup menu:
-
-let g:ncm2#complete_length=1
-
-set completeopt=menuone,noinsert,noselect
-" noinsert is required by ncm2
-
-" }}}
-
 " Diff {{{
 
 set diffopt+=vertical
@@ -537,6 +505,22 @@ pack('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescrip
 pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
 pack('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
 EOF
+
+" }}}
+
+" MUcomplete {{{
+
+call luaeval("require('pack')('https://github.com/lifepillar/vim-mucomplete.git', 'general/start/mucomplete', 'master')")
+
+let g:mucomplete#chains={ 'default' : [ 'omni', 'path', 'uspl' ] }
+
+let g:mucomplete#enable_auto_at_startup=1
+
+let g:mucomplete#minimum_prefix_length=1
+
+let g:mucomplete#no_mappings=0
+
+set completeopt=menuone,noinsert,noselect
 
 " }}}
 
