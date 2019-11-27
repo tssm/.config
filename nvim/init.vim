@@ -33,6 +33,8 @@ set hidden
 
 set inccommand=split
 
+set iskeyword-=_
+
 set mouse=a
 
 set nojoinspaces
