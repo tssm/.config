@@ -1,5 +1,3 @@
-lua require('plug')
-
 " Behavior {{{
 
 augroup AutoLoadVimrcChanges
@@ -54,57 +52,6 @@ set shortmess=csFS
 
 set visualbell
 " Turns off annoying sound
-
-" }}}
-
-" Color schemes {{{
-
-lua plug('https://github.com/ayu-theme/ayu-vim', 'colors/opt/ayu', 'master')
-let g:ayucolor="mirage"
-
-lua plug('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
-lua plug('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
-lua plug('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
-lua plug('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
-lua plug('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
-lua plug('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
-lua plug('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
-lua plug('https://github.com/whatyouhide/vim-gotham.git', 'colors/opt/gotham', 'master')
-lua plug('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
-
-lua plug('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
-let g:ganymede_solid_background=1
-
-lua plug('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
-lua plug('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'master')
-lua plug('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
-lua plug('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
-lua plug('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
-lua plug('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
-lua plug('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
-lua plug('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
-lua plug('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
-lua plug('https://github.com/nightsense/stellarized.git', 'colors/opt/stellarized', 'master')
-lua plug('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
-lua plug('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
-lua plug('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'master')
-
-set background=dark
-
-set termguicolors
-" Enable true color
-
-augroup FixColorSchemes
-	autocmd!
-	autocmd ColorScheme *
-		\ highlight EndOfBuffer guibg=bg guifg=bg |
-		\ highlight LineNr guibg=bg |
-		\ highlight CursorLineNr guibg=bg guifg=bg |
-		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
-		\ highlight SignColumn guibg=bg |
-		\ highlight SpecialKey guibg=bg |
-		\ highlight TermCursorNC guibg=bg guifg=bg
-augroup END
 
 " }}}
 
@@ -217,10 +164,6 @@ augroup ToggleSearchHighlighting
 augroup END
 " Toggles search highlighting off/on according to current mode. Source: http://blog.sanctum.geek.nz/vim-search-highlighting/
 
-lua plug('https://github.com/henrik/vim-indexed-search.git', 'general/start/indexed-search', 'master')
-
-let g:indexed_search_center=1
-
 " }}}
 
 " Sessions {{{
@@ -318,6 +261,20 @@ set scrollback=-1
 
 " User interface {{{
 
+augroup FixColorSchemes
+	autocmd!
+	autocmd ColorScheme *
+		\ highlight EndOfBuffer guibg=bg guifg=bg |
+		\ highlight LineNr guibg=bg |
+		\ highlight CursorLineNr guibg=bg guifg=bg |
+		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
+		\ highlight SignColumn guibg=bg |
+		\ highlight SpecialKey guibg=bg |
+		\ highlight TermCursorNC guibg=bg guifg=bg
+augroup END
+
+set background=dark
+
 set fillchars=fold:\ ",vert:┃
 " Hides the decoration of folds and sets a continuous vertical windows separator
 
@@ -331,6 +288,9 @@ set showmatch
 
 set showtabline=0
 " Never show the tabline
+
+set termguicolors
+" Enable true color
 
 " }}}
 
@@ -369,6 +329,8 @@ set nowrap
 
 " Packages
 
+lua require('plug')
+
 lua plug('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master')
 lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
 lua plug('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
@@ -386,6 +348,40 @@ lua plug('https://github.com/chr4/sslsecure.vim', 'general/start/sslsecure', 'ma
 lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
 lua plug('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
 lua plug('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
+
+" Color schemes {{{
+
+lua plug('https://github.com/ayu-theme/ayu-vim', 'colors/opt/ayu', 'master')
+let g:ayucolor="mirage"
+
+lua plug('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
+lua plug('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
+lua plug('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
+lua plug('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
+lua plug('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
+lua plug('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
+lua plug('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
+lua plug('https://github.com/whatyouhide/vim-gotham.git', 'colors/opt/gotham', 'master')
+lua plug('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
+
+lua plug('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
+let g:ganymede_solid_background=1
+
+lua plug('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
+lua plug('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'master')
+lua plug('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
+lua plug('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
+lua plug('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
+lua plug('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
+lua plug('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
+lua plug('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
+lua plug('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
+lua plug('https://github.com/nightsense/stellarized.git', 'colors/opt/stellarized', 'master')
+lua plug('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
+lua plug('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
+lua plug('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'master')
+
+" }}}
 
 " Clap {{{
 
@@ -426,6 +422,14 @@ nmap <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 nmap <silent> _ <Plug>FileBeagleOpenCurrentWorkingDir
 
 let g:filebeagle_check_gitignore = 1
+
+" }}}
+
+" Indexed search {{{
+
+lua plug('https://github.com/henrik/vim-indexed-search.git', 'general/start/indexed-search', 'master')
+
+let g:indexed_search_center=1
 
 " }}}
 
