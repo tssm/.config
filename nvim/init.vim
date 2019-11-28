@@ -177,7 +177,7 @@ set sessionoptions=curdir,help,tabpages,winsize
 function! GetCursorPosition()
 	let l:position = getcurpos()
 
-	return IsSpecialBuffer() && &buftype != 'help'
+	return IsSpecialBuffer()
 		\ ? ''
 		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷' . ' '
 		" The last empty space is necessary to compensate for bad Unicode font
