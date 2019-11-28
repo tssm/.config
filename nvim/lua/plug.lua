@@ -1,7 +1,7 @@
 local n = vim.api
-
 local pack_path = '~/.local/share/nvim/site/pack/'
-local pack = function(source, dest, branch, callback)
+
+plug = function(source, dest, branch, callback)
 	local dest_full_path = n.nvim_call_function('expand', { pack_path .. dest })
 	if n.nvim_call_function('isdirectory', { dest_full_path }) == 0 then
 		n.nvim_call_function('mkdir', { dest_full_path, 'p' })
@@ -29,5 +29,3 @@ local pack = function(source, dest, branch, callback)
 		n.nvim_command('helptags ' .. doc_path)
 	end
 end
-
-return pack

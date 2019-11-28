@@ -1,3 +1,5 @@
+lua require('plug')
+
 " Behavior {{{
 
 augroup AutoLoadVimrcChanges
@@ -57,38 +59,35 @@ set visualbell
 
 " Color schemes {{{
 
-lua <<EOF
-local pack = require('pack')
-pack('https://github.com/ayu-theme/ayu-vim', 'colors/opt/ayu', 'master')
+lua plug('https://github.com/ayu-theme/ayu-vim', 'colors/opt/ayu', 'master')
 let g:ayucolor="mirage"
 
-pack('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
-pack('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
-pack('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
-pack('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
-pack('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
-pack('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
-pack('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
-pack('https://github.com/whatyouhide/vim-gotham.git', 'colors/opt/gotham', 'master')
-pack('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
+lua plug('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
+lua plug('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
+lua plug('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
+lua plug('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
+lua plug('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
+lua plug('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
+lua plug('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
+lua plug('https://github.com/whatyouhide/vim-gotham.git', 'colors/opt/gotham', 'master')
+lua plug('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
 
-pack('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
+lua plug('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
 let g:ganymede_solid_background=1
 
-pack('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
-pack('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'master')
-pack('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
-pack('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
-pack('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
-pack('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
-pack('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
-pack('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
-pack('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
-pack('https://github.com/nightsense/stellarized.git', 'colors/opt/stellarized', 'master')
-pack('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
-pack('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
-pack('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'master')
-EOF
+lua plug('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
+lua plug('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'master')
+lua plug('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
+lua plug('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
+lua plug('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
+lua plug('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
+lua plug('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
+lua plug('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
+lua plug('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
+lua plug('https://github.com/nightsense/stellarized.git', 'colors/opt/stellarized', 'master')
+lua plug('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
+lua plug('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
+lua plug('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'master')
 
 set background=dark
 
@@ -218,7 +217,7 @@ augroup ToggleSearchHighlighting
 augroup END
 " Toggles search highlighting off/on according to current mode. Source: http://blog.sanctum.geek.nz/vim-search-highlighting/
 
-call luaeval("require('pack')('https://github.com/henrik/vim-indexed-search.git', 'general/start/indexed-search', 'master')")
+lua plug('https://github.com/henrik/vim-indexed-search.git', 'general/start/indexed-search', 'master')
 
 let g:indexed_search_center=1
 
@@ -370,30 +369,27 @@ set nowrap
 
 " Packages
 
-lua <<EOF
-local pack = require('pack')
-pack('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master')
-pack('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
-pack('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
-pack('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
-pack('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
+lua plug('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master')
+lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
+lua plug('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
+lua plug('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
+lua plug('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
 
-pack('https://github.com/cohama/lexima.vim.git', 'lexima/start/lexima', 'master')
-pack('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/start/template-rules', 'master')
+lua plug('https://github.com/cohama/lexima.vim.git', 'lexima/start/lexima', 'master')
+lua plug('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/start/template-rules', 'master')
 
-pack('https://github.com/yssl/QFEnter.git', 'general/start/qfenter', 'master')
-pack('https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b', 'general/start/keep-terminal', 'master')
-pack('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
-pack('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
-pack('https://github.com/chr4/sslsecure.vim', 'general/start/sslsecure', 'master')
-pack('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
-pack('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
-pack('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
-EOF
+lua plug('https://github.com/yssl/QFEnter.git', 'general/start/qfenter', 'master')
+lua plug('https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b', 'general/start/keep-terminal', 'master')
+lua plug('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
+lua plug('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
+lua plug('https://github.com/chr4/sslsecure.vim', 'general/start/sslsecure', 'master')
+lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
+lua plug('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
+lua plug('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
 
 " Clap {{{
 
-call luaeval("require('pack')('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master')")
+lua plug('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master')
 
 nnoremap <silent> <leader>b :Clap buffers<cr>
 
@@ -405,7 +401,7 @@ nnoremap <silent> <leader>g :Clap grep<cr>
 
 " Colorize {{{
 
-call luaeval("require('pack')('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')")
+lua plug('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')
 
 let g:colorizer_colornames=0
 
@@ -417,7 +413,7 @@ let g:colorizer_skip_comments=1
 
 " FileBeagle {{{
 
-call luaeval("require('pack')('https://github.com/jeetsukumaran/vim-filebeagle.git', 'general/start/filebeagle', 'master')")
+lua plug('https://github.com/jeetsukumaran/vim-filebeagle.git', 'general/start/filebeagle', 'master')
 
 command! -nargs=1 -complete=dir -bang E %bwipeout<bang> | cd <args> | FileBeagle
 " cd into <args> and start FileBeagle. E is short for explore
@@ -435,7 +431,7 @@ let g:filebeagle_check_gitignore = 1
 
 " {{{ Language Client
 
-call luaeval("require('pack')('https://github.com/autozimu/LanguageClient-neovim.git', 'general/start/languageclient', 'next', 'bash install.sh')")
+lua plug('https://github.com/autozimu/LanguageClient-neovim.git', 'general/start/languageclient', 'next', 'bash install.sh')
 
 autocmd User LanguageClientStarted |
 	\ set signcolumn=yes |
@@ -492,29 +488,26 @@ let g:LanguageClient_useVirtualText=0
 
 " Missing filetypes {{{
 
-lua <<EOF
-local pack = require('pack')
-pack('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master')
-pack('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
+lua plug('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master')
+lua plug('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
 
-pack('https://github.com/dag/vim-fish.git', 'filetypes/start/fish', 'master')
-pack('https://github.com/LnL7/vim-nix', 'filetypes/start/nix', 'master')
+lua plug('https://github.com/dag/vim-fish.git', 'filetypes/start/fish', 'master')
+lua plug('https://github.com/LnL7/vim-nix', 'filetypes/start/nix', 'master')
 
 -- Haskell
-pack('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
-pack('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/start/unicode', 'master')
+lua plug('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
+lua plug('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/start/unicode', 'master')
 
-pack('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/start/pgsql', 'master')
-pack('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescript', 'master')
-pack('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
-pack('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
-EOF
+lua plug('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/start/pgsql', 'master')
+lua plug('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescript', 'master')
+lua plug('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
+lua plug('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
 
 " }}}
 
 " MUcomplete {{{
 
-call luaeval("require('pack')('https://github.com/lifepillar/vim-mucomplete.git', 'general/start/mucomplete', 'master')")
+lua plug('https://github.com/lifepillar/vim-mucomplete.git', 'general/start/mucomplete', 'master')
 
 let g:mucomplete#chains={ 'default' : [ 'omni', 'path', 'uspl' ] }
 
@@ -530,15 +523,15 @@ set completeopt=menuone,noinsert
 
 " Random Colors {{{
 
-call luaeval("require('pack')('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')")
+lua plug('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')
 
-command! RandomColorScheme call luaeval("require('random-colors')()")
+command! RandomColorScheme lua require('random-colors')()
 
 " }}}
 
 " Rooter {{{
 
-call luaeval("require('pack')('https://github.com/airblade/vim-rooter.git', 'general/start/rooter', 'master')")
+lua plug('https://github.com/airblade/vim-rooter.git', 'general/start/rooter', 'master')
 
 let g:rooter_patterns=[ '.git', '.git/', '.pijul/' ]
 
@@ -550,7 +543,7 @@ let g:rooter_silent_chdir=1
 
 " Startify {{{
 
-call luaeval("require('pack')('https://github.com/mhinz/vim-startify.git', 'general/start/startify', 'master')")
+lua plug('https://github.com/mhinz/vim-startify.git', 'general/start/startify', 'master')
 
 let g:startify_change_to_dir=0
 
@@ -581,7 +574,7 @@ augroup END
 
 " Template {{{
 
-call luaeval("require('pack')('https://github.com/aperezdc/vim-template.git', 'general/start/template', 'master')")
+lua plug('https://github.com/aperezdc/vim-template.git', 'general/start/template', 'master')
 
 let g:templates_directory=[stdpath('config') . '/templates']
 
@@ -593,7 +586,7 @@ let g:templates_no_builtin_templates=1
 
 " Undotree {{{
 
-call luaeval("require('pack')('https://github.com/mbbill/undotree.git', 'general/start/undotree', 'master')")
+lua plug('https://github.com/mbbill/undotree.git', 'general/start/undotree', 'master')
 
 let g:undotree_HelpLine=0
 
