@@ -470,6 +470,8 @@ let g:LanguageClient_diagnosticsDisplay = {
 	\ }
 \ }
 
+let g:LanguageClient_diagnosticsList="Disabled"
+
 let g:LanguageClient_rootMarkers = {
 	\ 'haskell': ['*.cabal'],
 	\ 'lua': ['.luacompleterc'],
@@ -485,6 +487,8 @@ let g:LanguageClient_serverCommands = {
 	\ 'rust': ['rls'],
 	\ 'scala': ['metals-vim-lsc']
 \ }
+
+let g:LanguageClient_useVirtualText=0
 
 " }}}
 
