@@ -470,6 +470,8 @@ let g:LanguageClient_diagnosticsDisplay = {
 	\ }
 \ }
 
+let g:LanguageClient_diagnosticsList="Disabled"
+
 let g:LanguageClient_rootMarkers = {
 	\ 'haskell': ['*.cabal'],
 	\ 'lua': ['.luacompleterc'],
@@ -483,6 +485,8 @@ let g:LanguageClient_serverCommands = {
 	\ 'purescript': ['purescript-language-server', '--stdio', '--config', '{}'],
 	\ 'rust': ['rls']
 \ }
+
+let g:LanguageClient_useVirtualText=0
 
 " }}}
 
