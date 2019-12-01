@@ -24,12 +24,6 @@ set --export NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/config
 # Postgres
 set --export PSQLRC $XDG_CONFIG_HOME/psqlrc
 
-# Python
-set PYTHON_VERSION (find $NIX_LINK/lib -regex '.*/python[0-9]*\.[0-9]*' \
-	| sort --version-sort \
-	| tail -n 2)
-set --export PYTHONPATH $NIX_LINK/lib/(basename $PYTHON_VERSION)/site-packages
-
 set PATH $NIX_LINK/bin $NIX_LINK/sbin $PATH
 set PATH ~/.local/bin $PATH
 set PATH ~/.luarocks/bin $PATH
