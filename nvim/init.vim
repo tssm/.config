@@ -343,7 +343,6 @@ lua plug('https://github.com/yssl/QFEnter.git', 'general/start/qfenter', 'master
 lua plug('https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b', 'general/start/keep-terminal', 'master')
 lua plug('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
 lua plug('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
-lua plug('https://github.com/chr4/sslsecure.vim', 'general/start/sslsecure', 'master')
 lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
 lua plug('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
 lua plug('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
