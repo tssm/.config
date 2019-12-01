@@ -331,7 +331,6 @@ set nowrap
 
 lua require('plug')
 
-lua plug('https://github.com/metakirby5/codi.vim.git', 'general/start/codi', 'master')
 lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
 lua plug('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
 lua plug('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
