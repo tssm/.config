@@ -331,6 +331,11 @@ set nowrap
 
 " Packages
 
+let g:loaded_node_provider=0
+let g:loaded_python_provider=0
+let g:loaded_python3_provider=0
+let g:loaded_ruby_provider=0
+
 lua require('plug')
 
 lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
