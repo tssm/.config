@@ -264,18 +264,19 @@ set scrollback=-1
 augroup FixColorSchemes
 	autocmd!
 	autocmd ColorScheme *
-		\ highlight EndOfBuffer guibg=bg guifg=bg |
-		\ highlight LineNr guibg=bg |
+		\ highlight EndOfBuffer guibg=bg |
+		\ highlight! link LineNr EndOfBuffer |
 		\ highlight CursorLineNr guibg=bg guifg=bg |
 		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg |
-		\ highlight TermCursorNC guibg=bg guifg=bg
+		\ highlight TermCursorNC guibg=bg guifg=bg |
+		\ highlight VertSplit guibg=bg guifg=bg
 augroup END
 
 set background=dark
 
-set fillchars=fold:\ ",vert:┃
+set fillchars=fold:\ 
 " Hides the decoration of folds and sets a continuous vertical windows separator
 
 set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
