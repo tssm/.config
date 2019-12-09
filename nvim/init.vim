@@ -267,7 +267,7 @@ augroup FixColorSchemes
 		\ highlight EndOfBuffer guibg=bg |
 		\ highlight! link LineNr EndOfBuffer |
 		\ highlight CursorLineNr guibg=bg guifg=bg |
-		\ highlight MatchParen guibg=bg guifg=NONE gui=underline |
+		\ highlight MatchParen guibg=bg guifg=red gui=bold |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg |
 		\ highlight! link StatusLineNC StatusLine |
