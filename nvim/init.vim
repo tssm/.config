@@ -273,8 +273,6 @@ augroup FixColorSchemes
 		\ highlight VertSplit guibg=bg guifg=bg
 augroup END
 
-set background=dark
-
 set fillchars=fold:\ ,stl:_
 " Hides the decoration of folds and sets a continuous vertical windows separator
 
