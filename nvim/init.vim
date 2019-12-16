@@ -179,8 +179,7 @@ function! GetCursorPosition()
 
 	return IsSpecialBuffer()
 		\ ? ''
-		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷' . ' '
-		" The last empty space is necessary to compensate for bad Unicode font
+		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷'
 endfunction
 
 function! GetFileStatus()
