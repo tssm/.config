@@ -266,7 +266,6 @@ augroup FixColorSchemes
 		\ highlight EndOfBuffer guibg=bg |
 		\ highlight! link LineNr EndOfBuffer |
 		\ highlight CursorLineNr guibg=bg guifg=bg |
-		\ highlight MatchParen guibg=bg guifg=red gui=bold |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg |
 		\ highlight! link StatusLineNC StatusLine |
@@ -278,6 +277,8 @@ set background=dark
 
 set fillchars=fold:\ ,stl:_
 " Hides the decoration of folds and sets a continuous vertical windows separator
+
+set guicursor+=a:blinkwait700-blinkoff400-blinkon600
 
 set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
 " Display trailing spaces as ☠
