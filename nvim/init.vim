@@ -603,4 +603,16 @@ let g:undotree_SetFocusWhenToggle=1
 
 " }}}
 
+" Vista {{{
+
+lua plug('https://github.com/liuchengxu/vista.vim.git', 'general/start/vista', 'master')
+
+let g:vista_default_executive="lcn"
+
+let g:vista_sidebar_width=80
+
+nnoremap <silent> <f6> :Vista!!<cr>
+
+" }}}
+
 " vim: foldenable foldmethod=marker
