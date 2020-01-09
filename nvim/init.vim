@@ -336,7 +336,6 @@ let g:loaded_ruby_provider=0
 
 lua require('plug')
 
-lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
 lua plug('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
 lua plug('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
 lua plug('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
@@ -407,6 +406,15 @@ let g:colorizer_colornames=0
 let g:colorizer_disable_bufleave=1
 
 let g:colorizer_skip_comments=1
+
+" }}}
+
+" Editorconfig {{{
+
+lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
+
+let g:EditorConfig_max_line_indicator="none"
+" Lengthmatters takes care of this
 
 " }}}
 
