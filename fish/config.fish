@@ -2,13 +2,7 @@ set fvim /Applications/FVim.app/Contents/MacOS/FVim
 if [ -e $fvim ]
 	set --export EDITOR $fvim
 else
-	set vimr /Applications/VimR.app/Contents/Resources/vimr
-	if [ -e $vimr ]
-		set --export EDITOR $vimr
-		set --export GIT_EDITOR $vimr --wait --nvim
-	else
-		set --export EDITOR nvim
-	end
+	set --export EDITOR nvim
 end
 
 # Nix
