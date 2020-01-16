@@ -1,9 +1,8 @@
-set fvim /Applications/FVim.app/Contents/MacOS/FVim
-if [ -e $fvim ]
-	set --export EDITOR $fvim
-else
-	set --export EDITOR nvim
-end
+# Neovim
+set --local neovim_guis \
+	/Applications/FVim.app/Contents/MacOS/FVim \
+	/Applications/goneovim.app/Contents/MacOS/goneovim
+set --export EDITOR $neovim_guis[(random 1 2)]
 
 # XDG
 set --export XDG_CACHE_HOME $HOME/.cache
