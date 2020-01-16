@@ -375,6 +375,7 @@ lua plug('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'm
 lua plug('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
 lua plug('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
 lua plug('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
+lua plug('https://github.com/sts10/vim-pink-moon.git', 'colors/opt/pink-moon', 'master')
 lua plug('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
 lua plug('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
 lua plug('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
