@@ -278,8 +278,7 @@ set fillchars=fold:\ ,stl:_
 
 set guicursor+=a:blinkwait700-blinkoff400-blinkon600
 
-set list listchars=extends:…,precedes:…,tab:\ \ ,trail:☠
-" Display trailing spaces as ☠
+set list listchars=extends:…,precedes:…,tab:\ \ 
 
 set numberwidth=3
 
@@ -349,6 +348,7 @@ lua plug('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'mas
 lua plug('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
 lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
 lua plug('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
+lua plug('https://github.com/bronson/vim-trailing-whitespace.git', 'general/start/trailing-whitespace', 'master')
 lua plug('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
 
 " Color schemes {{{
