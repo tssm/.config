@@ -1,4 +1,4 @@
-set guifont=Iosevka\ Term:h16
+set guifont=JetBrains\ Mono:h13
 
 if exists('g:fvim_loaded')
 	FVimCursorSmoothBlink v:true
