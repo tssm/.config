@@ -395,7 +395,7 @@ nnoremap <silent> <leader>b :Clap buffers ++externalfilter=fzy<cr>
 
 nnoremap <silent> <leader>f :Clap files ++externalfilter=fzy ++finder=rg --files --hidden --glob='!.git/*' --glob='!.pijul/*'<cr>
 
-nnoremap <silent> <leader>g :Clap grep ++externalfilter=fzy<cr>
+nnoremap <silent> <leader>g :Clap grep ++externalfilter=fzy ++opt=--hidden ++opt=--trim<cr>
 
 " }}}
 
