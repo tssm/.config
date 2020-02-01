@@ -344,7 +344,6 @@ lua plug('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/sta
 lua plug('https://github.com/AndrewRadev/linediff.vim.git', 'general/start/linediff', 'master')
 
 lua plug('https://github.com/yssl/QFEnter.git', 'general/start/qfenter', 'master')
-lua plug('https://gist.github.com/ds26gte/034b9ac9edeaf86d0ff5c73f97dd530b', 'general/start/keep-terminal', 'master')
 lua plug('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
 lua plug('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
 lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
