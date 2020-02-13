@@ -390,11 +390,13 @@ lua plug('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'm
 
 lua plug('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master', './install.sh')
 
+let g:clap_provider_grep_opts='--hidden --glob=!.git/ --glob=!.pijul/ --no-heading --trim --smart-case --vimgrep --with-filename'
+
 nnoremap <silent> <leader>b :Clap buffers ++externalfilter=fzy<cr>
 
 nnoremap <silent> <leader>f :Clap files ++externalfilter=fzy ++finder=rg --files --hidden --glob='!.git/*' --glob='!.pijul/*'<cr>
 
-nnoremap <silent> <leader>g :Clap grep ++externalfilter=fzy ++opt=--hidden ++opt=--trim<cr>
+nnoremap <silent> <leader>g :Clap grep<cr>
 
 " }}}
 
