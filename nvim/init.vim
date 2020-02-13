@@ -388,7 +388,7 @@ lua plug('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'm
 
 " Clap {{{
 
-lua plug('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master')
+lua plug('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master', './install.sh')
 
 nnoremap <silent> <leader>b :Clap buffers ++externalfilter=fzy<cr>
 
