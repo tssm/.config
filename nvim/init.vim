@@ -101,7 +101,11 @@ cnoremap <C-N> <Down>
 " Search prefix forward
 " Makes the command line behave like Fish
 
-let mapleader="\<bs>"
+nnoremap <cr> <nop>
+let mapleader="\<Enter>"
+
+nnoremap <space> <nop>
+let maplocalleader="\<Space>"
 
 noremap d "_d
 noremap dd "_dd
