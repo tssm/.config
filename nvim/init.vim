@@ -339,6 +339,7 @@ let g:loaded_ruby_provider=0
 
 lua require('plug')
 
+lua plug('git@github.com:tssm/vim-capital-h.git', 'general/start/capital-h', 'master')
 lua plug('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
 lua plug('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
 lua plug('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
@@ -353,7 +354,6 @@ lua plug('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'mas
 lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
 lua plug('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
 lua plug('https://github.com/bronson/vim-trailing-whitespace.git', 'general/start/trailing-whitespace', 'master')
-lua plug('git@github.com:tssm/vertical-help.vim.git', 'general/start/vertical-help', 'master')
 
 " Color schemes {{{
 
