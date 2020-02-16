@@ -505,7 +505,7 @@ let g:LanguageClient_rootMarkers = {
 	\ }
 
 let g:LanguageClient_serverCommands = {
-	\ 'haskell': ['hie-wrapper'],
+	\ 'haskell': ['hie-wrapper', '--lsp'],
 	\ 'lua': ['lua-lsp'],
 	\ 'purescript': ['purescript-language-server', '--stdio', '--config', '{}'],
 	\ 'rust': ['rls']
