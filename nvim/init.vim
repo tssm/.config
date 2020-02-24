@@ -48,7 +48,7 @@ augroup ResizeWindowsProportionally
 	autocmd VimResized * :wincmd =
 augroup END
 
-set shortmess=csFS
+set shortmess=csF
 
 set visualbell
 " Turns off annoying sound
@@ -151,6 +151,11 @@ set shiftwidth=0
 " }}}
 
 " Search and replace {{{
+
+nnoremap n nzz
+nnoremap N Nzz
+vnoremap n nzz
+vnoremap N Nzz
 
 set gdefault
 " Substitutes all matches on a line by default
@@ -447,14 +452,6 @@ nmap <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 nmap <silent> _ <Plug>FileBeagleOpenCurrentWorkingDir
 
 let g:filebeagle_check_gitignore = 1
-
-" }}}
-
-" Indexed search {{{
-
-lua plug('https://github.com/henrik/vim-indexed-search.git', 'general/start/indexed-search', 'master')
-
-let g:indexed_search_center=1
 
 " }}}
 
