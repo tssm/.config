@@ -273,6 +273,8 @@ augroup FixColorSchemes
 	autocmd!
 	autocmd ColorScheme *
 		\ highlight EndOfBuffer guibg=bg |
+		\ highlight! link FoldColumn EndOfBuffer |
+		\ highlight! link Folded EndOfBuffer |
 		\ highlight! link LineNr EndOfBuffer |
 		\ highlight CursorLineNr guibg=bg guifg=bg |
 		\ highlight SignColumn guibg=bg |
