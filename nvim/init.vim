@@ -408,6 +408,8 @@ let g:clap_layout={
 	\ 'width': '100%',
 	\ }
 
+let g:clap_project_root_markers=['.git/', '.pijul/']
+
 let g:clap_provider_grep_opts='--hidden --glob=!.git/ --glob=!.pijul/ --no-heading --trim --smart-case --vimgrep --with-filename'
 
 nnoremap <silent> <leader>b :Clap buffers ++externalfilter=fzy<cr>
