@@ -263,7 +263,7 @@ command! -nargs=* -complete=shellcmd T vsplit | terminal <args>
 command! -nargs=1 -complete=dir -bang S %bwipeout<bang> | cd <args> | terminal
 " cd into <args> and start a terminal. S is short for shell
 
-set scrollback=-1
+set scrollback=100000
 
 " }}}
 
