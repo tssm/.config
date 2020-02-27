@@ -55,6 +55,26 @@ set visualbell
 
 " }}}
 
+" Command line {{{
+
+cnoremap <C-A> <Home>
+" Go to the beginning of the line
+cnoremap <C-B> <Left>
+" Go back one character
+cnoremap <C-F> <Right>
+" Go forward one character
+cnoremap ∫ <S-Left>
+" Go back one word
+cnoremap ƒ <S-Right>
+" Go forward one word
+cnoremap <C-P> <Up>
+" Search prefix backwards
+cnoremap <C-N> <Down>
+" Search prefix forward
+" Makes the command line behave like Fish
+
+" }}}
+
 " Diff {{{
 
 set diffopt+=vertical
@@ -85,22 +105,6 @@ set nofoldenable
 
 " Mappings {{{
 
-cnoremap <C-A> <Home>
-" Go to the beginning of the line
-cnoremap <C-B> <Left>
-" Go back one character
-cnoremap <C-F> <Right>
-" Go forward one character
-cnoremap ∫ <S-Left>
-" Go back one word
-cnoremap ƒ <S-Right>
-" Go forward one word
-cnoremap <C-P> <Up>
-" Search prefix backwards
-cnoremap <C-N> <Down>
-" Search prefix forward
-" Makes the command line behave like Fish
-
 nnoremap <cr> <nop>
 let mapleader="\<Enter>"
 
@@ -126,9 +130,6 @@ xnoremap p "_dP
 
 nnoremap Y y$
 " Makes Y behaves like C and D.
-
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-" Replace the word under cursor.
 
 noremap! <c-\> <esc>
 tnoremap <c-\> <c-\><c-n>
@@ -156,6 +157,9 @@ nnoremap n nzz
 nnoremap N Nzz
 vnoremap n nzz
 vnoremap N Nzz
+
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+" Replace the word under cursor.
 
 set gdefault
 " Substitutes all matches on a line by default
