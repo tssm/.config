@@ -348,62 +348,67 @@ let g:loaded_python_provider=0
 let g:loaded_python3_provider=0
 let g:loaded_ruby_provider=0
 
-lua require('plug')
-
-lua plug('git@github.com:tssm/vim-capital-h.git', 'general/start/capital-h', 'master')
-lua plug('https://github.com/tpope/vim-commentary.git', 'general/start/commentary', 'master')
-lua plug('https://github.com/lifecrisis/vim-difforig.git', 'general/start/difforig', 'master')
-lua plug('https://github.com/whatyouhide/vim-lengthmatters.git', 'general/start/lengthmatters', 'master')
-
-lua plug('https://github.com/cohama/lexima.vim.git', 'lexima/start/lexima', 'master')
-lua plug('https://github.com/zandrmartin/lexima-template-rules.git', 'lexima/start/template-rules', 'master')
-lua plug('https://github.com/AndrewRadev/linediff.vim.git', 'general/start/linediff', 'master')
-
-lua plug('https://github.com/yssl/QFEnter.git', 'general/start/qfenter', 'master')
-lua plug('https://github.com/tpope/vim-repeat.git', 'general/start/repeat', 'master')
-lua plug('https://github.com/tpope/vim-sleuth.git', 'general/start/sleuth', 'master')
-lua plug('https://github.com/tpope/vim-surround.git', 'general/start/surround', 'master')
-lua plug('git@github.com:tssm/tectonic.vim.git', 'general/start/tectonic', 'master')
-lua plug('https://github.com/bronson/vim-trailing-whitespace.git', 'general/start/trailing-whitespace', 'master')
+let g:auto_plugins=[
+	\ {'url': 'https://github.com/tssm/neovim-automaton'},
+	\ {'url': 'git@github.com:tssm/vim-capital-h'},
+	\ {'url': 'https://github.com/tpope/vim-commentary'},
+	\ {'url': 'https://github.com/lifecrisis/vim-difforig'},
+	\ {'url': 'https://github.com/whatyouhide/vim-lengthmatters'},
+	\ {'url': 'https://github.com/cohama/lexima.vim'},
+	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
+	\ {'url': 'https://github.com/AndrewRadev/linediff.vim'},
+	\ {'url': 'https://github.com/yssl/QFEnter'},
+	\ {'url': 'https://github.com/tpope/vim-repeat'},
+	\ {'url': 'https://github.com/tpope/vim-sleuth'},
+	\ {'url': 'https://github.com/tpope/vim-surround'},
+	\ {'url': 'git@github.com:tssm/tectonic.vim'},
+	\ {'url': 'https://github.com/bronson/vim-trailing-whitespace'},
+	\ ]
 
 " Color schemes {{{
 
-lua plug('https://github.com/ayu-theme/ayu-vim', 'colors/opt/ayu', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/ayu-theme/ayu-vim', 'opt': v:true}]
 let g:ayucolor="mirage"
 
-lua plug('https://github.com/dennougorilla/azuki.vim.git', 'colors/opt/azuki', 'master')
-lua plug('https://github.com/thenewvu/vim-colors-blueprint.git', 'colors/opt/blueprint', 'master')
-lua plug('git@github.com:tssm/c64-vim-color-scheme', 'colors/opt/c64', 'master')
-lua plug('https://github.com/Jimeno0/vim-chito.git', 'colors/opt/chito', 'master')
-lua plug('https://github.com/agreco/vim-citylights.git', 'colors/opt/citylights', 'master')
-lua plug('https://github.com/archSeer/colibri.vim.git', 'colors/opt/colibri', 'master')
-lua plug('git@github.com:tssm/fairyfloss.vim', 'colors/opt/fairyfloss', 'master')
-lua plug('https://github.com/whatyouhide/vim-gotham.git', 'colors/opt/gotham', 'master')
-lua plug('https://github.com/MaxSt/FlatColor.git', 'colors/opt/flat', 'master')
-
-lua plug('https://github.com/charlespeters/ganymede.vim.git', 'colors/opt/ganymede', 'master')
+let g:auto_plugins+=[
+	\ {'url': 'https://github.com/dennougorilla/azuki.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/thenewvu/vim-colors-blueprint', 'opt': v:true},
+	\ {'url': 'git@github.com:tssm/c64-vim-color-scheme', 'opt': v:true},
+	\ {'url': 'https://github.com/Jimeno0/vim-chito', 'opt': v:true},
+	\ {'url': 'https://github.com/agreco/vim-citylights', 'opt': v:true},
+	\ {'url': 'https://github.com/archSeer/colibri.vim', 'opt': v:true},
+	\ {'url': 'git@github.com:tssm/fairyfloss.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/whatyouhide/vim-gotham', 'opt': v:true},
+	\ {'url': 'https://github.com/MaxSt/FlatColor', 'opt': v:true},
+	\ {'url': 'https://github.com/charlespeters/ganymede.vim', 'opt': v:true},
+	\ ]
 let g:ganymede_solid_background=1
 
-lua plug('https://github.com/aereal/vim-colors-japanesque.git', 'colors/opt/japanesque', 'master')
-lua plug('https://github.com/kaicataldo/material.vim', 'colors/opt/material', 'master')
-lua plug('https://github.com/haishanh/night-owl.vim.git', 'colors/opt/night-owl', 'master')
-lua plug('https://github.com/trevordmiller/nova-vim.git', 'colors/opt/nova', 'master')
-lua plug('https://github.com/KKPMW/oldbook-vim.git', 'colors/opt/oldbook', 'master')
-lua plug('https://github.com/sts10/vim-pink-moon.git', 'colors/opt/pink-moon', 'master')
-lua plug('https://github.com/KKPMW/sacredforest-vim.git', 'colors/opt/sacredforest', 'master')
-lua plug('https://github.com/skreek/skeletor.vim.git', 'colors/opt/skeletor', 'master')
-lua plug('https://github.com/connorholyday/vim-snazzy.git', 'colors/opt/snazzy', 'master')
-lua plug('https://github.com/nightsense/snow.git', 'colors/opt/snow', 'master')
-lua plug('https://github.com/nightsense/stellarized.git', 'colors/opt/stellarized', 'master')
-lua plug('https://github.com/nightsense/strawberry.git', 'colors/opt/strawberry', 'master')
-lua plug('https://github.com/rupertqin/ThyName.git', 'colors/opt/thyname', 'master')
-lua plug('https://github.com/cseelus/vim-colors-tone.git', 'colors/opt/tone', 'master')
+let g:auto_plugins+=[
+	\ {'url': 'https://github.com/aereal/vim-colors-japanesque', 'opt': v:true},
+	\ {'url': 'https://github.com/kaicataldo/material.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/haishanh/night-owl.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/trevordmiller/nova-vim', 'opt': v:true},
+	\ {'url': 'https://github.com/KKPMW/oldbook-vim', 'opt': v:true},
+	\ {'url': 'https://github.com/sts10/vim-pink-moon', 'opt': v:true},
+	\ {'url': 'https://github.com/KKPMW/sacredforest-vim', 'opt': v:true},
+	\ {'url': 'https://github.com/skreek/skeletor.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/connorholyday/vim-snazzy', 'opt': v:true},
+	\ {'url': 'https://github.com/nightsense/snow', 'opt': v:true},
+	\ {'url': 'https://github.com/nightsense/stellarized', 'opt': v:true},
+	\ {'url': 'https://github.com/nightsense/strawberry', 'opt': v:true},
+	\ {'url': 'https://github.com/rupertqin/ThyName', 'opt': v:true},
+	\ {'url': 'https://github.com/cseelus/vim-colors-tone', 'opt': v:true},
+	\ ]
 
 " }}}
 
 " Clap {{{
 
-lua plug('https://github.com/liuchengxu/vim-clap.git', 'general/start/clap', 'master', './install.sh')
+let g:auto_plugins+=[{
+	\ 'url': 'https://github.com/liuchengxu/vim-clap',
+	\ 'bootstrap': './install.sh',
+	\ }]
 
 let g:clap_layout={
 	\ 'relative': 'window',
@@ -426,7 +431,7 @@ nnoremap <silent> <leader>g :Clap grep<cr>
 
 " Colorize {{{
 
-lua plug('https://github.com/chrisbra/color_highlight.git', 'general/start/colorizer', 'master')
+let g:auto_plugins+=[{'https://github.com/chrisbra/color_highlight'}]
 
 let g:colorizer_colornames=0
 
@@ -438,7 +443,7 @@ let g:colorizer_skip_comments=1
 
 " Editorconfig {{{
 
-lua plug('https://github.com/editorconfig/editorconfig-vim.git', 'general/start/editorconfig', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/editorconfig/editorconfig-vim'}]
 
 let g:EditorConfig_max_line_indicator="none"
 " Lengthmatters takes care of this
@@ -447,7 +452,7 @@ let g:EditorConfig_max_line_indicator="none"
 
 " FileBeagle {{{
 
-lua plug('https://github.com/jeetsukumaran/vim-filebeagle.git', 'general/start/filebeagle', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/jeetsukumaran/vim-filebeagle'}]
 
 command! -nargs=1 -complete=dir -bang E %bwipeout<bang> | cd <args> | FileBeagle
 " cd into <args> and start FileBeagle. E is short for explore
@@ -465,7 +470,11 @@ let g:filebeagle_check_gitignore = 1
 
 " {{{ Language Client
 
-lua plug('https://github.com/autozimu/LanguageClient-neovim.git', 'general/start/languageclient', 'next', 'bash install.sh')
+let g:auto_plugins+=[{
+	\ 'url': 'https://github.com/autozimu/LanguageClient-neovim',
+	\ 'branch': 'next',
+	\ 'bootstrap': 'bash install.sh',
+	\ }]
 
 autocmd User LanguageClientStarted |
 	\ set signcolumn=yes |
@@ -522,26 +531,24 @@ let g:LanguageClient_useVirtualText=0
 
 " Missing filetypes {{{
 
-lua plug('https://github.com/JulesWang/css.vim.git', 'filetypes/start/css', 'master')
-lua plug('https://github.com/othree/html5.vim.git', 'filetypes/start/html', 'master')
-
-lua plug('https://github.com/dag/vim-fish.git', 'filetypes/start/fish', 'master')
-lua plug('https://github.com/LnL7/vim-nix', 'filetypes/start/nix', 'master')
-
--- Haskell
-lua plug('https://github.com/pbrisbin/vim-syntax-shakespeare.git', 'haskell/start/shakespeare', 'master')
-lua plug('https://github.com/zenzike/vim-haskell-unicode.git', 'haskell/start/unicode', 'master')
-
-lua plug('https://github.com/lifepillar/pgsql.vim.git', 'filetypes/start/pgsql', 'master')
-lua plug('https://github.com/raichoo/purescript-vim.git', 'filetypes/start/purescript', 'master')
-lua plug('https://github.com/rust-lang/rust.vim.git', 'filetypes/start/rust', 'master')
-lua plug('https://github.com/keith/swift.vim.git', 'filetypes/start/swift', 'master')
+let g:auto_plugins+=[
+	\ {'url': 'https://github.com/JulesWang/css.vim'},
+	\ {'url': 'https://github.com/othree/html5.vim'},
+	\ {'url': 'https://github.com/dag/vim-fish'},
+	\ {'url': 'https://github.com/LnL7/vim-nix'},
+	\ {'url': 'https://github.com/pbrisbin/vim-syntax-shakespeare'},
+	\ {'url': 'https://github.com/zenzike/vim-haskell-unicode'},
+	\ {'url': 'https://github.com/lifepillar/pgsql.vim'},
+	\ {'url': 'https://github.com/raichoo/purescript-vim'},
+	\ {'url': 'https://github.com/rust-lang/rust.vim'},
+	\ {'url': 'https://github.com/keith/swift.vim'},
+	\ ]
 
 " }}}
 
 " MUcomplete {{{
 
-lua plug('https://github.com/lifepillar/vim-mucomplete.git', 'general/start/mucomplete', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/lifepillar/vim-mucomplete'}]
 
 let g:mucomplete#chains={ 'default' : [ 'omni', 'path', 'uspl' ] }
 
@@ -557,7 +564,7 @@ set completeopt=menuone,noinsert,noselect
 
 " Random Colors {{{
 
-lua plug('git@github.com:tssm/nvim-random-colors.git', 'general/start/random-colors', 'master')
+let g:auto_plugins+=[{'url': 'git@github.com:tssm/nvim-random-colors'}]
 
 command! RandomColorScheme lua require('random-colors')()
 
@@ -565,7 +572,7 @@ command! RandomColorScheme lua require('random-colors')()
 
 " Rooter {{{
 
-lua plug('https://github.com/airblade/vim-rooter.git', 'general/start/rooter', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/airblade/vim-rooter'}]
 
 let g:rooter_patterns=[ '.git', '.git/', '.pijul/' ]
 
@@ -577,7 +584,7 @@ let g:rooter_silent_chdir=1
 
 " Startify {{{
 
-lua plug('https://github.com/mhinz/vim-startify.git', 'general/start/startify', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/mhinz/vim-startify'}]
 
 let g:startify_change_to_dir=0
 
@@ -608,7 +615,7 @@ augroup END
 
 " Template {{{
 
-lua plug('https://github.com/aperezdc/vim-template.git', 'general/start/template', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/aperezdc/vim-template'}]
 
 let g:templates_directory=[stdpath('config') . '/templates']
 
@@ -620,7 +627,7 @@ let g:templates_no_builtin_templates=1
 
 " Undotree {{{
 
-lua plug('https://github.com/mbbill/undotree.git', 'general/start/undotree', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/mbbill/undotree'}]
 
 let g:undotree_HelpLine=0
 
@@ -630,7 +637,7 @@ let g:undotree_SetFocusWhenToggle=1
 
 " Vista {{{
 
-lua plug('https://github.com/liuchengxu/vista.vim.git', 'general/start/vista', 'master')
+let g:auto_plugins+=[{'url': 'https://github.com/liuchengxu/vista.vim'}]
 
 let g:vista_default_executive="lcn"
 
