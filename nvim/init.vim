@@ -371,12 +371,10 @@ let g:auto_plugins+=[{'url': 'https://github.com/ayu-theme/ayu-vim', 'opt': v:tr
 let g:ayucolor="mirage"
 
 let g:auto_plugins+=[
-	\ {'url': 'https://github.com/dennougorilla/azuki.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/thenewvu/vim-colors-blueprint', 'opt': v:true},
 	\ {'url': 'git@github.com:tssm/c64-vim-color-scheme', 'opt': v:true},
 	\ {'url': 'https://github.com/Jimeno0/vim-chito', 'opt': v:true},
-	\ {'url': 'https://github.com/agreco/vim-citylights', 'opt': v:true},
-	\ {'url': 'https://github.com/archSeer/colibri.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/wadackel/vim-dogrun', 'opt': v:true},
 	\ {'url': 'git@github.com:tssm/fairyfloss.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/whatyouhide/vim-gotham', 'opt': v:true},
 	\ {'url': 'https://github.com/MaxSt/FlatColor', 'opt': v:true},
@@ -385,20 +383,15 @@ let g:auto_plugins+=[
 let g:ganymede_solid_background=1
 
 let g:auto_plugins+=[
-	\ {'url': 'https://github.com/aereal/vim-colors-japanesque', 'opt': v:true},
+	\ {'url': 'https://github.com/morhetz/gruvbox', 'opt': v:true},
 	\ {'url': 'https://github.com/kaicataldo/material.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/haishanh/night-owl.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/trevordmiller/nova-vim', 'opt': v:true},
-	\ {'url': 'https://github.com/KKPMW/oldbook-vim', 'opt': v:true},
+	\ {'url': 'https://github.com/mhartington/oceanic-next', 'opt': v:true},
 	\ {'url': 'https://github.com/sts10/vim-pink-moon', 'opt': v:true},
-	\ {'url': 'https://github.com/KKPMW/sacredforest-vim', 'opt': v:true},
-	\ {'url': 'https://github.com/skreek/skeletor.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/connorholyday/vim-snazzy', 'opt': v:true},
 	\ {'url': 'https://github.com/nightsense/snow', 'opt': v:true},
-	\ {'url': 'https://github.com/nightsense/stellarized', 'opt': v:true},
 	\ {'url': 'https://github.com/nightsense/strawberry', 'opt': v:true},
-	\ {'url': 'https://github.com/rupertqin/ThyName', 'opt': v:true},
-	\ {'url': 'https://github.com/cseelus/vim-colors-tone', 'opt': v:true},
 	\ ]
 
 " }}}
