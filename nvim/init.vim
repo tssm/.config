@@ -373,11 +373,11 @@ let g:ayucolor="mirage"
 let g:auto_plugins+=[
 	\ {'url': 'https://github.com/thenewvu/vim-colors-blueprint', 'opt': v:true},
 	\ {'url': 'git@github.com:tssm/c64-vim-color-scheme', 'opt': v:true},
+	\ {'url': 'https://github.com/challenger-deep-theme/vim.git', 'opt': v:true},
 	\ {'url': 'https://github.com/Jimeno0/vim-chito', 'opt': v:true},
 	\ {'url': 'https://github.com/wadackel/vim-dogrun', 'opt': v:true},
 	\ {'url': 'git@github.com:tssm/fairyfloss.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/whatyouhide/vim-gotham', 'opt': v:true},
-	\ {'url': 'https://github.com/MaxSt/FlatColor', 'opt': v:true},
 	\ {'url': 'https://github.com/charlespeters/ganymede.vim', 'opt': v:true},
 	\ ]
 let g:ganymede_solid_background=1
