@@ -396,32 +396,6 @@ let g:auto_plugins+=[
 
 " }}}
 
-" Clap {{{
-
-let g:auto_plugins+=[{
-	\ 'url': 'https://github.com/liuchengxu/vim-clap',
-	\ 'bootstrap': './install.sh',
-	\ }]
-
-let g:clap_layout={
-	\ 'relative': 'window',
-	\ 'col': 0,
-	\ 'row': 1,
-	\ 'width': '100%',
-	\ }
-
-let g:clap_project_root_markers=['.git/', '.pijul/']
-
-let g:clap_provider_grep_opts='--hidden --glob=!.git/ --glob=!.pijul/ --no-heading --trim --smart-case --vimgrep --with-filename'
-
-nnoremap <silent> <leader>b :Clap buffers ++externalfilter=fzy<cr>
-
-nnoremap <silent> <leader>f :Clap files ++externalfilter=fzy ++finder=rg --files --hidden --glob='!.git/*' --glob='!.pijul/*'<cr>
-
-nnoremap <silent> <leader>g :Clap grep<cr>
-
-" }}}
-
 " Colorize {{{
 
 let g:auto_plugins+=[{'https://github.com/chrisbra/color_highlight'}]
@@ -458,6 +432,23 @@ nmap <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 nmap <silent> _ <Plug>FileBeagleOpenCurrentWorkingDir
 
 let g:filebeagle_check_gitignore = 1
+
+" }}}
+
+" FZF {{{
+
+let g:auto_plugins+=[
+	\ {'url': 'https://github.com/junegunn/fzf'},
+	\ {'url': 'https://github.com/junegunn/fzf.vim'},
+	\ ]
+
+let g:fzf_layout={'window': {'width': 1, 'height': 0.4, 'yoffset': 1}}
+
+nnoremap <silent> <leader>b :Buffers<cr>
+
+nnoremap <silent> <leader>f :Files<cr>
+
+nnoremap <silent> <leader>g :Rg<cr>
 
 " }}}
 
