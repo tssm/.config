@@ -353,6 +353,7 @@ let g:auto_plugins=[
 	\ {'url': 'git@github.com:tssm/vim-capital-h'},
 	\ {'url': 'https://github.com/tpope/vim-commentary'},
 	\ {'url': 'https://github.com/lifecrisis/vim-difforig'},
+	\ {'url': 'https://github.com/rhysd/git-messenger.vim'},
 	\ {'url': 'https://github.com/whatyouhide/vim-lengthmatters'},
 	\ {'url': 'https://github.com/cohama/lexima.vim'},
 	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
