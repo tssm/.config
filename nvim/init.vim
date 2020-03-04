@@ -448,11 +448,16 @@ let $FZF_DEFAULT_OPTS='--info inline --layout reverse'
 
 let g:fzf_layout={'window': {'border': 'sharp', 'width': 1, 'height': 0.3, 'yoffset': 1}}
 
+let g:fzf_rg_command='rg --color always --trim --vimgrep ' . s:fzf_rg_options . ' ' . shellescape('')
+
+let s:fzf_rg_options='--glob !.git/ --glob !.pijul/ --hidden --ignore-file .pijulignore --smart-case'
+let $FZF_DEFAULT_COMMAND='rg --files ' . s:fzf_rg_options
+
 nnoremap <silent> <leader>b :Buffers<cr>
 
-nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
 
-nnoremap <silent> <leader>g :Rg<cr>
+nnoremap <silent> <leader>g :call fzf#vim#grep(g:fzf_rg_command, 1, fzf#vim#with_preview())<cr>
 
 " }}}
 
