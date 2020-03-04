@@ -444,7 +444,7 @@ let g:auto_plugins+=[
 	\ {'url': 'https://github.com/junegunn/fzf.vim'},
 	\ ]
 
-let g:fzf_layout={'window': {'width': 1, 'height': 0.4, 'yoffset': 1}}
+let g:fzf_layout={'window': {'border': 'sharp', 'width': 1, 'height': 0.3, 'yoffset': 1}}
 
 nnoremap <silent> <leader>b :Buffers<cr>
 
