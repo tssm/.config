@@ -358,7 +358,6 @@ let g:auto_plugins=[
 	\ {'url': 'https://github.com/cohama/lexima.vim'},
 	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
 	\ {'url': 'https://github.com/AndrewRadev/linediff.vim'},
-	\ {'url': 'https://github.com/yssl/QFEnter'},
 	\ {'url': 'https://github.com/tpope/vim-repeat'},
 	\ {'url': 'https://github.com/tpope/vim-sleuth'},
 	\ {'url': 'https://github.com/tpope/vim-surround'},
@@ -458,6 +457,9 @@ nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
 
 nnoremap <silent> <leader>g :call fzf#vim#grep(g:fzf_rg_command, 1, fzf#vim#with_preview())<cr>
+
+let g:auto_plugins+=[{'url': 'https://github.com/fszymanski/fzf-quickfix'}]
+nnoremap <silent> <leader>q :Quickfix<cr>
 
 let g:auto_plugins+=[{'url': 'https://github.com/pbogut/fzf-mru.vim'}]
 nnoremap <silent> <leader>r :FZFMru<cr>
