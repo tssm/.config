@@ -458,6 +458,13 @@ nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
 
 nnoremap <silent> <leader>g :call fzf#vim#grep(g:fzf_rg_command, 1, fzf#vim#with_preview())<cr>
 
+let g:auto_plugins+=[{'url': 'https://github.com/pbogut/fzf-mru.vim'}]
+nnoremap <silent> <leader>r :FZFMru<cr>
+
+let g:auto_plugins+=[{'url': 'https://github.com/dominickng/fzf-session.vim'}]
+let g:fzf_session_path=stdpath('data') . '/session'
+nnoremap <silent> <leader>s :Sessions<cr>
+
 " }}}
 
 " {{{ Language Client
@@ -571,37 +578,6 @@ let g:rooter_patterns=[ '.git', '.git/', '.pijul/' ]
 let g:rooter_resolve_links=1
 
 let g:rooter_silent_chdir=1
-
-" }}}
-
-" Startify {{{
-
-let g:auto_plugins+=[{'url': 'https://github.com/mhinz/vim-startify'}]
-
-let g:startify_change_to_dir=0
-
-let g:startify_commands=[ { 't': 'terminal' } ]
-
-let g:startify_custom_header=''
-
-let g:startify_lists = [
-	\ { 'type': 'sessions', 'header': [ ' Sessions' ] },
-	\ { 'type': 'files', 'header': [ ' Recent files' ] },
-	\ { 'type': 'commands', 'header': [ ' Commands' ] }
-	\ ]
-
-let g:startify_session_persistence=1
-
-let g:startify_update_oldfiles = 1
-
-augroup Startify
-	autocmd!
-	autocmd User StartifyReady
-		\ setlocal buftype=nofile |
-		\ setlocal statusline=Startify |
-		\ setlocal statusline=\ |
-		\ LengthmattersReload
-augroup END
 
 " }}}
 
