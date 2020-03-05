@@ -447,8 +447,6 @@ let $FZF_DEFAULT_OPTS='--info inline --layout reverse'
 
 let g:fzf_layout={'window': {'border': 'sharp', 'width': 1, 'height': 0.3, 'yoffset': 1}}
 
-let g:fzf_rg_command='rg --color always --trim --vimgrep ' . s:fzf_rg_options . ' ' . shellescape('')
-
 let s:fzf_rg_options='--glob !.git/ --glob !.pijul/ --hidden --ignore-file .pijulignore --smart-case'
 let $FZF_DEFAULT_COMMAND='rg --files ' . s:fzf_rg_options
 
@@ -456,7 +454,14 @@ nnoremap <silent> <leader>b :Buffers<cr>
 
 nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
 
-nnoremap <silent> <leader>g :call fzf#vim#grep(g:fzf_rg_command, 1, fzf#vim#with_preview())<cr>
+function! RipgrepFzf() abort
+	let l:command_fmt = 'rg --color always --trim --vimgrep ' . s:fzf_rg_options . ' %s || true'
+	let l:initial_command = printf(l:command_fmt, '')
+	let l:reload_command = printf(l:command_fmt, '{q}')
+	let l:spec = {'options': ['--phony', '--bind', 'change:reload:' . l:reload_command]}
+	call fzf#vim#grep(l:initial_command, 1, fzf#vim#with_preview(l:spec))
+endfunction
+nnoremap <silent> <leader>g :call RipgrepFzf()<cr>
 
 let g:auto_plugins+=[{'url': 'https://github.com/fszymanski/fzf-quickfix'}]
 nnoremap <silent> <leader>q :Quickfix<cr>
