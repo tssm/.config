@@ -351,6 +351,7 @@ let g:loaded_ruby_provider=0
 let g:auto_plugins=[
 	\ {'url': 'https://github.com/tssm/neovim-automaton'},
 	\ {'url': 'git@github.com:tssm/vim-capital-h'},
+	\ {'url': 'https://github.com/norcalli/nvim-colorizer.lua'},
 	\ {'url': 'https://github.com/tpope/vim-commentary'},
 	\ {'url': 'https://github.com/lifecrisis/vim-difforig'},
 	\ {'url': 'https://github.com/rhysd/git-messenger.vim'},
@@ -394,18 +395,6 @@ let g:auto_plugins+=[
 	\ {'url': 'https://github.com/nightsense/snow', 'opt': v:true},
 	\ {'url': 'https://github.com/nightsense/strawberry', 'opt': v:true},
 	\ ]
-
-" }}}
-
-" Colorize {{{
-
-let g:auto_plugins+=[{'https://github.com/chrisbra/color_highlight'}]
-
-let g:colorizer_colornames=0
-
-let g:colorizer_disable_bufleave=1
-
-let g:colorizer_skip_comments=1
 
 " }}}
 
