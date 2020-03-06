@@ -354,7 +354,6 @@ let g:auto_plugins=[
 	\ {'url': 'https://github.com/norcalli/nvim-colorizer.lua'},
 	\ {'url': 'https://github.com/tpope/vim-commentary'},
 	\ {'url': 'https://github.com/lifecrisis/vim-difforig'},
-	\ {'url': 'https://github.com/rhysd/git-messenger.vim'},
 	\ {'url': 'https://github.com/whatyouhide/vim-lengthmatters'},
 	\ {'url': 'https://github.com/cohama/lexima.vim'},
 	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
@@ -460,6 +459,14 @@ nnoremap <silent> <leader>r :FZFMru<cr>
 let g:auto_plugins+=[{'url': 'https://github.com/dominickng/fzf-session.vim'}]
 let g:fzf_session_path=stdpath('data') . '/session'
 nnoremap <silent> <leader>s :Sessions<cr>
+
+" }}}
+
+" Git Messenger {{{
+
+let g:auto_plugins+=[{'url': 'https://github.com/rhysd/git-messenger.vim'}]
+
+let g:git_messenger_no_default_mappings=v:true
 
 " }}}
 
