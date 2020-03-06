@@ -1,5 +1,4 @@
 function fish_greeting
-	set_color cyan
-	echo Hello! 😺
+	echo Session started on (date -R)
 end
 
