@@ -1,9 +1,11 @@
 function fish_title
 	set command (status current-command)
-	if [ $command = "man" ]
-		set parts (string split " " -- $argv)
-		echo manual for $parts[2]
-	else
-		echo $command "in" (pwd)
+	switch $command
+		case fish
+			echo fish in (pwd)
+		case man
+			echo manual for (string split ' ' $argv)[-1]
+		case '*'
+			echo $command
 	end
 end
