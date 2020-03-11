@@ -430,7 +430,7 @@ let g:auto_plugins+=[
 	\ {'url': 'https://github.com/junegunn/fzf.vim'},
 	\ ]
 
-let $FZF_DEFAULT_OPTS='--info inline --layout reverse'
+let $FZF_DEFAULT_OPTS='--info inline --layout reverse --preview-window noborder'
 
 let g:fzf_layout={'window': {'border': 'sharp', 'width': 1, 'height': 0.3, 'yoffset': 1}}
 
