@@ -387,6 +387,7 @@ let g:auto_plugins+=[
 	\ {'url': 'https://github.com/kaicataldo/material.vim', 'opt': v:true},
 	\ {'url': 'https://github.com/icymind/NeoSolarized', 'opt': v:true},
 	\ {'url': 'https://github.com/haishanh/night-owl.vim', 'opt': v:true},
+	\ {'url': 'https://github.com/arcticicestudio/nord-vim', 'opt': v:true},
 	\ {'url': 'https://github.com/trevordmiller/nova-vim', 'opt': v:true},
 	\ {'url': 'https://github.com/mhartington/oceanic-next', 'opt': v:true},
 	\ {'url': 'https://github.com/sts10/vim-pink-moon', 'opt': v:true},
