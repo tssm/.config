@@ -10,7 +10,7 @@ set --export NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
 set --export SSL_CERT_FILE $NIX_LINK/etc/ssl/certs/ca-bundle.crt
 
 # XDG
-if [ -z $XDG_CONFIG_HOME ]
+if test -z $XDG_CONFIG_HOME
 	set --export XDG_CONFIG_HOME $HOME/.config
 	set --export XDG_DATA_HOME $HOME/.local/share
 	set --export XDG_CACHE_HOME $HOME/.cache
