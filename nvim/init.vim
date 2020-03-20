@@ -527,7 +527,7 @@ let g:LanguageClient_serverCommands = {
 	\ 'rust': ['rls']
 \ }
 
-let g:LanguageClient_useVirtualText=0
+let g:LanguageClient_useVirtualText='All'
 
 " }}}
 
