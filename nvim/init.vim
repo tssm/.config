@@ -491,8 +491,6 @@ autocmd User LanguageClientStopped |
 	\ nunmap K |
 	\ nunmap <f6>
 
-let g:LanguageClient_autoStart = 1
-
 let g:LanguageClient_diagnosticsDisplay = {
 	\ 1: {
 		\ "name": "Error",
