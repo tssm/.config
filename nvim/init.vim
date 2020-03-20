@@ -529,7 +529,7 @@ let g:LanguageClient_serverCommands = {
 	\ 'scala': ['metals-vim-lsc']
 \ }
 
-let g:LanguageClient_useVirtualText=0
+let g:LanguageClient_useVirtualText='All'
 
 " }}}
 
