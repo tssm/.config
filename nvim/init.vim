@@ -31,7 +31,7 @@ set clipboard=unnamed,unnamedplus
 set hidden
 " Allows hidden buffers without writing them
 
-set inccommand=split
+set inccommand=nosplit
 
 set iskeyword-=_
 
