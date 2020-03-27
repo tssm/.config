@@ -354,7 +354,6 @@ let g:auto_plugins=[
 	\ {'url': 'https://github.com/norcalli/nvim-colorizer.lua'},
 	\ {'url': 'https://github.com/tpope/vim-commentary'},
 	\ {'url': 'https://github.com/lifecrisis/vim-difforig'},
-	\ {'url': 'https://github.com/whatyouhide/vim-lengthmatters'},
 	\ {'url': 'https://github.com/cohama/lexima.vim'},
 	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
 	\ {'url': 'https://github.com/AndrewRadev/linediff.vim'},
@@ -533,6 +532,27 @@ let g:LanguageClient_serverCommands = {
 \ }
 
 let g:LanguageClient_useVirtualText='All'
+
+" }}}
+
+" Lengthmatters {{{
+
+let g:auto_plugins+=[{'url': 'https://github.com/whatyouhide/vim-lengthmatters'}]
+
+let g:lengthmatters_on_by_default=0
+
+function! SetupLengthmatters()
+	if &textwidth > 0
+		LengthmattersEnable
+	else
+		LengthmattersDisable
+	endif
+endfunction
+
+augroup EnableLengthmatters
+	autocmd!
+	autocmd OptionSet * call SetupLengthmatters()
+augroup END
 
 " }}}
 
