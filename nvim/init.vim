@@ -479,17 +479,20 @@ let g:auto_plugins+=[{
 	\ 'bootstrap': 'bash install.sh',
 	\ }]
 
-autocmd User LanguageClientStarted |
-	\ set signcolumn=yes |
-	\ nnoremap <buffer> <silent> <c-]> :call LanguageClient#textDocument_definition()<cr> |
-	\ nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr> |
-	\ nnoremap <buffer> <silent> <f6> :call LanguageClient_textDocument_documentSymbol()<cr> |
-	\ nnoremap <buffer> <silent> <leader>e :call LanguageClient#explainErrorAtPoint()<cr>
-autocmd User LanguageClientStopped |
-	\ set signcolumn=auto |
-	\ nunmap <c-]> |
-	\ nunmap K |
-	\ nunmap <f6>
+function! MapToLanguageClient()
+	if has_key(g:LanguageClient_serverCommands, &filetype)
+		nnoremap <buffer> <silent> <c-]> :call LanguageClient#textDocument_definition()<cr>
+		nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
+		nnoremap <buffer> <silent> <localleader>e :call LanguageClient#explainErrorAtPoint()<cr>
+	endif
+endfunction
+
+augroup LanguageClientSetUp
+	autocmd!
+	autocmd FileType * call MapToLanguageClient()
+	autocmd User LanguageClientStarted set signcolumn=yes
+	autocmd User LanguageClientStopped set signcolumn=auto
+augroup END
 
 let g:LanguageClient_diagnosticsDisplay = {
 	\ 1: {
