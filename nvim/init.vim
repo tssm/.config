@@ -397,30 +397,31 @@ let g:auto_plugins+=[
 
 " }}}
 
+" Dirvish {{{
+
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+let g:auto_plugins+=[{'url': 'https://github.com/justinmk/vim-dirvish'}]
+
+augroup DirvishSetUp
+	autocmd!
+	autocmd FileType dirvish
+		\ nnoremap <buffer> <cr> <nop>|
+		\ nnoremap <buffer> <silent> gf :call dirvish#open('edit', 0)<cr>
+augroup END
+" No space can go after <nop>
+
+command! -nargs=1 -complete=dir -bang E %bdelete<bang> | cd <args> | Dirvish
+
+" }}}
+
 " Editorconfig {{{
 
 let g:auto_plugins+=[{'url': 'https://github.com/editorconfig/editorconfig-vim'}]
 
 let g:EditorConfig_max_line_indicator="none"
 " Lengthmatters takes care of this
-
-" }}}
-
-" FileBeagle {{{
-
-let g:auto_plugins+=[{'url': 'https://github.com/jeetsukumaran/vim-filebeagle'}]
-
-command! -nargs=1 -complete=dir -bang E %bdelete<bang> | cd <args> | FileBeagle
-" cd into <args> and start FileBeagle. E is short for explore
-
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
-let g:filebeagle_suppress_keymaps = 1
-nmap <silent> - <Plug>FileBeagleOpenCurrentBufferDir
-nmap <silent> _ <Plug>FileBeagleOpenCurrentWorkingDir
-
-let g:filebeagle_check_gitignore = 1
 
 " }}}
 
