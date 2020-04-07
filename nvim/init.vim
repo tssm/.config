@@ -498,19 +498,27 @@ augroup END
 let g:LanguageClient_diagnosticsDisplay = {
 	\ 1: {
 		\ "name": "Error",
-		\ "signText": "⛔",
+		\ "signText": "»",
+		\ "signTexthl": "ErrorMsg",
+		\ "virtualTexthl": "ErrorMsg",
 	\ },
 	\ 2: {
 		\ "name": "Warning",
-		\ "signText": "⚠️",
+		\ "signText": "»",
+		\ "signTexthl": "WarningMsg",
+		\ "virtualTexthl": "WarningMsg",
 	\ },
 	\ 3: {
 		\ "name": "Information",
-		\ "signText": "ℹ️",
+		\ "signText": "»",
+		\ "signTexthl": "Comment",
+		\ "virtualTexthl": "Comment",
 	\ },
 	\ 4: {
 		\ "name": "Hint",
-		\ "signText": "💡",
+		\ "signText": "»",
+		\ "signTexthl": "Comment",
+		\ "virtualTexthl": "Comment",
 	\ }
 \ }
 
