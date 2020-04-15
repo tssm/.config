@@ -646,7 +646,11 @@ let g:undotree_SetFocusWhenToggle=1
 
 let g:auto_plugins+=[{'url': 'https://github.com/liuchengxu/vista.vim'}]
 
+let g:vista_close_on_jump=1
+
 let g:vista_default_executive="lcn"
+
+let g:vista_sidebar_position='vertical topleft'
 
 let g:vista_sidebar_width=80
 
