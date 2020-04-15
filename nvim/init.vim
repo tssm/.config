@@ -444,7 +444,9 @@ nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
 
 function! RipgrepFzf() abort
-	let l:command_fmt = 'rg --color always --trim --vimgrep ' . s:fzf_rg_options . ' %s || true'
+	let l:command_fmt = 'rg --color always --fixed-strings --trim --vimgrep '
+		\ . s:fzf_rg_options
+		\ . ' %s || true'
 	let l:initial_command = printf(l:command_fmt, '')
 	let l:reload_command = printf(l:command_fmt, '{q}')
 	let l:spec = {'options': ['--phony', '--bind', 'change:reload:' . l:reload_command]}
