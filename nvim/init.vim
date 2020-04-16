@@ -185,67 +185,123 @@ set sessionoptions=curdir,help,tabpages,winsize
 
 " }}}
 
-" Statusline {{{
+" Status line {{{
 
 function! GetCursorPosition()
-	let l:position = getcurpos()
+	if &buftype == ''
+		let l:position = getcurpos()
+		return l:position[1] . 'Ⲷ ' . l:position[2] . 'Ⲽ'
+	endif
 
-	return IsSpecialBuffer()
-		\ ? ''
-		\ : '  ' . l:position[1] . '☰' . ' ' . l:position[2] . '☷'
+	return &buftype ==# 'quickfix'
+		\ ? line('.') . '/' . line('$')
+		\ : ''
 endfunction
 
 function! GetFileStatus()
-	let l:filepath = expand('%:p')
+	if &buftype != ''
+		return ''
+	endif
 
-	return
-		\ ((IsSpecialBuffer() || empty(glob('%')) || !strlen(l:filepath) || (!&readonly && filewritable(filepath)))
-			\ ? ''
-			\ : '🔒') .
-		\ (&modified ? '💡' : '')
+	let l:file = expand('%:p')
+	let l:status =
+		\ (&readonly || (filereadable(l:file) && !filewritable(l:file))
+			\ ? ' 🔒'
+			\ : '')
+		\ . (&modified ? ' 💡' : '')
+	return len(l:status) > 0 ? ' ' . l:status : ''
+endfunction
+
+function! GetFileDir()
+	if &buftype != ''
+		return ''
+	endif
+
+	let l:path = expand('%:h')
+	return (len(l:path) > 0 && l:path != '.') ? l:path . '/' : ''
 endfunction
 
 function! GetFilename()
-	let l:filepath = expand('%')
-
 	return
-		\ &buftype ==# 'help' ? expand('%:t:r') . ' help' :
-		\ &buftype ==# 'terminal' ? b:term_title :
-		\ strlen(l:filepath) > 0 ? l:filepath : '🆕'
+		\ &buftype ==# 'help' ? expand('%:t:r') :
+		\ &buftype ==# 'quickfix' ? get(w:, 'quickfix_title', 'Quckfix list') :
+		\ &buftype ==# 'terminal' ? TerminalTitle() :
+		\ &filetype ==# 'diff' ? 'Diff' :
+		\ &filetype ==# 'dirvish' ? bufname() :
+		\ &filetype ==# 'undotree' ? 'Undotree' :
+		\ &filetype ==# 'vista_kind' ? 'Vista' :
+		\ len(expand('%')) > 0 ? expand('%:t') : '🆕'
 endfunction
 
-function! GetWarnings()
-	let l:indent_by = &shiftwidth == 0 ? &tabstop : &shiftwidth
+function! TerminalTitle()
+	if b:term_title ==# bufname()
+		return get(split(bufname(), ':'), 2)
+	endif
 
-	return IsSpecialBuffer()
-		\ ? ''
-		\ :
-			\ (&fileformat ==# 'unix'
-				\ ? ''
-				\ : '   ' . &fileformat) .
-			\ (&fileencoding ==# 'utf-8' || &fileencoding == ''
-				\ ? ''
-				\ : '   ' . &fileencoding) .
-			\ (&expandtab
-				\ ? '   ' . l:indent_by . ' space' . (l:indent_by == 1 ? '' : 's')
-				\ : (&tabstop == 2 ? '' : '   tab stop of ' . &tabstop))
+	return b:term_title
 endfunction
 
-function! IsSpecialBuffer()
-	return &buftype != ''
+function! NearestMethodOrFunction() abort
+	let l:f = get(b:, 'vista_nearest_method_or_function', '')
+	return len(l:f) > 0 ? ('ƒ ' . l:f . '   ') : ''
 endfunction
 
-function! GetWindowNumber()
-	return winnr('$') < 3 ? '' : winnr() . ' ∙ '
+function! UnicodeWindowNumber() abort
+	return nr2char(9461 + winnr() - 1)
 endfunction
 
-set statusline=
-set statusline+=%{GetWindowNumber()}
-set statusline+=%{GetFilename()}
-set statusline+=%{GetFileStatus()}
-set statusline+=%=
-set statusline+=%{GetWarnings()}
-set statusline+=%{GetCursorPosition()}
+function! StatusLine(active) abort
+	if &buftype != '' &&
+		\ &buftype !=# 'help' &&
+		\ &buftype !=# 'quickfix' &&
+		\ &buftype !=# 'terminal' &&
+		\ &filetype !=# 'diff' &&
+		\ &filetype !=# 'dirvish' &&
+		\ &filetype !=# 'undotree' &&
+		\ &filetype !=# 'vista_kind'
+		return
+	endif
+
+	setlocal statusline=
+	if a:active
+		setlocal statusline+=%#StatusLineNC#
+	else
+		setlocal statusline+=%#StatusLine#
+		setlocal statusline+=%{UnicodeWindowNumber()}
+		setlocal statusline+=%#StatusLineNC#
+		setlocal statusline+=\ \ 
+	endif
+
+	setlocal statusline+=%{GetFileDir()}
+
+	if a:active
+		setlocal statusline+=%#StatusLine#
+	endif
+	setlocal statusline+=%{GetFilename()}
+	if a:active
+		setlocal statusline+=%#StatusLineNC#
+	endif
+	if &buftype ==# 'help'
+		setlocal statusline+=\ help
+	endif
+
+	setlocal statusline+=%{GetFileStatus()}
+	setlocal statusline+=\ \ \ %=
+
+	if a:active
+		setlocal statusline+=%{NearestMethodOrFunction()}
+		setlocal statusline+=%#StatusLine#
+		setlocal statusline+=%{GetCursorPosition()}
+	endif
+endfunction
+
+augroup SetStatusline
+	autocmd!
+	autocmd BufEnter,TermOpen,WinEnter * call StatusLine(v:true)
+	autocmd WinLeave * call StatusLine(v:false)
+augroup END
+
+call StatusLine(v:true)
 
 " }}}
 
@@ -283,12 +339,11 @@ augroup FixColorSchemes
 		\ highlight CursorLineNr guibg=bg guifg=bg |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg |
-		\ highlight! link StatusLineNC StatusLine |
 		\ highlight TermCursorNC guibg=bg guifg=bg |
 		\ highlight VertSplit guibg=bg guifg=bg
 augroup END
 
-set fillchars=fold:\ ,stl:_
+set fillchars=fold:\ 
 " Hides the decoration of folds and sets a continuous vertical windows separator
 
 set guicursor+=a:blinkwait700-blinkoff400-blinkon600
@@ -482,8 +537,9 @@ let g:auto_plugins+=[{
 	\ 'bootstrap': 'bash install.sh',
 	\ }]
 
-function! MapToLanguageClient()
+function! SetUpLanguageClient() abort
 	if has_key(g:LanguageClient_serverCommands, &filetype)
+		call vista#RunForNearestMethodOrFunction()
 		nnoremap <buffer> <silent> <c-]> :call LanguageClient#textDocument_definition()<cr>
 		nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
 		nnoremap <buffer> <silent> <localleader>e :call LanguageClient#explainErrorAtPoint()<cr>
@@ -492,7 +548,7 @@ endfunction
 
 augroup LanguageClientSetUp
 	autocmd!
-	autocmd FileType * call MapToLanguageClient()
+	autocmd FileType * call SetUpLanguageClient()
 	autocmd User LanguageClientStarted set signcolumn=yes
 	autocmd User LanguageClientStopped set signcolumn=auto
 augroup END
@@ -649,6 +705,8 @@ let g:vista_close_on_jump=1
 let g:vista_default_executive="lcn"
 
 let g:vista_sidebar_position='vertical topleft'
+
+let g:vista_disable_statusline=1
 
 let g:vista_sidebar_width=80
 
