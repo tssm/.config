@@ -412,6 +412,7 @@ let g:auto_plugins=[
 	\ {'url': 'https://github.com/cohama/lexima.vim'},
 	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
 	\ {'url': 'https://github.com/AndrewRadev/linediff.vim'},
+	\ {'url': 'https://github.com/gpanders/vim-oldfiles'},
 	\ {'url': 'https://github.com/tpope/vim-repeat'},
 	\ {'url': 'https://github.com/tpope/vim-sleuth'},
 	\ {'url': 'https://github.com/tpope/vim-surround'},
@@ -509,11 +510,10 @@ function! RipgrepFzf() abort
 endfunction
 nnoremap <silent> <leader>g :call RipgrepFzf()<cr>
 
+nnoremap <silent> <leader>h :History<cr>
+
 let g:auto_plugins+=[{'url': 'https://github.com/fszymanski/fzf-quickfix'}]
 nnoremap <silent> <leader>q :Quickfix<cr>
-
-let g:auto_plugins+=[{'url': 'https://github.com/pbogut/fzf-mru.vim'}]
-nnoremap <silent> <leader>r :FZFMru<cr>
 
 let g:auto_plugins+=[{'url': 'https://github.com/dominickng/fzf-session.vim'}]
 let g:fzf_session_path=stdpath('data') . '/session'
