@@ -103,9 +103,8 @@ noremap x "_x
 noremap X "_X
 
 noremap c "_c
+noremap cc "_cc
 noremap C "_C
-noremap s "_s
-noremap S "_S
 
 noremap yd d
 noremap yD D
