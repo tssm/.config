@@ -115,6 +115,9 @@ xnoremap p "_dP
 nnoremap Y y$
 " Makes Y behaves like C and D.
 
+nnoremap ZQ <cmd>confirm qall<cr>
+nnoremap ZZ <cmd>confirm wqall<cr>
+
 noremap! <c-\> <esc>
 tnoremap <c-\> <c-\><c-n>
 tnoremap <esc> <c-\><c-n>
