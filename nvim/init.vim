@@ -10,21 +10,6 @@ augroup RestoreCursorShapeOnExit
 	autocmd VimLeave * set guicursor=a:ver35-blinkon1
 augroup END
 
-augroup ChangeNumberLineFormatAccordingToFocus
-	autocmd!
-	autocmd BufEnter,WinEnter *
-		\ if &buftype == '' |
-		\ 	set number relativenumber |
-		\ elseif &buftype ==# 'help' || &buftype ==# 'terminal' |
-		\ 	set nonumber relativenumber |
-		\ endif
-	autocmd TermOpen * set nonumber
-	autocmd WinLeave *
-		\ if &buftype == '' |
-		\ 	set norelativenumber |
-		\ endif
-augroup END
-
 set clipboard=unnamed,unnamedplus
 " Uses the clipboard as the unnamed register
 
@@ -332,15 +317,12 @@ set scrollback=100000
 augroup FixColorSchemes
 	autocmd!
 	autocmd ColorScheme *
-		\ highlight EndOfBuffer guibg=bg |
-		\ highlight! link FoldColumn EndOfBuffer |
-		\ highlight! link Folded EndOfBuffer |
-		\ highlight! link LineNr EndOfBuffer |
-		\ highlight CursorLineNr guibg=bg guifg=bg |
+		\ highlight EndOfBuffer guibg=bg guifg=bg |
+		\ highlight FoldColumn guibg=bg |
+		\ highlight! link Folded FoldColumn |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg |
-		\ highlight TermCursorNC guibg=bg guifg=bg |
-		\ highlight VertSplit guibg=bg guifg=bg
+		\ highlight TermCursorNC guibg=bg guifg=bg
 augroup END
 
 set fillchars=fold:\ 
@@ -349,8 +331,6 @@ set fillchars=fold:\
 set guicursor+=a:blinkwait700-blinkoff400-blinkon600
 
 set list listchars=extends:…,precedes:…,tab:\ \ 
-
-set numberwidth=3
 
 set showmatch
 " Highlight matching braces when cursor is over one of them
@@ -469,6 +449,17 @@ augroup END
 " No space can go after <nop>
 
 command! -nargs=1 -complete=dir -bang E %bdelete<bang> | cd <args> | Dirvish
+
+" }}}
+
+" EasyMotion {{{
+
+let g:auto_plugins+=[{'url': 'https://github.com/easymotion/vim-easymotion'}]
+
+let g:EasyMotion_startofline=0
+
+map \ <Plug>(easymotion-prefix)
+map <bs> <Plug>(easymotion-bd-W)
 
 " }}}
 
