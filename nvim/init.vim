@@ -324,7 +324,14 @@ augroup FixColorSchemes
 		\ highlight! link Folded FoldColumn |
 		\ highlight SignColumn guibg=bg |
 		\ highlight SpecialKey guibg=bg |
-		\ highlight TermCursorNC guibg=bg guifg=bg
+		\ highlight TermCursorNC guibg=bg guifg=bg |
+		\ let s:highlight = execute('highlight StatusLineNC') |
+		\ let s:reverse = matchstr(s:highlight,
+			\ 'gui=\\(\\w*,\\)*\\(inverse\\|reverse\\)\\(,\\w*\\)*') |
+		\ let s:split_color = matchstr(s:highlight,
+			\ 'gui' . (s:reverse == '' ? 'bg' : 'fg') . '=\zs\S*') |
+		\ execute 'highlight! VertSplit guibg=bg guifg='
+			\ . s:split_color . ' gui=NONE cterm=NONE'
 augroup END
 
 set fillchars=fold:\ 
