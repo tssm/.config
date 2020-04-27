@@ -639,6 +639,14 @@ let g:auto_plugins+=[
 	\ {'url': 'https://github.com/keith/swift.vim'},
 	\ ]
 
+" Fennel
+
+let g:auto_plugins+=[
+	\ {'url': 'https://github.com/Olical/aniseed', 'branch': 'develop'},
+	\ {'url': 'https://github.com/Olical/conjure', 'branch': 'develop'},
+	\ {'url': 'https://github.com/bakpakin/fennel.vim'}
+	\ ]
+
 " }}}
 
 " MUcomplete {{{
