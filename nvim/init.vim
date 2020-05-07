@@ -334,7 +334,7 @@ augroup FixColorSchemes
 augroup END
 
 set fillchars=fold:\ 
-" Hides the decoration of folds and sets a continuous vertical windows separator
+" Hides the decoration of folds
 
 set guicursor+=a:blinkwait700-blinkoff400-blinkon600
 
