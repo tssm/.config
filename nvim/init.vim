@@ -338,7 +338,8 @@ augroup END
 set fillchars=fold:\ 
 " Hides the decoration of folds
 
-set guicursor+=a:blinkwait700-blinkoff400-blinkon600-Cursor
+set guicursor=n-v:block,i-c-ci-ve:ver35,r-cr:hor20,o:hor50
+	\,a:blinkwait700-blinkoff400-blinkon600-Cursor
 
 set list listchars=extends:…,precedes:…,tab:\ \ 
 
