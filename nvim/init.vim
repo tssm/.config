@@ -401,6 +401,7 @@ let g:auto_plugins=[
 	\ {'url': 'https://github.com/cohama/lexima.vim'},
 	\ {'url': 'https://github.com/zandrmartin/lexima-template-rules'},
 	\ {'url': 'https://github.com/AndrewRadev/linediff.vim'},
+	\ {'url': 'https://github.com/samoshkin/vim-mergetool'},
 	\ {'url': 'https://github.com/gpanders/vim-oldfiles'},
 	\ {'url': 'https://github.com/tpope/vim-repeat'},
 	\ {'url': 'https://github.com/tpope/vim-sleuth'},
