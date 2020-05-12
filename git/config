@@ -7,6 +7,7 @@
 [grep]
 	linenumber = true
 [merge]
+	conflictStyle = diff3
 	prompt = false
 [pager]
 	grep = false
