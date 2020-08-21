@@ -462,17 +462,6 @@ command! -nargs=1 -complete=dir -bang E %bdelete<bang> | cd <args> | Dirvish
 
 " }}}
 
-" EasyMotion {{{
-
-let g:auto_plugins+=[{'url': 'https://github.com/easymotion/vim-easymotion'}]
-
-let g:EasyMotion_startofline=0
-
-map \ <Plug>(easymotion-prefix)
-map <bs> <Plug>(easymotion-bd-W)
-
-" }}}
-
 " Editorconfig {{{
 
 let g:auto_plugins+=[{'url': 'https://github.com/editorconfig/editorconfig-vim'}]
@@ -660,6 +649,28 @@ let g:mucomplete#minimum_prefix_length=1
 let g:mucomplete#no_mappings=0
 
 set completeopt=menuone,noinsert
+
+" }}}
+
+" Sneak {{{
+
+let g:auto_plugins=[{'url': 'https://github.com/justinmk/vim-sneak'}]
+
+let g:sneak#use_ic_scs=1
+
+nnoremap <silent> f :call sneak#wrap('',           1, 0, 1, 2)<cr>
+nnoremap <silent> F :call sneak#wrap('',           1, 1, 1, 2)<cr>
+onoremap <silent> f :call sneak#wrap(v:operator,   1, 0, 1, 2)<cr>
+onoremap <silent> F :call sneak#wrap(v:operator,   1, 1, 1, 2)<cr>
+xnoremap <silent> f :call sneak#wrap(visualmode(), 1, 0, 1, 2)<cr>
+xnoremap <silent> F :call sneak#wrap(visualmode(), 1, 1, 1, 2)<cr>
+
+nnoremap <silent> t :call sneak#wrap('',           1, 0, 0, 2)<cr>
+nnoremap <silent> T :call sneak#wrap('',           1, 1, 0, 2)<cr>
+onoremap <silent> t :call sneak#wrap(v:operator,   1, 0, 0, 2)<cr>
+onoremap <silent> T :call sneak#wrap(v:operator,   1, 1, 0, 2)<cr>
+xnoremap <silent> t :call sneak#wrap(visualmode(), 1, 0, 0, 2)<cr>
+xnoremap <silent> T :call sneak#wrap(visualmode(), 1, 1, 0, 2)
 
 " }}}
 
