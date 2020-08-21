@@ -1,15 +1,8 @@
 [user]
 	name = Tae Sandoval
-[color]
-	ui = true
 [core]
 	pager = less --chop-long-lines
-[grep]
-	linenumber = true
 [merge]
 	conflictStyle = diff3
-	prompt = false
-[pager]
-	grep = false
 [alias]
 	graph = log --abbrev-commit --graph
