@@ -480,12 +480,11 @@ let g:auto_plugins+=[
 	\ {'url': 'https://github.com/junegunn/fzf.vim'},
 	\ ]
 
-let $FZF_DEFAULT_OPTS='--info inline --layout reverse --preview-window noborder'
+let $FZF_DEFAULT_OPTS='--ansi --info inline --layout reverse --preview-window noborder'
 
 let g:fzf_layout={'window': {'border': 'sharp', 'width': 1, 'height': 0.3, 'yoffset': 1}}
 
-let s:fzf_rg_options='--glob !.git/ --glob !.pijul/ --hidden --ignore-file .pijulignore --smart-case'
-let $FZF_DEFAULT_COMMAND='rg --files ' . s:fzf_rg_options
+let $FZF_DEFAULT_COMMAND='fd --color always --exclude "*.enc" --exclude .git --exclude .pijul --ignore-file .pijulignore --hidden'
 
 nnoremap <silent> <leader>b :Buffers<cr>
 
@@ -493,7 +492,7 @@ nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
 
 function! RipgrepFzf() abort
 	let l:command_fmt = 'rg --color always --fixed-strings --trim --vimgrep '
-		\ . s:fzf_rg_options
+		\ . '--glob "!*.enc" --glob !.git/ --glob !.pijul/ --hidden --ignore-file .pijulignore --smart-case'
 		\ . ' %s || true'
 	let l:initial_command = printf(l:command_fmt, '')
 	let l:reload_command = printf(l:command_fmt, '{q}')
