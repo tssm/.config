@@ -1,7 +1,12 @@
+# Locale
+set --export LANG en_GB.UTF-8
+set --export LC_ALL $LANG
+
 # Neovim
 set --local neovim_guis \
 	/Applications/FVim.app/Contents/MacOS/FVim \
 	/Applications/goneovim.app/Contents/MacOS/goneovim
+
 set --export EDITOR $neovim_guis[(random 1 2)]
 
 # XDG
