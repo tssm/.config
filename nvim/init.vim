@@ -484,6 +484,8 @@ let g:fzf_layout={'window': {'border': 'sharp', 'width': 1, 'height': 0.3, 'yoff
 
 let $FZF_DEFAULT_COMMAND='fd --color always --exclude "*.enc" --exclude .git --exclude .pijul --ignore-file .pijulignore --hidden'
 
+let $FZF_PREVIEW_COMMAND='bat {}'
+
 nnoremap <silent> <leader>b :Buffers<cr>
 
 nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview())<cr>
