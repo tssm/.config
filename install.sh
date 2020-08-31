@@ -5,9 +5,6 @@ mkdir -p ~/.cache/psql_history
 
 # Neovim
 
-git clone git@github.com:tssm/neovim-automaton \
-	~/.local/share/nvim/site/pack/automaton/start/neovim-automaton
-
 NVIM_SPELL_DEST=~/.local/share/nvim/site/spell/
 NVIM_SPELL_EXTENSION=.utf-8.spl
 NVIM_SPELL_SOURCE=http://ftp.vim.org/vim/runtime/spell/
