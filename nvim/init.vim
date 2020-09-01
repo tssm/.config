@@ -402,6 +402,8 @@ let g:ayucolor="mirage"
 
 let g:ganymede_solid_background=1
 
+let g:material_theme_style='palenight'
+
 " }}}
 
 " Dirvish {{{
