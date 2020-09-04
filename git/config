@@ -1,9 +1,11 @@
 [core]
-	pager = less --chop-long-lines
+	pager = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black | less --chop-long-lines
 [diff]
 	tool = vimdiff
 [difftool]
 	prompt = false
+[interactive]
+	diffFilter = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black
 [merge]
 	tool = vimdiff
 [mergetool]
