@@ -14,6 +14,11 @@ set --export XDG_CACHE_HOME $HOME/.cache
 set --export XDG_CONFIG_HOME $HOME/.config
 set --export XDG_DATA_HOME $HOME/.local/share
 
+# FZF
+set --export FZF_DEFAULT_COMMAND 'fd --color always --exclude "*.enc" --ignore-file .pijulignore --hidden'
+set --export FZF_DEFAULT_OPTS '--ansi --info inline --layout reverse --preview-window noborder'
+set --export FZF_PREVIEW_COMMAND 'bat {}'
+
 # Nix
 set --export NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels
 set --export NIX_PROFILES /nix/var/nix/profiles/default $HOME/.nix-profile
