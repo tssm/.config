@@ -82,6 +82,7 @@ in
 						(plug "gotham" "whatyouhide" "vim-gotham")
 						(plug "gruvbox" "morhetz" "gruvbox")
 						(plug "material" "kaicataldo" "material.vim")
+						(plug "miramare" "franbach" "miramare")
 						(plug "night-owl" "haishanh" "night-owl.vim")
 						(plug "nord" "arcticicestudio" "nord-vim")
 						(plug "nova" "trevordmiller" "nova-vim")
