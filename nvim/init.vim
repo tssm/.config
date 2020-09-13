@@ -1,3 +1,16 @@
+" Common utility functions {{{
+
+function! EditFile(path) abort
+	try
+		call inputsave()
+		let l:dest = input("Filename: ", a:path, "file")
+		call inputrestore()
+		execute 'edit' l:dest
+	catch | endtry
+endfunction
+
+" }}}
+
 " Behavior {{{
 
 augroup AutoLoadVimrcChanges
@@ -427,7 +440,8 @@ augroup DirvishSetUp
 	autocmd!
 	autocmd FileType dirvish
 		\ nnoremap <buffer> <cr> <nop>|
-		\ nnoremap <buffer> <silent> gf :call dirvish#open('edit', 0)<cr>
+		\ nnoremap <buffer> gf <cmd>call dirvish#open('edit', 0)<cr> |
+		\ nnoremap <buffer> + <cmd>call EditFile(bufname())<cr>
 augroup END
 " No space can go after <nop>
 
@@ -442,14 +456,9 @@ let g:EditorConfig_max_line_indicator="none"
 
 " FZF {{{
 
-function! EditFile(lines)
-	try
-		let l:line = a:lines[0]
-		call inputsave()
-		let l:dest = input("Filename: ", l:line, "file")
-		call inputrestore()
-		execute 'edit' l:dest
-	catch | endtry
+function! FzfEditFile(lines)
+	let l:line = a:lines[0]
+	call EditFile(l:line)
 endfunction
 
 function! PopulateQuickfix(lines)
@@ -457,7 +466,7 @@ function! PopulateQuickfix(lines)
 endfunction
 
 let g:fzf_action={
-	\ 'ctrl-e': function('EditFile'),
+	\ 'ctrl-e': function('FzfEditFile'),
 	\ 'ctrl-q': function('PopulateQuickfix'),
 	\ 'ctrl-t': 'tab split',
 	\ 'ctrl-s': 'split',
