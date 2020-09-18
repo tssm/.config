@@ -627,6 +627,21 @@ set completeopt=menuone,noinsert,noselect
 
 " }}}
 
+" Signify {{{
+
+augroup SignifySetup
+	autocmd!
+	autocmd User SignifySetup
+		\ nmap ]h <plug>(signify-next-hunk) |
+		\ nmap [h <plug>(signify-prev-hunk) |
+		\ nmap ]H 9999]h |
+		\ nmap [H 9999[h |
+		\ nmap <localleader>df :SignifyDiff<cr>|
+		\ nmap <localleader>dh :SignifyHunkDiff<cr>|
+		\ nmap <localleader>uh :SignifyHunkUndo<cr>
+
+" }}}
+
 " Sneak {{{
 
 let g:sneak#use_ic_scs=1
