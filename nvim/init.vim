@@ -584,6 +584,7 @@ let g:LanguageClient_serverCommands = {
 	\ 'dhall': ['dhall-lsp-server'],
 	\ 'haskell': ['haskell-language-server-wrapper', '--lsp'],
 	\ 'lua': ['lua-lsp'],
+	\ 'nix': ['rnix-lsp'],
 	\ 'purescript': ['purescript-language-server', '--stdio', '--config', '{}'],
 	\ 'rust': ['rls']
 \ }
