@@ -4,6 +4,9 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[fetch]
+	prune = true
+	pruneTags = true
 [interactive]
 	diffFilter = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black | $PAGER
 [merge]
@@ -12,7 +15,11 @@
 	conflictStyle = diff3
 	keepBackup = false
 	prompt = false
+[pull]
+	ff = only
 [push]
 	default = simple
+[rebase]
+	autosquash = true
 [user]
 	name = Tae Selene Sandoval Murgan
