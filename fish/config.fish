@@ -26,6 +26,9 @@ set --export NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/config
 # Postgres
 set --export PSQLRC $XDG_CONFIG_HOME/psqlrc
 
+# Readline
+set --export INPUTRC $XDG_CONFIG_HOME/inputrc
+
 for profile in $NIX_PROFILES
 	set PATH $profile/bin $PATH
 end
