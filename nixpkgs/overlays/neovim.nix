@@ -98,6 +98,7 @@ in
 						(plug "snazzy" "connorholyday" "vim-snazzy")
 						(plug "snow" "nightsense" "snow")
 						(plug "strawberry" "nightsense" "strawberry")
+						(plug "toast" "jsit" "toast.vim")
 					];
 				};
 			};
