@@ -45,8 +45,7 @@ in
 						(plug "dadbod-completion" "kristijanhusak" "vim-dadbod-completion")
 
 						# FZF
-						(plug "fzf" "junegunn" "fzf")
-						(plug "fzf-vim" "junegunn" "fzf.vim")
+						super.vimPlugins.fzf-vim
 						(plug "fzf-quickfix" "fszymanski" "fzf-quickfix")
 						(plug "fzf-session" "dominickng" "fzf-session.vim")
 
