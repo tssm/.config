@@ -16,8 +16,8 @@ set --export FZF_DEFAULT_OPTS '--ansi --info inline --layout reverse --preview-w
 set --export FZF_PREVIEW_COMMAND 'bat {}'
 
 # Nix
-set --export NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels
-set --export NIX_PROFILES /nix/var/nix/profiles/default $HOME/.nix-profile
+set --export NIX_PATH darwin-config=$XDG_CONFIG_HOME/darwin.nix:$HOME/.nix-defexpr/channels:$HOME/.nix-defexpr/channels_root
+set --export NIX_PROFILES $HOME/.nix-profile /run/current-system/sw
 set --export SSL_CERT_FILE $HOME/.nix-profile/etc/ssl/certs/ca-bundle.crt
 
 # NPM
