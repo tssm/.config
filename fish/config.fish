@@ -7,7 +7,7 @@ set --export LC_ALL $LANG
 
 # Nix
 set NIX_LINK $HOME/.nix-profile
-set --export NIX_PATH nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
+set --export NIX_PATH darwin-config=$XDG_CONFIG_HOME/darwin.nix:$HOME/.nix-defexpr/channels
 set --export SSL_CERT_FILE $NIX_LINK/etc/ssl/certs/ca-bundle.crt
 
 # XDG
@@ -31,6 +31,7 @@ set --export PSQLRC $XDG_CONFIG_HOME/psqlrc
 # Readline
 set --export INPUTRC $XDG_CONFIG_HOME/inputrc
 
+set PATH /run/current-system/sw/bin $PATH
 set PATH $NIX_LINK/bin $NIX_LINK/sbin $PATH
 set PATH $HOME/.local/bin $PATH
 set PATH $HOME/.luarocks/bin $PATH
