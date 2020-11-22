@@ -662,6 +662,18 @@ set completeopt=menuone,noinsert
 
 " }}}
 
+" Sandwich {{{
+
+nmap s <Nop>
+xmap s <Nop>
+
+nmap sc <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
+nmap scb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
+xmap sc <Plug>(operator-sandwich-replace)
+" Use c as mnemonic for change
+
+" }}}
+
 " Signify {{{
 
 augroup SignifySetup
