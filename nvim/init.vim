@@ -665,6 +665,13 @@ set completeopt=menuone,noinsert,noselect
 
 " }}}
 
+" Sandwich {{{
+
+nmap s <Nop>
+xmap s <Nop>
+
+" }}}
+
 " Signify {{{
 
 augroup SignifySetup
