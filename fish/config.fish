@@ -33,6 +33,5 @@ for profile in $NIX_PROFILES
 	set PATH $profile/bin $PATH
 end
 set PATH $HOME/.local/bin $PATH
-set PATH $HOME/.luarocks/bin $PATH
 set PATH ./node_modules/.bin $XDG_DATA_HOME/node_modules/bin $PATH
 set --export PATH $PATH
