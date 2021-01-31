@@ -1,8 +1,5 @@
 *.log
 
-.luacompleterc
-# Lua
-
 Session.vim
 # Neovim's Black Magic
 
