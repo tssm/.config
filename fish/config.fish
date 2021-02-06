@@ -10,11 +10,6 @@ set --export XDG_CACHE_HOME $HOME/.cache
 set --export XDG_CONFIG_HOME $HOME/.config
 set --export XDG_DATA_HOME $HOME/.local/share
 
-# FZF
-set --export FZF_DEFAULT_COMMAND 'fd --color always --exclude "*.enc" --ignore-file .pijulignore --hidden'
-set --export FZF_DEFAULT_OPTS '--ansi --info inline --layout reverse --preview-window noborder'
-set --export FZF_PREVIEW_COMMAND 'bat {}'
-
 # Nix
 set --export NIX_PATH darwin-config=$XDG_CONFIG_HOME/darwin.nix:$HOME/.nix-defexpr/channels:$HOME/.nix-defexpr/channels_root
 set --export NIX_PROFILES $HOME/.nix-profile /run/current-system/sw
@@ -28,6 +23,9 @@ set --export PSQLRC $XDG_CONFIG_HOME/psqlrc
 
 # Readline
 set --export INPUTRC $XDG_CONFIG_HOME/inputrc
+
+# Ripgrep
+set --export RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgreprc
 
 for profile in $NIX_PROFILES
 	set PATH $profile/bin $PATH
