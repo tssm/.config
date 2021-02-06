@@ -1,5 +1,24 @@
+.cabal/
 .cache/
+.cargo/
+.cups/
 .gem/
+.ghc/
 .git/
+.ivy2/
+.nix-profile/
+.nuget/
 .pijul/
+.rustup/
+.sbt/
+.stack/
+.tmp*/
 .Trash/
+.vagrant/
+Applications/
+Library/
+Movies/
+Music/
+News/
+Pictures/
+VirtualBox VMs/
