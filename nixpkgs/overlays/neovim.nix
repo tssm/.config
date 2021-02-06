@@ -27,7 +27,6 @@ in
           (plug "lspconfig" "neovim" "nvim-lspconfig")
           (plug "mergetool" "samoshkin" "vim-mergetool")
           (plug "mucomplete" "lifepillar" "vim-mucomplete")
-          (plug "oldfiles" "gpanders" "vim-oldfiles")
           (plug "random-colors" "tssm" "nvim-random-colors")
           (plug "reflex" "tssm" "nvim-reflex")
           (plug "repeat" "tpope" "vim-repeat")
@@ -44,14 +43,14 @@ in
           (plug "dadbod" "tpope" "vim-dadbod")
           (plug "dadbod-completion" "kristijanhusak" "vim-dadbod-completion")
 
-          # FZF
-          super.vimPlugins.fzf-vim
-          (plug "fzf-quickfix" "fszymanski" "fzf-quickfix")
-          (plug "fzf-session" "dominickng" "fzf-session.vim")
-
           # Lexima
           (plug "lexima" "cohama" "lexima.vim")
           (plug "lexima-template-rules" "zandrmartin" "lexima-template-rules")
+
+          # Telescope
+          (plug "plenary" "nvim-lua" "plenary.nvim")
+          (plug "popup" "nvim-lua" "popup.nvim")
+          (plug "telescope" "nvim-telescope" "telescope.nvim")
 
           # File types
           (plug "css" "JulesWang" "css.vim")
