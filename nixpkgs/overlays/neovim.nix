@@ -47,14 +47,14 @@ in
           (plug "dirvish" "justinmk" "vim-dirvish")
           (plug "dirvish-git" "kristijanhusak" "vim-dirvish-git")
 
-          # FZF
-          super.vimPlugins.fzf-vim
-          (plug "fzf-quickfix" "fszymanski" "fzf-quickfix")
-          (plug "fzf-session" "dominickng" "fzf-session.vim")
-
           # Lexima
           (plug "lexima" "cohama" "lexima.vim")
           (plug "lexima-template-rules" "zandrmartin" "lexima-template-rules")
+
+          # Telescope
+          (plug "plenary" "nvim-lua" "plenary.nvim")
+          (plug "popup" "nvim-lua" "popup.nvim")
+          (plug "telescope" "nvim-telescope" "telescope.nvim")
 
           # File types
           (plug "css" "JulesWang" "css.vim")
