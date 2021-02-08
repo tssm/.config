@@ -512,6 +512,8 @@ augroup SignifySetup
 		\ nmap <localleader>dh :SignifyHunkDiff<cr>|
 		\ nmap <localleader>uh :SignifyHunkUndo<cr>
 
+let g:signify_priority=0
+
 " }}}
 
 " Sneak {{{
