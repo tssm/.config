@@ -30,7 +30,7 @@
 		"Oldfiles" (create-file)))
 
 (defn open-file [prompt-buffer-number]
-	(actions.goto_file_selection_edit prompt-buffer-number)
+	(actions.select_default prompt-buffer-number)
 	(change-directory? (aniseed.first (actions.get_selected_entry))))
 
 (defn open-terminal [prompt-buffer-number]
@@ -46,18 +46,18 @@
 	(change-directory? directory))
 
 (telescope.setup {:defaults {
+	:layout_config {:prompt_position :top}
 	:mappings {:i {
 		:<cr> open-file
 		:<c-e> edit-first
 		:<c-j> actions.move_selection_next
 		:<c-k> actions.move_selection_previous
 		:<c-q> actions.send_selected_to_qflist
-		:<c-s> actions.goto_file_selection_split
+		:<c-s> actions.select_horizontal
 		:<c-x> false
 		:<c-z> open-terminal
 		:<tab> (+ actions.toggle_selection actions.move_selection_next)
 		:<s-tab> (+ actions.toggle_selection actions.move_selection_previous)}}
-	:prompt_position :top
 	:sorting_strategy :ascending
 	:winblend 10}})
 
