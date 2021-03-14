@@ -32,4 +32,6 @@
   nixpkgs.overlays = [ (import nixpkgs/overlays/neovim.nix) ];
 
   services.nix-daemon.enable = true;
+
+  users.nix.configureBuildUsers = true;
 }
