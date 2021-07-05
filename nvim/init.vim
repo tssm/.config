@@ -556,7 +556,7 @@ let g:reflex_delete_cmd='trash'
 
 " Rooter {{{
 
-let g:rooter_patterns=[ '.git', '.git/', '.pijul/' ]
+let g:rooter_patterns=[ '.git', '.pijul', 'shell.nix' ]
 
 let g:rooter_resolve_links=1
 
