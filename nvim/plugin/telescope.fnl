@@ -1,25 +1,24 @@
-(module plugins.telescope {:require {
-	aniseed aniseed.core
-	pickers telescope.builtin
-	actions telescope.actions
-	procedures procedures
-	telescope telescope}})
+(local aniseed (require :aniseed.core))
+(local pickers (require :telescope.builtin))
+(local actions (require :telescope.actions))
+(local procedures (require :procedures))
+(local telescope (require :telescope))
 
 ; Custom actions
 
-(defn- change-directory? [directory]
+(fn change-directory? [directory]
 	(when (and
 		(= (vim.fn.isdirectory directory) 1)
 		(= (vim.fn.getcwd) (os.getenv :HOME)))
 			(vim.cmd (.. "cd " directory))))
 
-(defn- create-file []
+(fn create-file []
 	(procedures.create-file (aniseed.first (actions.get_selected_entry))))
 
-(defn- edit-command []
+(fn edit-command []
 	(vim.call :feedkeys (.. ":" (aniseed.first (actions.get_selected_entry)))))
 
-(defn edit-first [prompt-buffer-number]
+(fn edit-first [prompt-buffer-number]
 	(local
 		prompt-title
 		(. (actions.get_current_picker prompt-buffer-number) :prompt_title))
@@ -29,11 +28,11 @@
 		"Find Files" (create-file)
 		"Oldfiles" (create-file)))
 
-(defn open-file [prompt-buffer-number]
+(fn open-file [prompt-buffer-number]
 	(actions.select_default prompt-buffer-number)
 	(change-directory? (aniseed.first (actions.get_selected_entry))))
 
-(defn open-terminal [prompt-buffer-number]
+(fn open-terminal [prompt-buffer-number]
 	(local selected-entry (aniseed.first (actions.get_selected_entry)))
 	(local directory (if (= (vim.fn.isdirectory selected-entry) 1)
 		selected-entry
@@ -63,14 +62,14 @@
 
 ; Custom finders
 
-(defn- add-pijulignore? [tbl]
+(fn add-pijulignore? [tbl]
 	; Both fd and rg rise an error if --file-ignore doesn't exist so it must be
 	; added conditionally
 	(when (= (vim.fn.filereadable :.pijulignore) true)
 		(table.insert tbl :--file-ignore=.pijulignore))
 	tbl)
 
-(defn find-files []
+(fn find-files []
 	(local
 		find-command
 		(if (= (vim.fn.getcwd) (os.getenv :HOME))
@@ -79,7 +78,7 @@
 	(add-pijulignore? find-command)
 	(pickers.find_files {:find_command find-command}))
 
-(defn grep []
+(fn grep []
 	(if (= (vim.fn.getcwd) (os.getenv :HOME))
 		(print "Do not live grep from ~")
 		(let [grep-command [:rg :--vimgrep]]
@@ -88,7 +87,7 @@
 
 ; Mappings
 
-(defn- set-map [lhs rhs]
+(fn set-map [lhs rhs]
 	(vim.api.nvim_set_keymap
 		:n
 		(string.format :<leader>%s lhs)
@@ -97,7 +96,12 @@
 
 (set-map :b "require'telescope.builtin'.buffers")
 (set-map :c "require'telescope.builtin'.command_history")
-(set-map :f "require'plugins.telescope'['find-files']")
-(set-map :g "require'plugins.telescope'['grep']")
+
+(set My.find_files find-files)
+(set-map :f :My.find_files)
+
+(set My.grep grep)
+(set-map :g :My.grep)
+
 (set-map :h "require'telescope.builtin'.oldfiles")
 (set-map :q "require'telescope.builtin'.quickfix")

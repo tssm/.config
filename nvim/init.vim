@@ -573,8 +573,6 @@ let g:rooter_silent_chdir=1
 
 " }}}
 
-lua require'plugins.telescope'
-
 " Template {{{
 
 let g:templates_directory=[stdpath('config') . '/templates']
@@ -592,5 +590,8 @@ let g:undotree_HelpLine=0
 let g:undotree_SetFocusWhenToggle=1
 
 " }}}
+
+lua My = {}
+" Global table to store personal functions
 
 " vim: foldenable foldmethod=marker
