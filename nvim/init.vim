@@ -47,6 +47,8 @@ augroup ResizeWindowsProportionally
 	autocmd VimResized * :wincmd =
 augroup END
 
+set shada='100,rman:,rterm:
+
 set shortmess=csF
 
 set visualbell
