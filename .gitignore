@@ -1,2 +1,3 @@
 fish/fish_variables
 fish/local-config.fish
+nvim/**/*.lua
