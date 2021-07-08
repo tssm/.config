@@ -1,11 +1,9 @@
-(module plugins.lsp {:require {
-	lspconfig lspconfig
-	lsputil	lspconfig/util}})
+(local api vim.api)
+(local cmd api.nvim_command)
+(local lspconfig (require :lspconfig))
+(local lsputil (require :lspconfig.util))
 
-(def- api vim.api)
-(def- cmd api.nvim_command)
-
-(def- set-map [buffer-number lhs func]
+(fn set-map [buffer-number lhs func]
 	(api.nvim_buf_set_keymap
 		buffer-number
 		:n
@@ -13,7 +11,7 @@
 		(string.format "<cmd>lua %s<cr>" func)
 		{:noremap true :silent true}))
 
-(defn set-up [client buffer-number]
+(fn set-up [client buffer-number]
 	(cmd "augroup LspSetUp")
 	(cmd "autocmd!")
 	(cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
@@ -42,11 +40,11 @@
 
 ; Attach configuration to every server
 
-(def-
+(local
 	lua-server-path
 	(string.format "%s/Projects/lua-language-server" (os.getenv :HOME)))
 
-(def- servers {
+(local servers {
 	:dhall_lsp_server {}
 	:hls {}
 	:purescriptls {}
