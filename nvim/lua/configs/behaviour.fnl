@@ -19,7 +19,6 @@
 (set opt.sessionoptions [:curdir :help :tabpages :winsize])
 (set opt.shada "'100,rman:,rterm:")
 (set opt.shortmess :csF)
-(set opt.showmode false)
 (set opt.visualbell true)
 (set opt.wildignorecase true)
 
