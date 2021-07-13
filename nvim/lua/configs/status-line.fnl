@@ -2,6 +2,7 @@
 (local fnmodify call.fnamemodify)
 (local aniseed (require :aniseed.core))
 (local opt vim.opt)
+(local edit-patch :addp-hunk-edit.diff)
 
 (fn cursor-position [buftype]
 	(if
@@ -21,7 +22,10 @@
 
 (fn directory [bufname buftype]
 	(if
-		(or (not= buftype "") (dadbod-buffer?)) ""
+		(or
+			(not= buftype "")
+			(dadbod-buffer?)
+			(vim.endswith bufname edit-patch)) ""
 		(let [path (fnmodify bufname ":h")]
 			(if
 				(and
@@ -53,11 +57,12 @@
 		(= buftype :help) (.. (fnmodify bufname ":t:r") " help")
 		(= buftype :quickfix) vim.w.quickfix_title
 		(= buftype :terminal) (terminal-title bufname)
-		(= filetype :diff) :Diff
 		(= filetype :dirvish) bufname
 		(= filetype :man) (.. (call.substitute bufname "^man://" "" "") " man")
 		(= filetype :undotree) :Undotree
 		(dadbod-buffer? bufname) (dadbod-query bufname)
+		(vim.endswith bufname edit-patch) "Edit patch"
+		(vim.startswith bufname :diffpanel_) :Diff
 		; This comparison should be the last one because some of the filetypes above are normal
 		(= buftype "") (if (= bufname "") "🆕" (fnmodify bufname ":t"))
 		""))
