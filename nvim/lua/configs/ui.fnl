@@ -1,3 +1,12 @@
+(local cmd vim.api.nvim_command)
+
+(cmd "augroup SetUpUi")
+(cmd "autocmd!")
+; OptionSet trigger a sandbox error when a modeline is used so silent! is neccessary here ☹️
+(cmd "autocmd BufEnter,BufRead,OptionSet * silent! lua My.highlight_too_long()")
+(cmd "autocmd ColorScheme * lua My.color_scheme_fix()")
+(cmd "augroup END")
+
 ; Fix color schemes
 
 (local call vim.fn)
@@ -27,15 +36,24 @@
 	(call.execute (string.format "highlight! %s" (vertsplit-highlight))))
 (set My.color_scheme_fix fix-color-schemes)
 
-(local cmd vim.api.nvim_command)
-(cmd "augroup FixColorSchemes")
-(cmd "autocmd!")
-(cmd "autocmd ColorScheme * lua My.color_scheme_fix()")
-(cmd "augroup END")
+; Highlight lines' excess part according to textwidth
+
+(local opt vim.opt)
+(local w vim.w)
+
+(fn highlight-too-long []
+	(when (not= w.too_long_match_id nil)
+		(pcall #(call.matchdelete w.too_long_match_id)))
+	(local buftype (opt.buftype:get))
+	(when (or (= buftype "") (= buftype :acwrite))
+		(local textwidth (opt.textwidth:get))
+		(when (> textwidth 0)
+			(local regex (string.format "\\%%>%iv.\\+" textwidth))
+			(set w.too_long_match_id (call.matchadd :ColorColumn regex -1)))))
+(set My.highlight_too_long highlight-too-long)
 
 ; Set options
 
-(local opt vim.opt)
 (set opt.fillchars {:fold " "})
 (set opt.guicursor
 	"n-v:block,i-c-ci-ve:ver35,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon600-Cursor")
