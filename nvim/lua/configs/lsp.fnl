@@ -2,6 +2,7 @@
 (local cmd api.nvim_command)
 (local lspconfig (require :lspconfig))
 (local lsputil (require :lspconfig.util))
+(local procedures (require :procedures))
 (local telescope (require :telescope.builtin))
 
 (fn set-map [buffer-number lhs func]
@@ -29,6 +30,10 @@
 	(telescope.lsp_document_symbols {:entry_maker symbol-entry-maker}))
 (set My.find_document_symbols find-document-symbols)
 
+(fn find-references []
+	(telescope.lsp_references {:entry_maker procedures.quickfix-entry-maker}))
+(set My.find_references find-references)
+
 (fn find-workspace-symbols []
 	(telescope.lsp_dynamic_workspace_symbols {:entry_maker symbol-entry-maker}))
 (set My.find_workspace_symbols find-workspace-symbols)
@@ -54,7 +59,7 @@
 	(set-map buffer-number :<localleader>s "require'lspsaga.diagnostic'.show_line_diagnostics()")
 	(set-map buffer-number "[d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
 	(set-map buffer-number "]d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()")
-	(set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references()")
+	(set-map buffer-number :<localleader>u "My.find_references()")
 
 	; Buffer options
 
