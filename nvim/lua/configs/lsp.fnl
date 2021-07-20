@@ -1,6 +1,7 @@
 (local api vim.api)
 (local cmd api.nvim_command)
 (local lspconfig (require :lspconfig))
+(local telescope (require :telescope.builtin))
 
 (fn set-map [buffer-number lhs func]
 	(api.nvim_buf_set_keymap
@@ -9,6 +10,27 @@
 		lhs
 		(string.format "<cmd>lua %s<cr>" func)
 		{:noremap true :silent true}))
+
+(fn symbol-entry-maker [entry]
+	(local symbol-name (vim.fn.substitute entry.text "^\\[\\w*\\]" "" ""))
+	(local symbol-kind entry.kind)
+	{
+		:filename (or entry.filename (api.nvim_buf_get_name entry.bufnr))
+		:lnum entry.lnum
+		:col entry.col
+		:display (string.format "%s ▪ %s" symbol-name symbol-kind)
+		:ordinal symbol-name
+		:symbol_name symbol-name
+		:symbol_type symbol-kind
+		:value symbol-name})
+
+(fn find-document-symbols []
+	(telescope.lsp_document_symbols {:entry_maker symbol-entry-maker}))
+(set My.find_document_symbols find-document-symbols)
+
+(fn find-workspace-symbols []
+	(telescope.lsp_dynamic_workspace_symbols {:entry_maker symbol-entry-maker}))
+(set My.find_workspace_symbols find-workspace-symbols)
 
 (fn set-up [client buffer-number]
 	(cmd "augroup LspSetUp")
@@ -26,8 +48,8 @@
 	(set-map buffer-number :<localleader>* "vim.lsp.buf.document_highlight()")
 	(set-map buffer-number :<localleader>a "require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown())")
 	(set-map buffer-number :<localleader>r "require'lspsaga.rename'.rename()")
-	(set-map buffer-number :<localleader>ds "require'telescope.builtin'.lsp_document_symbols()")
-	(set-map buffer-number :<localleader>ws "require'telescope.builtin'.lsp_dynamic_workspace_symbols()")
+	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
+	(set-map buffer-number :<localleader>ws "My.find_workspace_symbols()")
 	(set-map buffer-number :<localleader>s "require'lspsaga.diagnostic'.show_line_diagnostics()")
 	(set-map buffer-number "[d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
 	(set-map buffer-number "]d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()")
