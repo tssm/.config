@@ -1,0 +1,13 @@
+diff --git a/plugin/sleuth.vim b/plugin/sleuth.vim
+index 0af4a5d..778377b 100644
+--- a/plugin/sleuth.vim
++++ b/plugin/sleuth.vim
+@@ -91,7 +91,7 @@ function! s:guess(lines) abort
+   elseif heuristics.soft != heuristics.hard
+     let options.expandtab = heuristics.soft > heuristics.hard
+     if heuristics.hard
+-      let options.tabstop = 8
++      echohl WarningMsg | echo "Warning!" | echohl None | echon " Mixed indentation"
+     endif
+   endif
+ 

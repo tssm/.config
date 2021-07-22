@@ -39,7 +39,14 @@ in
           (plug "rooter" "airblade" "vim-rooter")
           (plug "sandwich" "machakann" "vim-sandwich")
           (plug "signify" "mhinz" "vim-signify")
-          (plug "sleuth" "tpope" "vim-sleuth")
+          (
+            super.vimUtils.buildVimPlugin {
+              name = "sleuth";
+              src = fetchGit "https://github.com/tpope/vim-sleuth";
+              buildPhase = ":";
+              patches = [ ./sleuth-respect-user-set-up.patch ];
+            }
+          )
           (plug "template" "aperezdc" "vim-template")
           (plug "trailing-whitespace" "bronson" "vim-trailing-whitespace")
           (plug "undotree" "mbbill" "undotree")
