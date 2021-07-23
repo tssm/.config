@@ -27,6 +27,8 @@
 (set-map :n :ss "<cmd>confirm wall<cr>")
 (set-map :n :sx "<cmd>exit<cr>")
 
+(set-map :n :! ":te ")
+
 (vim.api.nvim_set_keymap
 	:x :v
 	"mode() is# 'v' ? \"\\<C-V>\" : mode() is# 'V' ? 'v' : 'V'"
