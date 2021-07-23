@@ -29,6 +29,7 @@ in
           (plug "editorconfig" "editorconfig" "editorconfig-vim")
           (plug "git-messenger" "rhysd" "git-messenger.vim")
           (plug "hop" "phaazon" "hop.nvim")
+          (plug "lightbulb" "kosayoda" "nvim-lightbulb")
           (plug "linediff" "AndrewRadev" "linediff.vim")
           (plug "mergetool" "samoshkin" "vim-mergetool")
           (plug "mucomplete" "lifepillar" "vim-mucomplete")
