@@ -20,20 +20,35 @@
 		(call.join (call.readfile query-file))
 		""))
 
-(fn directory [bufname buftype]
+(fn relative-file-directory [path]
+	(local cwd (call.getcwd))
+	(local directory (fnmodify path ":p:h"))
+	(if
+		(or (= directory :/) (= directory cwd)) ""
+		(string.format :%s/ (call.substitute directory (string.format :%s/ cwd) "" ""))))
+
+(fn relative-directory [path]
+	(if
+		(= path :/) :/
+		(do
+			(local normalized (fnmodify path ":p:h"))
+			(local cwd (call.getcwd))
+			(if
+				(= normalized (os.getenv :HOME)) "~"
+				(= normalized cwd) "."
+				(call.substitute normalized (string.format :%s/ cwd) "" "")))))
+
+(fn directory [bufname buftype filetype]
 	(if
 		(or
+			(= bufname "")
 			(not= buftype "")
-			(= (opt.filetype:get) :gitcommit)
+			(= filetype :gitcommit)
 			(dadbod-buffer?)
 			(vim.endswith bufname edit-patch)) ""
-		(let [path (fnmodify bufname ":h")]
-			(if
-				(and
-					(not= path "")
-					(not= path :.))
-				(string.format :%%#StatusLineNC#%s/ path)
-				""))))
+		(string.format
+			:%%#StatusLineNC#%s
+			(relative-file-directory bufname))))
 
 (fn file-status [bufname buftype]
 	(if
@@ -58,7 +73,7 @@
 		(= buftype :help) (.. (fnmodify bufname ":t:r") " help")
 		(= buftype :quickfix) vim.w.quickfix_title
 		(= buftype :terminal) (terminal-title bufname)
-		(= filetype :dirvish) bufname
+		(= filetype :dirvish) (relative-directory bufname)
 		(= filetype :gitcommit) "Edit commit message"
 		(= filetype :man) (.. (call.substitute bufname "^man://" "" "") " man")
 		(= filetype :undotree) :Undotree
@@ -81,7 +96,7 @@
 		(if active?
 			""
 			(string.format "%s%s%s  " :%#StatusLine# (unicode-window-number) :%#StatusLineNC#))
-		(directory bufname buftype)
+		(directory bufname buftype filetype)
 		(string.format "%s%s%s"
 			(if active? :%#StatusLine# "")
 			(buffer bufname buftype filetype)
