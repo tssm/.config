@@ -62,7 +62,11 @@
 
 	; Buffer options
 
-	(api.nvim_buf_set_option buffer-number :omnifunc :v:lua.vim.lsp.omnifunc))
+	(api.nvim_buf_set_option buffer-number :omnifunc :v:lua.vim.lsp.omnifunc)
+
+	; Lightbulb
+
+	(cmd "autocmd CursorMoved,CursorMovedI * lua require'nvim-lightbulb'.update_lightbulb()"))
 
 ; Attach configuration to every server
 
