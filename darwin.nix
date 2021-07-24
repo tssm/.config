@@ -3,6 +3,7 @@
   environment.systemPackages = [
     pkgs.bat
     pkgs.cabal-install
+    pkgs.ccls
     pkgs.darwin.trash
     pkgs.dhall
     pkgs.dhall-json
