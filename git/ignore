@@ -1,5 +1,8 @@
 *.log
 
+.ccls-cache/
+# C
+
 Session.vim
 # Neovim's Black Magic
 
