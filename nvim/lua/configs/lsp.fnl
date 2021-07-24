@@ -79,6 +79,7 @@
 	(string.format "%s/Projects/lua-language-server" (os.getenv :HOME)))
 
 (local servers {
+	:ccls {}
 	:dhall_lsp_server {}
 	:hls {}
 	:purescriptls {}
