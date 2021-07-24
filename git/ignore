@@ -1,3 +1,5 @@
 .DS_Store
 Session.vim
 *.log
+
+.ccls-cache/
