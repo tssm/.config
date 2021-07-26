@@ -59,7 +59,7 @@
 				(opt.readonly:get)
 				(and (call.filereadable file) (not (call.filewritable file))))
 			modified (opt.modified:get)
-			icons (.. (if read-only "🔒" "") (if modified "💡" ""))]
+			icons (.. (if read-only "🔒" "") (if modified "🤔" ""))]
 			(if (not= icons "") (.. " " icons) ""))))
 
 (fn terminal-title [bufname]
