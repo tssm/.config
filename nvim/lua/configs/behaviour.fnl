@@ -16,6 +16,7 @@
 (opt.diffopt:append :vertical)
 (set opt.hidden true)
 (set opt.mouse :a)
+(set opt.ruler false)
 (set opt.sessionoptions [:curdir :help :tabpages :winsize])
 (set opt.shada "'100,rman:,rterm:")
 (set opt.shortmess :csF)
