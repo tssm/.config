@@ -67,21 +67,18 @@ in
           (plug "telescope" "nvim-telescope" "telescope.nvim")
           (plug "session-lens" "rmagatti" "session-lens")
 
+          # Tree-sitter
+          (plug "tree-sitter" "nvim-treesitter" "nvim-treesitter")
+          (super.pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: super.pkgs.tree-sitter.allGrammars))
+
           # File types
-          (plug "css" "JulesWang" "css.vim")
           (plug "dhall" "vmchale" "dhall-vim")
-          (plug "html" "othree" "html5.vim")
-          (plug "fish" "dag" "vim-fish")
-          (plug "nix" "LnL7" "vim-nix")
           (plug "pgsql" "lifepillar" "pgsql.vim")
           (plug "purescript" "purescript-contrib" "purescript-vim")
-          (plug "rust" "rust-lang" "rust.vim")
-          (plug "swift" "keith" "swift.vim")
 
           # Fennel
           (plug "aniseed" "Olical" "aniseed")
           (plug "conjure" "Olical" "conjure")
-          (plug "fennel" "bakpakin" "fennel.vim")
 
           # Haskell
           (plug "haskell-unicode" "zenzike" "vim-haskell-unicode")
