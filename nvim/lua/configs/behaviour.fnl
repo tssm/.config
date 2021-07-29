@@ -25,10 +25,6 @@
 (set opt.visualbell true)
 (set opt.wildignorecase true)
 
-; Folds
-(set opt.foldenable false)
-(set opt.foldmethod :syntax)
-
 ; Tab pages
 (set opt.splitbelow true)
 (set opt.splitright true)
