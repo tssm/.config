@@ -67,6 +67,8 @@ in
           # Tree-sitter
           (plug "tree-sitter" "nvim-treesitter" "nvim-treesitter")
           (super.pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: super.pkgs.tree-sitter.allGrammars))
+          (plug "tree-sitter-refactor" "nvim-treesitter" "nvim-treesitter-refactor")
+          (plug "tree-sitter-textobjects" "nvim-treesitter" "nvim-treesitter-textobjects")
 
           # File types
           (plug "dhall" "vmchale" "dhall-vim")
