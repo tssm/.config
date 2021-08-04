@@ -44,6 +44,12 @@
 	(telescope.lsp_dynamic_workspace_symbols {:entry_maker symbol-entry-maker}))
 (set My.find_workspace_symbols find-workspace-symbols)
 
+(set My.go_to_diagnostic_options {
+	:enable_popup true
+	:popup_opts My.show_diagnostic_options
+	:severity_limit :Warning})
+(set My.show_diagnostic_options {:show_header false})
+
 (fn set-up [client buffer-number]
 	(cmd "augroup LspSetUp")
 	(cmd "autocmd!")
@@ -57,15 +63,15 @@
 	; Buffer mappings
 
 	(set-map buffer-number "<c-]>" "vim.lsp.buf.definition()")
-	(set-map buffer-number :K "require'lspsaga.hover'.render_hover_doc()")
+	(set-map buffer-number :K "vim.lsp.buf.hover()")
 	(set-map buffer-number :<localleader>* "vim.lsp.buf.document_highlight()")
 	(set-map buffer-number :<localleader>a "require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown())")
-	(set-map buffer-number :<localleader>r "require'lspsaga.rename'.rename()")
+	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
 	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
 	(set-map buffer-number :<localleader>ws "My.find_workspace_symbols()")
-	(set-map buffer-number :<localleader>s "require'lspsaga.diagnostic'.show_line_diagnostics()")
-	(set-map buffer-number "[d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
-	(set-map buffer-number "]d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()")
+	(set-map buffer-number :<localleader>s "vim.lsp.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
+	(set-map buffer-number "[d" "vim.lsp.diagnostic.goto_prev(My.go_to_diagnostic_options)")
+	(set-map buffer-number "]d" "vim.lsp.diagnostic.goto_next(My.go_to_diagnostic_options)")
 	(set-map buffer-number :<localleader>u "My.find_references()")
 
 	; Buffer options
