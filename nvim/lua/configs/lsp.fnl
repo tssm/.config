@@ -55,15 +55,23 @@
 	; Buffer mappings
 
 	(set-map "<c-]>" "vim.lsp.buf.definition()")
-	(set-map :K "require'lspsaga.hover'.render_hover_doc()")
+	(set-map :K "vim.lsp.buf.hover()")
 	(set-map :<localleader>* "vim.lsp.buf.document_highlight()")
 	(set-map :<localleader>a "require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown())")
-	(set-map :<localleader>r "require'lspsaga.rename'.rename()")
+	(set-map :<localleader>r "vim.lsp.buf.rename()")
 	(set-map :<localleader>ds "My.find_document_symbols()")
 	(set-map :<localleader>ws "My.find_workspace_symbols()")
-	(set-map :<localleader>s "require'lspsaga.diagnostic'.show_line_diagnostics()")
-	(set-map "[d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()")
-	(set-map "]d" "require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()")
+
+	(set My.show_diagnostic_options {:show_header false})
+	(set-map :<localleader>s "vim.lsp.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
+
+	(set My.go_to_diagnostic_options {
+		:enable_popup true
+		:popup_opts My.show_diagnostic_options
+		:severity_limit :Warning})
+	(set-map "[d" "vim.lsp.diagnostic.goto_prev(My.go_to_diagnostic_options)")
+	(set-map "]d" "vim.lsp.diagnostic.goto_next(My.go_to_diagnostic_options)")
+
 	(set-map :<localleader>u "My.find_references()")
 
 	; Buffer options

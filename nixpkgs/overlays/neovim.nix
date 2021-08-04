@@ -66,7 +66,6 @@ in
 
           # LSP
           (plug "lspconfig" "neovim" "nvim-lspconfig")
-          (plug "lspsaga" "glepnir" "lspsaga.nvim")
 
           # Telescope
           (plug "plenary" "nvim-lua" "plenary.nvim")
