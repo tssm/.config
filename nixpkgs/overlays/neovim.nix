@@ -43,7 +43,6 @@ in
           (plug "signify" "mhinz" "vim-signify")
           (plug "sleuth" "tpope" "vim-sleuth")
           (plug "template" "aperezdc" "vim-template")
-          (plug "trailing-whitespace" "bronson" "vim-trailing-whitespace")
           (plug "undotree" "mbbill" "undotree")
 
           # Dadbod
