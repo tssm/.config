@@ -49,7 +49,6 @@ in
             }
           )
           (plug "template" "aperezdc" "vim-template")
-          (plug "trailing-whitespace" "bronson" "vim-trailing-whitespace")
           (plug "undotree" "mbbill" "undotree")
 
           # Dadbod
