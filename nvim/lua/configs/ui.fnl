@@ -2,8 +2,9 @@
 
 (cmd "augroup SetUpUi")
 (cmd "autocmd!")
+(cmd "autocmd BufEnter,BufRead * lua My.highlight_too_long() My.highlight_trailing_whitespace()")
 ; OptionSet trigger a sandbox error when a modeline is used so silent! is neccessary here ☹️
-(cmd "autocmd BufEnter,BufRead,OptionSet * silent! lua My.highlight_too_long()")
+(cmd "autocmd OptionSet * silent! lua My.highlight_too_long()")
 (cmd "autocmd ColorScheme * lua My.color_scheme_fix()")
 (cmd "augroup END")
 
@@ -55,6 +56,44 @@
 			(local regex (string.format "\\%%>%iv.\\+" textwidth))
 			(set w.too_long_match_id (call.matchadd :ColorColumn regex -1)))))
 (set My.highlight_too_long highlight-too-long)
+
+(local trailing-whitespace-regex (string.format
+	"[%s]\\+\\%%#\\@<!$"
+	(call.join [
+		:\u0009 ; tab
+		:\u000a ; line feed
+		:\u000b ; line tabulation
+		:\u000c ; form feed
+		:\u000d ; carriage return
+		:\u0020 ; space
+		:\u0085 ; next line
+		:\u00a0 ; no-break space
+		:\u1680 ; ogham space mark
+		:\u2000 ; en quad
+		:\u2001 ; em quad
+		:\u2002 ; en space
+		:\u2003 ; em space
+		:\u2004 ; three-per-em space
+		:\u2005 ; four-per-em space
+		:\u2006 ; six-per-em space
+		:\u2007 ; figure space
+		:\u2008 ; punctuation space
+		:\u2009 ; thin space
+		:\u200a ; hair space
+		:\u2028 ; line separation
+		:\u2029 ; paragraph separation
+		:\u202f ; narrow no-break space
+		:\u205f ; medium mathematical space
+		:\u3000] ""))) ; ideographic space
+
+(fn highlight-trailing-whitespace []
+	(when (not= w.trailing_whitespace_match_id nil)
+		(pcall #(call.matchdelete w.trailing_whitespace_match_id)))
+	(local buftype (opt.buftype:get))
+	(when (or (= buftype "") (= buftype :acwrite))
+		(set w.trailing_whitespace_match_id
+			(call.matchadd :ColorColumn trailing-whitespace-regex))))
+(set My.highlight_trailing_whitespace highlight-trailing-whitespace)
 
 ; Set options
 
