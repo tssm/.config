@@ -2,9 +2,9 @@
 
 (cmd "augroup SetUpUi")
 (cmd "autocmd!")
-(cmd "autocmd BufEnter,BufRead * lua My.highlight_too_long() My.highlight_trailing_whitespace()")
+(cmd "autocmd BufEnter,BufRead * lua My.highlight_too_long() My.highlight_trailing_whitespace() My.highlight_wrong_indentation()")
 ; OptionSet trigger a sandbox error when a modeline is used so silent! is neccessary here ☹️
-(cmd "autocmd OptionSet * silent! lua My.highlight_too_long()")
+(cmd "autocmd OptionSet * silent! lua My.highlight_too_long() My.highlight_wrong_indentation()")
 (cmd "autocmd ColorScheme * lua My.color_scheme_fix()")
 (cmd "augroup END")
 
@@ -94,6 +94,22 @@
 		(set w.trailing_whitespace_match_id
 			(call.matchadd :ColorColumn trailing-whitespace-regex))))
 (set My.highlight_trailing_whitespace highlight-trailing-whitespace)
+
+(local spaces-indentation "^\\ \\ *")
+(local tabs-indentation "^\\t\\t*")
+(fn highlight-wrong-indentation []
+	(when (not= w.wrong_indentation_match_id nil)
+		(pcall #(call.matchdelete w.wrong_indentation_match_id)))
+	(local buftype (opt.buftype:get))
+	(when (or (= buftype "") (= buftype :acwrite))
+		(local wrong-indentation-regex
+			(if (opt.expandtab:get) tabs-indentation
+				(if (or (= (opt.softtabstop:get) 0) (= (opt.softtabstop:get) (opt.tabstop:get)))
+					(.. spaces-indentation "\\|" tabs-indentation "\\zs\\ \\+")
+					spaces-indentation)))
+		(set w.wrong_indentation_match_id
+			(call.matchadd :ColorColumn wrong-indentation-regex))))
+(set My.highlight_wrong_indentation highlight-wrong-indentation)
 
 ; Set options
 
