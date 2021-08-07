@@ -65,6 +65,7 @@ in
 
           # LSP
           (plug "lspconfig" "neovim" "nvim-lspconfig")
+          (plug "metals" "scalameta" "nvim-metals")
 
           # Telescope
           (plug "plenary" "nvim-lua" "plenary.nvim")

@@ -92,7 +92,6 @@
 	:ccls {}
 	:dhall_lsp_server {}
 	:hls {}
-	:metals {}
 	:purescriptls {}
 	:rls {}
 	:rnix {}
@@ -115,3 +114,15 @@
 	(local server (. lspconfig name))
 	(tset opts :on_attach set-up)
 	(server.setup opts))
+
+; Metals
+
+(set vim.g.metals_use_global_executable true)
+(local metals-config {
+	:on_attach set-up
+	:settings {
+		:showImplicitArguments true
+		:showImplicitConversionsAndClasses true
+		:showInferredType true}})
+(set My.metals_config metals-config)
+(cmd "autocmd FileType sbt,scala lua require'metals'.initialize_or_attach(My.metals_config)")
