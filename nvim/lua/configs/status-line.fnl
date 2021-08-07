@@ -7,7 +7,7 @@
 (fn cursor-position [buftype]
 	(if
 		(= buftype "") (let [position (call.getcurpos)]
-			(string.format "%i≡ %i∥" (. position 2) (. position 3)))
+			(string.format "%i⭆  %i⟱ " (. position 2) (. position 3)))
 		(= buftype :quickfix) (string.format :%s/%s (call.line :.) (call.line :$))
 		""))
 
@@ -82,9 +82,6 @@
 		(= buftype "") (if (= bufname "") "🆕" (fnmodify bufname ":t"))
 		""))
 
-(fn unicode-window-number []
-	(call.nr2char (+ 9460 (call.winnr))))
-
 (fn status-line [active?]
 	(local bufname (call.bufname))
 	(local buftype (opt.buftype:get))
@@ -93,7 +90,7 @@
 		; Left
 		(if active?
 			:%#StatusLineNC#
-			(string.format "%s%s%s  " :%#StatusLine# (unicode-window-number) :%#StatusLineNC#))
+			(string.format "%s❬%s❭%s " :%#StatusLine# (call.winnr) :%#StatusLineNC#))
 		(directory bufname buftype filetype)
 		(string.format "%s%s%s"
 			(if active? :%#StatusLine# "")
