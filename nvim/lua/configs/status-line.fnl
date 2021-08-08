@@ -71,6 +71,7 @@
 		(= buftype :help) (fnmodify bufname ":t:r")
 		(= buftype :quickfix) vim.w.quickfix_title
 		(= buftype :terminal) (terminal-title bufname)
+		(= filetype :dap-repl) "Debugger REPL"
 		(= filetype :dirvish) (relative-directory bufname)
 		(= filetype :gitcommit) "Edit commit message"
 		(= filetype :man) (call.substitute bufname "^man://" "" "")
