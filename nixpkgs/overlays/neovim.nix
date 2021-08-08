@@ -18,6 +18,7 @@ in
           (plug "bbye" "moll" "vim-bbye")
           (plug "colorizer" "norcalli" "nvim-colorizer.lua")
           (plug "commentary" "tpope" "vim-commentary")
+          (plug "dap" "mfussenegger" "nvim-dap")
           (
             super.vimUtils.buildVimPlugin {
               name = "difforig";
