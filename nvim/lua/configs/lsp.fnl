@@ -119,7 +119,9 @@
 
 (set vim.g.metals_use_global_executable true)
 (local metals-config {
-	:on_attach set-up
+	:on_attach (fn []
+		(set-up)
+		((. (require :metals) :setup_dap)))
 	:settings {
 		:showImplicitArguments true
 		:showImplicitConversionsAndClasses true
