@@ -49,6 +49,7 @@ in
               patches = [ ./sleuth-respect-user-set-up.patch ];
             }
           )
+          (plug "snitch" "tssm" "nvim-snitch")
           (plug "template" "aperezdc" "vim-template")
           (plug "undotree" "mbbill" "undotree")
 
