@@ -8,6 +8,8 @@
 [fetch]
 	prune = true
 	pruneTags = true
+[init]
+	defaultBranch = main
 [interactive]
 	diffFilter = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black | $PAGER
 [merge]
