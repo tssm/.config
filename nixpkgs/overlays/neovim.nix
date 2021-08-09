@@ -42,6 +42,7 @@ in
           (plug "sandwich" "machakann" "vim-sandwich")
           (plug "signify" "mhinz" "vim-signify")
           (plug "sleuth" "tpope" "vim-sleuth")
+          (plug "snitch" "tssm" "nvim-snitch")
           (plug "template" "aperezdc" "vim-template")
           (plug "undotree" "mbbill" "undotree")
 
