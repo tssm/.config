@@ -18,3 +18,5 @@
 	autosquash = true
 [diff]
 	mnemonicPrefix = true
+[init]
+	defaultBranch = main
