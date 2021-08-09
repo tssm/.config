@@ -9,6 +9,8 @@
 [fetch]
 	prune = true
 	pruneTags = true
+[init]
+	defaultBranch = main
 [interactive]
 	diffFilter = diffr --colors refine-added:background:none:foreground:green:intense --colors refine-removed:background:none:foreground:red:intense
 [merge]
