@@ -1,6 +1,5 @@
 (local call vim.fn)
 (local fnmodify call.fnamemodify)
-(local aniseed (require :aniseed.core))
 (local opt vim.opt)
 (local edit-patch :addp-hunk-edit.diff)
 
@@ -62,17 +61,17 @@
 			icons (.. (if read-only "🔒" "") (if modified "🤔" ""))]
 			(if (not= icons "") (.. " " icons) ""))))
 
-(fn terminal-title [bufname]
+(fn terminal-title []
 	(local term-title vim.b.term_title)
-	(if
-		(= term-title bufname) (aniseed.last (call.split bufname ":"))
+	(if (vim.startswith term-title "term://")
+		(call.substitute term-title "term:\\/\\/\\(.*\\)\\/\\/\\d\\+:\\ze" "" "")
 		term-title))
 
 (fn buffer [bufname buftype filetype]
 	(if
 		(= buftype :help) (.. (fnmodify bufname ":t:r") " help")
 		(= buftype :quickfix) vim.w.quickfix_title
-		(= buftype :terminal) (terminal-title bufname)
+		(= buftype :terminal) (terminal-title)
 		(= filetype :dap-repl) "Debugger REPL"
 		(= filetype :dirvish) (relative-directory bufname)
 		(= filetype :gitcommit) "Edit commit message"
