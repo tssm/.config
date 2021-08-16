@@ -1,6 +1,5 @@
 (local call vim.fn)
 (local fnmodify call.fnamemodify)
-(local aniseed (require :aniseed.core))
 (local opt vim.opt)
 (local edit-patch :addp-hunk-edit.diff)
 
@@ -63,7 +62,8 @@
 (fn terminal-title [bufname]
 	(local term-title vim.b.term_title)
 	(if
-		(= term-title bufname) (aniseed.last (call.split bufname ":"))
+		(= term-title bufname) (call.substitute
+			bufname "term:\\/\\/\\(.*\\)\\/\\/\\d\\+:\\ze" "" "")
 		term-title))
 
 (fn buffer [bufname buftype filetype]
