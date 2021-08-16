@@ -15,7 +15,7 @@
 (local call vim.api)
 (fn clean-up []
 	(each [_ bufnr (ipairs (call.nvim_list_bufs))]
-		(when (= (call.nvim_buf_get_option bufnr :buftype) :help)
+		(when (not= (call.nvim_buf_get_option bufnr :buftype) "")
 			(cmd (string.format "bwipeout %i" bufnr)))))
 (set My.clean_up clean-up)
 
