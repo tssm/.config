@@ -11,6 +11,16 @@
 	{:name :LspDiagnosticsSignInformation :text "ℹ️"}
 	{:name :LspDiagnosticsSignWarning :text "⚠️"}])
 
+(tset vim.lsp.handlers
+	:textDocument/publishDiagnostics
+	(vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics {
+		:severity_sort true
+		:update_in_insert true
+		:underline {:severity_limit :Warning}
+		:virtual_text {
+			:severity_limit :Warning
+			:spacing 0}}))
+
 (fn set-map [lhs func]
 	(api.nvim_buf_set_keymap
 		buffer-number
