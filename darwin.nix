@@ -3,6 +3,7 @@
   environment.systemPackages = [
     pkgs.bat
     pkgs.cabal-install
+    pkgs.cargo
     pkgs.ccls
     pkgs.darwin.trash
     pkgs.dhall
@@ -17,8 +18,9 @@
     pkgs.neovim-remote
     pkgs.pijul
     pkgs.ripgrep
-    pkgs.rls
     pkgs.rnix-lsp
+    pkgs.rust-analyzer
+    pkgs.rustc
     pkgs.tree
   ];
 
