@@ -103,8 +103,8 @@
 	:dhall_lsp_server {}
 	:hls {}
 	:purescriptls {}
-	:rls {}
 	:rnix {}
+	:rust_analyzer {}
 	:sumneko_lua {
 		:cmd [
 			(string.format :%s/bin/macOS/lua-language-server lua-server-path)
