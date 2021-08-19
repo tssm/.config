@@ -34,11 +34,12 @@ in
           (plug "linediff" "AndrewRadev" "linediff.vim")
           (plug "mergetool" "samoshkin" "vim-mergetool")
           (plug "mucomplete" "lifepillar" "vim-mucomplete")
+          (plug "octo" "pwntester" "octo.nvim")
           (plug "orgmode" "kristijanhusak" "orgmode.nvim")
+          (plug "project" "ahmedkhalf" "project.nvim")
           (plug "random-colors" "tssm" "nvim-random-colors")
           (plug "reflex" "tssm" "nvim-reflex")
           (plug "repeat" "tpope" "vim-repeat")
-          (plug "rooter" "airblade" "vim-rooter")
           (plug "sandwich" "machakann" "vim-sandwich")
           (plug "signify" "mhinz" "vim-signify")
           (
@@ -53,10 +54,6 @@ in
           (plug "template" "aperezdc" "vim-template")
           (plug "undotree" "mbbill" "undotree")
 
-          # Dadbod
-          (plug "dadbod" "tpope" "vim-dadbod")
-          (plug "dadbod-completion" "kristijanhusak" "vim-dadbod-completion")
-
           # Dirvish
           (plug "dirvish" "justinmk" "vim-dirvish")
           (plug "dirvish-git" "kristijanhusak" "vim-dirvish-git")
@@ -68,6 +65,7 @@ in
           # LSP
           (plug "lspconfig" "neovim" "nvim-lspconfig")
           (plug "metals" "scalameta" "nvim-metals")
+          (plug "sqls" "nanotee" "sqls.nvim")
 
           # Telescope
           (plug "plenary" "nvim-lua" "plenary.nvim")

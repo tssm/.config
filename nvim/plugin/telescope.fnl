@@ -108,29 +108,29 @@
 	(vim.api.nvim_set_keymap
 		:n
 		(string.format :<leader>%s lhs)
-		(string.format "<cmd>lua %s()<cr>" rhs)
+		(string.format "<cmd>lua %s<cr>" rhs)
 		{:noremap true :silent true}))
 
 (set My.find_buffers find-buffers)
-(set-map :b :My.find_buffers)
+(set-map :b "My.find_buffers()")
 
-(set-map :c "require'telescope.builtin'.command_history")
+(set-map :c "require'telescope.builtin'.command_history()")
 
 (set My.find_files find-files)
-(set-map :f :My.find_files)
+(set-map :f "My.find_files()")
 
 (set My.grep grep)
-(set-map :g :My.grep)
+(set-map :g "My.grep()")
 
-(set-map :h "require'telescope.builtin'.help_tags")
+(set-map :h "require'telescope.builtin'.help_tags()")
 
-(set-map :o "require'telescope.builtin'.oldfiles")
+(set-map :o "require'telescope.builtin'.oldfiles()")
+
+(telescope.load_extension :projects)
+(set-map :p "require'telescope'.extensions.projects.projects(require'telescope.themes'.get_dropdown({ layout_config = { width = 100 } }))")
 
 (set My.find_in_quickfix quickfix)
-(set-map :q :My.find_in_quickfix)
+(set-map :q "My.find_in_quickfix()")
 
 (set-map :s "require'session-lens'.search_session")
-(vim.api.nvim_set_keymap
-	:n :z=
-	"<cmd>lua require'telescope.builtin'.spell_suggest(require'telescope.themes'.get_dropdown())<cr>"
-	{})
+(set-map :z= "require'telescope.builtin'.spell_suggest(require'telescope.themes'.get_dropdown())")

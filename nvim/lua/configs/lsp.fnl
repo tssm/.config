@@ -105,6 +105,11 @@
 	:purescriptls {}
 	:rnix {}
 	:rust_analyzer {}
+	:sqls {
+		:on_attach (fn [client]
+			(set client.resolved_capabilities.execute_command true)
+			((. (require :sqls) :setup) {})
+			(set-up))}
 	:sumneko_lua {
 		:cmd [
 			(string.format :%s/bin/macOS/lua-language-server lua-server-path)
@@ -122,7 +127,8 @@
 
 (each [name opts (pairs servers)]
 	(local server (. lspconfig name))
-	(tset opts :on_attach set-up)
+	(when (= opts.on_attach nil)
+		(tset opts :on_attach set-up))
 	(server.setup opts))
 
 ; Metals

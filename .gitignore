@@ -1,2 +1,3 @@
 *.lua
 fish/local-config.fish
+sqls/*

@@ -33,6 +33,10 @@
 
 (let [orgmode (require :orgmode)] (orgmode.setup {:mappings {:disable_all true}}))
 
+; Project
+
+((. (require :project_nvim) :setup) {:patterns [:.git :.pijul]})
+
 ; Random colors
 
 (cmd "command! RandomColorScheme lua require'random-colors'()")
@@ -40,12 +44,7 @@
 ; Reflex
 
 (set g.reflex_delete_cmd :trash)
-
-; Rooter
-
-(set g.rooter_patterns [ :.git :.pijul :shell.nix ])
-(set g.rooter_resolve_links true)
-(set g.rooter_silent_chdir true)
+(set g.reflex_delete_buffer_cmd :Bwipeout!)
 
 ; Sandwich
 

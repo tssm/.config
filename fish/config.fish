@@ -33,7 +33,7 @@ set PATH /run/current-system/sw/bin $PATH
 set PATH $NIX_LINK/bin $NIX_LINK/sbin $PATH
 set PATH ~/.local/bin $PATH
 set PATH ~/.luarocks/bin $PATH
-set PATH node_modules/.bin $XDG_DATA_HOME/node_modules $PATH
+set PATH node_modules/bin $XDG_DATA_HOME/node_modules/bin $PATH
 set --export PATH $PATH
 
 # Local configuration
