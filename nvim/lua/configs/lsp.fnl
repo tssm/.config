@@ -6,10 +6,14 @@
 (local telescope (require :telescope.builtin))
 
 (vim.fn.sign_define [
-	{:name :LspDiagnosticsSignError :text "🚫"}
+	{:name :LspDiagnosticsSignError :text "🤬"}
 	{:name :LspDiagnosticsSignHint :text "☝️"}
 	{:name :LspDiagnosticsSignInformation :text "ℹ️"}
 	{:name :LspDiagnosticsSignWarning :text "⚠️"}])
+
+(each [_ highlight
+	(ipairs [:Error :Warning])]
+	(cmd (string.format "highlight! link LspDiagnosticsVirtualText%s %s" highlight highlight)))
 
 (tset vim.lsp.handlers
 	:textDocument/publishDiagnostics
