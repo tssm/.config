@@ -1,5 +1,6 @@
 (local api vim.api)
 (local cmd api.nvim_command)
+(local aniseed (require :aniseed.core))
 (local lspconfig (require :lspconfig))
 (local procedures (require :procedures))
 (local telescope (require :telescope.builtin))
@@ -10,6 +11,15 @@
 	{:name :LspDiagnosticsSignInformation :text "ℹ️"}
 	{:name :LspDiagnosticsSignWarning :text "⚠️"}])
 
+(local window-options {
+	:pad_bottom 1
+	:pad_left 1
+	:pad_right 1
+	:pad_top 1})
+(tset
+	vim.lsp.handlers
+	:textDocument/hover
+	(vim.lsp.with vim.lsp.handlers.hover window-options))
 (tset vim.lsp.handlers
 	:textDocument/publishDiagnostics
 	(vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics {
@@ -57,7 +67,7 @@
 	:enable_popup true
 	:popup_opts My.show_diagnostic_options
 	:severity_limit :Warning})
-(set My.show_diagnostic_options {:show_header false})
+(set My.show_diagnostic_options (aniseed.merge window-options {:show_header false}))
 
 (fn set-up [client buffer-number]
 	(cmd "augroup LspSetUp")
