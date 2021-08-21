@@ -47,16 +47,13 @@ in
           (plug "template" "aperezdc" "vim-template")
           (plug "undotree" "mbbill" "undotree")
 
-          # Dadbod
-          (plug "dadbod" "tpope" "vim-dadbod")
-          (plug "dadbod-completion" "kristijanhusak" "vim-dadbod-completion")
-
           # Lexima
           (plug "lexima" "cohama" "lexima.vim")
           (plug "lexima-template-rules" "zandrmartin" "lexima-template-rules")
 
           # LSP
           (plug "lspconfig" "neovim" "nvim-lspconfig")
+          (plug "sqls" "nanotee" "sqls.nvim")
 
           # Telescope
           (plug "plenary" "nvim-lua" "plenary.nvim")
