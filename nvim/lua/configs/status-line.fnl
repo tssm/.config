@@ -10,15 +10,6 @@
 		(= buftype :quickfix) (string.format :%s/%s (call.line :.) (call.line :$))
 		""))
 
-(fn dadbod-buffer? [bufname]
-	(> (call.match bufname ".*\\.dbout$") -1))
-
-(fn dadbod-query [bufname]
-	(local query-file (.. (fnmodify bufname ":r") :.sql))
-	(if (call.filereadable query-file)
-		(call.join (call.readfile query-file))
-		""))
-
 (fn relative-file-directory [path]
 	(local cwd (call.getcwd))
 	(local directory (fnmodify path ":p:h"))
@@ -43,13 +34,13 @@
 			(= bufname "")
 			(not= buftype "")
 			(= filetype :gitcommit)
-			(dadbod-buffer?)
+			(= filetype :sqls_output)
 			(vim.endswith bufname edit-patch)) ""
 		(relative-file-directory bufname)))
 
 (fn file-status [bufname buftype]
 	(if
-		(or (not= buftype "") (dadbod-buffer?)) ""
+		(or (not= buftype "") (not (opt.modifiable:get))) ""
 		(let [
 			file (fnmodify bufname ":p")
 			read-only (or
@@ -75,8 +66,8 @@
 		(= filetype :dirvish) (relative-directory bufname)
 		(= filetype :gitcommit) "Edit commit message"
 		(= filetype :man) (call.substitute bufname "^man://" "" "")
+		(= filetype :sqls_output) "sqls output"
 		(= filetype :undotree) :Undotree
-		(dadbod-buffer? bufname) (dadbod-query bufname)
 		(vim.endswith bufname edit-patch) "Edit patch"
 		(vim.startswith bufname :diffpanel_) :Diff
 		; This comparison should be the last one because some of the filetypes above are normal

@@ -46,10 +46,6 @@ in
           (plug "template" "aperezdc" "vim-template")
           (plug "undotree" "mbbill" "undotree")
 
-          # Dadbod
-          (plug "dadbod" "tpope" "vim-dadbod")
-          (plug "dadbod-completion" "kristijanhusak" "vim-dadbod-completion")
-
           # Dirvish
           (plug "dirvish" "justinmk" "vim-dirvish")
           (plug "dirvish-git" "kristijanhusak" "vim-dirvish-git")
@@ -60,6 +56,7 @@ in
 
           # LSP
           (plug "lspconfig" "neovim" "nvim-lspconfig")
+          (plug "sqls" "nanotee" "sqls.nvim")
 
           # Telescope
           (plug "plenary" "nvim-lua" "plenary.nvim")
