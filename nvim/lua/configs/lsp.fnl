@@ -30,6 +30,10 @@
 		:virtual_text {
 			:severity_limit :Warning
 			:spacing 0}}))
+(tset
+	vim.lsp.handlers
+	:textDocument/signatureHelp
+	(vim.lsp.with vim.lsp.handlers.signature_help window-options))
 
 (fn set-map [buffer-number lhs func]
 	(api.nvim_buf_set_keymap
@@ -89,7 +93,8 @@
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
 	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
 	(set-map buffer-number :<localleader>ws "My.find_workspace_symbols()")
-	(set-map buffer-number :<localleader>s "vim.lsp.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
+	(set-map buffer-number :<localleader>sd "vim.lsp.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
+	(set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
 	(set-map buffer-number "[d" "vim.lsp.diagnostic.goto_prev(My.go_to_diagnostic_options)")
 	(set-map buffer-number "]d" "vim.lsp.diagnostic.goto_next(My.go_to_diagnostic_options)")
 	(set-map buffer-number :<localleader>u "My.find_references()")
