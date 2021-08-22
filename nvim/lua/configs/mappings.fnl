@@ -17,8 +17,6 @@
 
 (set-map :x :p "\"_dP")
 
-(set-map :n :Y :y$)
-
 (set-map :n :za :zA)
 (set-map :n :zm :zM)
 (set-map :n :zr :zR)
