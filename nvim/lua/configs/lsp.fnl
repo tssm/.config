@@ -6,7 +6,7 @@
 (local telescope (require :telescope.builtin))
 
 (vim.fn.sign_define [
-	{:name :LspDiagnosticsSignError :text "🚫"}
+	{:name :LspDiagnosticsSignError :text "🤬"}
 	{:name :LspDiagnosticsSignHint :text "☝️"}
 	{:name :LspDiagnosticsSignInformation :text "ℹ️"}
 	{:name :LspDiagnosticsSignWarning :text "⚠️"}])
