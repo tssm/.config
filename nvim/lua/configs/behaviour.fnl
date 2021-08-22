@@ -26,7 +26,7 @@
 (set opt.mouse :a)
 (set opt.ruler false)
 (set opt.sessionoptions [:curdir :help :tabpages :winsize])
-(set opt.shada "'100,rman:,rterm:")
+(set opt.shada "'100,rman:,rocto:,rterm:")
 (set opt.shortmess :csF)
 (set opt.spelloptions :camel)
 (set opt.tildeop true)
