@@ -67,6 +67,7 @@
 		(= filetype :dirvish) (relative-directory bufname)
 		(= filetype :gitcommit) "Edit commit message"
 		(= filetype :man) (.. (call.substitute bufname "^man://" "" "") " man")
+		(= filetype :octo) (call.substitute bufname "^octo://" "" "")
 		(= filetype :sqls_output) "sqls output"
 		(= filetype :undotree) :Undotree
 		(vim.endswith bufname edit-patch) "Edit patch"
