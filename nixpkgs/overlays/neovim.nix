@@ -35,6 +35,7 @@ in
           (plug "linediff" "AndrewRadev" "linediff.vim")
           (plug "mergetool" "samoshkin" "vim-mergetool")
           (plug "mucomplete" "lifepillar" "vim-mucomplete")
+          (plug "octo" "pwntester" "octo.nvim")
           (plug "orgmode" "kristijanhusak" "orgmode.nvim")
           (plug "project" "ahmedkhalf" "project.nvim")
           (plug "random-colors" "tssm" "nvim-random-colors")
