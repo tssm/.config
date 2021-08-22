@@ -24,6 +24,10 @@
 (set g.mucomplete#minimum_prefix_length 1)
 (set vim.opt.completeopt [:menuone :noinsert])
 
+; Octo
+
+((. (require :octo) :setup))
+
 ; Orgmode
 
 (let [orgmode (require :orgmode)] (orgmode.setup {:mappings {:disable_all true}}))
