@@ -8,6 +8,10 @@ font:
     style: Light
   size: 13.0
 
+key_bindings:
+  - { key: Q, mods: Command, action: None }
+  - { key: W, mods: Command, chars: ":confirm qall\n"}
+
 shell:
   program: /run/current-system/sw/bin/fish
   args:
