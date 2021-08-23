@@ -21,7 +21,6 @@
 (set-map :n :zm :zM)
 (set-map :n :zr :zR)
 
-(set-map :n :sq "<cmd>confirm qall<cr>")
 (set-map :n :ss "<cmd>confirm wall<cr>")
 (set-map :n :sx :<cmd>exit<cr>)
 
