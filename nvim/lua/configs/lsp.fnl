@@ -84,6 +84,9 @@
 	(each [_ reference (ipairs [:Read :Text :Write])]
 		(cmd (string.format "highlight! link LspReference%s Search" reference)))
 
+	(each [_ highlight (ipairs [:Error :Warning])]
+		(cmd (string.format "highlight! link LspDiagnosticsVirtualText%s %s" highlight highlight)))
+
 	; Buffer mappings
 
 	(set-map buffer-number "<c-]>" "vim.lsp.buf.definition()")
