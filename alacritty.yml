@@ -10,6 +10,7 @@ font:
 
 key_bindings:
   - { key: Q, mods: Command, action: None }
+  - { key: S, mods: Command, chars: ":wall\n" }
   - { key: W, mods: Command|Shift, chars: ":qall\n" }
 
 shell:
