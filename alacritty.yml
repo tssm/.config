@@ -10,7 +10,7 @@ font:
 
 key_bindings:
   - { key: Q, mods: Command, action: None }
-  - { key: W, mods: Command, chars: ":confirm qall\n"}
+  - { key: W, mods: Command, chars: ":qall\n"}
 
 shell:
   program: /run/current-system/sw/bin/fish
