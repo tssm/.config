@@ -56,6 +56,10 @@
 		:symbol_type symbol-kind
 		:value symbol-name})
 
+(fn find-definitions []
+	(telescope.lsp_definitions {:entry_maker procedures.quickfix-entry-maker}))
+(set My.find_definitions find-definitions)
+
 (fn find-document-symbols []
 	(telescope.lsp_document_symbols {:entry_maker symbol-entry-maker}))
 (set My.find_document_symbols find-document-symbols)
@@ -89,7 +93,7 @@
 
 	; Buffer mappings
 
-	(set-map buffer-number "<c-]>" "vim.lsp.buf.definition()")
+	(set-map buffer-number "<c-]>" "My.find_definitions()")
 	(set-map buffer-number :K "vim.lsp.buf.hover()")
 	(set-map buffer-number :<localleader>* "vim.lsp.buf.document_highlight()")
 	(set-map buffer-number :<localleader>a "require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown())")
