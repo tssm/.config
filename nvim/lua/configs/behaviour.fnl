@@ -13,6 +13,7 @@
 
 (local opt vim.opt)
 (set opt.clipboard [:unnamed :unnamedplus])
+(set opt.confirm true)
 (opt.diffopt:append :vertical)
 (set opt.hidden true)
 (set opt.mouse :a)
