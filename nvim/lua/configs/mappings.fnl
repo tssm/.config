@@ -23,7 +23,7 @@
 
 (set-map :n :gd :<cmd>Bdelete!<cr>)
 
-(set-map :n :sx :<cmd>exit<cr>)
+(set-map :n :sq :<cmd>exit<cr>)
 
 (set-map :n :! ":te ")
 
