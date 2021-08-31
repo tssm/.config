@@ -45,7 +45,8 @@
 
 ; Reflex
 
-(set g.reflex_delete_cmd :trash)
+(set g.reflex_delete_buffer_cmd :Bwipeout!)
+(set g.reflex_delete_file_cmd :trash)
 
 ; Sandwich
 
