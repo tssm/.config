@@ -6,6 +6,6 @@ function fish_title
 		case man
 			echo manual for (string split ' ' $argv)[-1]
 		case '*'
-			echo $command
+			echo $argv
 	end
 end
