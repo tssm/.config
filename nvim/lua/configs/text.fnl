@@ -1,6 +1,5 @@
 (local opt vim.opt)
 (opt.iskeyword:remove "_")
-(set opt.joinspaces false) ; Use only 1 space after a . when joining lines
 
 ; Folds
 (set opt.foldenable false)
