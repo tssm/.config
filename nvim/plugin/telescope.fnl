@@ -49,6 +49,7 @@
 	(change-directory? directory))
 
 (telescope.setup {:defaults {
+	:dynamic_preview_title true
 	:file_sorter (. sorters :get_fzy_sorter)
 	:layout_config {:prompt_position :top}
 	:mappings {:i {
