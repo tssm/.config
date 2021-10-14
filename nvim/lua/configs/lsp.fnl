@@ -5,30 +5,25 @@
 (local procedures (require :procedures))
 (local telescope (require :telescope.builtin))
 
-(vim.fn.sign_define [
-	{:name :LspDiagnosticsSignError :text "🤬"}
-	{:name :LspDiagnosticsSignHint :text "☝️"}
-	{:name :LspDiagnosticsSignInformation :text "ℹ️"}
-	{:name :LspDiagnosticsSignWarning :text "⚠️"}])
+(vim.diagnostic.config {
+	:severity_sort true
+	:update_in_insert true
+	:underline {:severity {:min vim.diagnostic.severity.WARN}}
+	:virtual_text {
+		:severity {:min vim.diagnostic.severity.WARN}
+		:spacing 0}})
 
-(local window-options {
-	:pad_bottom 1
-	:pad_left 1
-	:pad_right 1
-	:pad_top 1})
+(vim.fn.sign_define [
+	{:name :DiagnosticSignError :text "🤬"}
+	{:name :DiagnosticSignHint :text "☝️"}
+	{:name :DiagnosticSignInfo :text "ℹ️"}
+	{:name :DiagnosticSignWarn :text "⚠️"}])
+
+(local window-options {:pad_bottom 1 :pad_top 1})
 (tset
 	vim.lsp.handlers
 	:textDocument/hover
 	(vim.lsp.with vim.lsp.handlers.hover window-options))
-(tset vim.lsp.handlers
-	:textDocument/publishDiagnostics
-	(vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics {
-		:severity_sort true
-		:update_in_insert true
-		:underline {:severity_limit :Warning}
-		:virtual_text {
-			:severity_limit :Warning
-			:spacing 0}}))
 (tset
 	vim.lsp.handlers
 	:textDocument/signatureHelp
@@ -72,9 +67,8 @@
 (set My.find_workspace_symbols find-workspace-symbols)
 
 (set My.go_to_diagnostic_options {
-	:enable_popup true
 	:popup_opts My.show_diagnostic_options
-	:severity_limit :Warning})
+	:severity {:min vim.diagnostic.severity.WARN}})
 (set My.show_diagnostic_options (aniseed.merge window-options {:show_header false}))
 
 (fn set-up [client buffer-number]
@@ -87,9 +81,6 @@
 	(each [_ reference (ipairs [:Read :Text :Write])]
 		(cmd (string.format "highlight! link LspReference%s Search" reference)))
 
-	(each [_ highlight (ipairs [:Error :Warning])]
-		(cmd (string.format "highlight! link LspDiagnosticsVirtualText%s %s" highlight highlight)))
-
 	; Buffer mappings
 
 	(set-map buffer-number "<c-]>" "My.find_definitions()")
@@ -99,10 +90,10 @@
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
 	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
 	(set-map buffer-number :<localleader>ws "My.find_workspace_symbols()")
-	(set-map buffer-number :<localleader>sd "vim.lsp.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
+	(set-map buffer-number :<localleader>sd "vim.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
 	(set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
-	(set-map buffer-number "[d" "vim.lsp.diagnostic.goto_prev(My.go_to_diagnostic_options)")
-	(set-map buffer-number "]d" "vim.lsp.diagnostic.goto_next(My.go_to_diagnostic_options)")
+	(set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
+	(set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
 	(set-map buffer-number :<localleader>u "My.find_references()")
 
 	; Buffer options
