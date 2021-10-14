@@ -47,6 +47,7 @@
 	(change-directory? directory))
 
 (telescope.setup {:defaults {
+	:dynamic_preview_title true
 	:layout_config {:prompt_position :top}
 	:mappings {:i {
 		:<cr> open-file
