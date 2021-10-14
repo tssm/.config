@@ -1,6 +1,7 @@
 (local aniseed (require :aniseed.core))
 (local pickers (require :telescope.builtin))
 (local actions (require :telescope.actions))
+(local actions-state (require :telescope.actions.state))
 (local path (require :plenary.path))
 (local procedures (require :procedures))
 (local telescope (require :telescope))
@@ -14,15 +15,15 @@
 			(vim.cmd (.. "cd " directory))))
 
 (fn create-file []
-	(procedures.create-file (aniseed.first (actions.get_selected_entry))))
+	(procedures.create-file (aniseed.first (actions-state.get_selected_entry))))
 
 (fn edit-command []
-	(vim.call :feedkeys (.. ":" (aniseed.first (actions.get_selected_entry)))))
+	(vim.call :feedkeys (.. ":" (aniseed.first (actions-state.get_selected_entry)))))
 
 (fn edit-first [prompt-buffer-number]
 	(local
 		prompt-title
-		(. (actions.get_current_picker prompt-buffer-number) :prompt_title))
+		(. (actions-state.get_current_picker prompt-buffer-number) :prompt_title))
 	(actions.close prompt-buffer-number)
 	(match prompt-title
 		"Command History" (edit-command)
@@ -31,10 +32,10 @@
 
 (fn open-file [prompt-buffer-number]
 	(actions.select_default prompt-buffer-number)
-	(change-directory? (aniseed.first (actions.get_selected_entry))))
+	(change-directory? (aniseed.first (actions-state.get_selected_entry))))
 
 (fn open-terminal [prompt-buffer-number]
-	(local selected-entry (aniseed.first (actions.get_selected_entry)))
+	(local selected-entry (aniseed.first (actions-state.get_selected_entry)))
 	(local directory (if (= (vim.fn.isdirectory selected-entry) 1)
 		selected-entry
 		(vim.fn.fnamemodify selected-entry ":h")))
