@@ -62,6 +62,7 @@
 		:<c-z> open-terminal
 		:<tab> (+ actions.toggle_selection actions.move_selection_next)
 		:<s-tab> (+ actions.toggle_selection actions.move_selection_previous)}}
+	:path_display {:truncate true}
 	:sorting_strategy :ascending
 	:winblend 10}})
 
