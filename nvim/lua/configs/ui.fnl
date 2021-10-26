@@ -31,7 +31,13 @@
 		"link Folded FoldColumn"
 		"SignColumn guibg=bg"
 		"SpecialKey guibg=bg"
-		"TermCursorNC guibg=bg guifg=bg"])
+		"TermCursorNC guibg=bg guifg=bg"
+		; Plugins
+		"link HopCursor Cursor"
+		"link HopNextKey Search"
+		"link HopNextKey1 HopNextKey"
+		"link HopNextKey2 NONE"
+		"link HopUnmatched NONE"])
 
 	(each
 		[_ highlight (ipairs highlights)]
