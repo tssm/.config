@@ -85,7 +85,7 @@
 
 	(set-map buffer-number "<c-]>" "My.find_definitions()")
 	(set-map buffer-number :K "vim.lsp.buf.hover()")
-	(set-map buffer-number :<localleader>* "vim.lsp.buf.document_highlight()")
+	(set-map buffer-number :<localleader>h "vim.lsp.buf.document_highlight()")
 	(set-map buffer-number :<localleader>a "require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown())")
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
 	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
