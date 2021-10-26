@@ -6,6 +6,7 @@
 (local telescope (require :telescope.builtin))
 
 (vim.diagnostic.config {
+	:float {:show_header false}
 	:severity_sort true
 	:update_in_insert true
 	:underline {:severity {:min vim.diagnostic.severity.WARN}}
@@ -67,9 +68,9 @@
 (set My.find_workspace_symbols find-workspace-symbols)
 
 (set My.go_to_diagnostic_options {
-	:popup_opts My.show_diagnostic_options
+	:float window-options
 	:severity {:min vim.diagnostic.severity.WARN}})
-(set My.show_diagnostic_options (aniseed.merge window-options {:show_header false}))
+(set My.show_diagnostic_options (aniseed.merge window-options {:scope :line}))
 
 (fn set-up [client buffer-number]
 	(cmd "augroup LspSetUp")
@@ -90,7 +91,7 @@
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
 	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
 	(set-map buffer-number :<localleader>ws "My.find_workspace_symbols()")
-	(set-map buffer-number :<localleader>sd "vim.diagnostic.show_line_diagnostics(My.show_diagnostic_options)")
+	(set-map buffer-number :<localleader>sd "vim.diagnostic.open_float(0, My.show_diagnostic_options)")
 	(set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
 	(set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
 	(set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
