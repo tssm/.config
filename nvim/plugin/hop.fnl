@@ -17,14 +17,8 @@
 
 (local cmd vim.api.nvim_command)
 
-(local highlights [
-	"NextKey ErrorMsg"
-	"NextKey1 HopNextKey"
-	"NextKey2 WarningMsg"
-	"Unmatched Normal"])
-
 (fn set-colors []
-	(each [_ highlight (ipairs highlights)]
+	(each [_ highlight (ipairs ["Cursor Cursor" "NextKey IncSearch" "NextKey1 HopNextKey" "NextKey2 NONE"])]
 		(cmd (string.format "highlight! link Hop%s" highlight))))
 (set My.hop_colors set-colors)
 
