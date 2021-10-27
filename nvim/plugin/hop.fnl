@@ -11,4 +11,7 @@
 	(each [_ mode (ipairs modes)]
 		(vim.api.nvim_set_keymap mode key (string.format "<cmd>Hop%s<cr>" cmd) {:noremap true})))
 
+; Forward 1 char motion after an operator is a special case that requires v to make the it inclusive
+(vim.api.nvim_set_keymap :o :f "v<cmd>:HopChar1AC<cr>" {:noremap true})
+
 ((. (require :hop) :setup))
