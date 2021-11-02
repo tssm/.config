@@ -13,6 +13,10 @@ in
       customRC = "luafile ~/.config/nvim/init.lua";
       packages.myVimPackages = {
         start = [
+          # Color schemes with special initialization
+          (plug "rose-pine" "rose-pine" "neovim")
+          (plug "tokyonight" "folke" "tokyonight.nvim")
+
           # General
           (plug "auto-session" "rmagatti" "auto-session")
           (plug "bbye" "moll" "vim-bbye")
@@ -103,7 +107,6 @@ in
           (plug "nord" "arcticicestudio" "nord-vim")
           (plug "nova" "trevordmiller" "nova-vim")
           (plug "oceanic-next" "mhartington" "oceanic-next")
-          (plug "pink-moon" "sts10" "vim-pink-moon")
           (plug "snazzy" "connorholyday" "vim-snazzy")
           (plug "snow" "nightsense" "snow")
           (plug "strawberry" "nightsense" "strawberry")
