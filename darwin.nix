@@ -22,6 +22,7 @@
     pkgs.rnix-lsp
     pkgs.rust-analyzer
     pkgs.rustc
+    pkgs.sqls
     pkgs.tree
   ];
 
