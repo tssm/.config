@@ -6,7 +6,7 @@
 
 ; Auto Session
 
-((. (require :auto-session) :setup) {:auto_session_enabled false})
+((. (require :auto-session) :setup) {:auto_session_create_enabled false})
 
 ; Editorconfig
 
