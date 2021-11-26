@@ -102,7 +102,7 @@ in
           (plug "night-owl" "haishanh" "night-owl.vim")
           (plug "nord" "arcticicestudio" "nord-vim")
           (plug "nova" "trevordmiller" "nova-vim")
-          (plug "oceanic-next" "mhartington" "oceanic-next")
+          (plug "oceanic-next" "adrian5" "oceanic-next-vim")
           (plug "snazzy" "connorholyday" "vim-snazzy")
           (plug "snow" "nightsense" "snow")
           (plug "strawberry" "nightsense" "strawberry")
