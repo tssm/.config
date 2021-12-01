@@ -7,7 +7,7 @@
 (local telescope (require :telescope.builtin))
 
 (vim.diagnostic.config {
-	:float {:show_header false}
+	:float {:header false}
 	:severity_sort true
 	:update_in_insert true
 	:underline {:severity {:min vim.diagnostic.severity.WARN}}
