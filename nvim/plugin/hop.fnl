@@ -14,4 +14,4 @@
 ; Forward 1 char motion after an operator is a special case that requires v to make the it inclusive
 (vim.api.nvim_set_keymap :o :f "v<cmd>:HopChar1AC<cr>" {:noremap true})
 
-((. (require :hop) :setup))
+((. (require :hop) :setup) {:uppercase_labels true})
