@@ -30,4 +30,4 @@
 (cmd "autocmd ColorScheme * lua My.hop_colors()")
 (cmd "augroup END")
 
-((. (require :hop) :setup))
+((. (require :hop) :setup) {:uppercase_labels true})
