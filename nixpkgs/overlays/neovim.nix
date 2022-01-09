@@ -14,6 +14,8 @@ in
       packages.myVimPackages = {
         start = [
           # Color schemes with special initialization
+          (plug "catppuccin" "catppuccin" "nvim")
+          (plug "nightfox" "EdenEast" "nightfox.nvim")
           (plug "rose-pine" "rose-pine" "neovim")
           (plug "tokyonight" "folke" "tokyonight.nvim")
 
@@ -103,6 +105,7 @@ in
           (plug "material" "kaicataldo" "material.vim")
           (plug "miramare" "franbach" "miramare")
           (plug "neo-solarized" "icymind" "NeoSolarized")
+          (plug "nemo" "nightsense" "nemo")
           (plug "night-owl" "haishanh" "night-owl.vim")
           (plug "nord" "arcticicestudio" "nord-vim")
           (plug "nova" "trevordmiller" "nova-vim")
@@ -111,6 +114,7 @@ in
           (plug "snow" "nightsense" "snow")
           (plug "strawberry" "nightsense" "strawberry")
           (plug "toast" "jsit" "toast.vim")
+          (plug "wonka" "nightsense" "wonka")
         ];
       };
     };
