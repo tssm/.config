@@ -3,7 +3,7 @@ self: super:
 let
   plug = name: user: repo: super.vimUtils.buildVimPlugin {
     name = name;
-    src = fetchGit "git@github.com:${user}/${repo}";
+    src = fetchGit { url = "git@github.com:${user}/${repo}"; ref = "HEAD"; };
     buildPhase = ":";
   };
 in
