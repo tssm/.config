@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   environment.darwinConfig = "$HOME/.config/darwin.nix";
   environment.systemPackages = [
-    pkgs.bat
     pkgs.cabal-install
     pkgs.cargo
     pkgs.ccls
