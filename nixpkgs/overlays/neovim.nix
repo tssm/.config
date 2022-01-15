@@ -105,16 +105,16 @@ in
           (plug "material" "kaicataldo" "material.vim")
           (plug "miramare" "franbach" "miramare")
           (plug "neo-solarized" "icymind" "NeoSolarized")
-          (plug "nemo" "nightsense" "nemo")
+          (plug "nemo" "tssm" "nemo")
           (plug "night-owl" "haishanh" "night-owl.vim")
           (plug "nord" "arcticicestudio" "nord-vim")
           (plug "nova" "trevordmiller" "nova-vim")
           (plug "oceanic-next" "adrian5" "oceanic-next-vim")
           (plug "snazzy" "connorholyday" "vim-snazzy")
           (plug "snow" "nightsense" "snow")
-          (plug "strawberry" "nightsense" "strawberry")
+          (plug "strawberry" "tssm" "strawberry")
           (plug "toast" "jsit" "toast.vim")
-          (plug "wonka" "nightsense" "wonka")
+          (plug "wonka" "tssm" "wonka")
         ];
       };
     };
