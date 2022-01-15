@@ -63,6 +63,7 @@ in
 
           # LSP
           (plug "lspconfig" "neovim" "nvim-lspconfig")
+          (plug "metals" "scalameta" "nvim-metals")
           (plug "sqls" "nanotee" "sqls.nvim")
 
           # Telescope

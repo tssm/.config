@@ -4,7 +4,9 @@
 .cups/
 .ghc/
 .git/
+.ivy2/
 .luarocks/
+.m2/
 .nix-defexpr/
 .nix-profile/
 .pijul/

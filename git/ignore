@@ -8,3 +8,9 @@ Session.vim
 
 .DS_Store
 # OS X crap
+
+.bloop/
+.bsp/
+.metals/
+metals.sbt
+# Scala

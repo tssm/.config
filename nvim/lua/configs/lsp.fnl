@@ -140,3 +140,15 @@
 	(when (= opts.on_attach nil)
 		(tset opts :on_attach set-up))
 	(server.setup opts))
+
+; Metals
+
+(local metals-config {
+	:on_attach set-up
+	:settings {
+		:showImplicitArguments true
+		:showImplicitConversionsAndClasses true
+		:showInferredType true
+		:useGlobalExecutable true}})
+(set My.metals_config metals-config)
+(cmd "autocmd FileType sbt,scala lua require'metals'.initialize_or_attach(My.metals_config)")
