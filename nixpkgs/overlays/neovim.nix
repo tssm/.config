@@ -105,7 +105,7 @@ in
           (plug "oceanic-next" "adrian5" "oceanic-next-vim")
           (plug "snazzy" "connorholyday" "vim-snazzy")
           (plug "snow" "nightsense" "snow")
-          (plug "strawberry" "nightsense" "strawberry")
+          (plug "strawberry" "tssm" "strawberry")
           (plug "toast" "jsit" "toast.vim")
         ];
       };
