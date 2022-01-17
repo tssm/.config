@@ -1,0 +1,15 @@
+diff --git i/lua/project_nvim/project.lua w/lua/project_nvim/project.lua
+index 28fa4b7..25a2c54 100644
+--- i/lua/project_nvim/project.lua
++++ w/lua/project_nvim/project.lua
+@@ -227,6 +227,10 @@ function M.on_buf_enter()
+     return
+   end
+ 
++  if vim.fn.getcwd() ~= os.getenv("HOME") then
++    return
++  end
++
+   if not M.is_file() then
+     return
+   end
