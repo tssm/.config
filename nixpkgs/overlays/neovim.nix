@@ -41,7 +41,14 @@ in
           (plug "mucomplete" "lifepillar" "vim-mucomplete")
           (plug "octo" "pwntester" "octo.nvim")
           (plug "orgmode" "kristijanhusak" "orgmode.nvim")
-          (plug "project" "ahmedkhalf" "project.nvim")
+          (
+            super.vimUtils.buildVimPlugin {
+              name = "project";
+              src = fetchGit { url = "https://github.com/ahmedkhalf/project.nvim"; ref = "HEAD"; };
+              buildPhase = ":";
+              patches = [ ./stop-project.patch ];
+            }
+          )
           (plug "random-colors" "tssm" "nvim-random-colors")
           (plug "reflex" "tssm" "nvim-reflex")
           (plug "repeat" "tpope" "vim-repeat")
