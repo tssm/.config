@@ -1,5 +1,5 @@
 [user]
-	name = Tae Sandoval
+	name = Tae Selene Sandoval Murgan
 [core]
 	editor = nvr -cc split --remote-wait-silent
 	pager = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black | $PAGER
