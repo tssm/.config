@@ -1,8 +1,16 @@
 self: super:
 
 let
-  plug = name: user: repo: super.vimUtils.buildVimPlugin {
-    name = name;
+  plug = user: repo: super.vimUtils.buildVimPlugin {
+    name =
+      if repo == "nvim" || repo == "vim"
+      then user
+      else
+        (builtins.replaceStrings
+          [ "vim-" "nvim-" "-vim" "-nvim" ".vim" ".nvim" ]
+          [ "" "" "" "" "" "" ]
+          repo
+        );
     src = fetchGit { url = "git@github.com:${user}/${repo}"; ref = "HEAD"; };
     buildPhase = ":";
   };
@@ -14,17 +22,17 @@ in
       packages.myVimPackages = {
         start = [
           # Color schemes with special initialization
-          (plug "catppuccin" "catppuccin" "nvim")
-          (plug "nightfox" "EdenEast" "nightfox.nvim")
-          (plug "rose-pine" "rose-pine" "neovim")
-          (plug "tokyonight" "folke" "tokyonight.nvim")
+          (plug "catppuccin" "nvim")
+          (plug "EdenEast" "nightfox.nvim")
+          (plug "rose-pine" "neovim")
+          (plug "folke" "tokyonight.nvim")
 
           # General
-          (plug "auto-session" "rmagatti" "auto-session")
-          (plug "bbye" "moll" "vim-bbye")
-          (plug "colorizer" "norcalli" "nvim-colorizer.lua")
-          (plug "commentary" "tpope" "vim-commentary")
-          (plug "dap" "mfussenegger" "nvim-dap")
+          (plug "rmagatti" "auto-session")
+          (plug "moll" "vim-bbye")
+          (plug "norcalli" "nvim-colorizer.lua")
+          (plug "tpope" "vim-commentary")
+          (plug "mfussenegger" "nvim-dap")
           (
             super.vimUtils.buildVimPlugin {
               name = "difforig";
@@ -33,15 +41,15 @@ in
               patches = [ ./difforig-mapcheck.patch ];
             }
           )
-          (plug "editorconfig" "editorconfig" "editorconfig-vim")
-          (plug "git-messenger" "rhysd" "git-messenger.vim")
-          (plug "hop" "phaazon" "hop.nvim")
-          (plug "lightbulb" "kosayoda" "nvim-lightbulb")
-          (plug "linediff" "AndrewRadev" "linediff.vim")
-          (plug "mergetool" "samoshkin" "vim-mergetool")
-          (plug "mucomplete" "lifepillar" "vim-mucomplete")
-          (plug "octo" "pwntester" "octo.nvim")
-          (plug "orgmode" "kristijanhusak" "orgmode.nvim")
+          (plug "editorconfig" "editorconfig-vim")
+          (plug "rhysd" "git-messenger.vim")
+          (plug "phaazon" "hop.nvim")
+          (plug "kosayoda" "nvim-lightbulb")
+          (plug "AndrewRadev" "linediff.vim")
+          (plug "samoshkin" "vim-mergetool")
+          (plug "lifepillar" "vim-mucomplete")
+          (plug "pwntester" "octo.nvim")
+          (plug "kristijanhusak" "orgmode.nvim")
           (
             super.vimUtils.buildVimPlugin {
               name = "project";
@@ -50,78 +58,78 @@ in
               patches = [ ./stop-project.patch ];
             }
           )
-          (plug "random-colors" "tssm" "nvim-random-colors")
-          (plug "reflex" "tssm" "nvim-reflex")
-          (plug "repeat" "tpope" "vim-repeat")
-          (plug "sandwich" "machakann" "vim-sandwich")
-          (plug "signify" "mhinz" "vim-signify")
-          (plug "sleuth" "tpope" "vim-sleuth")
-          (plug "snitch" "tssm" "nvim-snitch")
-          (plug "template" "aperezdc" "vim-template")
-          (plug "undotree" "mbbill" "undotree")
+          (plug "tssm" "nvim-random-colors")
+          (plug "tssm" "nvim-reflex")
+          (plug "tpope" "vim-repeat")
+          (plug "machakann" "vim-sandwich")
+          (plug "mhinz" "vim-signify")
+          (plug "tpope" "vim-sleuth")
+          (plug "tssm" "nvim-snitch")
+          (plug "aperezdc" "vim-template")
+          (plug "mbbill" "undotree")
 
           # Dirvish
-          (plug "dirvish" "justinmk" "vim-dirvish")
-          (plug "dirvish-git" "kristijanhusak" "vim-dirvish-git")
+          (plug "justinmk" "vim-dirvish")
+          (plug "kristijanhusak" "vim-dirvish-git")
 
           # Lexima
-          (plug "lexima" "cohama" "lexima.vim")
-          (plug "lexima-template-rules" "zandrmartin" "lexima-template-rules")
+          (plug "cohama" "lexima.vim")
+          (plug "zandrmartin" "lexima-template-rules")
 
           # LSP
-          (plug "lspconfig" "neovim" "nvim-lspconfig")
-          (plug "sqls" "nanotee" "sqls.nvim")
+          (plug "neovim" "nvim-lspconfig")
+          (plug "nanotee" "sqls.nvim")
 
           # Telescope
-          (plug "plenary" "nvim-lua" "plenary.nvim")
-          (plug "popup" "nvim-lua" "popup.nvim")
-          (plug "telescope" "nvim-telescope" "telescope.nvim")
-          (plug "session-lens" "rmagatti" "session-lens")
+          (plug "nvim-lua" "plenary.nvim")
+          (plug "nvim-lua" "popup.nvim")
+          (plug "nvim-telescope" "telescope.nvim")
+          (plug "rmagatti" "session-lens")
 
           # Tree-sitter
-          (plug "tree-sitter" "nvim-treesitter" "nvim-treesitter")
+          (plug "nvim-treesitter" "nvim-treesitter")
           (super.pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: super.pkgs.tree-sitter.allGrammars))
-          (plug "tree-sitter-refactor" "nvim-treesitter" "nvim-treesitter-refactor")
-          (plug "tree-sitter-textobjects" "nvim-treesitter" "nvim-treesitter-textobjects")
+          (plug "nvim-treesitter" "nvim-treesitter-refactor")
+          (plug "nvim-treesitter" "nvim-treesitter-textobjects")
 
           # File types
-          (plug "dhall" "vmchale" "dhall-vim")
-          (plug "pgsql" "lifepillar" "pgsql.vim")
-          (plug "purescript" "purescript-contrib" "purescript-vim")
+          (plug "vmchale" "dhall-vim")
+          (plug "lifepillar" "pgsql.vim")
+          (plug "purescript-contrib" "purescript-vim")
 
           # Fennel
-          (plug "aniseed" "Olical" "aniseed")
-          (plug "conjure" "Olical" "conjure")
+          (plug "Olical" "aniseed")
+          (plug "Olical" "conjure")
 
           # Haskell
-          (plug "haskell-unicode" "zenzike" "vim-haskell-unicode")
-          (plug "shakespeare" "pbrisbin" "vim-syntax-shakespeare")
+          (plug "zenzike" "vim-haskell-unicode")
+          (plug "pbrisbin" "vim-syntax-shakespeare")
         ];
         opt = [
           # Color schemes
-          (plug "ayu" "ayu-theme" "ayu-vim")
-          (plug "blueprint" "thenewvu" "vim-colors-blueprint")
-          (plug "c64" "tssm" "c64-vim-color-scheme")
-          (plug "challenger-deep" "challenger-deep-theme" "vim")
-          (plug "chito" "Jimeno0" "vim-chito")
-          (plug "dogrun" "wadackel" "vim-dogrun")
-          (plug "fairyfloss" "tssm" "fairyfloss.vim")
-          (plug "ganymede" "charlespeters" "ganymede.vim")
-          (plug "gotham" "whatyouhide" "vim-gotham")
-          (plug "gruvbox" "morhetz" "gruvbox")
-          (plug "material" "kaicataldo" "material.vim")
-          (plug "miramare" "franbach" "miramare")
-          (plug "neo-solarized" "icymind" "NeoSolarized")
-          (plug "nemo" "tssm" "nemo")
-          (plug "night-owl" "haishanh" "night-owl.vim")
-          (plug "nord" "arcticicestudio" "nord-vim")
-          (plug "nova" "trevordmiller" "nova-vim")
-          (plug "oceanic-next" "adrian5" "oceanic-next-vim")
-          (plug "snazzy" "connorholyday" "vim-snazzy")
-          (plug "snow" "nightsense" "snow")
-          (plug "strawberry" "tssm" "strawberry")
-          (plug "toast" "jsit" "toast.vim")
-          (plug "wonka" "tssm" "wonka")
+          (plug "ayu-theme" "ayu-vim")
+          (plug "thenewvu" "vim-colors-blueprint")
+          (plug "tssm" "c64-vim-color-scheme")
+          (plug "challenger-deep-theme" "vim")
+          (plug "Jimeno0" "vim-chito")
+          (plug "wadackel" "vim-dogrun")
+          (plug "tssm" "fairyfloss.vim")
+          (plug "charlespeters" "ganymede.vim")
+          (plug "whatyouhide" "vim-gotham")
+          (plug "morhetz" "gruvbox")
+          (plug "kaicataldo" "material.vim")
+          (plug "franbach" "miramare")
+          (plug "icymind" "NeoSolarized")
+          (plug "tssm" "nemo")
+          (plug "haishanh" "night-owl.vim")
+          (plug "arcticicestudio" "nord-vim")
+          (plug "trevordmiller" "nova-vim")
+          (plug "adrian5" "oceanic-next-vim")
+          (plug "connorholyday" "vim-snazzy")
+          (plug "nightsense" "snow")
+          (plug "tssm" "strawberry")
+          (plug "jsit" "toast.vim")
+          (plug "tssm" "wonka")
         ];
       };
     };
