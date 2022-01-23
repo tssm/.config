@@ -135,5 +135,4 @@
 (set My.find_in_quickfix quickfix)
 (set-map :<leader>q "My.find_in_quickfix()")
 
-(set-map :<leader>s "require'session-lens'.search_session()")
 (set-map :z= "require'telescope.builtin'.spell_suggest(require'telescope.themes'.get_dropdown())")
