@@ -29,7 +29,6 @@ in
           (plug "folke" "tokyonight.nvim" [ ])
 
           # General
-          (plug "rmagatti" "auto-session" [ ])
           (plug "moll" "vim-bbye" [ ])
           (plug "norcalli" "nvim-colorizer.lua" [ ])
           (plug "tpope" "vim-commentary" [ ])
@@ -48,6 +47,7 @@ in
           (plug "tssm" "nvim-random-colors" [ ])
           (plug "tssm" "nvim-reflex" [ ])
           (plug "tpope" "vim-repeat" [ ])
+          (plug "tssm" "sessionmatic" [ ])
           (plug "machakann" "vim-sandwich" [ ])
           (plug "mhinz" "vim-signify" [ ])
           (plug "tpope" "vim-sleuth" [ ])
@@ -71,7 +71,6 @@ in
           (plug "nvim-lua" "plenary.nvim" [ ])
           (plug "nvim-lua" "popup.nvim" [ ])
           (plug "nvim-telescope" "telescope.nvim" [ ./telescope-help.patch ])
-          (plug "rmagatti" "session-lens" [ ])
 
           # Tree-sitter
           (plug "nvim-treesitter" "nvim-treesitter" [ ])
