@@ -97,7 +97,6 @@ in
           (plug "wadackel" "vim-dogrun" [ ])
           (plug "tssm" "fairyfloss.vim" [ ])
           (plug "charlespeters" "ganymede.vim" [ ])
-          (plug "whatyouhide" "vim-gotham" [ ])
           (plug "morhetz" "gruvbox" [ ])
           (plug "kaicataldo" "material.vim" [ ])
           (plug "franbach" "miramare" [ ])
