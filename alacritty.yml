@@ -9,6 +9,7 @@ font:
   size: 13.0
 
 key_bindings:
+  - { key: N, mods: Command, action: CreateNewWindow }
   - { key: Q, mods: Command, action: None }
   - { key: S, mods: Command, chars: ":wall\n" }
   - { key: W, mods: Command|Shift, chars: ":qall\n" }
