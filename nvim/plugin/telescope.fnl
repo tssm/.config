@@ -90,13 +90,13 @@
 	tbl)
 
 (fn find-files []
-	(local
-		find-command
-		(if (= (vim.fn.getcwd) (os.getenv :HOME))
-			[:fd :--color=never :--hidden :--type=d]
-			[:fd :--color=never :--exclude=*.enc :--hidden]))
-	(add-pijulignore? find-command)
-	(pickers.find_files {:find_command find-command}))
+	(if (= (vim.fn.getcwd) (os.getenv :HOME))
+		(pickers.find_files {
+			:find_command [:fd :--color=never :--follow :--max-depth=1 :--type=d]
+			:search_dirs [:. :Projects]})
+		(pickers.find_files {
+			:find_command (add-pijulignore? [:fd :--color=never :--exclude=*.enc :--hidden])
+			:search_dirs [:.]})))
 
 (fn grep []
 	(if (= (vim.fn.getcwd) (os.getenv :HOME))
@@ -131,9 +131,6 @@
 (set-map :<leader>h "require'telescope.builtin'.help_tags()")
 
 (set-map :<leader>o "require'telescope.builtin'.oldfiles()")
-
-(telescope.load_extension :projects)
-(set-map :<leader>p "require'telescope'.extensions.projects.projects(require'telescope.themes'.get_dropdown({ layout_config = { width = 100 } }))")
 
 (set My.find_in_quickfix quickfix)
 (set-map :<leader>q "My.find_in_quickfix()")
