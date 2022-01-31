@@ -17,9 +17,9 @@
 
 (local g vim.g)
 (set g.signify_priority 0)
-(set g.signify_sign_add "➕")
-(set g.signify_sign_change "❗")
-(set g.signify_sign_change_delete "‼️")
-(set g.signify_sign_delete "➖")
+(set g.signify_sign_add "")
+(set g.signify_sign_change "")
+(set g.signify_sign_change_delete "")
+(set g.signify_sign_delete "")
 (set g.signify_sign_delete_first_line g.signify_sign_delete)
 (set g.signify_sign_show_count false)
