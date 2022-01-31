@@ -4,8 +4,8 @@ cursor:
 
 font:
   normal:
-    family: JetBrains Mono NL
-    style: Light
+    family: JetBrainsMono Nerd Font Mono
+    style: Regular
   size: 13.0
 
 key_bindings:

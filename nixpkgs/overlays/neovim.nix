@@ -54,6 +54,7 @@ in
           (plug "tssm" "nvim-snitch" [ ])
           (plug "aperezdc" "vim-template" [ ])
           (plug "mbbill" "undotree" [ ])
+          (plug "kyazdani42" "nvim-web-devicons" [ ])
 
           # Lexima
           (plug "cohama" "lexima.vim" [ ])
