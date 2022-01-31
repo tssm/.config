@@ -15,10 +15,11 @@
 		:spacing 1}})
 
 (vim.fn.sign_define [
-	{:name :DiagnosticSignError :text "🤬"}
-	{:name :DiagnosticSignHint :text "☝️"}
-	{:name :DiagnosticSignInfo :text "ℹ️"}
-	{:name :DiagnosticSignWarn :text "⚠️"}])
+	{:name :DiagnosticSignError :text "" :texthl :DiagnosticSignError}
+	{:name :DiagnosticSignHint :text "" :texthl :DiagnosticSignHint}
+	{:name :DiagnosticSignInfo :text "" :texthl :DiagnosticSignInfo}
+	{:name :DiagnosticSignWarn :text "" :texthl :DiagnosticSignWarn}
+	{:name :LightBulbSign :text "" :texthl :DiagnosticSignWarn}])
 
 (local window-options {:pad_bottom 1 :pad_top 1})
 (tset
