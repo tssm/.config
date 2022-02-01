@@ -4,6 +4,13 @@
 (fn set-map [mode lhs rhs]
 	(vim.api.nvim_set_keymap mode lhs rhs {}))
 
+; Context
+
+((. (require :nvim_context_vt) :setup) {
+	:disable_virtual_lines true
+	:min_rows 10
+	:prefix :})
+
 ; Editorconfig
 
 (set g.EditorConfig_max_line_indicator :none)
