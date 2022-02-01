@@ -8,8 +8,8 @@ let
       then user
       else
         (builtins.replaceStrings
-          [ "vim-" "nvim-" "-vim" "-nvim" ".vim" ".nvim" ]
-          [ "" "" "" "" "" "" ]
+          [ "vim-" "nvim-" "nvim_" "-vim" "-nvim" ".vim" ".nvim" ]
+          [ "" "" "" "" "" "" "" ]
           repo
         );
     src = fetchGit { url = "git@github.com:${user}/${repo}"; ref = "HEAD"; };
@@ -74,6 +74,7 @@ in
           (super.pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: super.pkgs.tree-sitter.allGrammars))
           (plug "nvim-treesitter" "nvim-treesitter-refactor" [ ])
           (plug "nvim-treesitter" "nvim-treesitter-textobjects" [ ])
+          (plug "haringsrob" "nvim_context_vt" [ ])
 
           # File types
           (plug "vmchale" "dhall-vim" [ ])
