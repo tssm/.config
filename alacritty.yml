@@ -12,6 +12,7 @@ key_bindings:
   - { key: N, mods: Command, action: CreateNewWindow }
   - { key: Q, mods: Command, action: None }
   - { key: S, mods: Command, chars: ":wall\n" }
+  - { key: T, mods: Command, chars: ":tabnew\n" }
   - { key: W, mods: Command, chars: ":tabclose\n" }
   - { key: W, mods: Command|Shift, chars: ":qall\n" }
 
