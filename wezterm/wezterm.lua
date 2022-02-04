@@ -10,6 +10,7 @@ return {
 		{key = 'n', mods = 'CMD', action = 'SpawnWindow'},
 		{key = 'q', mods = 'CMD', action = 'DisableDefaultAssignment'},
 		{key = 's', mods = 'CMD', action = wezterm.action {SendString = ':wall\n'}},
+		{key = 't', mods = 'CMD', action = wezterm.action {SendString = ':tabnew\n'}},
 		{key = 'w', mods = 'CMD', action = wezterm.action {SendString = ':tabclose\n'}},
 		{key = 'w', mods = 'CMD|SHIFT', action = wezterm.action {SendString = ':qall\n'}},
 	},
