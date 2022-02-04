@@ -6,7 +6,7 @@
 (fn cursor-position [buftype]
 	(if
 		(= buftype "") (let [position (call.getcurpos)]
-			(string.format "%i⭆  %i⟱ " (. position 2) (. position 3)))
+			(string.format "%iשּׂ  %iﭩ " (. position 2) (. position 3)))
 		(= buftype :quickfix) (string.format :%s/%s (call.line :.) (call.line :$))
 		""))
 
