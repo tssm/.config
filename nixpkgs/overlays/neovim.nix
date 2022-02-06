@@ -59,10 +59,6 @@ in
           (plug "justinmk" "vim-dirvish" [ ])
           (plug "kristijanhusak" "vim-dirvish-git" [ ])
 
-          # Lexima
-          (plug "cohama" "lexima.vim" [ ])
-          (plug "zandrmartin" "lexima-template-rules" [ ])
-
           # LSP
           (plug "neovim" "nvim-lspconfig" [ ])
           (plug "nanotee" "sqls.nvim" [ ])
@@ -77,6 +73,8 @@ in
           (super.pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: super.pkgs.tree-sitter.allGrammars))
           (plug "nvim-treesitter" "nvim-treesitter-refactor" [ ])
           (plug "nvim-treesitter" "nvim-treesitter-textobjects" [ ])
+          (plug "windwp" "nvim-autopairs" [ ])
+          (plug "windwp" "nvim-ts-autotag" [ ])
           (plug "haringsrob" "nvim_context_vt" [ ])
 
           # File types
