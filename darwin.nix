@@ -22,6 +22,7 @@
     pkgs.rust-analyzer
     pkgs.rustc
     pkgs.sqls
+    pkgs.sumneko-lua-language-server
     pkgs.tree
   ];
 
