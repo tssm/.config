@@ -30,6 +30,13 @@
 		"Find Files" (create-file)
 		"Oldfiles" (create-file)))
 
+(fn open-directory [prompt-buffer-number]
+	(actions.close prompt-buffer-number)
+	(vim.cmd (.. "edit "
+		(vim.fn.fnamemodify
+			(aniseed.first (actions-state.get_selected_entry))
+			":h"))))
+
 (fn open-file [prompt-buffer-number]
 	(actions.select_default prompt-buffer-number)
 	(change-directory? (aniseed.first (actions-state.get_selected_entry))))
@@ -60,6 +67,7 @@
 		:<c-s> actions.select_horizontal
 		:<c-x> false
 		:<c-z> open-terminal
+		:<c-_> open-directory
 		:<tab> (+ actions.toggle_selection actions.move_selection_next)
 		:<s-tab> (+ actions.toggle_selection actions.move_selection_previous)}}
 	:path_display {:truncate true}
@@ -92,7 +100,9 @@
 			:find_command [:fd :--color=never :--follow :--max-depth=1 :--type=d]
 			:search_dirs [:. :Projects]})
 		(pickers.find_files {
-			:find_command (add-pijulignore? [:fd :--color=never :--exclude=*.enc :--hidden])
+			:find_command
+				(add-pijulignore?
+				[:fd :--color=never :--exclude=*.enc :--hidden :--type=f])
 			:search_dirs [:.]})))
 
 (fn grep []
