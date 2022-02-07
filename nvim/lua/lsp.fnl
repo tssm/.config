@@ -104,10 +104,6 @@
 
 ; Attach configuration to every server
 
-(local
-	lua-server-path
-	(string.format "%s/Projects/lua-language-server" (os.getenv :HOME)))
-
 (local servers {
 	:ccls {}
 	:dhall_lsp_server {}
@@ -121,9 +117,6 @@
 			(set-up client buffer-number))
 		:picker :telescope}
 	:sumneko_lua {
-		:cmd [
-			(string.format :%s/bin/macOS/lua-language-server lua-server-path)
-			(string.format :%s/main.lua lua-server-path)]
 		:settings {
 			:Lua {
 				:diagnostics {:globals [:vim]}
