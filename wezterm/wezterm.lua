@@ -13,6 +13,7 @@ return {
 		{key = 't', mods = 'CMD', action = wezterm.action {SendString = ':tabnew\n'}},
 		{key = 'w', mods = 'CMD', action = wezterm.action {SendString = ':tabclose\n'}},
 		{key = 'w', mods = 'CMD|SHIFT', action = wezterm.action {SendString = ':qall\n'}},
+		{key = '-', mods = 'CTRL', action = wezterm.action {SendString = '\x1f'}},
 	},
 	native_macos_fullscreen_mode = true,
 	send_composed_key_when_left_alt_is_pressed = true,
