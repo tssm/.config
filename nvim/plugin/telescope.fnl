@@ -26,7 +26,6 @@
 		(. (actions-state.get_current_picker prompt-buffer-number) :prompt_title))
 	(actions.close prompt-buffer-number)
 	(match prompt-title
-		"Command History" (edit-command)
 		"Find Files" (create-file)
 		"Oldfiles" (create-file)))
 
@@ -67,9 +66,7 @@
 		:<c-s> actions.select_horizontal
 		:<c-x> false
 		:<c-z> open-terminal
-		:<c-_> open-directory
-		:<tab> (+ actions.toggle_selection actions.move_selection_next)
-		:<s-tab> (+ actions.toggle_selection actions.move_selection_previous)}}
+		:<c-_> open-directory}}
 	:path_display {:truncate true}
 	:sorting_strategy :ascending
 	:winblend 10}})
