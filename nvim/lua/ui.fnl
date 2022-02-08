@@ -37,7 +37,9 @@
 		"link HopNextKey Search"
 		"link HopNextKey1 HopNextKey"
 		"link HopNextKey2 NONE"
-		"link HopUnmatched NONE"])
+		"link HopUnmatched NONE"
+		"link TelescopeBorder VertSplit"
+		"link TelescopeNormal Normal"])
 
 	(each
 		[_ highlight (ipairs highlights)]
