@@ -2,8 +2,6 @@
 (local cmd api.nvim_command)
 (local aniseed (require :aniseed.core))
 (local lspconfig (require :lspconfig))
-(local procedures (require :procedures))
-(local telescope (require :telescope.builtin))
 
 (vim.diagnostic.config {
 	:float {:header false}
@@ -39,35 +37,6 @@
 		(string.format "<cmd>lua %s<cr>" func)
 		{:noremap true :silent true}))
 
-(fn symbol-entry-maker [entry]
-	(local symbol-name (vim.fn.substitute entry.text "^\\[\\w*\\]" "" ""))
-	(local symbol-kind entry.kind)
-	{
-		:filename (or entry.filename (api.nvim_buf_get_name entry.bufnr))
-		:lnum entry.lnum
-		:col entry.col
-		:display (string.format "%s ▪ %s" symbol-name symbol-kind)
-		:ordinal symbol-name
-		:symbol_name symbol-name
-		:symbol_type symbol-kind
-		:value symbol-name})
-
-(fn find-definitions []
-	(telescope.lsp_definitions {:entry_maker procedures.quickfix-entry-maker}))
-(set My.find_definitions find-definitions)
-
-(fn find-document-symbols []
-	(telescope.lsp_document_symbols {:entry_maker symbol-entry-maker}))
-(set My.find_document_symbols find-document-symbols)
-
-(fn find-references []
-	(telescope.lsp_references {:entry_maker procedures.quickfix-entry-maker}))
-(set My.find_references find-references)
-
-(fn find-workspace-symbols []
-	(telescope.lsp_dynamic_workspace_symbols {:entry_maker symbol-entry-maker}))
-(set My.find_workspace_symbols find-workspace-symbols)
-
 (set My.go_to_diagnostic_options {
 	:float window-options
 	:severity {:min vim.diagnostic.severity.WARN}})
@@ -85,18 +54,18 @@
 
 	; Buffer mappings
 
-	(set-map buffer-number "<c-]>" "My.find_definitions()")
+	(set-map buffer-number "<c-]>" "require'telescope.builtin'.lsp_definitions()")
 	(set-map buffer-number :K "vim.lsp.buf.hover()")
 	(set-map buffer-number :<localleader>h "vim.lsp.buf.document_highlight()")
 	(set-map buffer-number :<localleader>a "require'telescope.builtin'.lsp_code_actions(require'telescope.themes'.get_dropdown())")
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
-	(set-map buffer-number :<localleader>ds "My.find_document_symbols()")
-	(set-map buffer-number :<localleader>ws "My.find_workspace_symbols()")
+	(set-map buffer-number :<localleader>ds "require'telescope.builtin'.lsp_document_symbols()")
+	(set-map buffer-number :<localleader>ws "require'telescope.builtin'.lsp_dynamic_workspace_symbols()")
 	(set-map buffer-number :<localleader>sd "vim.diagnostic.open_float(0, My.show_diagnostic_options)")
 	(set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
 	(set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
 	(set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
-	(set-map buffer-number :<localleader>u "My.find_references()")
+	(set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references()")
 
 	; Buffer options
 
