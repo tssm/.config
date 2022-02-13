@@ -2,7 +2,6 @@
 (local pickers (require :telescope.builtin))
 (local actions (require :telescope.actions))
 (local actions-state (require :telescope.actions.state))
-(local path (require :plenary.path))
 (local procedures (require :procedures))
 (local telescope (require :telescope))
 
@@ -73,17 +72,6 @@
 
 ; Custom finders
 
-(fn find-buffers []
-	(fn entry-maker [entry]
-		(local bufname entry.info.name)
-		(local display (if
-			(= bufname "") "🆕"
-			(vim.startswith bufname "man://") (vim.fn.substitute bufname "^man://" "" "")
-			(> (vim.fn.match bufname "^\\w*://") -1) bufname
-			(: (path:new bufname) :make_relative (vim.fn.getcwd))))
-		{:bufnr entry.bufnr :display display :ordinal display :value display})
-	(pickers.buffers {:entry_maker entry-maker}))
-
 (fn add-pijulignore? [tbl]
 	; Both fd and rg rise an error if --file-ignore doesn't exist so it must be
 	; added conditionally
@@ -109,9 +97,6 @@
 			(add-pijulignore? grep-command)
 			(pickers.live_grep {:vimgrep_arguments grep-command}))))
 
-(fn quickfix []
-	(pickers.quickfix {:entry_maker procedures.quickfix-entry-maker}))
-
 ; Mappings
 
 (fn set-map [lhs rhs]
@@ -121,8 +106,7 @@
 		(string.format "<cmd>lua %s<cr>" rhs)
 		{:noremap true :silent true}))
 
-(set My.find_buffers find-buffers)
-(set-map :<leader>b "My.find_buffers()")
+(set-map :<leader>b "require'telescope.builtin'.buffers()")
 
 (set-map :<leader>c "require'telescope.builtin'.command_history()")
 
@@ -136,7 +120,6 @@
 
 (set-map :<leader>o "require'telescope.builtin'.oldfiles()")
 
-(set My.find_in_quickfix quickfix)
-(set-map :<leader>q "My.find_in_quickfix()")
+(set-map :<leader>q "require'telescope.builtin'.quickfix()")
 
 (set-map :z= "require'telescope.builtin'.spell_suggest(require'telescope.themes'.get_dropdown())")

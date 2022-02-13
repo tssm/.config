@@ -63,7 +63,7 @@ in
           # Telescope
           (plug "nvim-lua" "plenary.nvim" [ ])
           (plug "nvim-lua" "popup.nvim" [ ])
-          (plug "nvim-telescope" "telescope.nvim" [ ./telescope-help.patch ])
+          (plug "nvim-telescope" "telescope.nvim" [ ./telescope-help.patch ./telescope-entry-maker.patch ])
 
           # Tree-sitter
           (plug "nvim-treesitter" "nvim-treesitter" [ ])
