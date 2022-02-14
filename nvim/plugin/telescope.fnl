@@ -61,7 +61,7 @@
 		:<c-k> actions.move_selection_previous
 		:<c-n> actions.cycle_history_next
 		:<c-p> actions.cycle_history_prev
-		:<c-q> actions.send_selected_to_qflist
+		:<c-q> actions.smart_send_to_qflist
 		:<c-s> actions.select_horizontal
 		:<c-x> false
 		:<c-z> open-terminal
