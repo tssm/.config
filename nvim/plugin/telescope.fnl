@@ -106,7 +106,7 @@
 		(string.format "<cmd>lua %s<cr>" rhs)
 		{:noremap true :silent true}))
 
-(set-map :<leader>b "require'telescope.builtin'.buffers()")
+(set-map :<leader>b "require'telescope.builtin'.buffers({ignore_current_buffer = true, show_all_buffers = false})")
 
 (set-map :<leader>c "require'telescope.builtin'.command_history()")
 
