@@ -3,6 +3,7 @@
 (local actions (require :telescope.actions))
 (local actions-state (require :telescope.actions.state))
 (local procedures (require :procedures))
+(local reflex (require :reflex))
 (local telescope (require :telescope))
 
 ; Custom actions
@@ -15,6 +16,18 @@
 
 (fn create-file []
 	(procedures.create-file (aniseed.first (actions-state.get_selected_entry))))
+
+(fn delete-file [current-picker]
+	(current-picker:delete_selection
+		(fn [selection] (reflex.delete-buffer-and-file (aniseed.first selection)))))
+
+(fn delete [prompt-buffer-number]
+	(local current-picker (actions-state.get_current_picker prompt-buffer-number))
+	(local prompt-title (. current-picker :prompt_title))
+	(match prompt-title
+		"Buffers" (actions.delete_buffer prompt-buffer-number)
+		"Find Files" (delete-file current-picker)
+		"Oldfiles" (delete-file current-picker)))
 
 (fn edit-command []
 	(vim.call :feedkeys (.. ":" (aniseed.first (actions-state.get_selected_entry)))))
@@ -63,7 +76,7 @@
 		:<c-p> actions.cycle_history_prev
 		:<c-q> actions.smart_send_to_qflist
 		:<c-s> actions.select_horizontal
-		:<c-x> false
+		:<c-x> delete
 		:<c-z> open-terminal
 		:<c-_> open-directory}}
 	:path_display {:truncate true}
