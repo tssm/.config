@@ -26,7 +26,7 @@
     pkgs.tree
   ];
 
-  fonts.enableFontDir = true;
+  fonts.fontDir.enable = true;
   fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   nix.buildCores = 8; # $ sysctl -n hw.ncpu
