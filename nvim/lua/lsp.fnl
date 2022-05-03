@@ -82,9 +82,8 @@
 	:rust_analyzer {}
 	:sqls {
 		:on_attach (fn [client buffer-number]
-			(set client.resolved_capabilities.execute_command true)
-			(set-up client buffer-number))
-		:picker :telescope}
+			((. (require :sqls) :on_attach) client buffer-number)
+			(set-up client buffer-number))}
 	:sumneko_lua {
 		:settings {
 			:Lua {
