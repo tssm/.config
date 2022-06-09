@@ -64,24 +64,27 @@
 	(vim.fn.termopen (os.getenv :SHELL) {:cwd directory})
 	(change-directory? directory))
 
-(telescope.setup {:defaults {
-	:dynamic_preview_title true
-	:layout_config {:prompt_position :top}
-	:mappings {:i {
-		:<cr> open-file
-		:<c-e> edit-first
-		:<c-j> actions.move_selection_next
-		:<c-k> actions.move_selection_previous
-		:<c-n> actions.cycle_history_next
-		:<c-p> actions.cycle_history_prev
-		:<c-q> actions.smart_send_to_qflist
-		:<c-s> actions.select_horizontal
-		:<c-x> delete
-		:<c-z> open-terminal
-		:<c-_> open-directory}}
-	:path_display {:truncate true}
-	:sorting_strategy :ascending
-	:winblend 10}})
+(telescope.setup {
+	:defaults {
+		:dynamic_preview_title true
+		:layout_config {:prompt_position :top}
+		:mappings {:i {
+			:<cr> open-file
+			:<c-e> edit-first
+			:<c-j> actions.move_selection_next
+			:<c-k> actions.move_selection_previous
+			:<c-n> actions.cycle_history_next
+			:<c-p> actions.cycle_history_prev
+			:<c-q> actions.smart_send_to_qflist
+			:<c-s> actions.select_horizontal
+			:<c-x> delete
+			:<c-z> open-terminal
+			:<c-_> open-directory}}
+		:path_display {:truncate true}
+		:sorting_strategy :ascending
+		:winblend 10}
+	:extensions {
+		:ui-select [((. (require :telescope.themes) :get_dropdown) {})]}})
 
 ; Custom finders
 
@@ -109,6 +112,10 @@
 		(let [grep-command [:rg :--vimgrep]]
 			(add-pijulignore? grep-command)
 			(pickers.live_grep {:vimgrep_arguments grep-command}))))
+
+; Extensions
+
+(telescope.load_extension :ui-select)
 
 ; Mappings
 
