@@ -28,6 +28,7 @@
 (set-map :n :sq :<cmd>exit<cr>)
 
 (set-map :n :! ":te ")
+(set-map :n :<C-Z> :<cmd>terminal<cr>)
 
 (vim.api.nvim_set_keymap
 	:x :v
