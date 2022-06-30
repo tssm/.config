@@ -1,3 +1,5 @@
 (vim.filetype.add {
-	:extension {:log :log}
+	:extension {
+		:log :log
+		:org :org}
 	:filename {:Vagrantfile :ruby}})
