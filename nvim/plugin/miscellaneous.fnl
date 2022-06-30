@@ -35,10 +35,6 @@
 
 ((. (require :octo) :setup))
 
-; Orgmode
-
-(let [orgmode (require :orgmode)] (orgmode.setup {:mappings {:disable_all true}}))
-
 ; Project
 
 ((. (require :project_nvim) :setup) {
