@@ -54,18 +54,18 @@
 
 	; Buffer mappings
 
-	(set-map buffer-number "<c-]>" "require'telescope.builtin'.lsp_definitions()")
+	(set-map buffer-number "<c-]>" "require'telescope.builtin'.lsp_definitions({entry_maker = My.entry_for_location()})")
 	(set-map buffer-number :K "vim.lsp.buf.hover()")
 	(set-map buffer-number :<localleader>h "vim.lsp.buf.document_highlight()")
 	(set-map buffer-number :<localleader>a "vim.lsp.buf.code_action()")
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
-	(set-map buffer-number :<localleader>ds "require'telescope.builtin'.lsp_document_symbols()")
-	(set-map buffer-number :<localleader>ws "require'telescope.builtin'.lsp_dynamic_workspace_symbols()")
+	(set-map buffer-number :<localleader>ds "require'telescope.builtin'.lsp_document_symbols({entry_maker = My.entry_for_lsp_symbol()})")
+	(set-map buffer-number :<localleader>ws "require'telescope.builtin'.lsp_dynamic_workspace_symbols({entry_maker = My.entry_for_lsp_symbol()})")
 	(set-map buffer-number :<localleader>sd "vim.diagnostic.open_float(0, My.show_diagnostic_options)")
 	(set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
 	(set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
 	(set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
-	(set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references()")
+	(set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references({entry_maker = My.entry_for_location()})")
 
 	; Buffer options
 
