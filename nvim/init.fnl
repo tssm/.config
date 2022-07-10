@@ -8,9 +8,6 @@
 (set g.loaded_python3_provider false)
 (set g.loaded_ruby_provider false)
 
-; Enable opt-in features
-(set g.do_filetype_lua 1)
-
 ; Leaders
 (fn set-map [lhs rhs]
 	(vim.api.nvim_set_keymap :n lhs rhs {:noremap true}))
