@@ -1,31 +1,31 @@
-diff --git i/lua/telescope/builtin/internal.lua w/lua/telescope/builtin/internal.lua
-index e0c5f5e..5d264aa 100644
---- i/lua/telescope/builtin/internal.lua
-+++ w/lua/telescope/builtin/internal.lua
-@@ -639,7 +639,25 @@ internal.help_tags = function(opts)
-         end
+diff --git i/lua/telescope/builtin/__internal.lua w/lua/telescope/builtin/__internal.lua
+index 79e67e4..6a2b2db 100644
+--- i/lua/telescope/builtin/__internal.lua
++++ w/lua/telescope/builtin/__internal.lua
+@@ -735,7 +735,25 @@ internal.help_tags = function(opts)
+           end
  
-         actions.close(prompt_bufnr)
--        if cmd == "default" or cmd == "horizontal" then
-+        if cmd == "default" then
-+          local opened = false
-+          for i = 1, vim.fn.winnr("$") do
-+            local buf = vim.api.nvim_win_get_buf(vim.fn.win_getid(i))
-+            local type = vim.api.nvim_buf_get_option(buf, "buftype")
-+            if type == "help" then
-+              opened = true
+           actions.close(prompt_bufnr)
+-          if cmd == "default" or cmd == "horizontal" then
++          if cmd == "default" then
++            local opened = false
++            for i = 1, vim.fn.winnr("$") do
++              local buf = vim.api.nvim_win_get_buf(vim.fn.win_getid(i))
++              local type = vim.api.nvim_buf_get_option(buf, "buftype")
++              if type == "help" then
++                opened = true
++              end
 +            end
-+          end
-+          if opened then
-+            vim.cmd("help " .. selection.value)
-+          else
-+            vim.cmd [[
-+              enew
-+              setlocal buftype=help
-+            ]]
-+            vim.cmd("keepjumps help " .. selection.value)
-+          end
-+        elseif cmd == "horizontal" then
-           vim.cmd("help " .. selection.value)
-         elseif cmd == "vertical" then
-           vim.cmd("vert bo help " .. selection.value)
++            if opened then
++              vim.cmd("help " .. selection.value)
++            else
++              vim.cmd [[
++                enew
++                setlocal buftype=help
++              ]]
++              vim.cmd("keepjumps help " .. selection.value)
++            end
++          elseif cmd == "horizontal" then
+             vim.cmd("help " .. selection.value)
+           elseif cmd == "vertical" then
+             vim.cmd("vert help " .. selection.value)
