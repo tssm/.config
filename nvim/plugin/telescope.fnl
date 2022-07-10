@@ -86,6 +86,72 @@
 	:extensions {
 		:ui-select [((. (require :telescope.themes) :get_dropdown) {})]}})
 
+; Custom entries
+
+(local entry-display (require :telescope.pickers.entry_display))
+
+(fn path [entry] (or entry.filename (vim.api.nvim_buf_get_name entry.bufnr)))
+
+(fn entry-for-location []
+	(local devicon (. (require :telescope.utils) :get_devicons))
+	(local strdisplaywidth (. (require :plenary.strings) :strdisplaywidth))
+
+	(fn line-number [entry]
+		(or
+			entry.lnum
+			; From Telescope itself: "account for potentially stale lnum as getbufinfo might not be updated or from resuming buffers picker"
+			(or
+				(and
+					(not= entry.info.lnum 0)
+					(math.max (math.min entry.info.lnum (vim.api.nvim_buf_line_count entry.bufnr)) 1))
+				1)))
+
+	(fn relative-path [path] (string.gsub path (string.format :%s/ (vim.loop.cwd)) ""))
+
+	(local (icon _) (devicon :fname false))
+	(local displayer (entry-display.create {
+		:separator " "
+		:items [
+			{:width (strdisplaywidth icon)}
+			{:remaining true}]}))
+	(fn make-display [entry]
+		(local (icon hl-group) (devicon entry.filename false))
+		(local name (relative-path (path entry)))
+		(displayer [
+			[icon hl-group]
+			(string.format "%s:%d:%d" (if (not= name "") name "🆕") (line-number entry) (or entry.col 1))]))
+	(fn [entry]
+		(local name (path entry))
+		{ :value entry
+			:ordinal (string.format "%s:%d:%d" (relative-path name) (line-number entry) (or entry.col 1))
+			:display make-display
+			:bufnr entry.bufnr
+			:filename name
+			:lnum (line-number entry)
+			:col entry.col
+			:start entry.start
+			:finish entry.finish}))
+
+(fn entry-for-lsp-symbol []
+	(local displayer (entry-display.create {:items [{:remaining true}]}))
+	(fn make-display [entry]
+		(displayer [(string.format "%s (%s)" entry.symbol_name (entry.symbol_type:lower))]))
+	(fn [entry]
+		(local (symbol-type symbol-name) (entry.text:match "%[(.+)%]%s+(.*)"))
+		{
+			:value entry
+			:ordinal (.. symbol-name " " symbol-type)
+			:display make-display
+			:filename (path entry)
+			:lnum entry.lnum
+			:col entry.col
+			:symbol_name symbol-name
+			:symbol_type symbol-type
+			:start entry.start
+			:finish entry.finish}))
+; This will be used by nvim/lua/lsp.fnl
+(set My.entry_for_lsp_symbol entry-for-lsp-symbol)
+
 ; Custom finders
 
 (fn add-pijulignore? [tbl]
@@ -126,7 +192,7 @@
 		(string.format "<cmd>lua %s<cr>" rhs)
 		{:noremap true :silent true}))
 
-(set-map :<leader>b "require'telescope.builtin'.buffers({ignore_current_buffer = true, show_all_buffers = false})")
+(set-map :<leader>b "require'telescope.builtin'.buffers({entry_maker = My.entry_for_location(), ignore_current_buffer = true, show_all_buffers = false})")
 
 (set-map :<leader>c "require'telescope.builtin'.command_history()")
 
@@ -140,6 +206,7 @@
 
 (set-map :<leader>o "require'telescope.builtin'.oldfiles()")
 
-(set-map :<leader>q "require'telescope.builtin'.quickfix()")
+(set My.entry_for_location entry-for-location)
+(set-map :<leader>q "require'telescope.builtin'.quickfix({entry_maker = My.entry_for_location()})")
 
 (set-map :z= "require'telescope.builtin'.spell_suggest(require'telescope.themes'.get_dropdown())")
