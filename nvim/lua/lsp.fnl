@@ -45,7 +45,7 @@
 (fn set-up [client buffer-number]
 	(cmd "augroup LspSetUp")
 	(cmd "autocmd!")
-	(cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+	(cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
 	(cmd "autocmd CursorMoved,CursorMovedI * lua require'nvim-lightbulb'.update_lightbulb()")
 	(cmd "autocmd InsertEnter <buffer> lua vim.lsp.buf.clear_references()")
 	(cmd "augroup END")
