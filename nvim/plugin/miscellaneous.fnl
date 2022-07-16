@@ -19,6 +19,10 @@
 
 (set g.EditorConfig_max_line_indicator :none)
 
+; Fidget
+
+((. (require :fidget) :setup) {})
+
 ; Git Messenger
 
 (set g.git_messenger_no_default_mappings true)
