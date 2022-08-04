@@ -1,17 +1,19 @@
-(local mappings {
-	:f "Char1AC"
-	:F "Char1BC"
-	:gl "Line"
-	:g/ "Pattern"
-	:w "WordAC"
-	:b "WordBC"})
-(local modes [:n :o :x])
+(local hop (require :hop))
+(hop.setup {:uppercase_labels true})
 
-(each [key cmd (pairs mappings)]
-	(each [_ mode (ipairs modes)]
-		(vim.api.nvim_set_keymap mode key (string.format "<cmd>Hop%s<cr>" cmd) {:noremap true})))
+(fn set-map [lhs rhs]
+  (vim.keymap.set [:n :o :x] lhs rhs))
+(set-map :f :<cmd>HopChar1AC<cr>)
+(set-map :F :<cmd>HopChar1BC<cr>)
 
-; Forward 1 char motion after an operator is a special case that requires v to make the it inclusive
-(vim.api.nvim_set_keymap :o :f "v<cmd>:HopChar1AC<cr>" {:noremap true})
+(local hop-to hop.hint_char1)
+(local direction (. (require :hop.hint) :HintDirection))
+(fn forward-until   [] (hop-to {:direction direction.AFTER_CURSOR :hint_offset -1}))
+(fn backwards-until [] (hop-to {:direction direction.BEFORE_CURSOR :hint_offset 1}))
+(set-map :t forward-until)
+(set-map :T backwards-until)
 
-((. (require :hop) :setup) {:uppercase_labels true})
+(set-map :b :<cmd>:HopWordBC<cr>)
+(set-map :w :<cmd>:HopWordAC<cr>)
+
+(set-map :_ :<cmd>:HopVertical<cr>)
