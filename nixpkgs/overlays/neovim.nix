@@ -24,6 +24,7 @@ in
       packages.myVimPackages = {
         start = [
           # Color schemes with special initialization
+          (plug "sainnhe" "everforest" [ ])
           (plug "rose-pine" "neovim" [ ])
           (plug "folke" "tokyonight.nvim" [ ])
 
@@ -95,7 +96,7 @@ in
           (plug "tssm" "c64-vim-color-scheme" [ ])
           (plug "tssm" "fairyfloss.vim" [ ])
           (plug "charlespeters" "ganymede.vim" [ ])
-          (plug "morhetz" "gruvbox" [ ])
+          (plug "savq" "melange" [ ])
           (plug "tssm" "strawberry" [ ])
           (plug "jsit" "toast.vim" [ ])
         ];
