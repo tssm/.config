@@ -91,23 +91,11 @@ in
         ];
         opt = [
           # Color schemes
-          (plug "ayu-theme" "ayu-vim" [ ])
           (plug "thenewvu" "vim-colors-blueprint" [ ])
           (plug "tssm" "c64-vim-color-scheme" [ ])
-          (plug "challenger-deep-theme" "vim" [ ])
-          (plug "Jimeno0" "vim-chito" [ ])
-          (plug "wadackel" "vim-dogrun" [ ])
           (plug "tssm" "fairyfloss.vim" [ ])
           (plug "charlespeters" "ganymede.vim" [ ])
           (plug "morhetz" "gruvbox" [ ])
-          (plug "kaicataldo" "material.vim" [ ])
-          (plug "franbach" "miramare" [ ])
-          (plug "haishanh" "night-owl.vim" [ ])
-          (plug "arcticicestudio" "nord-vim" [ ])
-          (plug "trevordmiller" "nova-vim" [ ])
-          (plug "adrian5" "oceanic-next-vim" [ ])
-          (plug "connorholyday" "vim-snazzy" [ ])
-          (plug "nightsense" "snow" [ ])
           (plug "tssm" "strawberry" [ ])
           (plug "jsit" "toast.vim" [ ])
         ];

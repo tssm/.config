@@ -7,10 +7,7 @@
 
 ; Configure color schemes
 
-(local g vim.g)
-(set g.ayucolor :mirage)
-(set g.ganymede_solid_background true)
-(set g.material_theme_style :palenight)
+(set vim.g.ganymede_solid_background true)
 
 ; Fix color schemes
 
