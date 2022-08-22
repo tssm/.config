@@ -29,14 +29,13 @@
   fonts.fontDir.enable = true;
   fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
-  nix.buildCores = 8; # $ sysctl -n hw.ncpu
-  nix.maxJobs = 8; # $ sysctl -n hw.ncpu
-  nix.trustedUsers = [ "@admin" ];
+  nix.configureBuildUsers = true;
+  nix.settings.cores = 8; # $ sysctl -n hw.ncpu
+  nix.settings.max-jobs = 8; # $ sysctl -n hw.ncpu
+  nix.settings.trusted-users = [ "@admin" ];
 
   nixpkgs.config = { allowUnfree = true; };
   nixpkgs.overlays = [ (import nixpkgs/overlays/neovim.nix) ];
 
   services.nix-daemon.enable = true;
-
-  users.nix.configureBuildUsers = true;
 }
