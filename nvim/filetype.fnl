@@ -2,4 +2,6 @@
 	:extension {
 		:log :log
 		:org :org}
-	:filename {:Vagrantfile :ruby}})
+	:filename {
+		:addp-hunk-edit.diff :gitdiff
+		:Vagrantfile :ruby}})
