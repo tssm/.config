@@ -2,10 +2,6 @@
 (cmd "augroup DefaultBehaviour")
 (cmd "autocmd!")
 (cmd "autocmd VimEnter * clearjumps")
-; Neovim remote
-(cmd "autocmd BufRead,BufNewFile addp-hunk-edit.diff setlocal bufhidden=wipe")
-(cmd "autocmd FileType gitcommit,gitrebase setlocal bufhidden=wipe")
-(cmd "autocmd FileType man setlocal bufhidden=delete")
 ; Restore cursor shape on exit
 (cmd "autocmd VimLeave * set guicursor=a:ver35-blinkon1")
 ; Resize windows proportionally
