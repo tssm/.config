@@ -25,6 +25,7 @@ in
         start = [
           # Color schemes with special initialization
           (plug "sainnhe" "everforest" [ ])
+          (plug "maxmx03" "FluoroMachine.nvim" [ ])
           (plug "rose-pine" "neovim" [ ])
           (plug "folke" "tokyonight.nvim" [ ])
 
