@@ -3,9 +3,11 @@
 	pager = diffr --colors refine-added:background:none:foreground:green:intense --colors refine-removed:background:none:foreground:red:intense | $PAGER
 [diff]
 	mnemonicPrefix = true
-	tool = vimdiff
+	tool = nvr
 [difftool]
 	prompt = false
+[difftool "nvr"]
+	cmd = nvr -d $LOCAL $REMOTE -c 'setlocal nomodifiable | windo set bufhidden=wipe'
 [fetch]
 	prune = true
 	pruneTags = true
