@@ -15,11 +15,12 @@
 [interactive]
 	diffFilter = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black | $PAGER
 [merge]
-	tool = vimdiff
+	tool = diffconflicts
 [mergetool]
-	conflictStyle = diff3
 	keepBackup = false
 	prompt = false
+[mergetool "diffconflicts"]
+	cmd = nvr -p $MERGED -c DiffConflicts -c 'wincmd L'
 [pull]
 	ff = only
 [push]
