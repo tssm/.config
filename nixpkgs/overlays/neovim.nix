@@ -38,6 +38,7 @@ in
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
           (plug "justinmk" "vim-dirvish" [ ])
           (plug "editorconfig" "editorconfig-vim" [ ])
+          (plug "stonelasley" "flare.nvim" [ ])
           (plug "rhysd" "git-messenger.vim" [ ])
           (plug "phaazon" "hop.nvim" [ ])
           (plug "kosayoda" "nvim-lightbulb" [ ])
