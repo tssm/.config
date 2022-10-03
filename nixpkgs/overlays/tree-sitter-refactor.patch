@@ -1,0 +1,15 @@
+diff --git i/lua/nvim-treesitter-refactor/highlight_definitions.lua w/lua/nvim-treesitter-refactor/highlight_definitions.lua
+index 1d717aa..3e7ddff 100644
+--- i/lua/nvim-treesitter-refactor/highlight_definitions.lua
++++ w/lua/nvim-treesitter-refactor/highlight_definitions.lua
+@@ -30,9 +30,7 @@ function M.highlight_usages(bufnr)
+   local usages = locals.find_usages(def_node, scope, bufnr)
+ 
+   for _, usage_node in ipairs(usages) do
+-    if usage_node ~= node_at_point then
+-      ts_utils.highlight_node(usage_node, bufnr, usage_namespace, "TSDefinitionUsage")
+-    end
++    ts_utils.highlight_node(usage_node, bufnr, usage_namespace, "TSDefinitionUsage")
+   end
+ 
+   if def_node ~= node_at_point then
