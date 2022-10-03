@@ -56,7 +56,8 @@
 
 	(set-map buffer-number "<c-]>" "require'telescope.builtin'.lsp_definitions({entry_maker = My.entry_for_location()})")
 	(set-map buffer-number :K "vim.lsp.buf.hover()")
-	(set-map buffer-number :<localleader>h "vim.lsp.buf.document_highlight()")
+	(when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
+		(set-map buffer-number :<localleader>hi "vim.lsp.buf.document_highlight()"))
 	(set-map buffer-number :<localleader>a "vim.lsp.buf.code_action()")
 	(set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
 	(set-map buffer-number :<localleader>ds "require'telescope.builtin'.lsp_document_symbols({entry_maker = My.entry_for_lsp_symbol()})")
