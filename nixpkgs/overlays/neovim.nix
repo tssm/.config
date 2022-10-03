@@ -73,7 +73,7 @@ in
           # Tree-sitter
           (plug "nvim-treesitter" "nvim-treesitter" [ ])
           (super.pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: super.pkgs.tree-sitter.allGrammars))
-          (plug "nvim-treesitter" "nvim-treesitter-refactor" [ ])
+          (plug "nvim-treesitter" "nvim-treesitter-refactor" [ ./tree-sitter-refactor.patch ])
           (plug "nvim-treesitter" "nvim-treesitter-textobjects" [ ])
           (plug "windwp" "nvim-autopairs" [ ])
           (plug "windwp" "nvim-ts-autotag" [ ])
