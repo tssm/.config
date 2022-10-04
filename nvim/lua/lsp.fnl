@@ -54,7 +54,6 @@
 
 	; Buffer mappings
 
-	(set-map buffer-number "<c-]>" "require'telescope.builtin'.lsp_definitions({entry_maker = My.entry_for_location()})")
 	(set-map buffer-number :K "vim.lsp.buf.hover()")
 	(when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
 		(set-map buffer-number :<localleader>hi "vim.lsp.buf.document_highlight()"))
@@ -66,11 +65,7 @@
 	(set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
 	(set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
 	(set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
-	(set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references({entry_maker = My.entry_for_location()})")
-
-	; Buffer options
-
-	(api.nvim_buf_set_option buffer-number :omnifunc :v:lua.vim.lsp.omnifunc))
+	(set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references({entry_maker = My.entry_for_location()})"))
 
 ; Attach configuration to every server
 
