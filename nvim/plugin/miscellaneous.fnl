@@ -8,6 +8,10 @@
 
 ((. (require :nvim-autopairs) :setup) {})
 
+; Comment
+
+((. (require :nvim_comment) :setup))
+
 ; Context
 
 ((. (require :nvim_context_vt) :setup) {
