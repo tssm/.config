@@ -32,7 +32,7 @@ in
           # General
           (plug "moll" "vim-bbye" [ ])
           (plug "norcalli" "nvim-colorizer.lua" [ ])
-          (plug "tpope" "vim-commentary" [ ])
+          (plug "terrortylor" "nvim-comment" [ ])
           (plug "mfussenegger" "nvim-dap" [ ])
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
@@ -49,7 +49,6 @@ in
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-random-colors" [ ])
           (plug "tssm" "nvim-reflex" [ ])
-          (plug "tpope" "vim-repeat" [ ])
           (plug "tssm" "sessionmatic" [ ])
           (plug "machakann" "vim-sandwich" [ ])
           (plug "mhinz" "vim-signify" [ ])
