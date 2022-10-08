@@ -26,4 +26,5 @@
 (require :status-line)
 (require :terminal)
 (require :text)
+(require :tree-sitter)
 (require :ui)
