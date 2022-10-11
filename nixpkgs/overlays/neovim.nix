@@ -60,7 +60,6 @@ in
 
           # LSP
           (plug "j-hui" "fidget.nvim" [ ])
-          (plug "neovim" "nvim-lspconfig" [ ])
           (plug "nanotee" "sqls.nvim" [ ])
 
           # Telescope
