@@ -30,6 +30,7 @@ in
           (plug "folke" "tokyonight.nvim" [ ])
 
           # General
+          (plug "f-person" "auto-dark-mode.nvim" [ ])
           (plug "moll" "vim-bbye" [ ])
           (plug "norcalli" "nvim-colorizer.lua" [ ])
           (plug "terrortylor" "nvim-comment" [ ])

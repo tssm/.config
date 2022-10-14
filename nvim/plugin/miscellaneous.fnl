@@ -4,6 +4,12 @@
 (fn set-map [mode lhs rhs]
   (vim.api.nvim_set_keymap mode lhs rhs {}))
 
+; Auto-dark-mode
+
+(let [auto-dark-mode (require :auto-dark-mode)]
+  (auto-dark-mode.setup)
+  (auto-dark-mode.init))
+
 ; Autopairs
 
 (
