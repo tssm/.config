@@ -10,7 +10,7 @@
 
 ; Leaders
 (fn set-map [lhs rhs]
-	(vim.api.nvim_set_keymap :n lhs rhs {:noremap true}))
+  (vim.api.nvim_set_keymap :n lhs rhs {:noremap true}))
 (set-map :<cr> "")
 (set g.mapleader "\r")
 (set-map :<space> "")

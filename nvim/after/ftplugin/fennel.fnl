@@ -1,8 +1,8 @@
 (fn compile-all []
-  (let [
-    call vim.fn
-    compile (require :aniseed.compile)
-    files (call.glob "**/*.fnl" false true)]
+  (let
+    [call vim.fn
+     compile (require :aniseed.compile)
+     files (call.glob "**/*.fnl" false true)]
     (each [_ fennel-path (ipairs files)]
       (local lua-path (.. (call.fnamemodify fennel-path ":r") ".lua"))
       (compile.file fennel-path lua-path))))
