@@ -2,11 +2,13 @@
 (local g vim.g)
 
 (fn set-map [mode lhs rhs]
-	(vim.api.nvim_set_keymap mode lhs rhs {}))
+  (vim.api.nvim_set_keymap mode lhs rhs {}))
 
 ; Autopairs
 
-((. (require :nvim-autopairs) :setup) {})
+(
+  (. (require :nvim-autopairs) :setup)
+  {:disable_filetype [:fnl]})
 
 ; Comment
 
@@ -14,10 +16,11 @@
 
 ; Context
 
-((. (require :nvim_context_vt) :setup) {
-	:disable_virtual_lines true
-	:min_rows 10
-	:prefix :})
+(
+  (. (require :nvim_context_vt) :setup)
+  {:disable_virtual_lines true
+   :min_rows 10
+   :prefix :})
 
 ; Editorconfig
 
@@ -43,12 +46,17 @@
 
 ((. (require :octo) :setup))
 
+; Parinfer
+
+(set g.parinfer_no_maps true)
+
 ; Project
 
-((. (require :project_nvim) :setup) {
-	:ignore_lsp [:sqls]
-	:patterns [:.git :.pijul :shell.nix]
-	:show_hidden true})
+(
+  (. (require :project_nvim) :setup)
+  {:ignore_lsp [:sqls]
+   :patterns [:.git :.pijul :shell.nix]
+   :show_hidden true})
 
 ; Random colors
 
@@ -65,9 +73,9 @@
 (set-map :x :s "")
 ; Use c as mnemonic for change
 (set-map :n :sc
-	"<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)")
+  "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)")
 (set-map :n :scb
-	"<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+  "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
 (set-map :x :sc "<Plug>(operator-sandwich-replace)")
 
 ; Templates

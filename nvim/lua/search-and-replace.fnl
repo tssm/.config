@@ -12,7 +12,7 @@
 (set opt.smartcase true)
 
 (fn set-map [mode lhs rhs]
-	(vim.api.nvim_set_keymap mode lhs rhs {:noremap true}))
+  (vim.api.nvim_set_keymap mode lhs rhs {:noremap true}))
 (set-map :n :n :nzz)
 (set-map :n :N :Nzz)
 (set-map :v :n :nzz)

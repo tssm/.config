@@ -2,7 +2,7 @@
 ; working automatically
 (set vim.bo.omnifunc "")
 
-(vim.lsp.start {
-	:cmd [:sqls]
-	:filetypes [:sql]
-	:single_file_support true})
+(vim.lsp.start
+  {:cmd [:sqls]
+   :filetypes [:sql]
+   :single_file_support true})
