@@ -88,6 +88,7 @@ in
           # Fennel
           (plug "Olical" "aniseed" [ ])
           (plug "Olical" "conjure" [ ])
+          (plug "gpanders" "nvim-parinfer" [ ])
 
           # Haskell
           (plug "zenzike" "vim-haskell-unicode" [ ])

@@ -1,5 +1,5 @@
 (fn set-map [mode lhs rhs]
-	(vim.api.nvim_set_keymap mode lhs rhs {:noremap true}))
+  (vim.api.nvim_set_keymap mode lhs rhs {:noremap true}))
 
 (set-map "" :d "\"_d")
 (set-map "" :dd "\"_dd")
@@ -31,25 +31,25 @@
 (set-map :n :<C-Z> :<cmd>terminal<cr>)
 
 (vim.api.nvim_set_keymap
-	:x :v
-	"mode() is# 'v' ? \"\\<C-V>\" : mode() is# 'V' ? 'v' : 'V'"
-	{:expr true})
+  :x :v
+  "mode() is# 'v' ? \"\\<C-V>\" : mode() is# 'V' ? 'v' : 'V'"
+  {:expr true})
 
 (local call vim.fn)
 
 (fn current-dir []
-	(string.gsub (call.getcwd) (os.getenv :HOME) "~"))
+  (string.gsub (call.getcwd) (os.getenv :HOME) "~"))
 
 (fn git-ref []
-	(let [
-		branch "git symbolic-ref --short HEAD 2> /dev/null | tr -d \"\\n\""
-		commit "git rev-parse --short HEAD 2> /dev/null | tr -d \"\\n\""]
-		(local ref (call.system (string.format "%s || %s" branch commit)))
-		(if (= ref "") "" (string.format "   ⌥ %s" ref))))
+  (let
+    [branch "git symbolic-ref --short HEAD 2> /dev/null | tr -d \"\\n\""
+     commit "git rev-parse --short HEAD 2> /dev/null | tr -d \"\\n\""]
+    (local ref (call.system (string.format "%s || %s" branch commit)))
+    (if (= ref "") "" (string.format "   ⌥ %s" ref))))
 
 (fn c-g []
-	(vim.api.nvim_command
-		(string.format "echo '%s' '%s'" (current-dir) (git-ref))))
+  (vim.api.nvim_command
+    (string.format "echo '%s' '%s'" (current-dir) (git-ref))))
 (set My.c_g c-g)
 
 (set-map :n :<c-g> "<cmd>lua My.c_g()<cr>")
