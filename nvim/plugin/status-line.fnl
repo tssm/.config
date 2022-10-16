@@ -98,9 +98,17 @@
     (if active? (.. :%#StatusLine# (cursor-position buftype)) "")))
 (set My.status_line status-line)
 
-(local cmd vim.api.nvim_command)
-(cmd "augroup SetStatusline")
-(cmd "autocmd!")
-(cmd "autocmd BufEnter,TermOpen,WinEnter * setlocal statusline=%{%v:lua.My.status_line(v:true)%}")
-(cmd "autocmd BufLeave,WinLeave * setlocal statusline=%{%v:lua.My.status_line(v:false)%}")
-(cmd "augroup END")
+(let
+  [augroup
+    (vim.api.nvim_create_augroup
+      :status-line
+      {:clear true})
+   autocmd vim.api.nvim_create_autocmd]
+  (autocmd
+    [:BufEnter :TermOpen :WinEnter]
+    {:command "setlocal statusline=%{%v:lua.My.status_line(v:true)%}"
+     :group augroup})
+  (autocmd
+    [:BufLeave :WinLeave]
+    {:command "setlocal statusline=%{%v:lua.My.status_line(v:false)%}"
+     :group augroup}))
