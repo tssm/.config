@@ -1,10 +1,3 @@
-(local cmd vim.cmd)
-(cmd "augroup ToggleSearchHighlighting")
-(cmd "autocmd!")
-(cmd "autocmd InsertEnter * setlocal nohlsearch")
-(cmd "autocmd InsertLeave * setlocal hlsearch")
-(cmd "augroup END")
-
 (local opt vim.opt)
 (set opt.gdefault true) ; Substitutes all matches on a line by default
 (set opt.ignorecase true)
@@ -18,3 +11,18 @@
 (set-map :v :n :nzz)
 (set-map :v :N :Nzz)
 (set-map :n :<leader>s ":%s/\\<<C-r><C-w>\\>/")
+
+(let
+  [augroup
+    (vim.api.nvim_create_augroup
+      :search-and-replace
+      {:clear true})
+   autocmd vim.api.nvim_create_autocmd]
+  (autocmd
+    :InsertEnter
+    {:command "setlocal nohlsearch"
+     :group augroup})
+  (autocmd
+    :InsertLeave
+    {:command "setlocal hlsearch"
+     :group augroup}))

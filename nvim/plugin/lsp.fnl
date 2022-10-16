@@ -22,19 +22,14 @@
    :severity {:min vim.diagnostic.severity.WARN}})
 (set My.show_diagnostic_options ((. (require :aniseed.core) :merge) window-options {:scope :line}))
 
-(api.nvim_create_autocmd
+(local augroup (api.nvim_create_augroup :lsp {:clear true}))
+(local autocmd api.nvim_create_autocmd)
+(autocmd
   :LspAttach
   {:callback
    (fn [args]
-     (local cmd api.nvim_command)
-     (cmd "augroup LspSetUp")
-     (cmd "autocmd!")
-     (cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
-     (cmd "autocmd CursorMoved,CursorMovedI * lua require'nvim-lightbulb'.update_lightbulb()")
-     (cmd "autocmd InsertEnter <buffer> lua vim.lsp.buf.clear_references()")
-     (cmd "augroup END")
      (each [_ reference (ipairs [:Read :Text :Write])]
-       (cmd (string.format "highlight! link LspReference%s Search" reference)))
+       (api.nvim_command (string.format "highlight! link LspReference%s Search" reference)))
 
      ; Buffer mappings
      (local buffer-number args.buf)
@@ -49,4 +44,20 @@
      (set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
      (set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
      (set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
-     (set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references({entry_maker = My.entry_for_location()})"))})
+     (set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references({entry_maker = My.entry_for_location()})")
+
+     (autocmd
+       :BufWritePre
+       {:buffer buffer-number
+        :callback vim.lsp.buf.format
+        :group augroup})
+     (autocmd
+       [:CursorMoved :CursorMovedI]
+       {:callback (. (require :nvim-lightbulb) :update_lightbulb)
+        :group augroup})
+     (autocmd
+       :InsertEnter
+       {:buffer buffer-number
+        :callback vim.lsp.buf.clear_references
+        :group augroup}))
+   :group augroup})

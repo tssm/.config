@@ -1,10 +1,3 @@
-(local cmd vim.api.nvim_command)
-
-(cmd "augroup SetUpUi")
-(cmd "autocmd!")
-(cmd "autocmd ColorScheme * lua My.color_scheme_fix()")
-(cmd "augroup END")
-
 ; Configure color schemes
 
 (set vim.g.ganymede_solid_background true)
@@ -42,7 +35,14 @@
   (each
     [_ highlight (ipairs highlights)]
     (call.execute (string.format "highlight! %s" highlight))))
-(set My.color_scheme_fix fix-color-schemes)
+
+(vim.api.nvim_create_autocmd
+  :ColorScheme
+  {:callback fix-color-schemes
+   :group
+   (vim.api.nvim_create_augroup
+     :fix-color-scheme
+     {:clear true})})
 
 ; Set options
 

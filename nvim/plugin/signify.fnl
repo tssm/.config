@@ -1,9 +1,3 @@
-(local cmd vim.api.nvim_command)
-(cmd "augroup SignifySetup")
-(cmd "autocmd!")
-(cmd "autocmd User SignifyAutocmds lua My.signify_mappings()")
-(cmd "augroup END")
-
 (fn set-map [lhs rhs]
   (vim.api.nvim_buf_set_keymap 0 :n lhs rhs {}))
 (fn mappings-setup []
@@ -23,3 +17,8 @@
 (set g.signify_sign_delete "")
 (set g.signify_sign_delete_first_line g.signify_sign_delete)
 (set g.signify_sign_show_count false)
+
+(vim.api.nvim_create_autocmd
+  "User SignifyAutocmd"
+  {:callback mappings-setup
+   :group (vim.api.nvim_create_augroup :signify {:clear true})})
