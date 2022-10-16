@@ -23,6 +23,7 @@
    delete-augroup vim.api.nvim_del_augroup_by_name
    identifier-map :<localleader>hi
    scope-map :<localleader>hs
+   symbols-map :<localleader>ds
    map vim.keymap
    opt vim.opt
    query (require :nvim-treesitter.query)]
@@ -85,5 +86,22 @@
       (fn [bufnr]
         (delete-augroup (string.format :HighlightScopeOnBuffer%d bufnr))
         (map.del :n scope-map {:buffer bufnr}))
+      :enable true
+      :is_supported query.has_locals}
+     :telescope-symbols
+     {:attach
+      (fn [bufnr]
+        (map.set
+          :n
+          symbols-map
+          (fn []
+            (local tree-sitter (. (require :telescope.builtin) :treesitter))
+            (tree-sitter
+              {:entry_maker My.entry_for_tree_sitter_symbol
+               :show_line false}))
+          {:buffer bufnr}))
+      :detach
+       (fn [bufnr]
+         (map.del :n symbols-map {:buffer bufnr}))
       :enable true
       :is_supported query.has_locals}}))
