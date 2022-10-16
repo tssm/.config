@@ -138,24 +138,44 @@
      :start entry.start
      :finish entry.finish}))
 
-(fn entry-for-lsp-symbol []
+(fn make-symbol-display []
   (local displayer (entry-display.create {:items [{:remaining true}]}))
-  (fn make-display [entry]
-    (displayer [(string.format "%s (%s)" entry.symbol_name (entry.symbol_type:lower))]))
   (fn [entry]
-    (local (symbol-type symbol-name) (entry.text:match "%[(.+)%]%s+(.*)"))
-    {:value entry
-     :ordinal (.. symbol-name " " symbol-type)
-     :display make-display
-     :filename (path entry)
-     :lnum entry.lnum
-     :col entry.col
-     :symbol_name symbol-name
-     :symbol_type symbol-type
-     :start entry.start
-     :finish entry.finish}))
+    (displayer [(string.format "%s (%s)" entry.symbol_name (entry.symbol_type:lower))])))
+
+(fn entry-for-lsp-symbol [entry]
+  (local (symbol-type symbol-name) (entry.text:match "%[(.+)%]%s+(.*)"))
+  {:value entry
+   :ordinal (.. symbol-name " " symbol-type)
+   :display (make-symbol-display)
+   :filename (path entry)
+   :lnum entry.lnum
+   :col entry.col
+   :symbol_name symbol-name
+   :symbol_type symbol-type
+   :start entry.start
+   :finish entry.finish})
 ; This will be used by nvim/lua/lsp.fnl
 (set My.entry_for_lsp_symbol entry-for-lsp-symbol)
+
+(fn entry-for-tree-sitter-symbol [entry]
+  (local bufnr (vim.api.nvim_get_current_buf))
+  (local node (vim.treesitter.get_node_text entry.node bufnr))
+  (local ts-utils (require :nvim-treesitter.ts_utils))
+  (local (start-row start-col end-row _) (ts-utils.get_node_range entry.node))
+  {:value entry
+   :kind entry.kind
+   :ordinal (.. node " " entry.kind)
+   :display (make-symbol-display)
+   :filename (vim.api.nvim_buf_get_name bufnr)
+   :lnum (+ start-row 1)
+   :col start-col
+   :symbol_name node
+   :symbol_type entry.kind
+   :start start_row
+   :finish end-row})
+; This will be used by nvim/lua/tree-sitter.fnl
+(set My.entry_for_tree_sitter_symbol entry-for-tree-sitter-symbol)
 
 ; Custom finders
 
