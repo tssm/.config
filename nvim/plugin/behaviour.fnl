@@ -1,13 +1,3 @@
-(local cmd vim.cmd)
-(cmd "augroup DefaultBehaviour")
-(cmd "autocmd!")
-(cmd "autocmd VimEnter * clearjumps")
-; Restore cursor shape on exit
-(cmd "autocmd VimLeave * set guicursor=a:ver35-blinkon1")
-; Resize windows proportionally
-(cmd "autocmd VimResized * wincmd =")
-(cmd "augroup END")
-
 (local opt vim.opt)
 (set opt.clipboard [:unnamed :unnamedplus])
 (set opt.confirm true)
@@ -25,3 +15,22 @@
 ; Tab pages
 (set opt.splitbelow true)
 (set opt.splitright true)
+
+(let
+  [augroup
+    (vim.api.nvim_create_augroup
+      :behaviour
+      {:clear true})
+    autocmd vim.api.nvim_create_autocmd]
+  (autocmd
+    :VimEnter
+    {:command :clearjumps
+     :group augroup})
+  (autocmd
+    :VimLeave
+    {:command "set guicursor=a:ver35-blinkon1"
+     :group augroup})
+  (autocmd
+    :VimResized
+    {:command "wincmd ="
+     :group augroup}))
