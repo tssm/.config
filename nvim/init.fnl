@@ -18,13 +18,3 @@
 
 ; Load scripts
 (global My {})
-(require :behaviour)
-(require :command-line)
-(require :lsp)
-(require :mappings)
-(require :search-and-replace)
-(require :status-line)
-(require :terminal)
-(require :text)
-(require :tree-sitter)
-(require :ui)
