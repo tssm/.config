@@ -1,4 +1,3 @@
-(local cmd vim.api.nvim_command)
 (local g vim.g)
 
 (fn set-map [mode lhs rhs]
@@ -66,7 +65,11 @@
 
 ; Random colors
 
-(cmd "command! RandomColorScheme lua require'random-colors'()")
+(let [random-colors (require :random-colors)]
+  (vim.api.nvim_create_user_command
+    :RandomColors
+    random-colors
+    {}))
 
 ; Reflex
 
