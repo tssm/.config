@@ -38,6 +38,7 @@
 ; Git Messenger
 
 (set g.git_messenger_no_default_mappings true)
+(set g.git_messenger_always_into_popup true)
 
 ; MUcomplete
 
