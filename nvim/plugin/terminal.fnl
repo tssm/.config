@@ -6,4 +6,4 @@
   {:complete :shellcmd
    :nargs :*})
 
-(vim.api.nvim_set_keymap :t :<esc> :<c-\><c-n> {:noremap true})
+(vim.keymap.set :t :<esc> :<c-\><c-n>)
