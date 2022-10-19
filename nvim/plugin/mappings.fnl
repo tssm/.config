@@ -30,11 +30,6 @@
 (set-map :n :! ":te ")
 (set-map :n :<C-Z> :<cmd>terminal<cr>)
 
-(vim.api.nvim_set_keymap
-  :x :v
-  "mode() is# 'v' ? \"\\<C-V>\" : mode() is# 'V' ? 'v' : 'V'"
-  {:expr true})
-
 (local call vim.fn)
 
 (fn current-dir []
