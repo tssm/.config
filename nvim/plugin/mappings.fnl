@@ -1,5 +1,5 @@
 (fn set-map [mode lhs rhs]
-  (vim.api.nvim_set_keymap mode lhs rhs {:noremap true}))
+  (vim.keymap.set mode lhs rhs))
 
 (set-map "" :d "\"_d")
 (set-map "" :dd "\"_dd")
