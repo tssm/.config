@@ -8,20 +8,19 @@
   :textDocument/signatureHelp
   (vim.lsp.with vim.lsp.handlers.signature_help window-options))
 
-(local api vim.api)
 (fn set-map [buffer-number lhs func]
-  (api.nvim_buf_set_keymap
-    buffer-number
+  (vim.keymap.set
     :n
     lhs
     (string.format "<cmd>lua %s<cr>" func)
-    {:noremap true :silent true}))
+    {:buffer buffer-number :silent true}))
 
 (set My.go_to_diagnostic_options
   {:float window-options
    :severity {:min vim.diagnostic.severity.WARN}})
 (set My.show_diagnostic_options ((. (require :aniseed.core) :merge) window-options {:scope :line}))
 
+(local api vim.api)
 (local augroup (api.nvim_create_augroup :lsp {:clear true}))
 (local autocmd api.nvim_create_autocmd)
 (autocmd

@@ -1,7 +1,7 @@
 (set vim.opt.history 100)
 
 (fn set-map [lhs rhs]
-  (vim.api.nvim_set_keymap :c lhs rhs {:noremap true}))
+  (vim.keymap.set :c lhs rhs))
 ; Make the command line behave like Fish
 (set-map :<c-a> :<home>) ; Go to line beginning
 (set-map :<c-b> :<left>) ; Go back one character

@@ -1,7 +1,7 @@
 (local g vim.g)
 
 (fn set-map [mode lhs rhs]
-  (vim.api.nvim_set_keymap mode lhs rhs {}))
+  (vim.keymap.set mode lhs rhs))
 
 ; Auto-dark-mode
 

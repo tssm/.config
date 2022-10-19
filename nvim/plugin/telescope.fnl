@@ -211,11 +211,11 @@
 ; Mappings
 
 (fn set-map [lhs rhs]
-  (vim.api.nvim_set_keymap
+  (vim.keymap.set
     :n
     lhs
     (string.format "<cmd>lua %s<cr>" rhs)
-    {:noremap true :silent true}))
+    {:silent true}))
 
 (set-map :<leader>b "require'telescope.builtin'.buffers({entry_maker = My.entry_for_location(), ignore_current_buffer = true, show_all_buffers = false})")
 

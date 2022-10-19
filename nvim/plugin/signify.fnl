@@ -1,5 +1,5 @@
 (fn set-map [lhs rhs]
-  (vim.api.nvim_buf_set_keymap 0 :n lhs rhs {}))
+  (vim.keymap.set :n lhs rhs {:buffer 0}))
 (fn mappings-setup []
   (set-map "]h" "<plug>(signify-next-hunk)")
   (set-map "[h" "<plug>(signify-prev-hunk)")
