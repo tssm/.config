@@ -8,17 +8,18 @@
   :textDocument/signatureHelp
   (vim.lsp.with vim.lsp.handlers.signature_help window-options))
 
-(fn set-map [buffer-number lhs func]
+(fn set-map [buffer-number lhs rhs]
   (vim.keymap.set
     :n
     lhs
-    (string.format "<cmd>lua %s<cr>" func)
+    rhs
     {:buffer buffer-number :silent true}))
 
-(set My.go_to_diagnostic_options
+(local
+  go-to-diagnostic-options
   {:float window-options
    :severity {:min vim.diagnostic.severity.WARN}})
-(set My.show_diagnostic_options ((. (require :aniseed.core) :merge) window-options {:scope :line}))
+(local show-diagnostic-options ((. (require :aniseed.core) :merge) window-options {:scope :line}))
 
 (local api vim.api)
 (local augroup (api.nvim_create_augroup :lsp {:clear true}))
@@ -32,18 +33,19 @@
 
      ; Buffer mappings
      (local buffer-number args.buf)
-     (set-map buffer-number :K "vim.lsp.buf.hover()")
+     (local telescope (require :telescope.builtin))
+     (set-map buffer-number :K vim.lsp.buf.hover)
      (when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
-       (set-map buffer-number :<localleader>hi "vim.lsp.buf.document_highlight()"))
-     (set-map buffer-number :<localleader>a "vim.lsp.buf.code_action()")
-     (set-map buffer-number :<localleader>r "vim.lsp.buf.rename()")
-     (set-map buffer-number :<localleader>ds "require'telescope.builtin'.lsp_document_symbols({entry_maker = My.entry_for_lsp_symbol})")
-     (set-map buffer-number :<localleader>ws "require'telescope.builtin'.lsp_dynamic_workspace_symbols({entry_maker = My.entry_for_lsp_symbol})")
-     (set-map buffer-number :<localleader>sd "vim.diagnostic.open_float(0, My.show_diagnostic_options)")
-     (set-map buffer-number :<localleader>ss "vim.lsp.buf.signature_help()")
-     (set-map buffer-number "[d" "vim.diagnostic.goto_prev(My.go_to_diagnostic_options)")
-     (set-map buffer-number "]d" "vim.diagnostic.goto_next(My.go_to_diagnostic_options)")
-     (set-map buffer-number :<localleader>u "require'telescope.builtin'.lsp_references({entry_maker = My.entry_for_location()})")
+       (set-map buffer-number :<localleader>hi vim.lsp.buf.document_highlight))
+     (set-map buffer-number :<localleader>a vim.lsp.buf.code_action)
+     (set-map buffer-number :<localleader>r vim.lsp.buf.rename)
+     (set-map buffer-number :<localleader>ds (fn [] (telescope.lsp_document_symbols {:entry_maker My.entry_for_lsp_symbol})))
+     (set-map buffer-number :<localleader>ws (fn [] (telescope.lsp_dynamic_workspace_symbols {:entry_maker My.entry_for_lsp_symbol})))
+     (set-map buffer-number :<localleader>sd (fn [] (vim.diagnostic.open_float 0 show-diagnostic-options)))
+     (set-map buffer-number :<localleader>ss vim.lsp.buf.signature_help)
+     (set-map buffer-number "[d" (fn [] (vim.diagnostic.goto_prev go-to-diagnostic-options)))
+     (set-map buffer-number "]d" (fn [] (vim.diagnostic.goto_next go-to-diagnostic-options)))
+     (set-map buffer-number :<localleader>u (fn [] (telescope.lsp_references {:entry_maker (My.entry_for_location)})))
 
      (autocmd
        :BufWritePre
