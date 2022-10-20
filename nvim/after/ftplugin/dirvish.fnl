@@ -3,4 +3,4 @@
 
 (set-map :<cr> "")
 (set-map :gf "<cmd>call dirvish#open('edit', 0)<cr>")
-(set-map :+ "<cmd>lua require'procedures'['create-file'](vim.call('bufname'))<cr>")
+(set-map :+ (fn [] ((. (require :procedures) :create-file) (vim.fn.bufname))))
