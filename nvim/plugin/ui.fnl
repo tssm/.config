@@ -36,13 +36,23 @@
     [_ highlight (ipairs highlights)]
     (call.execute (string.format "highlight! %s" highlight))))
 
-(vim.api.nvim_create_autocmd
-  :ColorScheme
-  {:callback fix-color-schemes
-   :group
-   (vim.api.nvim_create_augroup
-     :fix-color-scheme
-     {:clear true})})
+; Autocommands
+
+(let
+  [augroup (vim.api.nvim_create_augroup :ui {:clear true})
+   autocmd vim.api.nvim_create_autocmd]
+  (autocmd
+    [:BufEnter :TermOpen :WinEnter]
+    {:command "setlocal statusline=%{%v:lua.require'status-line'(v:true)%}"
+     :group augroup})
+  (autocmd
+    [:BufLeave :WinLeave]
+    {:command "setlocal statusline=%{%v:lua.require'status-line'(v:false)%}"
+     :group augroup})
+  (autocmd
+    :ColorScheme
+    {:callback fix-color-schemes
+     :group augroup}))
 
 ; Set options
 
