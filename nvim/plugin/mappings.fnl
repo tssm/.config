@@ -45,6 +45,5 @@
 (fn c-g []
   (vim.api.nvim_command
     (string.format "echo '%s' '%s'" (current-dir) (git-ref))))
-(set My.c_g c-g)
 
-(set-map :n :<c-g> "<cmd>lua My.c_g()<cr>")
+(set-map :n :<c-g> c-g)

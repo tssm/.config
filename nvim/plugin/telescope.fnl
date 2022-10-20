@@ -137,6 +137,7 @@
      :col entry.col
      :start entry.start
      :finish entry.finish}))
+(set My.entry_for_location entry-for-location)
 
 (fn make-symbol-display []
   (local displayer (entry-display.create {:items [{:remaining true}]}))
@@ -211,27 +212,26 @@
 ; Mappings
 
 (fn set-map [lhs rhs]
-  (vim.keymap.set
-    :n
-    lhs
-    (string.format "<cmd>lua %s<cr>" rhs)
-    {:silent true}))
+  (vim.keymap.set :n lhs rhs {:silent true}))
 
-(set-map :<leader>b "require'telescope.builtin'.buffers({entry_maker = My.entry_for_location(), ignore_current_buffer = true, show_all_buffers = false})")
+(set-map
+  :<leader>b
+  (fn []
+    (pickers.buffers
+      {:entry_maker (entry-for-location)
+       :ignore_current_buffer true
+       :show_all_buffers false})))
 
-(set-map :<leader>c "require'telescope.builtin'.command_history()")
+(set-map :<leader>c pickers.command_history)
 
-(set My.find_files find-files)
-(set-map :<leader>f "My.find_files()")
+(set-map :<leader>f find-files)
 
-(set My.grep grep)
-(set-map :<leader>g "My.grep()")
+(set-map :<leader>g grep)
 
-(set-map :<leader>h "require'telescope.builtin'.help_tags()")
+(set-map :<leader>h pickers.help_tags)
 
-(set-map :<leader>o "require'telescope.builtin'.oldfiles()")
+(set-map :<leader>o pickers.oldfiles)
 
-(set My.entry_for_location entry-for-location)
-(set-map :<leader>q "require'telescope.builtin'.quickfix({entry_maker = My.entry_for_location()})")
+(set-map :<leader>q (fn [] (pickers.quickfix {:entry_maker (entry-for-location)})))
 
-(set-map :z= "require'telescope.builtin'.spell_suggest(require'telescope.themes'.get_dropdown())")
+(set-map :z= (fn [] (pickers.spell_suggest ((. (require :telescope.themes) :get_dropdown)))))
