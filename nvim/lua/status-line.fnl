@@ -79,7 +79,7 @@
     (= buftype "") (if (= bufname "") "🆕" (fnmodify bufname ":t"))
     ""))
 
-(fn status-line [active?]
+(fn [active?]
   (local bufname (call.bufname))
   (local buftype (opt.buftype:get))
   (local filetype (opt.filetype:get))
@@ -96,19 +96,3 @@
     (file-status bufname buftype)
     ; Right
     (if active? (.. :%#StatusLine# (cursor-position buftype)) "")))
-(set My.status_line status-line)
-
-(let
-  [augroup
-    (vim.api.nvim_create_augroup
-      :status-line
-      {:clear true})
-   autocmd vim.api.nvim_create_autocmd]
-  (autocmd
-    [:BufEnter :TermOpen :WinEnter]
-    {:command "setlocal statusline=%{%v:lua.My.status_line(v:true)%}"
-     :group augroup})
-  (autocmd
-    [:BufLeave :WinLeave]
-    {:command "setlocal statusline=%{%v:lua.My.status_line(v:false)%}"
-     :group augroup}))

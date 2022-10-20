@@ -97,7 +97,7 @@
           (fn []
             (local tree-sitter (. (require :telescope.builtin) :treesitter))
             (tree-sitter
-              {:entry_maker My.entry_for_tree_sitter_symbol
+              {:entry_maker (. (require :telescope-entries) :for-tree-sitter-symbol)
                :show_line false}))
           {:buffer bufnr}))
       :detach

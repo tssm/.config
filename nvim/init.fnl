@@ -15,6 +15,3 @@
 (set g.mapleader "\r")
 (set-map :<space> "")
 (set g.maplocalleader " ")
-
-; Load scripts
-(global My {})
