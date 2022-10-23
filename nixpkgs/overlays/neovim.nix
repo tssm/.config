@@ -26,6 +26,7 @@ in
           # Color schemes with special initialization
           (plug "sainnhe" "everforest" [ ])
           (plug "maxmx03" "FluoroMachine.nvim" [ ])
+          (plug "katawful" "kat.nvim" [ ])
           (plug "rose-pine" "neovim" [ ])
           (plug "folke" "tokyonight.nvim" [ ])
 
