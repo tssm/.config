@@ -31,10 +31,6 @@
 
 (set g.EditorConfig_max_line_indicator :none)
 
-; Fidget
-
-((. (require :fidget) :setup) {})
-
 ; Git Messenger
 
 (set g.git_messenger_no_default_mappings true)
@@ -47,6 +43,10 @@
 (set g.mucomplete#enable_auto_at_startup true)
 (set g.mucomplete#minimum_prefix_length 0)
 (set vim.opt.completeopt [:menuone :noinsert])
+
+; Noice
+
+((. (require :noice) :setup))
 
 ; Octo
 
