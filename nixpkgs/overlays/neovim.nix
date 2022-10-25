@@ -61,8 +61,11 @@ in
           (plug "kyazdani42" "nvim-web-devicons" [ ])
 
           # LSP
-          (plug "j-hui" "fidget.nvim" [ ])
           (plug "nanotee" "sqls.nvim" [ ])
+
+          # Noice
+          (plug "folke" "noice.nvim" [ ])
+          (plug "MunifTanjim" "nui.nvim" [ ])
 
           # Telescope
           (plug "nvim-lua" "plenary.nvim" [ ])

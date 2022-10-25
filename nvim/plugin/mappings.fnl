@@ -40,10 +40,10 @@
     [branch "git symbolic-ref --short HEAD 2> /dev/null | tr -d \"\\n\""
      commit "git rev-parse --short HEAD 2> /dev/null | tr -d \"\\n\""]
     (local ref (call.system (string.format "%s || %s" branch commit)))
-    (if (= ref "") "" (string.format "   ⌥ %s" ref))))
+    (if (= ref "") "" (string.format "⌥ %s" ref))))
 
 (fn c-g []
   (vim.api.nvim_command
-    (string.format "echo '%s' '%s'" (current-dir) (git-ref))))
+    (string.format "echo '%s\n%s'" (current-dir) (git-ref))))
 
 (set-map :n :<c-g> c-g)
