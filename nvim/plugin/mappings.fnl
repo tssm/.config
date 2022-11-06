@@ -1,49 +1,46 @@
-(fn set-map [mode lhs rhs]
-  (vim.keymap.set mode lhs rhs))
+(let [call vim.fn]
+  (fn current-dir []
+    (string.gsub (call.getcwd) (os.getenv :HOME) "~"))
 
-(set-map "" :d "\"_d")
-(set-map "" :dd "\"_dd")
-(set-map "" :D "\"_D")
-(set-map "" :x "\"_x")
-(set-map "" :X "\"_X")
+  (fn git-ref []
+    (let
+      [branch "git symbolic-ref --short HEAD 2> /dev/null | tr -d \"\\n\""
+       commit "git rev-parse --short HEAD 2> /dev/null | tr -d \"\\n\""
+       ref (call.system (string.format "%s || %s" branch commit))]
+      (if (= ref "") "" (string.format "⌥ %s" ref))))
 
-(set-map "" :c "\"_c")
-(set-map "" :cc "\"_cc")
-(set-map "" :C "\"_C")
+  (fn c-g []
+    (vim.api.nvim_command
+      (string.format "echo '%s\n%s'" (current-dir) (git-ref))))
 
-(set-map "" :yd :d)
-(set-map "" :yD :D)
-(set-map "" :ydd :dd)
+  (let [set-map (fn [mode lhs rhs] (vim.keymap.set mode lhs rhs))]
+    (set-map "" :d "\"_d")
+    (set-map "" :dd "\"_dd")
+    (set-map "" :D "\"_D")
+    (set-map "" :x "\"_x")
+    (set-map "" :X "\"_X")
 
-(set-map :x :p "\"_dP")
+    (set-map "" :c "\"_c")
+    (set-map "" :cc "\"_cc")
+    (set-map "" :C "\"_C")
 
-(set-map :n :gf :gF)
+    (set-map "" :yd :d)
+    (set-map "" :yD :D)
+    (set-map "" :ydd :dd)
 
-(set-map :n :za :zA)
-(set-map :n :zm :zM)
-(set-map :n :zr :zR)
+    (set-map :x :p "\"_dP")
 
-(set-map :n :gd :<cmd>Bdelete!<cr>)
+    (set-map :n :gf :gF)
 
-(set-map :n :sq :<cmd>exit<cr>)
+    (set-map :n :za :zA)
+    (set-map :n :zm :zM)
+    (set-map :n :zr :zR)
 
-(set-map :n :! ":te ")
-(set-map :n :<C-Z> :<cmd>terminal<cr>)
+    (set-map :n :gd :<cmd>Bdelete!<cr>)
 
-(local call vim.fn)
+    (set-map :n :sq :<cmd>exit<cr>)
 
-(fn current-dir []
-  (string.gsub (call.getcwd) (os.getenv :HOME) "~"))
+    (set-map :n :! ":te ")
+    (set-map :n :<C-Z> :<cmd>terminal<cr>)
 
-(fn git-ref []
-  (let
-    [branch "git symbolic-ref --short HEAD 2> /dev/null | tr -d \"\\n\""
-     commit "git rev-parse --short HEAD 2> /dev/null | tr -d \"\\n\""]
-    (local ref (call.system (string.format "%s || %s" branch commit)))
-    (if (= ref "") "" (string.format "⌥ %s" ref))))
-
-(fn c-g []
-  (vim.api.nvim_command
-    (string.format "echo '%s\n%s'" (current-dir) (git-ref))))
-
-(set-map :n :<c-g> c-g)
+    (set-map :n :<c-g> c-g)))
