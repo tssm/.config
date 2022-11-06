@@ -1,7 +1,33 @@
-(local g vim.g)
+(let [g vim.g]
+  ; Editorconfig
+  (set g.EditorConfig_max_line_indicator :none)
 
-(fn set-map [mode lhs rhs]
-  (vim.keymap.set mode lhs rhs))
+  ; Git Messenger
+  (set g.git_messenger_no_default_mappings true)
+  (set g.git_messenger_always_into_popup true)
+
+  ; MUcomplete
+  (set g.mucomplete#buffer_relative_paths true)
+  (set g.mucomplete#chains {:default [:omni :path :uspl]})
+  (set g.mucomplete#enable_auto_at_startup true)
+  (set g.mucomplete#minimum_prefix_length 0)
+  (set vim.opt.completeopt [:menuone :noinsert])
+
+  ; Parinfer
+  (set g.parinfer_no_maps true)
+
+  ; Reflex
+  (set g.reflex_delete_buffer_cmd :Bwipeout!)
+  (set g.reflex_delete_file_cmd :trash)
+
+  ; Templates
+  (set g.templates_directory [(.. (vim.fn.stdpath :config) :/templates)])
+  (set g.templates_global_name_prefix :template.)
+  (set g.templates_no_builtin_templates true)
+
+  ; Undotree
+  (set g.undotree_HelpLine false)
+  (set g.undotree_SetFocusWhenToggle true))
 
 ; Auto-dark-mode
 
@@ -11,58 +37,35 @@
 
 ; Autopairs
 
-(
-  (. (require :nvim-autopairs) :setup)
-  {:disable_filetype [:fnl]})
+(let [{: setup} (require :nvim-autopairs)] (setup {:disable_filetype [:fnl]}))
 
 ; Comment
 
-((. (require :nvim_comment) :setup))
+(let [{: setup} (require :nvim_comment)] (setup))
 
 ; Context
 
-(
-  (. (require :nvim_context_vt) :setup)
-  {:disable_virtual_lines true
-   :min_rows 10
-   :prefix :})
-
-; Editorconfig
-
-(set g.EditorConfig_max_line_indicator :none)
-
-; Git Messenger
-
-(set g.git_messenger_no_default_mappings true)
-(set g.git_messenger_always_into_popup true)
-
-; MUcomplete
-
-(set g.mucomplete#buffer_relative_paths true)
-(set g.mucomplete#chains {:default [:omni :path :uspl]})
-(set g.mucomplete#enable_auto_at_startup true)
-(set g.mucomplete#minimum_prefix_length 0)
-(set vim.opt.completeopt [:menuone :noinsert])
+(let [{: setup} (require :nvim_context_vt)]
+  (setup
+    {:disable_virtual_lines true
+     :min_rows 10
+     :prefix :}))
 
 ; Noice
 
-((. (require :noice) :setup))
+(let [{: setup} (require :noice)] (setup))
 
 ; Octo
 
-((. (require :octo) :setup))
-
-; Parinfer
-
-(set g.parinfer_no_maps true)
+(let [{: setup} (require :octo)] (setup))
 
 ; Project
 
-(
-  (. (require :project_nvim) :setup)
-  {:ignore_lsp [:sqls]
-   :patterns [:.git :.pijul :shell.nix]
-   :show_hidden true})
+(let [{: setup} (require :project_nvim)]
+  (setup
+    {:ignore_lsp [:sqls]
+     :patterns [:.git :.pijul :shell.nix]
+     :show_hidden true}))
 
 ; Random colors
 
@@ -72,29 +75,14 @@
     random-colors
     {}))
 
-; Reflex
-
-(set g.reflex_delete_buffer_cmd :Bwipeout!)
-(set g.reflex_delete_file_cmd :trash)
-
 ; Sandwich
 
-(set-map :n :s "")
-(set-map :x :s "")
-; Use c as mnemonic for change
-(set-map :n :sc
-  "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)")
-(set-map :n :scb
-  "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
-(set-map :x :sc "<Plug>(operator-sandwich-replace)")
-
-; Templates
-
-(set g.templates_directory [(.. (vim.fn.stdpath :config) :/templates)])
-(set g.templates_global_name_prefix :template.)
-(set g.templates_no_builtin_templates true)
-
-; Undotree
-
-(set g.undotree_HelpLine false)
-(set g.undotree_SetFocusWhenToggle true)
+(let [set-map (fn [mode lhs rhs] (vim.keymap.set mode lhs rhs))]
+  (set-map :n :s "")
+  (set-map :x :s "")
+  ; Use c as mnemonic for change
+  (set-map :n :sc
+    "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)")
+  (set-map :n :scb
+    "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
+  (set-map :x :sc "<Plug>(operator-sandwich-replace)"))

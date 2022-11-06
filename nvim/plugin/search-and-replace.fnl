@@ -1,16 +1,15 @@
-(local opt vim.opt)
-(set opt.gdefault true) ; Substitutes all matches on a line by default
-(set opt.ignorecase true)
-(set opt.inccommand :nosplit)
-(set opt.smartcase true)
+(let [opt vim.opt]
+  (set opt.gdefault true) ; Substitutes all matches on a line by default
+  (set opt.ignorecase true)
+  (set opt.inccommand :nosplit)
+  (set opt.smartcase true))
 
-(fn set-map [mode lhs rhs]
-  (vim.keymap.set mode lhs rhs))
-(set-map :n :n :nzz)
-(set-map :n :N :Nzz)
-(set-map :v :n :nzz)
-(set-map :v :N :Nzz)
-(set-map :n :<leader>s ":%s/\\<<C-r><C-w>\\>/")
+(let [set-map (fn [mode lhs rhs] (vim.keymap.set mode lhs rhs))]
+  (set-map :n :n :nzz)
+  (set-map :n :N :Nzz)
+  (set-map :v :n :nzz)
+  (set-map :v :N :Nzz)
+  (set-map :n :<leader>s ":%s/\\<<C-r><C-w>\\>/"))
 
 (let
   [augroup

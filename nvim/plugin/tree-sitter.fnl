@@ -1,21 +1,23 @@
-(
-  (. (require :nvim-treesitter.configs) :setup)
-  {:highlight {:enable true :additional_vim_regex_highlighting false}
-   :autotag {:enable true}
-   :indent {:enable true}
-   :textobjects
-   {:move
-    {:enable true
-     :goto_next_start {"]]" "@block.outer"}
-     :goto_next_end {"][" "@block.outer"}
-     :goto_previous_start {"[[" "@block.outer"}
-     :goto_previous_end {"[]" "@block.outer"}}
-    :select
-    {:enable true
-     :keymaps
-     {:ab "@block.outer"
-      :ib "@block.inner"}
-     :lookahead true}}})
+(let [{: setup} (require :nvim-treesitter.configs)]
+  (setup
+    {:highlight
+     {:enable true
+      :additional_vim_regex_highlighting false}
+     :autotag {:enable true}
+     :indent {:enable true}
+     :textobjects
+     {:move
+      {:enable true
+       :goto_next_start {"]]" "@block.outer"}
+       :goto_next_end {"][" "@block.outer"}
+       :goto_previous_start {"[[" "@block.outer"}
+       :goto_previous_end {"[]" "@block.outer"}}
+      :select
+      {:enable true
+       :keymaps
+       {:ab "@block.outer"
+        :ib "@block.inner"}
+       :lookahead true}}}))
 
 (let
   [autocmd vim.api.nvim_create_autocmd
@@ -26,9 +28,9 @@
    symbols-map :<localleader>ds
    map vim.keymap
    opt vim.opt
-   query (require :nvim-treesitter.query)]
-  (
-    (. (require :nvim-treesitter) :define_modules)
+   query (require :nvim-treesitter.query)
+   {:define_modules define-modules} (require :nvim-treesitter)]
+  (define-modules
     ; Use tree-sitter for setting folds only when a parser is attached
     ; Fold options are local to window, not buffer, so this may not always behave correctly
     {:fold
@@ -45,20 +47,20 @@
      :highlight_identifier
      {:attach
       (fn [bufnr]
-        (local highlight-identifier (require :nvim-treesitter-refactor.highlight_definitions))
-        (autocmd
-          :InsertEnter
-          {:buffer bufnr
-           :callback (fn [] ((. highlight-identifier :clear_usage_highlights) bufnr))
-           :group
+        (let [highlight-identifier (require :nvim-treesitter-refactor.highlight_definitions)]
+          (autocmd
+            :InsertEnter
+            {:buffer bufnr
+             :callback (fn [] ((. highlight-identifier :clear_usage_highlights) bufnr))
+             :group
              (create-augroup
                (string.format :HighlightIdentifierOnBuffer%d bufnr)
                {:clear true})})
-        (map.set
-          :n
-          identifier-map
-          (fn [] ((. highlight-identifier :highlight_usages) bufnr))
-          {:buffer bufnr}))
+          (map.set
+            :n
+            identifier-map
+            (fn [] ((. highlight-identifier :highlight_usages) bufnr))
+            {:buffer bufnr})))
       :detach
       (fn [bufnr]
         (delete-augroup (string.format :HighlightIdentifierOnBuffer%d bufnr))
@@ -68,20 +70,20 @@
      :highlight_scope
      {:attach
       (fn [bufnr]
-        (local highlight-scope (require :nvim-treesitter-refactor.highlight_current_scope))
-        (autocmd
-          :InsertEnter
-          {:buffer bufnr
-           :callback (fn [] ((. highlight-scope :clear_highlights) bufnr))
-           :group
-           (create-augroup
-             (string.format :HighlightScopeOnBuffer%d bufnr)
-             {:clear true})})
-        (map.set
-          :n
-          scope-map
-          (fn [] ((. highlight-scope :highlight_current_scope) bufnr))
-          {:buffer bufnr}))
+        (let [highlight-scope (require :nvim-treesitter-refactor.highlight_current_scope)]
+          (autocmd
+            :InsertEnter
+            {:buffer bufnr
+             :callback (fn [] ((. highlight-scope :clear_highlights) bufnr))
+             :group
+             (create-augroup
+               (string.format :HighlightScopeOnBuffer%d bufnr)
+               {:clear true})})
+          (map.set
+            :n
+            scope-map
+            (fn [] ((. highlight-scope :highlight_current_scope) bufnr))
+            {:buffer bufnr})))
       :detach
       (fn [bufnr]
         (delete-augroup (string.format :HighlightScopeOnBuffer%d bufnr))
@@ -95,13 +97,13 @@
           :n
           symbols-map
           (fn []
-            (local tree-sitter (. (require :telescope.builtin) :treesitter))
-            (tree-sitter
-              {:entry_maker (. (require :telescope-entries) :for-tree-sitter-symbol)
-               :show_line false}))
+            (let [tree-sitter (. (require :telescope.builtin) :treesitter)]
+              (tree-sitter
+                {:entry_maker (. (require :telescope-entries) :for-tree-sitter-symbol)
+                 :show_line false})))
           {:buffer bufnr}))
       :detach
-       (fn [bufnr]
-         (map.del :n symbols-map {:buffer bufnr}))
+      (fn [bufnr]
+        (map.del :n symbols-map {:buffer bufnr}))
       :enable true
       :is_supported query.has_locals}}))
