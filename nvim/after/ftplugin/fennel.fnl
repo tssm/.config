@@ -6,6 +6,6 @@
         compile (require :aniseed.compile)
         files (call.glob "**/*.fnl" false true)]
        (each [_ fennel-path (ipairs files)]
-         (local lua-path (.. (call.fnamemodify fennel-path ":r") ".lua"))
-         (compile.file fennel-path lua-path))))
+         (let [lua-path (.. (call.fnamemodify fennel-path ":r") ".lua")]
+           (compile.file fennel-path lua-path)))))
   {})
