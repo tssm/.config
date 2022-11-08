@@ -7,6 +7,7 @@
 
   ; Indentation
   (set opt.shiftwidth 0) ; Use tabstop as for autoindent
+  (set opt.shiftround true)
   (set opt.tabstop 2) ; Tab width in spaces
 
   ; Text wrapping
