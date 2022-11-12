@@ -1,4 +1,7 @@
 (let [g vim.g]
+  ; Conjure
+  (set g.conjure#completion#omnifunc :v:lua.vim.lsp.omnifunc)
+
   ; Editorconfig
   (set g.EditorConfig_max_line_indicator :none)
 
