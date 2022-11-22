@@ -51,11 +51,17 @@
            (set-map buffer-number "]d" (fn [] (vim.diagnostic.goto_next go-to-diagnostic-options)))
            (set-map buffer-number :<localleader>u (fn [] (telescope.lsp_references {:entry_maker (telescope-entries.for-location)})))
 
-           (autocmd
-             :BufWritePre
-             {:buffer buffer-number
-              :callback vim.lsp.buf.format
-              :group augroup})
+           (let [client (vim.lsp.get_client_by_id args.data.client_id)]
+             (if
+               client.server_capabilities.documentRangeFormattingProvider
+                 ((. (require :lsp-format-modifications) :attach) client buffer-number {:format_on_save true})
+               client.server_capabilities.documentFormattingProvider
+                 (autocmd
+                   :BufWritePre
+                   {:buffer buffer-number
+                    :callback vim.lsp.buf.format
+                    :group augroup})))
+
            (autocmd
              [:CursorMoved :CursorMovedI]
              {:callback (. (require :nvim-lightbulb) :update_lightbulb)
