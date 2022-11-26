@@ -25,9 +25,6 @@ set --export PSQLRC $XDG_CONFIG_HOME/psqlrc
 # Readline
 set --export INPUTRC $XDG_CONFIG_HOME/inputrc
 
-# Ripgrep
-set --export RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgreprc
-
 for profile in $NIX_PROFILES
 	set PATH $profile/bin $PATH
 end
