@@ -1,7 +1,19 @@
 (let [g vim.g]
-  ; Disable unused features
+  ; Disable unused plug-ins
+  (set g.loaded_2html_plugin true)
+  (set g.loaded_getscriptPlugin true)
+  (set g.loaded_gzip true)
+  (set g.loaded_logipat true)
+  (set g.loaded_matchparen true)
+  (set g.loaded_matchit true)
   (set g.loaded_netrw true)
   (set g.loaded_netrwPlugin true)
+  (set g.loaded_rrhelper true)
+  (set g.loaded_spellfile_plugin true)
+  (set g.loaded_tarPlugin true)
+  (set g.loaded_vimballPlugin true)
+  (set g.loaded_zipPlugin true)
+  ; Disable unused providers
   (set g.loaded_node_provider false)
   (set g.loaded_perl_provider false)
   (set g.loaded_python_provider false)
