@@ -42,6 +42,7 @@
 
            (let
              [diagnostic vim.diagnostic
+              fzf-lua (require :fzf-lua)
               go-to-diagnostic-options
                 {:float window-options
                  :severity {:min diagnostic.severity.WARN}}
@@ -51,21 +52,19 @@
                     :n lhs rhs
                     {:buffer buffer-number :silent true}))
               {: merge} (require :aniseed.core)
-              show-diagnostic-options (merge window-options {:scope :line})
-              telescope (require :telescope.builtin)
-              telescope-entries (require :telescope-entries)]
+              show-diagnostic-options (merge window-options {:scope :line})]
              (set-map buffer-number :K lsp-buf.hover)
              (when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
                (set-map buffer-number :<localleader>hi lsp-buf.document_highlight))
-             (set-map buffer-number :<localleader>a lsp-buf.code_action)
+             (set-map buffer-number :<localleader>a fzf-lua.lsp_code_actions)
              (set-map buffer-number :<localleader>r lsp-buf.rename)
-             (set-map buffer-number :<localleader>ds (fn [] (telescope.lsp_document_symbols {:entry_maker telescope-entries.for-lsp-symbol})))
-             (set-map buffer-number :<localleader>ws (fn [] (telescope.lsp_dynamic_workspace_symbols {:entry_maker telescope-entries.for-lsp-symbol})))
+             (set-map buffer-number :<localleader>ds fzf-lua.lsp_document_symbols)
+             (set-map buffer-number :<localleader>ws fzf-lua.lsp_live_workspace_symbols)
              (set-map buffer-number :<localleader>sd (fn [] (diagnostic.open_float 0 show-diagnostic-options)))
              (set-map buffer-number :<localleader>ss lsp-buf.signature_help)
              (set-map buffer-number "[d" (fn [] (diagnostic.goto_prev go-to-diagnostic-options)))
              (set-map buffer-number "]d" (fn [] (diagnostic.goto_next go-to-diagnostic-options)))
-             (set-map buffer-number :<localleader>u (fn [] (telescope.lsp_references {:entry_maker (telescope-entries.for-location)}))))
+             (set-map buffer-number :<localleader>u fzf-lua.lsp_references))
 
            (autocmd
              [:CursorMoved :CursorMovedI]

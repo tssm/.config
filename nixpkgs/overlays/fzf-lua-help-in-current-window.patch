@@ -1,0 +1,54 @@
+diff --git i/lua/fzf-lua/actions.lua w/lua/fzf-lua/actions.lua
+index 3d60ad9..bfd9e83 100644
+--- i/lua/fzf-lua/actions.lua
++++ w/lua/fzf-lua/actions.lua
+@@ -449,6 +449,28 @@ local function helptags(s)
+ end
+ 
+ M.help = function(selected)
++  local vimcmd
++  local is_shown = false
++  local current_win_number = 1
++  local last_win_number = vim.fn.winnr("$")
++  while current_win_number <= last_win_number do
++    local buffer = vim.api.nvim_win_get_buf(vim.fn.win_getid(current_win_number))
++    local type = vim.api.nvim_buf_get_option(buffer, "buftype")
++    if type == "help" then
++      is_shown = true
++      break
++    end
++    current_win_number = current_win_number + 1
++  end
++  if is_shown then
++    vimcmd = "help"
++  else
++    vimcmd = "enew | setlocal bufhidden=wipe | setlocal buftype=help | keepjumps help"
++  end
++  M.vimcmd(vimcmd, helptags(selected), true)
++end
++
++M.help_split = function(selected)
+   local vimcmd = "help"
+   M.vimcmd(vimcmd, helptags(selected), true)
+ end
+diff --git i/lua/fzf-lua/config.lua w/lua/fzf-lua/config.lua
+index 015243a..79002be 100644
+--- i/lua/fzf-lua/config.lua
++++ w/lua/fzf-lua/config.lua
+@@ -474,7 +474,7 @@ M.globals.helptags = {
+   prompt    = "Help> ",
+   actions   = {
+     ["default"] = actions.help,
+-    ["ctrl-s"]  = actions.help,
++    ["ctrl-s"]  = actions.help_split,
+     ["ctrl-v"]  = actions.help_vert,
+     ["ctrl-t"]  = actions.help_tab,
+   },
+@@ -1049,6 +1049,7 @@ M._action_to_helpstr = {
+   [actions.set_filetype]        = "set-filetype",
+   [actions.packadd]             = "packadd",
+   [actions.help]                = "help-open",
++  [actions.help_split]          = "help-split",
+   [actions.help_vert]           = "help-vertical",
+   [actions.help_tab]            = "help-tab",
+   [actions.man]                 = "man-open",
