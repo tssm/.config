@@ -119,7 +119,7 @@
 
     (fn grep []
       (if
-        (at-home?) (print "Do not live grep from ~")
+        (at-home?) (fzf.grep)
         (fzf.live_grep
           {:rg_opts (with-pijulignore? "--vimgrep")})))
 
