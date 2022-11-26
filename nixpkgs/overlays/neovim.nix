@@ -41,12 +41,16 @@ in
           (plug "justinmk" "vim-dirvish" [ ])
           (plug "editorconfig" "editorconfig-vim" [ ])
           (plug "stonelasley" "flare.nvim" [ ])
+          (plug "ibhagwan" "fzf-lua" [
+            ./fzf-lua-do-not-open-qf-list.patch
+            ./fzf-lua-help-in-current-window.patch
+            ./fzf-lua-remove-header.patch
+          ])
           (plug "rhysd" "git-messenger.vim" [ ])
           (plug "phaazon" "hop.nvim" [ ])
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
           (plug "lifepillar" "vim-mucomplete" [ ])
-          (plug "pwntester" "octo.nvim" [ ])
           (plug "kristijanhusak" "orgmode.nvim" [ ])
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-random-colors" [ ])
@@ -68,11 +72,10 @@ in
           (plug "folke" "noice.nvim" [ ])
           (plug "MunifTanjim" "nui.nvim" [ ])
 
-          # Telescope
+          # Octo
+          (plug "pwntester" "octo.nvim" [ ])
           (plug "nvim-lua" "plenary.nvim" [ ])
-          (plug "nvim-lua" "popup.nvim" [ ])
-          (plug "nvim-telescope" "telescope.nvim" [ ./telescope-help.patch ])
-          (plug "nvim-telescope" "telescope-ui-select.nvim" [ ])
+          (plug "nvim-telescope" "telescope.nvim" [ ])
 
           # Tree-sitter
           (plug "nvim-treesitter" "nvim-treesitter" [ ])

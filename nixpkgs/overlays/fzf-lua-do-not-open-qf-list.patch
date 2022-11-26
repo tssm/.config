@@ -1,0 +1,12 @@
+diff --git i/lua/fzf-lua/actions.lua w/lua/fzf-lua/actions.lua
+index 3d60ad9..f1e1378 100644
+--- i/lua/fzf-lua/actions.lua
++++ w/lua/fzf-lua/actions.lua
+@@ -174,7 +174,6 @@ local sel_to_qf = function(selected, opts, is_loclist)
+     vim.cmd "lopen"
+   else
+     vim.fn.setqflist(qf_list)
+-    vim.cmd "copen"
+   end
+ end
+ 

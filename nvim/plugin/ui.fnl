@@ -30,9 +30,7 @@
          "link HopNextKey Search"
          "link HopNextKey1 HopNextKey"
          "link HopNextKey2 NONE"
-         "link HopUnmatched NONE"
-         "link TelescopeBorder VertSplit"
-         "link TelescopeNormal Normal"]]
+         "link HopUnmatched NONE"]]
       (each
         [_ highlight (ipairs highlights)]
         (call.execute (string.format "highlight! %s" highlight))))))
