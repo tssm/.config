@@ -11,6 +11,7 @@
     pkgs.diffr
     pkgs.fd
     pkgs.fish
+    pkgs.fzf
     pkgs.gh
     pkgs.ghc
     pkgs.haskellPackages.haskell-language-server
