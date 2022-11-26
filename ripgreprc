@@ -1,5 +1,0 @@
---glob=!.git
---glob=!.pijul
---hidden
---smart-case
---trim
