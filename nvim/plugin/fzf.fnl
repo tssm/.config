@@ -4,6 +4,7 @@
    fzf (require :fzf-lua)
    fzf-actions (require :fzf-lua.actions)
    fzf-path (require :fzf-lua.path)
+   kind-icons (require :kind-icons)
    {: delete-buffer-and-file} (require :reflex)
    {: create-file} (require :procedures)
 
@@ -86,7 +87,9 @@
          :ctrl-u :half-page-up}}
      :lsp
       {:fzf_opts {:--with-nth :2..} ; Hide the file path
-       :symbols {:fzf_opts {:--with-nth :-3..}}}
+       :symbols
+        {:fzf_opts {:--with-nth :-3..}
+         :symbol_fmt (fn [kind] (. kind-icons kind))}}
      :winopts
       {:hl {:border :WinSeparator}
        :preview
