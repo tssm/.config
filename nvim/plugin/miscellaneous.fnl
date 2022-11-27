@@ -56,7 +56,9 @@
 
 ; Noice
 
-(let [{: setup} (require :noice)] (setup))
+(let [{: setup} (require :noice)]
+  (setup
+    {:popupmenu {:kind_icons (require :kind-icons)}}))
 
 ; Octo
 
