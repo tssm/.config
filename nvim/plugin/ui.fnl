@@ -15,7 +15,7 @@
            "gui=\\(\\w*,\\)*\\(inverse\\|reverse\\)\\(,\\w*\\)*")
          "")
      split-color (call.matchstr status-line-highlight (.. :gui (if reversed? :fg :bg) "=\\zs\\S*"))]
-    (call.execute (string.format "highlight! VertSplit guibg=bg guifg=%s gui=NONE cterm=NONE" split-color))
+    (call.execute (string.format "highlight! WinSeparator guibg=bg guifg=%s gui=NONE cterm=NONE" split-color))
 
     (let
       [highlights
