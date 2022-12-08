@@ -1,21 +1,8 @@
 (vim.fn.sign_define [{:name :LightBulbSign :text "" :texthl :DiagnosticSignWarn}])
 
-(let
-  [api vim.api
-   lsp vim.lsp
-   lsp-handlers lsp.handlers
-   window-options {:pad_bottom 1 :pad_top 1}]
+(let [api vim.api]
   (each [_ reference (ipairs [:Read :Text :Write])]
     (api.nvim_command (string.format "highlight! link LspReference%s Search" reference)))
-
-  (tset
-    lsp-handlers
-    :textDocument/hover
-    (lsp.with lsp-handlers.hover window-options))
-  (tset
-    lsp-handlers
-    :textDocument/signatureHelp
-    (lsp.with lsp-handlers.signature_help window-options))
 
   (let
     [augroup (api.nvim_create_augroup :lsp {:clear true})
@@ -27,9 +14,9 @@
        (fn [args]
          (let
            [buffer-number args.buf
-            lsp-buf lsp.buf]
+            lsp-buf vim.lsp.buf]
 
-           (let [client (lsp.get_client_by_id args.data.client_id)]
+           (let [client (vim.lsp.get_client_by_id args.data.client_id)]
              (if
                client.server_capabilities.documentRangeFormattingProvider
                  ((. (require :lsp-format-modifications) :attach) client buffer-number {:format_on_save true})
@@ -43,6 +30,7 @@
            (let
              [diagnostic vim.diagnostic
               fzf-lua (require :fzf-lua)
+              window-options {:pad_bottom 1 :pad_top 1}
               go-to-diagnostic-options
                 {:float window-options
                  :severity {:min diagnostic.severity.WARN}}
