@@ -58,7 +58,12 @@
 
 (let [{: setup} (require :noice)]
   (setup
-    {:popupmenu {:kind_icons (require :kind-icons)}}))
+    {:lsp
+     {:override
+      {:vim.lsp.util.convert_input_to_markdown_lines true
+       :vim.lsp.util.stylize_markdown true}}
+     :popupmenu {:kind_icons (require :kind-icons)}
+     :views {:hover {:border {:padding [1 1]}}}}))
 
 ; Octo
 
