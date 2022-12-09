@@ -51,7 +51,6 @@ in
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
           (plug "lifepillar" "vim-mucomplete" [ ])
-          (plug "kristijanhusak" "orgmode.nvim" [ ])
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-random-colors" [ ])
           (plug "tssm" "nvim-reflex" [ ])
