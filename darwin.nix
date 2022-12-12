@@ -9,11 +9,13 @@
     pkgs.dhall-json
     pkgs.dhall-lsp-server
     pkgs.diffr
+    pkgs.erlang
     pkgs.fd
     pkgs.fish
     pkgs.fzf
     pkgs.gh
     pkgs.ghc
+    pkgs.gleam
     pkgs.haskellPackages.haskell-language-server
     pkgs.neovim
     pkgs.neovim-remote
