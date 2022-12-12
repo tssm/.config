@@ -87,7 +87,6 @@ in
 
           # File types
           (plug "vmchale" "dhall-vim" [ ])
-          (plug "lifepillar" "pgsql.vim" [ ])
           (plug "purescript-contrib" "purescript-vim" [ ])
 
           # Fennel
