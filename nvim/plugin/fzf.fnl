@@ -118,7 +118,7 @@
            (if
              ; Without the last . fd only finds directories
              ; in Documents and Projects but not $HOME 🤔
-             (at-home?) "--exclude .Trash --max-depth 1 --type d . Documents Projects ."
+             (at-home?) "--exclude .Trash --max-depth 1 . Documents Projects ."
              (with-pijulignore? "--exclude *.enc --type f")))}))
 
     (fn grep []
