@@ -28,6 +28,7 @@ in
           (plug "maxmx03" "FluoroMachine.nvim" [ ])
           (plug "rebelot" "kanagawa.nvim" [ ])
           (plug "katawful" "kat.nvim" [ ])
+          (plug "savq" "melange" [ ])
           (plug "rose-pine" "neovim" [ ])
 
           # General
@@ -104,7 +105,6 @@ in
           (plug "tssm" "c64-vim-color-scheme" [ ])
           (plug "tssm" "fairyfloss.vim" [ ])
           (plug "charlespeters" "ganymede.vim" [ ])
-          (plug "savq" "melange" [ ])
           (plug "tssm" "strawberry" [ ])
           (plug "jsit" "toast.vim" [ ])
         ];
