@@ -1,8 +1,8 @@
 diff --git i/lua/fzf-lua/core.lua w/lua/fzf-lua/core.lua
-index a26ff5b..45d2b92 100644
+index 28fd9d5..b5e8166 100644
 --- i/lua/fzf-lua/core.lua
 +++ w/lua/fzf-lua/core.lua
-@@ -538,120 +538,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
+@@ -545,113 +545,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
  end
  
  M.set_header = function(opts, hdr_tbl)
@@ -37,8 +37,7 @@ index a26ff5b..45d2b92 100644
 -      val = function()
 -        -- do not display header when we're inside our
 -        -- cwd unless the caller specifically requested
--        if opts.show_cwd_header == false or
--            not opts.show_cwd_header and
+-        if opts.show_cwd_header == false or opts.show_cwd_header == nil and
 -            (not opts.cwd or opts.cwd == vim.loop.cwd()) then
 -          return
 -        end
@@ -73,19 +72,13 @@ index a26ff5b..45d2b92 100644
 -      hdr_txt_opt = "interactive_header",
 -      hdr_txt_str = "",
 -      val = function()
--        local is_lsp = opts.__MODULE__.workspace_symbols
--        local o = {
--          action   = is_lsp and actions.sym_lsym or actions.grep_lgrep,
--          to_live  = is_lsp and "Live Query" or "Regex Search",
--          to_fuzzy = is_lsp and "Fuzzy Search" or "Fuzzy Search",
--        }
 -        if opts.no_header_i then return end
+-        local defs = ACTION_DEFINITIONS
 -        for k, v in pairs(opts.actions) do
--          if type(v) == "table" and v[1] == o.action then
--            local to = opts.fn_reload and o.to_fuzzy or o.to_live
--            return (":: <%s> to %s"):format(
--              utils.ansi_codes.yellow(k),
--              utils.ansi_codes.red(to))
+-          if type(v) == "table" and defs[v[1]] then
+-            local to = opts.fn_reload and defs[v[1]].fn_reload or defs[v[1]][1]
+-            return to and (":: <%s> to %s"):format(
+-              utils.ansi_codes.yellow(k), utils.ansi_codes.red(to))
 -          end
 -        end
 -      end,
@@ -124,7 +117,7 @@ index a26ff5b..45d2b92 100644
  end
  
 diff --git i/lua/fzf-lua/providers/nvim.lua w/lua/fzf-lua/providers/nvim.lua
-index b99ef7d..20f46ef 100644
+index ecb80c9..b907f98 100644
 --- i/lua/fzf-lua/providers/nvim.lua
 +++ w/lua/fzf-lua/providers/nvim.lua
 @@ -68,7 +68,6 @@ end

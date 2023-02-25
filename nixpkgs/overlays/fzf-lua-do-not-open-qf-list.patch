@@ -1,11 +1,19 @@
 diff --git i/lua/fzf-lua/actions.lua w/lua/fzf-lua/actions.lua
-index 3d60ad9..f1e1378 100644
+index c490f0d..d18d8a8 100644
 --- i/lua/fzf-lua/actions.lua
 +++ w/lua/fzf-lua/actions.lua
-@@ -174,7 +174,6 @@ local sel_to_qf = function(selected, opts, is_loclist)
-     vim.cmd "lopen"
+@@ -186,7 +186,6 @@ local sel_to_qf = function(selected, opts, is_loclist)
+       items = qf_list,
+       title = opts.__resume_data.last_query,
+     })
+-    vim.cmd "lopen"
    else
-     vim.fn.setqflist(qf_list)
+     -- Set the quickfix title to last query and
+     -- append a new list to end of the stack (#635)
+@@ -196,7 +195,6 @@ local sel_to_qf = function(selected, opts, is_loclist)
+       title = opts.__resume_data.last_query,
+       -- nr = nr,
+     })
 -    vim.cmd "copen"
    end
  end
