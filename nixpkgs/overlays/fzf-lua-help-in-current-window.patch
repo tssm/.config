@@ -1,8 +1,8 @@
 diff --git i/lua/fzf-lua/actions.lua w/lua/fzf-lua/actions.lua
-index c490f0d..33d74de 100644
+index 8b093d6..e205144 100644
 --- i/lua/fzf-lua/actions.lua
 +++ w/lua/fzf-lua/actions.lua
-@@ -482,6 +482,28 @@ local function helptags(s)
+@@ -487,6 +487,28 @@ local function helptags(s)
  end
  
  M.help = function(selected)
@@ -32,10 +32,10 @@ index c490f0d..33d74de 100644
    M.vimcmd(vimcmd, helptags(selected), true)
  end
 diff --git i/lua/fzf-lua/config.lua w/lua/fzf-lua/config.lua
-index 72732a8..8d3c871 100644
+index 8998cf5..1355869 100644
 --- i/lua/fzf-lua/config.lua
 +++ w/lua/fzf-lua/config.lua
-@@ -369,6 +369,7 @@ M._action_to_helpstr = {
+@@ -407,6 +407,7 @@ M._action_to_helpstr = {
    [actions.set_filetype]        = "set-filetype",
    [actions.packadd]             = "packadd",
    [actions.help]                = "help-open",
@@ -44,10 +44,10 @@ index 72732a8..8d3c871 100644
    [actions.help_tab]            = "help-tab",
    [actions.man]                 = "man-open",
 diff --git i/lua/fzf-lua/defaults.lua w/lua/fzf-lua/defaults.lua
-index 8771667..7acab5c 100644
+index bd027f5..74325ea 100644
 --- i/lua/fzf-lua/defaults.lua
 +++ w/lua/fzf-lua/defaults.lua
-@@ -505,7 +505,7 @@ M.defaults.helptags = {
+@@ -520,7 +520,7 @@ M.defaults.helptags = {
    prompt    = "Help> ",
    actions   = {
      ["default"] = actions.help,
