@@ -1,8 +1,8 @@
 diff --git i/lua/fzf-lua/core.lua w/lua/fzf-lua/core.lua
-index 28fd9d5..b5e8166 100644
+index 85a823c..2a7a455 100644
 --- i/lua/fzf-lua/core.lua
 +++ w/lua/fzf-lua/core.lua
-@@ -545,113 +545,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
+@@ -618,132 +618,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
  end
  
  M.set_header = function(opts, hdr_tbl)
@@ -17,8 +17,12 @@ index 28fd9d5..b5e8166 100644
 -  end
 -
 -  if not opts then opts = {} end
--  if opts.cwd_prompt or opts.show_cwd_prompt then
+-  if opts.cwd_prompt then
 -    opts.prompt = normalize_cwd(opts.cwd or vim.loop.cwd())
+-    if tonumber(opts.cwd_prompt_shorten_len) and
+-        #opts.prompt >= tonumber(opts.cwd_prompt_shorten_len) then
+-      opts.prompt = path.shorten(opts.prompt, tonumber(opts.cwd_prompt_shorten_val) or 1)
+-    end
 -    if not path.ends_with_separator(opts.prompt) then
 -      opts.prompt = opts.prompt .. path.separator()
 -    end
@@ -31,21 +35,22 @@ index 28fd9d5..b5e8166 100644
 -    -- val.hdr_txt_opt: opt header string name
 -    -- val.hdr_txt_str: opt header string text
 -    cwd = {
--      hdr_txt_opt = "cwd_header",
+-      hdr_txt_opt = "cwd_header_txt",
 -      hdr_txt_str = "cwd: ",
 -      hdr_txt_col = "red",
 -      val = function()
 -        -- do not display header when we're inside our
 -        -- cwd unless the caller specifically requested
--        if opts.show_cwd_header == false or opts.show_cwd_header == nil and
--            (not opts.cwd or opts.cwd == vim.loop.cwd()) then
+-        if opts.cwd_header == false or
+-            opts.cwd_prompt and opts.cwd_header == nil or
+-            opts.cwd_header == nil and (not opts.cwd or opts.cwd == vim.loop.cwd()) then
 -          return
 -        end
 -        return normalize_cwd(opts.cwd or vim.loop.cwd())
 -      end
 -    },
 -    search = {
--      hdr_txt_opt = "grep_header",
+-      hdr_txt_opt = "grep_header_txt",
 -      hdr_txt_str = "Grep string: ",
 -      hdr_txt_col = "red",
 -      val = function()
@@ -53,7 +58,7 @@ index 28fd9d5..b5e8166 100644
 -      end,
 -    },
 -    lsp_query = {
--      hdr_txt_opt = "lsp_query_header",
+-      hdr_txt_opt = "lsp_query_header_txt",
 -      hdr_txt_str = "Query: ",
 -      hdr_txt_col = "red",
 -      val = function()
@@ -61,7 +66,7 @@ index 28fd9d5..b5e8166 100644
 -      end,
 -    },
 -    regex_filter = {
--      hdr_txt_opt = "regex_header",
+-      hdr_txt_opt = "regex_header_txt",
 -      hdr_txt_str = "Regex filter: ",
 -      hdr_txt_col = "red",
 -      val = function()
@@ -69,18 +74,32 @@ index 28fd9d5..b5e8166 100644
 -      end,
 -    },
 -    actions = {
--      hdr_txt_opt = "interactive_header",
+-      hdr_txt_opt = "interactive_header_txt",
 -      hdr_txt_str = "",
 -      val = function()
 -        if opts.no_header_i then return end
 -        local defs = ACTION_DEFINITIONS
+-        local ret = {}
 -        for k, v in pairs(opts.actions) do
--          if type(v) == "table" and defs[v[1]] then
--            local to = opts.fn_reload and defs[v[1]].fn_reload or defs[v[1]][1]
--            return to and (":: <%s> to %s"):format(
--              utils.ansi_codes.yellow(k), utils.ansi_codes.red(to))
+-          local action = type(v) == "function" and v or type(v) == "table" and v[1]
+-          if type(action) == "function" and defs[action] then
+-            local def = defs[action]
+-            local to = opts.fn_reload and def.fn_reload or def[1]
+-            table.insert(ret, def.pos or #ret + 1,
+-              string.format("<%s> to %s",
+-                utils.ansi_codes.yellow(k),
+-                utils.ansi_codes.red(to)))
 -          end
 -        end
+-        -- table.concat fails if the table indexes aren't consecutive
+-        return not vim.tbl_isempty(ret) and (function()
+-          local t = {}
+-          for _, i in pairs(ret) do
+-            table.insert(t, i)
+-          end
+-          t[1] = (opts.header_prefix or ":: ") .. t[1]
+-          return table.concat(t, opts.header_separator or "")
+-        end)() or nil
 -      end,
 -    },
 -  }
@@ -117,10 +136,10 @@ index 28fd9d5..b5e8166 100644
  end
  
 diff --git i/lua/fzf-lua/providers/nvim.lua w/lua/fzf-lua/providers/nvim.lua
-index ecb80c9..b907f98 100644
+index eb679e1..d72f872 100644
 --- i/lua/fzf-lua/providers/nvim.lua
 +++ w/lua/fzf-lua/providers/nvim.lua
-@@ -68,7 +68,6 @@ end
+@@ -90,7 +90,6 @@ end
  M.command_history = function(opts)
    opts = config.normalize_opts(opts, config.globals.command_history)
    if not opts then return end
