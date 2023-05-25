@@ -27,5 +27,11 @@
 	default = simple
 [rebase]
 	autosquash = true
+[stash]
+	showIncludeUntracked = true
+	showPatch = true
+[status]
+	branch = true
+	short = true
 [user]
 	name = Tae Selene Sandoval Murgan
