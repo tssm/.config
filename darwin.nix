@@ -35,6 +35,7 @@
   nix.configureBuildUsers = true;
   nix.settings.cores = 8; # $ sysctl -n hw.ncpu
   nix.settings.max-jobs = 8; # $ sysctl -n hw.ncpu
+  nix.settings.min-free = 1000000000;
   nix.settings.trusted-users = [ "@admin" ];
 
   nixpkgs.config = { allowUnfree = true; };
