@@ -2,7 +2,7 @@
 	editor = nvr -cc split --remote-wait-silent
 	pager = diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black | $PAGER
 [diff]
-	mnemonicPrefix = true
+	noprefix = true
 	tool = nvr
 [difftool]
 	prompt = false
