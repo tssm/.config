@@ -40,7 +40,6 @@ in
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
           (plug "justinmk" "vim-dirvish" [ ])
-          (plug "editorconfig" "editorconfig-vim" [ ])
           (plug "stonelasley" "flare.nvim" [ ])
           (plug "ibhagwan" "fzf-lua" [
             ./fzf-lua-do-not-open-qf-list.patch
