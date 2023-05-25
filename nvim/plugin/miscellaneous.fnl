@@ -2,9 +2,6 @@
   ; Conjure
   (set g.conjure#completion#omnifunc :v:lua.vim.lsp.omnifunc)
 
-  ; Editorconfig
-  (set g.EditorConfig_max_line_indicator :none)
-
   ; Git Messenger
   (set g.git_messenger_no_default_mappings true)
   (set g.git_messenger_always_into_popup true)
