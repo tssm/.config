@@ -74,14 +74,6 @@
      :patterns [:.git :.pijul :shell.nix]
      :show_hidden true}))
 
-; Random colors
-
-(let [random-colors (require :random-colors)]
-  (vim.api.nvim_create_user_command
-    :RandomColors
-    random-colors
-    {}))
-
 ; Sandwich
 
 (let [set-map (fn [mode lhs rhs] (vim.keymap.set mode lhs rhs))]

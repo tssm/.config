@@ -23,14 +23,6 @@ in
       customRC = "luafile ~/.config/nvim/init.lua";
       packages.myVimPackages = {
         start = [
-          # Color schemes with special initialization
-          (plug "sainnhe" "everforest" [ ])
-          (plug "maxmx03" "FluoroMachine.nvim" [ ])
-          (plug "rebelot" "kanagawa.nvim" [ ])
-          (plug "katawful" "kat.nvim" [ ])
-          (plug "savq" "melange" [ ])
-          (plug "rose-pine" "neovim" [ ])
-
           # General
           (plug "f-person" "auto-dark-mode.nvim" [ ])
           (plug "moll" "vim-bbye" [ ])
@@ -50,9 +42,9 @@ in
           (plug "phaazon" "hop.nvim" [ ])
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
+          (plug "echasnovski" "mini.nvim" [ ])
           (plug "lifepillar" "vim-mucomplete" [ ])
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
-          (plug "tssm" "nvim-random-colors" [ ])
           (plug "tssm" "nvim-reflex" [ ])
           (plug "tssm" "sessionmatic" [ ])
           (plug "machakann" "vim-sandwich" [ ])
@@ -97,15 +89,6 @@ in
           # Haskell
           (plug "zenzike" "vim-haskell-unicode" [ ])
           (plug "pbrisbin" "vim-syntax-shakespeare" [ ])
-        ];
-        opt = [
-          # Color schemes
-          (plug "thenewvu" "vim-colors-blueprint" [ ])
-          (plug "tssm" "c64-vim-color-scheme" [ ])
-          (plug "tssm" "fairyfloss.vim" [ ])
-          (plug "charlespeters" "ganymede.vim" [ ])
-          (plug "tssm" "strawberry" [ ])
-          (plug "jsit" "toast.vim" [ ])
         ];
       };
     };
