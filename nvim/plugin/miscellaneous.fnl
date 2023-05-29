@@ -39,10 +39,6 @@
 
 (let [{: setup} (require :nvim-autopairs)] (setup {:disable_filetype [:fnl]}))
 
-; Comment
-
-(let [{: setup} (require :nvim_comment)] (setup))
-
 ; Context
 
 (let [{: setup} (require :nvim_context_vt)]
@@ -50,6 +46,11 @@
     {:disable_virtual_lines true
      :min_rows 10
      :prefix :}))
+
+; MiniComment
+
+(let [{: setup} (require :mini.comment)]
+  (setup {:options {:ignore_blank_line true}}))
 
 ; Noice
 
