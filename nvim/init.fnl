@@ -22,7 +22,11 @@
 
   ; Leaders
   (let
-    [set-map (fn [lhs rhs] (vim.keymap.set :n lhs rhs))]
+    [set-map (fn [lhs rhs] (vim.keymap.set "" lhs rhs))]
+    ; Disable unused built-in mappings so they are available for whatever
+    (set-map :s "")
+
+    ; Leaders
     (set-map :<cr> "")
     (set g.mapleader "\r")
     (set-map :<space> "")
