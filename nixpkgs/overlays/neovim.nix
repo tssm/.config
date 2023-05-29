@@ -46,7 +46,6 @@ in
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-reflex" [ ])
           (plug "tssm" "sessionmatic" [ ])
-          (plug "machakann" "vim-sandwich" [ ])
           (plug "mhinz" "vim-signify" [ ])
           (plug "tpope" "vim-sleuth" [ ])
           (plug "tssm" "nvim-snitch" [ ])
