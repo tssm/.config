@@ -52,6 +52,13 @@
 (let [{: setup} (require :mini.comment)]
   (setup {:options {:ignore_blank_line true}}))
 
+; MiniSurround
+
+(let [{: setup} (require :mini.surround)]
+  (setup
+    {:mappings {:replace :sc}
+     :silent true}))
+
 ; Noice
 
 (let [{: setup} (require :noice)]
@@ -74,15 +81,3 @@
     {:ignore_lsp [:sqls]
      :patterns [:.git :.pijul :shell.nix]
      :show_hidden true}))
-
-; Sandwich
-
-(let [set-map (fn [mode lhs rhs] (vim.keymap.set mode lhs rhs))]
-  (set-map :n :s "")
-  (set-map :x :s "")
-  ; Use c as mnemonic for change
-  (set-map :n :sc
-    "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)")
-  (set-map :n :scb
-    "<Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)")
-  (set-map :x :sc "<Plug>(operator-sandwich-replace)"))
