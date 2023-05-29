@@ -1,5 +1,6 @@
 (let
   [cmd vim.cmd
+   commit-format "git log --color --pretty=format:'%C(yellow)%h%Creset %s'"
    f vim.fn
    fzf (require :fzf-lua)
    fzf-actions (require :fzf-lua.actions)
@@ -72,6 +73,9 @@
        :--layout :reverse
        :--no-separator ""
        :--tabstop :2}
+     :git
+      {:bcommits {:cmd (.. commit-format " <file>")}
+       :commits {:cmd commit-format}}
      :grep
       {:git_icons false
        :path_shorten true
