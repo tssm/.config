@@ -27,7 +27,6 @@ in
           (plug "f-person" "auto-dark-mode.nvim" [ ])
           (plug "moll" "vim-bbye" [ ])
           (plug "norcalli" "nvim-colorizer.lua" [ ])
-          (plug "terrortylor" "nvim-comment" [ ])
           (plug "mfussenegger" "nvim-dap" [ ])
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
