@@ -52,7 +52,8 @@
              (set-map buffer-number :<localleader>ss lsp-buf.signature_help)
              (set-map buffer-number "[d" (fn [] (diagnostic.goto_prev go-to-diagnostic-options)))
              (set-map buffer-number "]d" (fn [] (diagnostic.goto_next go-to-diagnostic-options)))
-             (set-map buffer-number :<localleader>u fzf-lua.lsp_references))
+             (set-map buffer-number :<localleader>u
+               (fn [] (fzf-lua.lsp_references {:ignore_current_line true :jump_to_single_result true}))))
 
            (autocmd
              [:CursorMoved :CursorMovedI]
