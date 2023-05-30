@@ -37,7 +37,6 @@ in
             ./fzf-lua-remove-header.patch
           ])
           (plug "rhysd" "git-messenger.vim" [ ])
-          (plug "phaazon" "hop.nvim" [ ])
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
           (plug "echasnovski" "mini.nvim" [ ])
