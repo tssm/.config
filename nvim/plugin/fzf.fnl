@@ -80,6 +80,7 @@
      :grep
      {:git_icons false
       :path_shorten true
+      :rg_glob true
       :rg_opts rg-opts}
      :keymap
      {:builtin
