@@ -23,11 +23,7 @@
          "SpecialKey guibg=bg"
          "TermCursorNC guibg=bg guifg=bg"
          ; Plugins
-         "link HopCursor Cursor"
-         "link HopNextKey Search"
-         "link HopNextKey1 HopNextKey"
-         "link HopNextKey2 NONE"
-         "link HopUnmatched NONE"]]
+         "link MiniJump2dSpot Search"]]
       (each
         [_ highlight (ipairs highlights)]
         (call.execute (string.format "highlight! %s" highlight))))))
