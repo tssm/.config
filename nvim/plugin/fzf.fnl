@@ -79,6 +79,7 @@
      :grep
       {:git_icons false
        :path_shorten true
+       :rg_glob true
        :rg_opts "--color always --column --glob !.git --glob !.pijul --hidden --no-heading --smart-case --trim"}
      :keymap
       {:builtin
