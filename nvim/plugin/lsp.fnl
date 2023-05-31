@@ -39,8 +39,7 @@
                   (vim.keymap.set
                     :n lhs rhs
                     {:buffer buffer-number :silent true}))
-              {: merge} (require :aniseed.core)
-              show-diagnostic-options (merge window-options {:scope :line})]
+              show-diagnostic-options (vim.tbl_deep_extend :force window-options {:scope :line})]
              (set-map buffer-number :K lsp-buf.hover)
              (when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
                (set-map buffer-number :<localleader>hi lsp-buf.document_highlight))
