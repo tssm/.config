@@ -74,8 +74,14 @@
        :--no-separator ""
        :--tabstop :2}
      :git
-      {:bcommits {:cmd (.. commit-format " <file>")}
-       :commits {:cmd commit-format}}
+      {:bcommits
+        {:actions {:default fzf-actions.git_checkout}
+         :cmd (.. commit-format " <file>")}
+       :commits {:cmd commit-format}
+       :stash {:actions {:default fzf-actions.git_stash_pop}}
+       :status
+         {:actions {:tab [fzf-actions.git_stage_unstage fzf-actions.resume]}
+          :cmd "git -c color.status=false status --short --untracked-files"}}
      :grep
       {:git_icons false
        :path_shorten true
@@ -104,6 +110,15 @@
          :winopts {:number false}}}})
 
   (cmd "FzfLua register_ui_select")
+
+  (let [create-command vim.api.nvim_create_user_command]
+    (create-command :Branches fzf.git_branches {})
+    (create-command
+      :Commits
+      (fn [args] (if args.bang (fzf.git_commits) (fzf.git_bcommits)))
+      {:bang true})
+    (create-command :Stashed fzf.git_stash {})
+    (create-command :Status fzf.git_status {}))
 
   (let
     [with-pijulignore?
