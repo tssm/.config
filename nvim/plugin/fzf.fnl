@@ -5,6 +5,8 @@
    fzf (require :fzf-lua)
    fzf-actions (require :fzf-lua.actions)
    fzf-path (require :fzf-lua.path)
+   git-pager "diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black"
+   git-diff (string.format "git diff HEAD -- {file} | %s" git-pager)
    kind-icons (require :kind-icons)
    rg-opts "--color always --column --glob !.git --glob !.pijul --hidden --no-heading --no-require-git --smart-case --trim"
    {: delete-buffer-and-file} (require :reflex)
@@ -75,8 +77,17 @@
       :--no-separator ""
       :--tabstop :2}
      :git
-     {:bcommits {:cmd (.. commit-format " <file>")}
-      :commits {:cmd commit-format}}
+     {:bcommits
+      {:actions {:default fzf-actions.git_checkout}
+       :cmd (.. commit-format " <file>")
+       :preview (string.format  "git show --color {1} -- {file} | %s" git-pager)}
+      :commits
+      {:cmd commit-format
+       :preview (string.format  "git show --color {1} | %s" git-pager)}
+      :stash
+      {:actions {:enter fzf-actions.git_stash_pop}
+       :preview (string.format "git --no-pager stash show --patch {1} | %s" git-pager)}
+      :status {:actions {:shift-tab [fzf-actions.git_stage_unstage fzf-actions.resume]}}}
      :grep
      {:git_icons false
       :path_shorten true
@@ -96,6 +107,11 @@
       :symbols
       {:fzf_opts {:--with-nth :-3..}
        :symbol_fmt (fn [kind] (. kind-icons kind))}}
+     :previewers
+     {:git_diff
+      {:cmd_added git-diff
+       :cmd_deleted git-diff
+       :cmd_modified git-diff}}
      :winopts
      {:hl {:border :WinSeparator}
       :preview
@@ -105,6 +121,15 @@
        :winopts {:number false}}}})
 
   (cmd "FzfLua register_ui_select")
+
+  (let [create-command vim.api.nvim_create_user_command]
+    (create-command :Branches fzf.git_branches {})
+    (create-command
+      :Commits
+      (fn [args] (if args.bang (fzf.git_bcommits) (fzf.git_commits)))
+      {:bang true})
+    (create-command :Stashed fzf.git_stash {})
+    (create-command :Status fzf.git_status {}))
 
   (let
     [with-pijulignore?
