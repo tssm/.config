@@ -77,10 +77,6 @@ in
           (plug "windwp" "nvim-ts-autotag" [ ])
           (plug "haringsrob" "nvim_context_vt" [ ])
 
-          # File types
-          (plug "vmchale" "dhall-vim" [ ])
-          (plug "purescript-contrib" "purescript-vim" [ ])
-
           # Fennel
           (plug "Olical" "aniseed" [ ])
           (plug "Olical" "conjure" [ ])
