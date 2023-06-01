@@ -25,6 +25,7 @@
     [set-map (fn [lhs rhs] (vim.keymap.set "" lhs rhs))]
     ; Disable unused built-in mappings so they are available for whatever
     (set-map :s "")
+    (set-map :x "")
 
     ; Leaders
     (set-map :<cr> "")
