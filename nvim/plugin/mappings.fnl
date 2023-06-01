@@ -17,8 +17,6 @@
     (set-map "" :d "\"_d")
     (set-map "" :dd "\"_dd")
     (set-map "" :D "\"_D")
-    (set-map "" :x "\"_x")
-    (set-map "" :X "\"_X")
 
     (set-map "" :c "\"_c")
     (set-map "" :cc "\"_cc")
