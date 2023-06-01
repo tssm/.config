@@ -23,6 +23,7 @@
          "SpecialKey guibg=bg"
          "TermCursorNC guibg=bg guifg=bg"
          ; Plugins
+         "link ContextVt NonText"
          "link MiniJump2dSpot Search"]]
       (each
         [_ highlight (ipairs highlights)]
