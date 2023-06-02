@@ -34,7 +34,7 @@
     (set-map :n :zm :zM)
     (set-map :n :zr :zR)
 
-    (set-map :n :sq :<cmd>exit<cr>)
+    (set-map :n :sq "<cmd>write | close<cr>")
 
     (set-map :n :db :<cmd>Bdelete!<cr>)
 
