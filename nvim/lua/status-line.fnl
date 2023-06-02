@@ -8,7 +8,7 @@
     (if
       (= buftype "")
       (let [position (call.getcurpos)]
-        (string.format "%iשּׂ  %iﭩ " (. position 2) (. position 3)))
+        (string.format "%s%i%sשּׂ  %s%i%sﭩ " :%#StatusLine# (. position 2) :%#StatusLineNC# :%#StatusLine# (. position 3) :%#StatusLineNC#))
       (= buftype :quickfix)
       (string.format :%s/%s (call.line :.) (call.line :$))
       ""))
@@ -91,7 +91,7 @@
         ; Left
         (if active?
           ""
-          (string.format "%s❬%s❭%s " :%#StatusLine# (call.winnr) :%#StatusLineNC#))
+          (string.format "%s‹%s›%s " :%#StatusLine# (call.winnr) :%#StatusLineNC#))
         (directory bufname buftype filetype)
         (string.format "%s%s%s"
           (if active? :%#StatusLine# "")
@@ -99,4 +99,4 @@
           (if active? :%#StatusLineNC# ""))
         (file-status bufname buftype)
         ; Right
-        (if active? (.. :%#StatusLine# (cursor-position buftype)) "")))))
+        (if active? (cursor-position buftype) "")))))
