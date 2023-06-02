@@ -42,7 +42,7 @@
   (setup
     {:disable_virtual_lines true
      :min_rows 10
-     :prefix :}))
+     :prefix ""}))
 
 ; MiniComment
 
