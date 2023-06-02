@@ -52,6 +52,13 @@
 (let [{: setup} (require :mini.comment)]
   (setup {:options {:ignore_blank_line true}}))
 
+; MiniIndentscope
+
+(let [{: setup} (require :mini.indentscope)]
+  (setup
+    {:options {:border :top}
+     :symbol :│}))
+
 ; MiniSurround
 
 (let [{: setup} (require :mini.surround)]
