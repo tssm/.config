@@ -19,9 +19,10 @@
     pkgs.haskellPackages.haskell-language-server
     pkgs.neovim
     pkgs.neovim-remote
+    pkgs.nil
+    pkgs.nixpkgs-fmt
     pkgs.pijul
     pkgs.ripgrep
-    pkgs.rnix-lsp
     pkgs.rust-analyzer
     pkgs.rustc
     pkgs.sqls
