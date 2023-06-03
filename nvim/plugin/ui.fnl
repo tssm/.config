@@ -2,32 +2,35 @@
 
 (fn fix-color-schemes []
   (let
-    [call vim.fn
-     status-line-highlight (call.execute "highlight StatusLineNC")
-     reversed?
-       (not=
-         (call.matchstr
-           status-line-highlight
-           "gui=\\(\\w*,\\)*\\(inverse\\|reverse\\)\\(,\\w*\\)*")
-         "")
-     split-color (call.matchstr status-line-highlight (.. :gui (if reversed? :fg :bg) "=\\zs\\S*"))]
-    (call.execute (string.format "highlight! StatusLine guibg=%s gui=bold cterm=NONE" split-color))
-    (call.execute (string.format "highlight! WinSeparator guibg=bg guifg=%s gui=NONE cterm=NONE" split-color))
-
-    (let
-      [highlights
-        ["EndOfBuffer guibg=bg guifg=bg"
-         "FoldColumn guibg=bg"
-         "link Folded FoldColumn"
-         "SignColumn guibg=bg"
-         "SpecialKey guibg=bg"
-         "TermCursorNC guibg=bg guifg=bg"
-         ; Plugins
-         "link ContextVt NonText"
-         "link MiniJump2dSpot Search"]]
-      (each
-        [_ highlight (ipairs highlights)]
-        (call.execute (string.format "highlight! %s" highlight))))))
+    [get-hl (fn [name] (vim.api.nvim_get_hl 0 {:name name}))
+     set-hl (fn [name value] (vim.api.nvim_set_hl 0 name value))
+     {:bg normal-bg} (get-hl :Normal)
+     {:bg sl-bg :fg sl-fg :reverse sl-reverse} (get-hl :StatusLineNC)
+     extend-hl
+       (fn [name extension]
+         (let
+           [definition (get-hl name)
+            extended (vim.tbl_extend :force definition extension)]
+           (set-hl name extended)))]
+    (each
+      [name extension
+        (pairs
+          {:EndOfBuffer {:bg normal-bg :fg normal-bg}
+           :FoldColumn {:bg normal-bg}
+           :SignColumn {:bg normal-bg}
+           :SpecialKey {:bg normal-bg}
+           :StatusLine {:bg (if sl-reverse sl-fg sl-bg) :fg (if sl-reverse sl-bg sl-fg) :bold true}
+           :TermCursorNC {:bg normal-bg :fg normal-bg}
+           :WinSeparator {:bg normal-bg :fg (if sl-reverse sl-fg sl-bg)}})]
+      (extend-hl name extension))
+    (each
+      [name link
+        (pairs
+          {:Folded :FoldColumn
+           ; Plug-ins
+           :ContextVt :NonText
+           :MiniJump2dSpot :Search})]
+      (set-hl name {:link link}))))
 
 ; Autocommands
 
