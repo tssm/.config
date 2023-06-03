@@ -36,7 +36,7 @@ in
             ./fzf-lua-help-in-current-window.patch
             ./fzf-lua-remove-header.patch
           ])
-          (plug "rhysd" "git-messenger.vim" [ ])
+          (plug "lewis6991" "gitsigns.nvim" [ ])
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
           (plug "echasnovski" "mini.nvim" [ ])
@@ -44,7 +44,6 @@ in
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-reflex" [ ])
           (plug "tssm" "sessionmatic" [ ])
-          (plug "mhinz" "vim-signify" [ ])
           (plug "tpope" "vim-sleuth" [ ])
           (plug "tssm" "nvim-snitch" [ ])
           (plug "aperezdc" "vim-template" [ ])
