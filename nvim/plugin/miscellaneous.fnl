@@ -2,10 +2,6 @@
   ; Conjure
   (set g.conjure#completion#omnifunc :v:lua.vim.lsp.omnifunc)
 
-  ; Git Messenger
-  (set g.git_messenger_no_default_mappings true)
-  (set g.git_messenger_always_into_popup true)
-
   ; MUcomplete
   (set g.mucomplete#buffer_relative_paths true)
   (set g.mucomplete#chains {:default [:omni :path :uspl]})
