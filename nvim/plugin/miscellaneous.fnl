@@ -19,11 +19,7 @@
   ; Templates
   (set g.templates_directory [(.. (vim.fn.stdpath :config) :/templates)])
   (set g.templates_global_name_prefix :template.)
-  (set g.templates_no_builtin_templates true)
-
-  ; Undotree
-  (set g.undotree_HelpLine false)
-  (set g.undotree_SetFocusWhenToggle true))
+  (set g.templates_no_builtin_templates true))
 
 ; Auto-dark-mode
 
@@ -94,3 +90,14 @@
     {:ignore_lsp [:sqls]
      :patterns [:.git :.pijul :shell.nix]
      :show_hidden true}))
+
+; Undotree
+
+(let [{: setup : toggle} (require :undotree)]
+  (setup
+    {:float_diff false
+     :keymaps {:a :action_enter}})
+  (vim.api.nvim_create_user_command
+    :Undotree
+    (fn [] (vim.cmd "tabedit %") (toggle))
+    {}))
