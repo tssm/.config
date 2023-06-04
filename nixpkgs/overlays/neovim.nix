@@ -47,7 +47,7 @@ in
           (plug "tpope" "vim-sleuth" [ ])
           (plug "tssm" "nvim-snitch" [ ])
           (plug "aperezdc" "vim-template" [ ])
-          (plug "mbbill" "undotree" [ ])
+          (plug "jiaoshijie" "undotree" [ ])
           (plug "kyazdani42" "nvim-web-devicons" [ ])
 
           # Dirvish
