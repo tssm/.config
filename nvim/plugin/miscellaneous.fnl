@@ -73,6 +73,7 @@
        :lua {:title ""}
        :search_down {:title ""}
        :search_up {:title ""}}}
+     :health {:checker false}
      :lsp
      {:override
       {:vim.lsp.util.convert_input_to_markdown_lines true
