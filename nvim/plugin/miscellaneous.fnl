@@ -66,12 +66,21 @@
 
 (let [{: setup} (require :noice)]
   (setup
-    {:lsp
+    {:cmdline
+     {:format
+      {:cmdline {:title ""}
+       :input {:title ""}
+       :lua {:title ""}
+       :search_down {:title ""}
+       :search_up {:title ""}}}
+     :lsp
      {:override
       {:vim.lsp.util.convert_input_to_markdown_lines true
        :vim.lsp.util.stylize_markdown true}}
      :popupmenu {:kind_icons (require :kind-icons)}
-     :views {:hover {:border {:padding [1 1]}}}}))
+     :views
+     {:confirm {:border {:text {:top ""}}}
+      :hover {:border {:padding [1 1]}}}}))
 
 ; Octo
 
