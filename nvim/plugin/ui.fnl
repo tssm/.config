@@ -29,7 +29,10 @@
           {:Folded :FoldColumn
            ; Plug-ins
            :ContextVt :NonText
-           :MiniJump2dSpot :Search})]
+           :MiniJump2dSpot :Search
+           :NoiceConfirmBorder :WinSeparator
+           :NoiceCmdlinePopupBorder :NoiceConfirmBorder
+           :NoiceCmdlinePopupBorderSearch :NoiceConfirmBorder})]
       (set-hl name {:link link}))))
 
 ; Autocommands
