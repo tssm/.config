@@ -38,8 +38,7 @@
                 (fn [buffer-number lhs rhs]
                   (vim.keymap.set
                     :n lhs rhs
-                    {:buffer buffer-number :silent true}))
-              show-diagnostic-options (vim.tbl_deep_extend :force window-options {:scope :line})]
+                    {:buffer buffer-number :silent true}))]
              (set-map buffer-number :K lsp-buf.hover)
              (when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
                (set-map buffer-number :<localleader>hi lsp-buf.document_highlight))
@@ -47,7 +46,7 @@
              (set-map buffer-number :<localleader>r lsp-buf.rename)
              (set-map buffer-number :<localleader>ds fzf-lua.lsp_document_symbols)
              (set-map buffer-number :<localleader>ws fzf-lua.lsp_live_workspace_symbols)
-             (set-map buffer-number :<localleader>sd (fn [] (diagnostic.open_float 0 show-diagnostic-options)))
+             (set-map buffer-number :<localleader>sd (fn [] (diagnostic.open_float 0 window-options)))
              (set-map buffer-number :<localleader>ss lsp-buf.signature_help)
              (set-map buffer-number "[d" (fn [] (diagnostic.goto_prev go-to-diagnostic-options)))
              (set-map buffer-number "]d" (fn [] (diagnostic.goto_next go-to-diagnostic-options)))
