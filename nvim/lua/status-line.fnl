@@ -5,13 +5,15 @@
    edit-patch :addp-hunk-edit.diff]
 
   (fn cursor-position [buftype]
-    (if
-      (= buftype "")
-      (let [position (call.getcurpos)]
-        (string.format "%s%i%sשּׂ  %s%i%sﭩ " :%#StatusLine# (. position 2) :%#StatusLineNC# :%#StatusLine# (. position 3) :%#StatusLineNC#))
-      (= buftype :quickfix)
-      (string.format :%s/%s (call.line :.) (call.line :$))
-      ""))
+    ; Position 'showcmd' in the middle for normal buffers and to the right on all the others
+    (string.format "%%S%s"
+      (if
+        (= buftype "")
+        (let [position (call.getcurpos)]
+          (string.format "%%=%s%i%sשּׂ  %s%i%sﭩ " :%#StatusLine# (. position 2) :%#StatusLineNC# :%#StatusLine# (. position 3) :%#StatusLineNC#))
+        (= buftype :quickfix)
+        (string.format :%s/%s (call.line :.) (call.line :$))
+        "")))
 
   (fn relative-file-directory [path]
     (let
