@@ -61,6 +61,7 @@
     "n-v:block,i-c-ci-ve:ver35,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon600-Cursor")
   (set opt.list true)
   (set opt.listchars {:extends :… :precedes :… :tab "  "})
+  (set opt.showcmdloc :statusline)
   (set opt.showmatch true)
   (set opt.showmode false)
   (set opt.showtabline 0)

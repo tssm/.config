@@ -86,7 +86,7 @@
       [bufname (call.bufname)
        buftype (opt.buftype:get)
        filetype (opt.filetype:get)]
-      (string.format "%s%s%s%s%%=%s"
+      (string.format "%s%s%s%s%%=%s%s"
         ; Left
         (if active?
           ""
@@ -98,4 +98,5 @@
           (if active? :%#StatusLineNC# ""))
         (file-status bufname buftype)
         ; Right
+        (if active? :%S%= "")
         (if active? (cursor-position buftype) "")))))
