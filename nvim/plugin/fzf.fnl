@@ -73,6 +73,7 @@
       :--info :inline
       :--height :100%
       :--layout :reverse
+      :--no-scrollbar ""
       :--no-separator ""
       :--tabstop :2}
      :git
