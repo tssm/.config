@@ -1,3 +1,5 @@
+(vim.loader.enable)
+
 (let [g vim.g]
   ; Disable unused plug-ins
   (set g.loaded_2html_plugin true)
