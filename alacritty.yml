@@ -10,7 +10,6 @@ font:
 
 key_bindings:
   - { key: Key6, mods: Control, chars: "\x1e" }
-  - { key: N, mods: Command, action: CreateNewWindow }
   - { key: Q, mods: Command, action: None }
   - { key: Q, mods: Control, chars: "\x11" }
   - { key: S, mods: Command, chars: ":silent wall\n" }
