@@ -6,7 +6,7 @@
   (set opt.ruler false)
   (set opt.sessionoptions [:curdir :help :tabpages :winsize])
   (set opt.shada "'100,h,rman:,rocto:,rterm:,r/nix/,r/private/tmp/,r/private/var/")
-  (set opt.shortmess :csF)
+  (set opt.shortmess :csCFSW)
   (set opt.spelloptions :camel)
   (set opt.tildeop true)
   (set opt.visualbell true)
