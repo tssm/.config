@@ -46,10 +46,24 @@
 
 ; MiniIndentscope
 
-(let [{: setup} (require :mini.indentscope)]
+(let [{: draw : setup : undraw} (require :mini.indentscope)]
   (setup
     {:options {:border :top}
-     :symbol :│}))
+     :symbol :│})
+  (set vim.g.miniindentscope_disable true)
+  (vim.api.nvim_create_autocmd
+    :InsertEnter
+    {:callback
+      (fn []
+        (when (not vim.g.miniindentscope_disable)
+          (set vim.g.miniindentscope_disable true)
+          (undraw)))
+     :group (vim.api.nvim_create_augroup :indentscope {:clear true})})
+  (vim.keymap.set :n :si
+    (fn []
+      (let [new-status (not vim.g.miniindentscope_disable)]
+        (set vim.g.miniindentscope_disable new-status)
+        (if new-status (undraw) (draw))))))
 
 ; MiniSurround
 
