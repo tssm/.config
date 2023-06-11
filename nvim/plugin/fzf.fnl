@@ -114,7 +114,9 @@
        :cmd_deleted git-diff
        :cmd_modified git-diff}}
      :winopts
-     {:hl {:border :WinSeparator}
+     {:hl
+      {:border :WinSeparator
+       :preview_border :WinSeparator}
       :preview
       {:border :noborder ; For git preview
        :scrollbar false
