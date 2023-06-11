@@ -56,7 +56,7 @@ in
           (plug "nanotee" "sqls.nvim" [ ])
 
           # Noice
-          (plug "folke" "noice.nvim" [ ])
+          (plug "folke" "noice.nvim" [ ./noice-remove-scrollbars.patch ])
           (plug "MunifTanjim" "nui.nvim" [ ])
 
           # Octo
