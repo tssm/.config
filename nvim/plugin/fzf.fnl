@@ -103,7 +103,9 @@
         {:fzf_opts {:--with-nth :-3..}
          :symbol_fmt (fn [kind] (. kind-icons kind))}}
      :winopts
-      {:hl {:border :WinSeparator}
+      {:hl
+        {:border :WinSeparator
+         :preview_border :WinSeparator}
        :preview
         {:border :noborder ; For git preview
          :scrollbar false
