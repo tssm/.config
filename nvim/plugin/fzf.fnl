@@ -112,7 +112,9 @@
       {:cmd_deleted (string.format "git diff HEAD -- {file} | %s" git-pager)
        :cmd_modified (string.format "git diff HEAD {file} | %s" git-pager)}}
      :winopts
-     {:hl {:border :WinSeparator}
+     {:hl
+      {:border :WinSeparator
+       :preview_border :WinSeparator}
       :preview
       {:border :noborder ; For git preview
        :scrollbar false
