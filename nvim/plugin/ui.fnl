@@ -32,7 +32,8 @@
            :MiniJump2dSpot :Search
            :NoiceConfirmBorder :WinSeparator
            :NoiceCmdlinePopupBorder :NoiceConfirmBorder
-           :NoiceCmdlinePopupBorderSearch :NoiceConfirmBorder})]
+           :NoiceCmdlinePopupBorderSearch :NoiceConfirmBorder
+           :NoiceSplit :Normal})]
       (set-hl name {:link link}))))
 
 ; Autocommands
