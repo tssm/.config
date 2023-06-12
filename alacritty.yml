@@ -1,5 +1,6 @@
 cursor:
   blinking: Always
+  blink_timeout: 0
   style: Beam
 
 font:
