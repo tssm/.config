@@ -17,6 +17,7 @@
     pkgs.ghc
     pkgs.gleam
     pkgs.haskellPackages.haskell-language-server
+    pkgs.luajitPackages.fennel
     pkgs.neovim
     pkgs.neovim-remote
     pkgs.nil
