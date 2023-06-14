@@ -74,7 +74,6 @@ in
           (plug "haringsrob" "nvim_context_vt" [ ])
 
           # Fennel
-          (plug "Olical" "aniseed" [ ])
           (plug "Olical" "conjure" [ ])
           (plug "gpanders" "nvim-parinfer" [ ])
 
