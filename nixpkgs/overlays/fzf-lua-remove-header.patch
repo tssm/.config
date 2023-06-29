@@ -1,8 +1,8 @@
-diff --git i/lua/fzf-lua/core.lua w/lua/fzf-lua/core.lua
-index 85a823c..2a7a455 100644
---- i/lua/fzf-lua/core.lua
-+++ w/lua/fzf-lua/core.lua
-@@ -618,132 +618,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
+diff --git a/lua/fzf-lua/core.lua b/lua/fzf-lua/core.lua
+index a0d0da3..cf280ea 100644
+--- a/lua/fzf-lua/core.lua
++++ b/lua/fzf-lua/core.lua
+@@ -629,132 +629,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
  end
  
  M.set_header = function(opts, hdr_tbl)
@@ -81,7 +81,7 @@ index 85a823c..2a7a455 100644
 -        local defs = ACTION_DEFINITIONS
 -        local ret = {}
 -        for k, v in pairs(opts.actions) do
--          local action = type(v) == "function" and v or type(v) == "table" and v[1]
+-          local action = type(v) == "function" and v or type(v) == "table" and (v.fn or v[1])
 -          if type(action) == "function" and defs[action] then
 -            local def = defs[action]
 -            local to = opts.fn_reload and def.fn_reload or def[1]
@@ -135,10 +135,10 @@ index 85a823c..2a7a455 100644
    return opts
  end
  
-diff --git i/lua/fzf-lua/providers/nvim.lua w/lua/fzf-lua/providers/nvim.lua
+diff --git a/lua/fzf-lua/providers/nvim.lua b/lua/fzf-lua/providers/nvim.lua
 index eb679e1..d72f872 100644
---- i/lua/fzf-lua/providers/nvim.lua
-+++ w/lua/fzf-lua/providers/nvim.lua
+--- a/lua/fzf-lua/providers/nvim.lua
++++ b/lua/fzf-lua/providers/nvim.lua
 @@ -90,7 +90,6 @@ end
  M.command_history = function(opts)
    opts = config.normalize_opts(opts, config.globals.command_history)
