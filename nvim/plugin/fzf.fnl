@@ -61,6 +61,7 @@
      :buffers
       {:fzf_opts {:--delimiter "' '" :--with-nth :-1..} ; Hide number and flags
        :ignore_current_buffer true}
+     :diagnostics {:severity_limit :warning}
      :files {:git_icons false}
      :fzf_opts
       {:--ansi ""
