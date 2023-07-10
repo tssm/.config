@@ -45,6 +45,7 @@
              (set-map buffer-number :<localleader>a fzf-lua.lsp_code_actions)
              (set-map buffer-number :<localleader>r lsp-buf.rename)
              (set-map buffer-number :<localleader>ds fzf-lua.lsp_document_symbols)
+             (set-map buffer-number :<localleader>wd fzf-lua.lsp_workspace_diagnostics)
              (set-map buffer-number :<localleader>ws fzf-lua.lsp_live_workspace_symbols)
              (set-map buffer-number :<localleader>sd (fn [] (diagnostic.open_float 0 window-options)))
              (set-map buffer-number :<localleader>ss lsp-buf.signature_help)

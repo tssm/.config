@@ -64,6 +64,7 @@
      :buffers
      {:fzf_opts {:--delimiter fzf.utils.nbsp :--with-nth :-2..}
       :ignore_current_buffer true}
+     :diagnostics {:severity_limit :warning}
      :files {:git_icons false}
      :fzf_opts
      {:--ansi ""
