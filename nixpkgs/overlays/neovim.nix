@@ -55,7 +55,6 @@ in
           (plug "kristijanhusak" "vim-dirvish-git" [ ])
 
           # LSP
-          (plug "joechrisellis" "lsp-format-modifications.nvim" [ ])
           (plug "nanotee" "sqls.nvim" [ ])
 
           # Noice
