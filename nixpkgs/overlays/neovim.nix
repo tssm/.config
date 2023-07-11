@@ -52,7 +52,6 @@ in
           (plug "kyazdani42" "nvim-web-devicons" [ ])
 
           # LSP
-          (plug "joechrisellis" "lsp-format-modifications.nvim" [ ])
           (plug "nanotee" "sqls.nvim" [ ])
 
           # Noice
