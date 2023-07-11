@@ -1,5 +1,3 @@
-(vim.fn.sign_define [{:name :LightBulbSign :text "" :texthl :DiagnosticSignWarn}])
-
 (let [api vim.api]
   (each [_ reference (ipairs [:Read :Text :Write])]
     (api.nvim_command (string.format "highlight! link LspReference%s Search" reference)))
@@ -12,6 +10,11 @@
       :LspAttach
       {:callback
        (fn [args]
+         (let [{: setup} (require :nvim-lightbulb)]
+           (setup
+             {:autocmd {:enabled true}
+              :sign {:enabled false}
+              :virtual_text {:enabled true}}))
          (let
            [buffer-number args.buf
             lsp-buf vim.lsp.buf]
@@ -51,10 +54,6 @@
              (set-map buffer-number :<localleader>u
                (fn [] (fzf-lua.lsp_references {:ignore_current_line true :jump_to_single_result true}))))
 
-           (autocmd
-             [:CursorMoved :CursorMovedI]
-             {:callback (. (require :nvim-lightbulb) :update_lightbulb)
-              :group augroup})
            (autocmd
              :InsertEnter
              {:buffer buffer-number
