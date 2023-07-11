@@ -17,15 +17,12 @@
             lsp-buf vim.lsp.buf]
 
            (let [client (vim.lsp.get_client_by_id args.data.client_id)]
-             (if
-               client.server_capabilities.documentRangeFormattingProvider
-                 ((. (require :lsp-format-modifications) :attach) client buffer-number {:format_on_save true})
-               client.server_capabilities.documentFormattingProvider
-                 (autocmd
-                   :BufWritePre
-                   {:buffer buffer-number
-                    :callback lsp-buf.format
-                    :group augroup})))
+             (when client.server_capabilities.documentFormattingProvider
+               (autocmd
+                 :BufWritePre
+                 {:buffer buffer-number
+                  :callback (fn [] (lsp-buf.format {:bufnr buffer-number}))
+                  :group augroup})))
 
            (let
              [diagnostic vim.diagnostic
