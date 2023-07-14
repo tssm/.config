@@ -52,6 +52,11 @@ in
           (plug "jiaoshijie" "undotree" [ ])
           (plug "kyazdani42" "nvim-web-devicons" [ ])
 
+          # Flit
+          (plug "ggandor" "flit.nvim" [ ])
+          (plug "ggandor" "leap.nvim" [ ])
+          (plug "tpope" "vim-repeat" [ ])
+
           # Noice
           (plug "folke" "noice.nvim" [ ./noice-remove-scrollbars.patch ])
           (plug "MunifTanjim" "nui.nvim" [ ])
