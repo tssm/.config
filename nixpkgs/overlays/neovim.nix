@@ -55,6 +55,11 @@ in
           (plug "justinmk" "vim-dirvish" [ ])
           (plug "kristijanhusak" "vim-dirvish-git" [ ])
 
+          # Flit
+          (plug "ggandor" "flit.nvim" [ ])
+          (plug "ggandor" "leap.nvim" [ ])
+          (plug "tpope" "vim-repeat" [ ])
+
           # Noice
           (plug "folke" "noice.nvim" [ ./noice-remove-scrollbars.patch ])
           (plug "MunifTanjim" "nui.nvim" [ ])
