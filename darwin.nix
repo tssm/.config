@@ -17,6 +17,7 @@
     pkgs.ghc
     pkgs.gleam
     pkgs.haskellPackages.haskell-language-server
+    pkgs.lua-language-server
     pkgs.luajitPackages.fennel
     pkgs.neovim
     pkgs.neovim-remote
@@ -27,7 +28,6 @@
     pkgs.rust-analyzer
     pkgs.rustc
     pkgs.sqls
-    pkgs.sumneko-lua-language-server
     pkgs.tree
   ];
 
