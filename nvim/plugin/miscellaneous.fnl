@@ -39,6 +39,18 @@
      :min_rows 10
      :prefix ""}))
 
+; Flit
+
+(let
+  [{:setup leap} (require :leap)
+   {:setup flit} (require :flit)]
+  (leap
+    {:opts
+     {:special_keys
+      {:prev_group :<backspace>
+       :prev_target :<backspace>}}})
+  (flit {:labeled_modes :nvo}))
+
 ; MiniComment
 
 (let [{: setup} (require :mini.comment)]
