@@ -29,6 +29,7 @@
           {:Folded :FoldColumn
            ; Plug-ins
            :ContextVt :NonText
+           :LeapBackdrop :NonText
            :MiniJump2dSpot :Search
            :NoiceConfirmBorder :WinSeparator
            :NoiceCmdlinePopupBorder :NoiceConfirmBorder

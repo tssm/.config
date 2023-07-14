@@ -9,8 +9,6 @@
   [{:builtin_opts opts : start} (require :mini.jump2d)
    merge (fn [a b] (vim.tbl_deep_extend :force a b))
    set-map (fn [lhs opts] (vim.keymap.set [:n :o :x] lhs (fn [] (start opts))))]
-  (set-map :f opts.single_character)
-  (set-map :F opts.single_character)
   (set-map :gj
     (merge
       opts.line_start
