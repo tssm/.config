@@ -38,7 +38,6 @@
         (= bufname "")
         (not= buftype "")
         (= filetype :gitcommit)
-        (= filetype :sqls_output)
         (vim.endswith bufname edit-patch)) ""
       (string.format
         :%%#StatusLineNC#%s
@@ -73,7 +72,6 @@
       (= filetype :gitcommit) "Edit commit message"
       (= filetype :man) (.. (call.substitute bufname "^man://" "" "") " man")
       (= filetype :octo) (call.substitute bufname "^octo://" "" "")
-      (= filetype :sqls_output) "sqls output"
       (= filetype :undotree) :Undotree
       (vim.endswith bufname edit-patch) "Edit patch"
       (vim.startswith bufname :diffpanel_) :Diff
