@@ -27,7 +27,6 @@
     pkgs.ripgrep
     pkgs.rust-analyzer
     pkgs.rustc
-    pkgs.sqls
     pkgs.tree
   ];
 

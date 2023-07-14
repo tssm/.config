@@ -27,6 +27,7 @@ in
           (plug "f-person" "auto-dark-mode.nvim" [ ])
           (plug "moll" "vim-bbye" [ ])
           (plug "norcalli" "nvim-colorizer.lua" [ ])
+          (plug "Olical" "conjure" [ ])
           (plug "mfussenegger" "nvim-dap" [ ])
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
@@ -54,9 +55,6 @@ in
           (plug "justinmk" "vim-dirvish" [ ])
           (plug "kristijanhusak" "vim-dirvish-git" [ ])
 
-          # LSP
-          (plug "nanotee" "sqls.nvim" [ ])
-
           # Noice
           (plug "folke" "noice.nvim" [ ./noice-remove-scrollbars.patch ])
           (plug "MunifTanjim" "nui.nvim" [ ])
@@ -76,7 +74,6 @@ in
           (plug "haringsrob" "nvim_context_vt" [ ])
 
           # Fennel
-          (plug "Olical" "conjure" [ ])
           (plug "gpanders" "nvim-parinfer" [ ])
 
           # Haskell

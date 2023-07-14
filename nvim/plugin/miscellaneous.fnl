@@ -98,8 +98,7 @@
 
 (let [{: setup} (require :project_nvim)]
   (setup
-    {:ignore_lsp [:sqls]
-     :patterns [:.git :.pijul :shell.nix]
+    {:patterns [:.git :.pijul :shell.nix]
      :show_hidden true}))
 
 ; Undotree
