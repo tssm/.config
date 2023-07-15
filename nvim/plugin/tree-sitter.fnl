@@ -36,7 +36,7 @@
      {:attach
       (fn []
         (set opt.foldmethod :expr)
-        (set opt.foldexpr "nvim_treesitter#foldexpr()"))
+        (set opt.foldexpr "v:lua.vim.treesitter.foldexpr()"))
       :detach
       (fn []
         (set opt.foldmethod :syntax)
