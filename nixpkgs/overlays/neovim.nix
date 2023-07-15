@@ -67,7 +67,6 @@ in
           (plug "nvim-telescope" "telescope.nvim" [ ])
 
           # Tree-sitter
-          (plug "nvim-treesitter" "nvim-treesitter" [ ])
           super.pkgs.vimPlugins.nvim-treesitter.withAllGrammars
           (plug "nvim-treesitter" "nvim-treesitter-refactor" [ ./tree-sitter-refactor.patch ])
           (plug "nvim-treesitter" "nvim-treesitter-textobjects" [ ])
