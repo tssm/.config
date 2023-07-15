@@ -8,15 +8,25 @@
      :textobjects
      {:move
       {:enable true
-       :goto_next_start {"]]" "@block.outer"}
-       :goto_next_end {"][" "@block.outer"}
-       :goto_previous_start {"[[" "@block.outer"}
-       :goto_previous_end {"[]" "@block.outer"}}
+       :goto_next_start
+       {"]]" "@block.outer"
+        "]m" "@function.outer"}
+       :goto_next_end
+       {"][" "@block.outer"
+        "]M" "@function.outer"}
+       :goto_previous_start
+       {"[[" "@block.outer"
+        "[m" "@function.outer"}
+       :goto_previous_end
+       {"[]" "@block.outer"
+        "[M" "@function.outer"}}
       :select
       {:enable true
        :keymaps
        {:ab "@block.outer"
-        :ib "@block.inner"}
+        :af "@function.outer"
+        :ib "@block.inner"
+        :if "@function.inner"}
        :lookahead true}}}))
 
 (let
