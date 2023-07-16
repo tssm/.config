@@ -49,7 +49,9 @@
      {:special_keys
       {:prev_group :<backspace>
        :prev_target :<backspace>}}})
-  (flit {:labeled_modes :nvo}))
+  (flit {:labeled_modes :nvo})
+  (each [map move (pairs {:hh :F :jj :f :kk :F :ll :f})]
+    (vim.keymap.set [:n :o :v] map move {:remap true})))
 
 ; MiniComment
 
