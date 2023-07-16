@@ -39,19 +39,27 @@
      :min_rows 10
      :prefix ""}))
 
-; Flit
+; Leap
 
-(let
-  [{:setup leap} (require :leap)
-   {:setup flit} (require :flit)]
-  (leap
+(let [{: setup : add_repeat_mappings} (require :leap)]
+  (setup
     {:opts
      {:special_keys
       {:prev_group :<backspace>
        :prev_target :<backspace>}}})
-  (flit {:labeled_modes :nvo})
-  (each [map move (pairs {:hh :F :jj :f :kk :F :ll :f})]
-    (vim.keymap.set [:n :o :v] map move {:remap true})))
+  (add_repeat_mappings ";" "," {:relative_directions true})
+  (each
+    [lhs rhs
+      (pairs
+        {:bb "<Plug>(leap-backward-to)"
+         :ee "<Plug>(leap-forward-to)"
+         :ww "<Plug>(leap-forward-to)"})]
+    (vim.keymap.set [:n :o :v] lhs rhs)))
+(let [{: setup} (require :flit)]
+  (setup {:labeled_modes :nvo})
+  (each
+    [lhs rhs (pairs {:hh :F :jj :f :kk :F :ll :f})]
+    (vim.keymap.set [:n :o :v] lhs rhs {:remap true})))
 
 ; MiniComment
 
