@@ -1,3 +1,5 @@
+(vim.opt.iskeyword:append [:_])
+
 (let [{: root} (require :procedures)]
   (vim.lsp.start
     {:cmd [:fennel-language-server]
