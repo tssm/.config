@@ -53,7 +53,8 @@
       (pairs
         {:bb "<Plug>(leap-backward-to)"
          :ee "<Plug>(leap-forward-to)"
-         :ww "<Plug>(leap-forward-to)"})]
+         :ww "<Plug>(leap-forward-to)"
+         :gw "<Plug>(leap-from-window)"})]
     (vim.keymap.set [:n :o :v] lhs rhs)))
 (let [{: setup} (require :flit)]
   (setup {:labeled_modes :nvo})
