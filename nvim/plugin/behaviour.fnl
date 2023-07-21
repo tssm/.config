@@ -2,6 +2,7 @@
   (set opt.clipboard [:unnamed :unnamedplus])
   (set opt.confirm true)
   (opt.diffopt:append [:algorithm:patience :vertical])
+  (set opt.exrc true)
   (set opt.mouse :a)
   (set opt.ruler false)
   (set opt.sessionoptions [:curdir :help :tabpages :winsize])
