@@ -48,19 +48,8 @@
       {:prev_group :<backspace>
        :prev_target :<backspace>}}})
   (add_repeat_mappings ";" "," {:relative_directions true})
-  (each
-    [lhs rhs
-      (pairs
-        {:bb "<Plug>(leap-backward-to)"
-         :ee "<Plug>(leap-forward-to)"
-         :ww "<Plug>(leap-forward-to)"
-         :gw "<Plug>(leap-from-window)"})]
-    (vim.keymap.set [:n :o :v] lhs rhs)))
-(let [{: setup} (require :flit)]
-  (setup {:labeled_modes :nvo})
-  (each
-    [lhs rhs (pairs {:hh :F :jj :f :kk :F :ll :f})]
-    (vim.keymap.set [:n :o :v] lhs rhs {:remap true})))
+  (vim.keymap.set :n :gw "<Plug>(leap-from-window)"))
+(let [{: setup} (require :flit)] (setup {:labeled_modes :nvo}))
 
 ; MiniComment
 
@@ -137,3 +126,15 @@
     :Undotree
     (fn [] (vim.cmd "tabedit %") (toggle))
     {}))
+
+(let [tap-dance (require :tap-dance)]
+  (tap-dance
+    {:b "<Plug>(leap-backward-to)"
+     :e "<Plug>(leap-forward-to)"
+     :h :F
+     :j :f
+     :k :F
+     :l :f
+     :w "<Plug>(leap-forward-to)"}
+    [:n :x]
+    1))
