@@ -21,12 +21,6 @@
   (set g.templates_global_name_prefix :template.)
   (set g.templates_no_builtin_templates true))
 
-; Auto-dark-mode
-
-(let [auto-dark-mode (require :auto-dark-mode)]
-  (auto-dark-mode.setup)
-  (auto-dark-mode.init))
-
 ; Autopairs
 
 (let [{: setup} (require :nvim-autopairs)] (setup {:disable_filetype [:fnl]}))
