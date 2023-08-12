@@ -28,10 +28,6 @@
     {:command :clearjumps
      :group augroup})
   (autocmd
-    :VimLeave
-    {:command "set guicursor=a:ver35-blinkon1"
-     :group augroup})
-  (autocmd
     :VimResized
     {:command "wincmd ="
      :group augroup}))
