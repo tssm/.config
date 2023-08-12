@@ -24,7 +24,6 @@ in
       packages.myVimPackages = {
         start = [
           # General
-          (plug "f-person" "auto-dark-mode.nvim" [ ])
           (plug "moll" "vim-bbye" [ ])
           (plug "norcalli" "nvim-colorizer.lua" [ ])
           (plug "Olical" "conjure" [ ])
@@ -32,7 +31,6 @@ in
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
           (plug "justinmk" "vim-dirvish" [ ])
-          (plug "stonelasley" "flare.nvim" [ ])
           (plug "ibhagwan" "fzf-lua" [
             ./fzf-lua-do-not-open-qf-list.patch
             ./fzf-lua-help-in-current-window.patch

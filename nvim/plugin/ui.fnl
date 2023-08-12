@@ -61,6 +61,7 @@
   (set opt.fillchars {:fold " "})
   (set opt.guicursor
     "n-v:block,i-c-ci-ve:ver35,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon600-Cursor")
+  (set opt.guifont "JetBrainsMonoNL Nerd Font Mono:h13")
   (set opt.list true)
   (set opt.listchars {:extends :… :precedes :… :tab "  "})
   (set opt.showcmdloc :statusline)
