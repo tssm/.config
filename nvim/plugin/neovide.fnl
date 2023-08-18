@@ -8,6 +8,7 @@
        scale-by
          (fn [delta] (set g.neovide_scale_factor (* g.neovide_scale_factor delta)))
        set-map (fn [mode lhs rhs] (vim.keymap.set mode lhs rhs {:remap true}))]
+      (set-map all-modes :<d-b> :<cmd>make<cr>)
 
       (set-map :c :<d-v> :<c-r>+)
       (set-map :i :<d-v> :<esc>pa)
