@@ -1,8 +1,8 @@
 diff --git a/lua/fzf-lua/core.lua b/lua/fzf-lua/core.lua
-index c688d9a..e6ca38b 100644
+index 8f90a72..abd19a2 100644
 --- a/lua/fzf-lua/core.lua
 +++ b/lua/fzf-lua/core.lua
-@@ -637,132 +637,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
+@@ -646,132 +646,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
  end
  
  M.set_header = function(opts, hdr_tbl)
@@ -136,14 +136,16 @@ index c688d9a..e6ca38b 100644
  end
  
 diff --git a/lua/fzf-lua/providers/nvim.lua b/lua/fzf-lua/providers/nvim.lua
-index 1d17d9a..7cd3481 100644
+index 8497da4..dbb7396 100644
 --- a/lua/fzf-lua/providers/nvim.lua
 +++ b/lua/fzf-lua/providers/nvim.lua
-@@ -93,7 +93,6 @@ end
+@@ -93,9 +93,6 @@ end
  M.command_history = function(opts)
    opts = config.normalize_opts(opts, config.globals.command_history)
    if not opts then return end
--  opts.fzf_opts["--header"] = arg_header("<CR>", "<Ctrl-e>", "execute")
+-  if opts.fzf_opts["--header"] == nil then
+-    opts.fzf_opts["--header"] = arg_header("<CR>", "<Ctrl-e>", "execute")
+-  end
    history(opts, "cmd")
  end
  
