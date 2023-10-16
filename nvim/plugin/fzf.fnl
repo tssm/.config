@@ -1,6 +1,6 @@
 (let
   [cmd vim.cmd
-   commit-format "git log --color --pretty=format:'%C(yellow)%h%Creset %s'"
+   commit-format "git log --color --no-merges --pretty=format:'%C(yellow)%h%Creset %s'"
    f vim.fn
    fzf (require :fzf-lua)
    fzf-actions (require :fzf-lua.actions)
