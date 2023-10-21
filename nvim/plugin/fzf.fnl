@@ -65,7 +65,10 @@
      {:fzf_opts {:--delimiter fzf.utils.nbsp :--with-nth :-2..}
       :ignore_current_buffer true}
      :diagnostics {:severity_limit :warning}
-     :files {:git_icons false}
+     :defaults
+     {:copen false
+      :git_icons false
+      :lopen false}
      :fzf_opts
      {:--ansi ""
       :--border :none
@@ -91,8 +94,7 @@
        :preview (string.format "git --no-pager stash show --patch {1} | %s" git-pager)}
       :status {:actions {:shift-tab [fzf-actions.git_stage_unstage fzf-actions.resume]}}}
      :grep
-     {:git_icons false
-      :path_shorten true
+     {:path_shorten true
       :rg_glob true
       :rg_opts rg-opts}
      :keymap
