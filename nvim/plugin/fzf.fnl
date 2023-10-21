@@ -62,7 +62,7 @@
       {:fzf_opts {:--delimiter "' '" :--with-nth :-1..} ; Hide number and flags
        :ignore_current_buffer true}
      :diagnostics {:severity_limit :warning}
-     :files {:git_icons false}
+     :defaults {:copen false :lopen false}
      :fzf_opts
       {:--ansi ""
        :--border :none
@@ -85,8 +85,7 @@
          {:actions {:tab [fzf-actions.git_stage_unstage fzf-actions.resume]}
           :cmd "git -c color.status=false status --short --untracked-files"}}
      :grep
-      {:git_icons false
-       :path_shorten true
+      {:path_shorten true
        :rg_glob true
        :rg_opts "--color always --column --glob !.git --glob !.pijul --hidden --no-heading --smart-case --trim"}
      :keymap

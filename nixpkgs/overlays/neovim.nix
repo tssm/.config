@@ -31,7 +31,6 @@ in
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
           (plug "ibhagwan" "fzf-lua" [
-            ./fzf-lua-do-not-open-qf-list.patch
             ./fzf-lua-help-in-current-window.patch
             ./fzf-lua-remove-header.patch
           ])
