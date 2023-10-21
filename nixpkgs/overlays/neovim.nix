@@ -32,7 +32,6 @@ in
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
           (plug "justinmk" "vim-dirvish" [ ])
           (plug "ibhagwan" "fzf-lua" [
-            ./fzf-lua-do-not-open-qf-list.patch
             ./fzf-lua-help-in-current-window.patch
             ./fzf-lua-remove-header.patch
           ])
