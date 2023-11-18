@@ -1,8 +1,8 @@
 diff --git a/lua/fzf-lua/core.lua b/lua/fzf-lua/core.lua
-index 8f90a72..abd19a2 100644
+index 654d722..d2a2b04 100644
 --- a/lua/fzf-lua/core.lua
 +++ b/lua/fzf-lua/core.lua
-@@ -646,132 +646,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
+@@ -691,132 +691,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
  end
  
  M.set_header = function(opts, hdr_tbl)
@@ -84,7 +84,7 @@ index 8f90a72..abd19a2 100644
 -          local action = type(v) == "function" and v or type(v) == "table" and (v.fn or v[1])
 -          if type(action) == "function" and defs[action] then
 -            local def = defs[action]
--            local to = opts.fn_reload and def.fn_reload or def[1]
+-            local to = (opts.fn_reload or opts._hdr_to) and def.fn_reload or def[1]
 -            table.insert(ret, def.pos or #ret + 1,
 -              string.format("<%s> to %s",
 -                utils.ansi_from_hl(opts.hls.header_bind, k),
@@ -136,7 +136,7 @@ index 8f90a72..abd19a2 100644
  end
  
 diff --git a/lua/fzf-lua/providers/nvim.lua b/lua/fzf-lua/providers/nvim.lua
-index 8497da4..dbb7396 100644
+index b7a7861..a816e22 100644
 --- a/lua/fzf-lua/providers/nvim.lua
 +++ b/lua/fzf-lua/providers/nvim.lua
 @@ -93,9 +93,6 @@ end
