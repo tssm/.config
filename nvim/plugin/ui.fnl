@@ -19,7 +19,7 @@
            :FoldColumn {:bg normal-bg}
            :SignColumn {:bg normal-bg}
            :SpecialKey {:bg normal-bg}
-           :StatusLine {:bg (if sl-reverse sl-fg sl-bg) :fg (if sl-reverse sl-bg sl-fg) :bold true}
+           :StatusLine {:bg (if sl-reverse sl-fg sl-bg) :fg (. (get-hl :Identifier) :fg) :bold true}
            :TermCursorNC {:bg normal-bg :fg normal-bg}
            :WinSeparator {:bg normal-bg :fg (if sl-reverse sl-fg sl-bg)}})]
       (extend-hl name extension))
