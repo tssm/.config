@@ -63,7 +63,9 @@
        :ignore_current_buffer true}
      :diagnostics {:severity_limit :warning}
      :defaults {:copen false :lopen false}
-     :files {:git_icons false}
+     :files
+      {:fzf_opts {:--info :inline}
+       :git_icons false}
      :fzf_opts
       {:--ansi ""
        :--border :none
