@@ -2,6 +2,7 @@
   (when g.neovide
     (vim.cmd.cd :$HOME)
     (set g.neovide_fullscreen true)
+    (set g.neovide_scroll_animation_length 0.0)
     (set g.neovide_theme :auto)
     (let
       [all-modes [:c :i :l :n :o :t :v]
