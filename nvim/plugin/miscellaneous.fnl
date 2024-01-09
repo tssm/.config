@@ -97,7 +97,8 @@
      :popupmenu {:kind_icons (require :kind-icons)}
      :views
      {:confirm {:border {:text {:top ""}}}
-      :hover {:border {:padding [1 1]}}}}))
+      :hover {:border {:padding [1 1]}}
+      :mini {:border {:padding [1 1]}}}}))
 
 ; Octo
 
