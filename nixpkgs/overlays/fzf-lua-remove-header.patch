@@ -1,16 +1,16 @@
 diff --git a/lua/fzf-lua/core.lua b/lua/fzf-lua/core.lua
-index 654d722..d2a2b04 100644
+index b884746..6e48066 100644
 --- a/lua/fzf-lua/core.lua
 +++ b/lua/fzf-lua/core.lua
-@@ -691,132 +691,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
+@@ -707,134 +707,6 @@ M.set_fzf_field_index = function(opts, default_idx, default_expr)
  end
  
  M.set_header = function(opts, hdr_tbl)
 -  local function normalize_cwd(cwd)
--    if path.starts_with_separator(cwd) and cwd ~= vim.loop.cwd() then
+-    if path.is_absolute(cwd) and not path.equals(cwd, vim.loop.cwd()) then
 -      -- since we're always converting cwd to full path
 -      -- try to convert it back to relative for display
--      cwd = path.relative(cwd, vim.loop.cwd())
+-      cwd = path.relative_to(cwd, vim.loop.cwd())
 -    end
 -    -- make our home dir path look pretty
 -    return path.HOME_to_tilde(cwd)
@@ -23,9 +23,7 @@ index 654d722..d2a2b04 100644
 -        #opts.prompt >= tonumber(opts.cwd_prompt_shorten_len) then
 -      opts.prompt = path.shorten(opts.prompt, tonumber(opts.cwd_prompt_shorten_val) or 1)
 -    end
--    if not path.ends_with_separator(opts.prompt) then
--      opts.prompt = opts.prompt .. path.separator()
--    end
+-    opts.prompt = path.add_trailing(opts.prompt)
 -  end
 -  if opts.no_header or opts.headers == false then
 -    return opts
@@ -43,7 +41,8 @@ index 654d722..d2a2b04 100644
 -        -- cwd unless the caller specifically requested
 -        if opts.cwd_header == false or
 -            opts.cwd_prompt and opts.cwd_header == nil or
--            opts.cwd_header == nil and (not opts.cwd or opts.cwd == vim.loop.cwd()) then
+-            opts.cwd_header == nil and
+-            (not opts.cwd or path.equals(opts.cwd, vim.loop.cwd())) then
 -          return
 -        end
 -        return normalize_cwd(opts.cwd or vim.loop.cwd())
@@ -76,15 +75,18 @@ index 654d722..d2a2b04 100644
 -    actions = {
 -      hdr_txt_opt = "interactive_header_txt",
 -      hdr_txt_str = "",
--      val = function()
+-      val = function(o)
 -        if opts.no_header_i then return end
--        local defs = ACTION_DEFINITIONS
+-        local defs = M.ACTION_DEFINITIONS
 -        local ret = {}
 -        for k, v in pairs(opts.actions) do
 -          local action = type(v) == "function" and v or type(v) == "table" and (v.fn or v[1])
 -          if type(action) == "function" and defs[action] then
 -            local def = defs[action]
--            local to = (opts.fn_reload or opts._hdr_to) and def.fn_reload or def[1]
+-            local to = def[1]
+-            if type(to) == "function" then
+-              to = to(o)
+-            end
 -            table.insert(ret, def.pos or #ret + 1,
 -              string.format("<%s> to %s",
 -                utils.ansi_from_hl(opts.hls.header_bind, k),
@@ -98,7 +100,7 @@ index 654d722..d2a2b04 100644
 -            table.insert(t, i)
 -          end
 -          t[1] = (opts.header_prefix or ":: ") .. t[1]
--          return table.concat(t, opts.header_separator or "")
+-          return table.concat(t, opts.header_separator or "|")
 -        end)() or nil
 -      end,
 -    },
@@ -121,7 +123,7 @@ index 654d722..d2a2b04 100644
 -  for _, h in ipairs(opts.headers) do
 -    assert(definitions[h])
 -    local def = definitions[h]
--    local txt = def.val()
+-    local txt = def.val(opts)
 -    if def and txt then
 -      hdr_str = not hdr_str and "" or (hdr_str .. ", ")
 -      hdr_str = ("%s%s%s"):format(hdr_str, def.hdr_txt_str,
@@ -130,18 +132,18 @@ index 654d722..d2a2b04 100644
 -    end
 -  end
 -  if hdr_str and #hdr_str > 0 then
--    opts.fzf_opts["--header"] = libuv.shellescape(hdr_str)
+-    opts.fzf_opts["--header"] = hdr_str
 -  end
    return opts
  end
  
 diff --git a/lua/fzf-lua/providers/nvim.lua b/lua/fzf-lua/providers/nvim.lua
-index b7a7861..a816e22 100644
+index 5e951ba..cca0471 100644
 --- a/lua/fzf-lua/providers/nvim.lua
 +++ b/lua/fzf-lua/providers/nvim.lua
-@@ -93,9 +93,6 @@ end
+@@ -88,9 +88,6 @@ end
  M.command_history = function(opts)
-   opts = config.normalize_opts(opts, config.globals.command_history)
+   opts = config.normalize_opts(opts, "command_history")
    if not opts then return end
 -  if opts.fzf_opts["--header"] == nil then
 -    opts.fzf_opts["--header"] = arg_header("<CR>", "<Ctrl-e>", "execute")
