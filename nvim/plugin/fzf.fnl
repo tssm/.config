@@ -59,7 +59,7 @@
          :ctrl-z open-terminal
          :ctrl-_ show-directory}}
      :buffers
-      {:fzf_opts {:--delimiter "' '" :--with-nth :-1..} ; Hide number and flags
+      {:fzf_opts {:--delimiter " " :--with-nth :-1..} ; Hide number and flags
        :ignore_current_buffer true}
      :diagnostics {:severity_limit :warning}
      :defaults {:copen false :lopen false}
