@@ -40,18 +40,7 @@
   (define-modules
     ; Use tree-sitter for setting folds only when a parser is attached
     ; Fold options are local to window, not buffer, so this may not always behave correctly
-    {:fold
-      {:attach
-        (fn []
-          (set opt.foldmethod :expr)
-          (set opt.foldexpr "v:lua.vim.treesitter.foldexpr()"))
-       :detach
-        (fn []
-          (set opt.foldmethod :syntax)
-          (set opt.foldexpr ""))
-       :enable true
-       :is_supported query.has_folds}
-     :highlight_identifier
+    {:highlight_identifier
       {:attach
         (fn [bufnr]
           (let [highlight-identifier (require :nvim-treesitter-refactor.highlight_definitions)]
