@@ -62,7 +62,6 @@ in
           # Octo
           (plug "pwntester" "octo.nvim" [ ])
           (plug "nvim-lua" "plenary.nvim" [ ])
-          (plug "nvim-telescope" "telescope.nvim" [ ])
 
           # Tree-sitter
           super.pkgs.vimPlugins.nvim-treesitter.withAllGrammars

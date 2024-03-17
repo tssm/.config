@@ -102,7 +102,7 @@
 
 ; Octo
 
-(let [{: setup} (require :octo)] (setup))
+(let [{: setup} (require :octo)] (setup {:picker :fzf-lua}))
 
 ; Project
 
