@@ -30,6 +30,11 @@ in
           (plug "mfussenegger" "nvim-dap" [ ])
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
+          (plug "tpope" "vim-fugitive" [
+            ./fugitive-custom-mappings.patch
+            ./fugitive-open-in-current-window.patch
+            ./fugitive-remove-winfixbuf.patch
+          ])
           (plug "ibhagwan" "fzf-lua" [
             ./fzf-lua-help-in-current-window.patch
             ./fzf-lua-remove-header.patch

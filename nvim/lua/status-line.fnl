@@ -69,6 +69,7 @@
       (= buftype :terminal) (terminal-title)
       (= filetype :dap-repl) "Debugger REPL"
       (= filetype :dirvish) (relative-directory bufname)
+      (= filetype :fugitive) "Git status"
       (= filetype :gitcommit) "Edit commit message"
       (= filetype :man) (call.substitute bufname "^man://" "" "")
       (= filetype :octo) (call.substitute bufname "^octo://" "" "")

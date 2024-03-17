@@ -1,0 +1,31 @@
+diff --git a/autoload/fugitive.vim b/autoload/fugitive.vim
+index c9c7895..e6bac5d 100644
+--- a/autoload/fugitive.vim
++++ b/autoload/fugitive.vim
+@@ -7313,7 +7313,7 @@ function! s:BlameMaps(is_ftplugin) abort
+   call s:Map('n', 'g?',   ':help :Git_blame<CR>', '<silent>', ft)
+   call s:Map('n', 'gq',   ':exe <SID>BlameQuit()<CR>', '<silent>', ft)
+   call s:Map('n', '<2-LeftMouse>', ':<C-U>exe <SID>BlameCommit("exe <SID>BlameLeave()<Bar>edit")<CR>', '<silent>', ft)
+-  call s:Map('n', '<CR>', ':<C-U>exe <SID>BlameCommit("exe <SID>BlameLeave()<Bar>edit")<CR>', '<silent>', ft)
++  call s:Map('n', 'gf', ':<C-U>exe <SID>BlameCommit("exe <SID>BlameLeave()<Bar>edit")<CR>', '<silent>', ft)
+   call s:Map('n', '-',    ':<C-U>exe <SID>BlameJump("")<CR>', '<silent>', ft)
+   call s:Map('n', 's',    ':<C-U>exe <SID>BlameJump("")<CR>', '<silent>', ft)
+   call s:Map('n', 'u',    ':<C-U>exe <SID>BlameJump("")<CR>', '<silent>', ft)
+@@ -7935,7 +7935,7 @@ function! fugitive#MapJumps(...) abort
+     if get(b:, 'fugitive_type', '') ==# 'blob'
+       let blame_tail = '<C-R>=v:count ? " --reverse" : ""<CR><CR>'
+       exe s:Map('n', '<2-LeftMouse>', ':<C-U>0,1Git ++curwin blame' . blame_tail, '<silent>')
+-      exe s:Map('n', '<CR>', ':<C-U>0,1Git ++curwin blame' . blame_tail, '<silent>')
++      exe s:Map('n', 'gf', ':<C-U>0,1Git ++curwin blame' . blame_tail, '<silent>')
+       exe s:Map('n', 'o',    ':<C-U>0,1Git blame' . blame_tail, '<silent>')
+       exe s:Map('n', 'p',    ':<C-U>0,1Git! blame' . blame_tail, '<silent>')
+       if has('patch-7.4.1898')
+@@ -7955,7 +7955,7 @@ function! fugitive#MapJumps(...) abort
+ 
+     else
+       call s:Map('n', '<2-LeftMouse>', ':<C-U>exe <SID>GF("edit")<CR>', '<silent>')
+-      call s:Map('n', '<CR>', ':<C-U>exe <SID>GF("edit")<CR>', '<silent>')
++      call s:Map('n', 'gf', ':<C-U>exe <SID>GF("edit")<CR>', '<silent>')
+       call s:Map('n', 'o',    ':<C-U>exe <SID>GF("split")<CR>', '<silent>')
+       call s:Map('n', 'gO',   ':<C-U>exe <SID>GF("vsplit")<CR>', '<silent>')
+       call s:Map('n', 'O',    ':<C-U>exe <SID>GF("tabedit")<CR>', '<silent>')

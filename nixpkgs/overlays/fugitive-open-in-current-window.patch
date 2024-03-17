@@ -1,0 +1,40 @@
+diff --git a/autoload/fugitive.vim b/autoload/fugitive.vim
+index c9c7895..6e40476 100644
+--- a/autoload/fugitive.vim
++++ b/autoload/fugitive.vim
+@@ -3884,7 +3884,7 @@ function! fugitive#Command(line1, line2, range, bang, mods, arg, ...) abort
+     elseif pager is# 2 && a:bang
+       let do_edit = s:Mods(a:mods, 'SpanOrigin') . 'pedit'
+     elseif !curwin
+-      let do_edit = s:Mods(a:mods, 'SpanOrigin') . 'split'
++      let do_edit = s:Mods(a:mods) . 'edit'
+     else
+       let do_edit = s:Mods(a:mods) . 'edit'
+       call s:BlurStatus()
+@@ -4191,7 +4191,7 @@ function! s:StatusCommand(line1, line2, range, count, bang, mods, reg, arg, args
+     elseif a:bang
+       return mods . 'pedit' . arg . '|wincmd P'
+     else
+-      return mods . 'keepalt split' . arg
++      return mods . 'edit' . (a:bang ? '!' : '') . arg
+     endif
+   catch /^fugitive:/
+     return 'echoerr ' . string(v:exception)
+@@ -6221,7 +6221,7 @@ function! s:BlurStatus() abort
+   endif
+ endfunction
+ 
+-let s:bang_edits = {'split': 'Git', 'vsplit': 'vertical Git', 'tabedit': 'tab Git', 'pedit': 'Git!'}
++let s:bang_edits = {'edit': 'Git', 'split': 'split Git', 'vsplit': 'vertical Git', 'tabedit': 'tab Git', 'pedit': 'Git!'}
+ function! fugitive#Open(cmd, bang, mods, arg, ...) abort
+   exe s:VersionCheck()
+   if a:bang
+@@ -7037,7 +7037,7 @@ function! s:BlameSubcommand(line1, count, range, bang, mods, options) abort
+         elseif a:bang
+           let edit = 'pedit'
+         else
+-          let edit = 'split'
++          let edit = 'edit'
+         endif
+         return s:BlameCommit(s:Mods(a:mods) . edit, get(readfile(temp), 0, ''), temp_state)
+       elseif (a:line1 == 0 || a:range == 1) && a:count > 0
