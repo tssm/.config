@@ -43,7 +43,6 @@ in
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
           (plug "echasnovski" "mini.nvim" [ ])
-          (plug "lifepillar" "vim-mucomplete" [ ])
           (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-reflex" [ ])
           (plug "tssm" "sessionmatic" [ ])
@@ -53,6 +52,10 @@ in
           (plug "aperezdc" "vim-template" [ ])
           (plug "jiaoshijie" "undotree" [ ])
           (plug "kyazdani42" "nvim-web-devicons" [ ])
+
+          # Chaincomplete
+          (plug "mg979" "chaincomplete" [ ])
+          (plug "mg979" "nvim-lib" [ ])
 
           # Dirvish
           (plug "justinmk" "vim-dirvish" [ ])

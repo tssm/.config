@@ -1,13 +1,10 @@
 (let [g vim.g]
+  ; Chaincomplete
+  (set g.chaincomplete
+    {:autocomplete {:enabled true :triggers true}})
+
   ; Conjure
   (set g.conjure#completion#omnifunc :v:lua.vim.lsp.omnifunc)
-
-  ; MUcomplete
-  (set g.mucomplete#buffer_relative_paths true)
-  (set g.mucomplete#chains {:default [:omni :path]})
-  (set g.mucomplete#enable_auto_at_startup true)
-  (set g.mucomplete#minimum_prefix_length 0)
-  (set vim.opt.completeopt [:menuone :noinsert])
 
   ; Reflex
   (set g.reflex_delete_buffer_cmd :Bwipeout!)
