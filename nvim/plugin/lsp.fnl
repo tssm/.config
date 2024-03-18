@@ -48,7 +48,6 @@
              (set-map buffer-number :<localleader>wd fzf-lua.lsp_workspace_diagnostics)
              (set-map buffer-number :<localleader>ws fzf-lua.lsp_live_workspace_symbols)
              (set-map buffer-number :<localleader>sd (fn [] (diagnostic.open_float 0 window-options)))
-             (set-map buffer-number :<localleader>ss lsp-buf.signature_help)
              (set-map buffer-number "[d" (fn [] (diagnostic.goto_prev go-to-diagnostic-options)))
              (set-map buffer-number "]d" (fn [] (diagnostic.goto_next go-to-diagnostic-options)))
              (set-map buffer-number :<localleader>u

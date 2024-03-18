@@ -2,13 +2,6 @@
   ; Conjure
   (set g.conjure#completion#omnifunc :v:lua.vim.lsp.omnifunc)
 
-  ; MUcomplete
-  (set g.mucomplete#buffer_relative_paths true)
-  (set g.mucomplete#chains {:default [:omni :path]})
-  (set g.mucomplete#enable_auto_at_startup true)
-  (set g.mucomplete#minimum_prefix_length 0)
-  (set vim.opt.completeopt [:menuone :noinsert])
-
   ; Reflex
   (set g.reflex_delete_buffer_cmd :Bwipeout!)
   (set g.reflex_delete_file_cmd :trash)
@@ -46,6 +39,13 @@
 
 (let [{: setup} (require :mini.comment)]
   (setup {:options {:ignore_blank_line true}}))
+
+; MiniCompletion
+
+(let [{: setup} (require :mini.completion)]
+  (setup {:set_vim_settings false})
+  (set vim.opt.complete [:kspell])
+  (set vim.opt.completeopt [:menuone :noinsert]))
 
 ; MiniIndentscope
 
