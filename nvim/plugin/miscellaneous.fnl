@@ -38,11 +38,6 @@
   (vim.keymap.set :n :gw "<Plug>(leap-from-window)"))
 (let [{: setup} (require :flit)] (setup {:labeled_modes :nvo}))
 
-; MiniComment
-
-(let [{: setup} (require :mini.comment)]
-  (setup {:options {:ignore_blank_line true}}))
-
 ; MiniCompletion
 
 (let [{: setup} (require :mini.completion)]
