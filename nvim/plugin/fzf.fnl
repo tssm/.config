@@ -127,7 +127,7 @@
        :title false
        :winopts {:number false}}}})
 
-  (cmd "FzfLua register_ui_select")
+  (fzf.register_ui_select)
 
   (let [create-command vim.api.nvim_create_user_command]
     (create-command :Branches fzf.git_branches {})
