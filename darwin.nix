@@ -34,6 +34,7 @@
   fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   nix.configureBuildUsers = true;
+  nix.package = pkgs.lix;
   nix.settings.cores = 8; # $ sysctl -n hw.ncpu
   nix.settings.max-jobs = 8; # $ sysctl -n hw.ncpu
   nix.settings.min-free = 1000000000;
