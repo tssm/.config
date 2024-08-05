@@ -47,7 +47,6 @@ in
           (plug "tssm" "tap-dance" [ ])
           (plug "aperezdc" "vim-template" [ ])
           (plug "jiaoshijie" "undotree" [ ])
-          (plug "kyazdani42" "nvim-web-devicons" [ ])
 
           # Flit
           (plug "ggandor" "flit.nvim" [ ])
