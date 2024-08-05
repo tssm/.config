@@ -45,6 +45,11 @@
   (set vim.opt.complete [:kspell])
   (set vim.opt.completeopt [:menuone :noinsert]))
 
+; MiniIcons
+
+(let [{: setup} (require :mini.icons)] (setup))
+(MiniIcons.tweak_lsp_kind)
+
 ; MiniIndentscope
 
 (let [{: draw : setup : undraw} (require :mini.indentscope)]
@@ -89,7 +94,6 @@
      {:override
       {:vim.lsp.util.convert_input_to_markdown_lines true
        :vim.lsp.util.stylize_markdown true}}
-     :popupmenu {:kind_icons (require :kind-icons)}
      :views
      {:confirm {:border {:text {:top ""}}}
       :hover {:border {:padding [1 1]}}
