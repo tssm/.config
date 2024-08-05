@@ -6,7 +6,6 @@
    fzf-actions (require :fzf-lua.actions)
    fzf-path (require :fzf-lua.path)
    git-pager "diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black"
-   kind-icons (require :kind-icons)
    rg-opts "--color always --column --glob !.git --glob !.pijul --hidden --no-heading --no-require-git --smart-case --trim"
    {: delete-buffer-and-file} (require :reflex)
    {: create-file} (require :procedures)
@@ -66,6 +65,7 @@
      :diagnostics {:severity_limit :warning}
      :defaults
      {:copen false
+      :file_icons :mini
       :git_icons false
       :lopen false}
      :files {:fzf_opts {:--info :inline}}
@@ -108,9 +108,7 @@
        :ctrl-u :half-page-up}}
      :lsp
      {:fzf_opts {:--with-nth :2..} ; Hide the file path
-      :symbols
-      {:fzf_opts {:--with-nth :-3..}
-       :symbol_fmt (fn [kind] (. kind-icons kind))}}
+      :symbols {:fzf_opts {:--with-nth :-3..}}}
      :previewers
      {:git_diff
       {:cmd_deleted (string.format "git diff HEAD -- {file} | %s" git-pager)
