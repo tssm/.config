@@ -9,7 +9,6 @@
    git-diff (string.format "git diff HEAD -- {file} | %s" git-pager)
    rg-opts "--color always --column --glob !.git --glob !.pijul --hidden --no-heading --no-require-git --smart-case --trim"
    {: delete-buffer-and-file} (require :reflex)
-   {: create-file} (require :procedures)
 
    at-home? (fn [] (= (f.getcwd) (fzf-path.HOME)))
    cd?
@@ -17,6 +16,9 @@
        (when (at-home?) (cmd (string.format "cd %s" directory))))
    path-from-selection (fn [selected] (. (fzf-path.entry_to_file (. selected 1)) :path))
    parent (fn [path] (f.fnamemodify path ":h"))
+
+   create-file
+     (fn [path-suggestion] (f.feedkeys (.. ":edit " path-suggestion)))
 
    create-from-selected
      (fn [selected] (create-file (path-from-selection selected)))
