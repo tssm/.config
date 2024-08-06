@@ -1,6 +1,2 @@
-(let
-  [{: create-file} (require :procedures)
-   set-map (fn [lhs rhs] (vim.keymap.set :n lhs rhs {:buffer 0}))]
-  (set-map :<cr> "")
-  (set-map :gf "<cmd>call dirvish#open('edit', 0)<cr>")
-  (set-map :+ (fn [] (create-file (vim.fn.bufname)))))
+(vim.keymap.set :n :<cr> "" {:buffer 0})
+(vim.keymap.set :n :gf "<cmd>call dirvish#open('edit', 0)<cr>" {:buffer 0})
