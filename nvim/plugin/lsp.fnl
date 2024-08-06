@@ -28,12 +28,7 @@
                   :group augroup})))
 
            (let
-             [diagnostic vim.diagnostic
-              fzf-lua (require :fzf-lua)
-              window-options {:pad_bottom 1 :pad_top 1}
-              go-to-diagnostic-options
-                {:float window-options
-                 :severity {:min diagnostic.severity.WARN}}
+             [fzf-lua (require :fzf-lua)
               set-map
                 (fn [buffer-number lhs rhs]
                   (vim.keymap.set
@@ -47,9 +42,6 @@
              (set-map buffer-number :<localleader>ds fzf-lua.lsp_document_symbols)
              (set-map buffer-number :<localleader>wd fzf-lua.lsp_workspace_diagnostics)
              (set-map buffer-number :<localleader>ws fzf-lua.lsp_live_workspace_symbols)
-             (set-map buffer-number :<localleader>sd (fn [] (diagnostic.open_float 0 window-options)))
-             (set-map buffer-number "[d" (fn [] (diagnostic.goto_prev go-to-diagnostic-options)))
-             (set-map buffer-number "]d" (fn [] (diagnostic.goto_next go-to-diagnostic-options)))
              (set-map buffer-number :<localleader>u
                (fn [] (fzf-lua.lsp_references {:ignore_current_line true :jump_to_single_result true}))))
 
