@@ -1,6 +1,3 @@
-(fn create-file [path-suggestion]
-  (vim.call :feedkeys (.. ":edit " path-suggestion)))
-
 (fn first-path-containing [markers from]
   (let [fs vim.fs]
     (fs.dirname (. (fs.find markers {:path from :upward true}) 1))))
@@ -14,6 +11,5 @@
       (repo from)
       (vim.fn.getcwd))))
 
-{:create-file create-file
- :repo repo
+{:repo repo
  :root root}
