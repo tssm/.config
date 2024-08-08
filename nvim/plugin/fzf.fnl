@@ -117,8 +117,8 @@
        :cmd_modified (string.format "git diff HEAD {file} | %s" git-pager)}}
      :winopts
      {:hl
-      {:border :WinSeparator
-       :preview_border :WinSeparator}
+      {:border :EndOfBuffer
+       :preview_border :EndOfBuffer}
       :preview
       {:border :noborder ; For git preview
        :scrollbar false
