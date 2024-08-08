@@ -96,8 +96,9 @@
        :vim.lsp.util.stylize_markdown true}}
      :views
      {:confirm {:border {:text {:top ""}}}
-      :hover {:border {:padding [1 1]}}
-      :mini {:border {:padding [1 1]}}}}))
+      :hover {:border {:padding [1 1]} :scrollbar false}
+      :mini {:border {:padding [1 1]}}
+      :split {:scrollbar false}}}))
 
 ; Octo
 
