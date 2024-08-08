@@ -119,8 +119,8 @@
        :cmd_modified git-diff}}
      :winopts
      {:hl
-      {:border :WinSeparator
-       :preview_border :WinSeparator}
+      {:border :EndOfBuffer
+       :preview_border :EndOfBuffer}
       :preview
       {:border :noborder ; For git preview
        :scrollbar false
