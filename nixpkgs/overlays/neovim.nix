@@ -54,7 +54,7 @@ in
           (plug "tpope" "vim-repeat" [ ])
 
           # Noice
-          (plug "folke" "noice.nvim" [ ./noice-remove-scrollbars.patch ])
+          (plug "folke" "noice.nvim" [ ])
           (plug "MunifTanjim" "nui.nvim" [ ])
 
           # Octo
