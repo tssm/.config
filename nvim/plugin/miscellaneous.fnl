@@ -80,19 +80,17 @@
 (let [{: setup} (require :noice)]
   (setup
     {:cmdline
-     {:format
-      {:cmdline {:title ""}
-       :input {:title ""}
-       :lua {:title ""}
-       :search_down {:title ""}
-       :search_up {:title ""}}}
+     ; input format is needed as the border
+     ; can't be removed from Noice inpu views
+     {:format {:input {:view :cmdline_popup}}
+      :opts {:border {:padding [1 1] :style :none}}}
      :health {:checker false}
      :lsp
      {:override
       {:vim.lsp.util.convert_input_to_markdown_lines true
        :vim.lsp.util.stylize_markdown true}}
      :views
-     {:confirm {:border {:text {:top ""}}}
+     {:confirm {:border {:padding [1 1] :style :none}}
       :hover {:border {:padding [1 1]} :scrollbar false}
       :mini {:border {:padding [1 1]}}
       :split {:scrollbar false}}}))
