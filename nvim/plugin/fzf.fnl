@@ -109,9 +109,7 @@
        :ctrl-d :half-page-down
        :ctrl-f :preview-page-down ; For git preview
        :ctrl-u :half-page-up}}
-     :lsp
-     {:fzf_opts {:--with-nth :2..} ; Hide the file path
-      :symbols {:fzf_opts {:--with-nth :-3..}}}
+     :lsp {:trim_entry true}
      :previewers
      {:git_diff
       {:cmd_added git-diff
