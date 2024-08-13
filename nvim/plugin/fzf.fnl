@@ -69,6 +69,7 @@
      {:copen false
       :file_icons :mini
       :git_icons false
+      :header false
       :lopen false}
      :files {:fzf_opts {:--info :inline}}
      :fzf_opts
