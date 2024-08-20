@@ -9,6 +9,10 @@
 (vim.api.nvim_create_autocmd :TermOpen
   {:callback
    (fn [args]
+     ; Show commit under cursor
+     (vim.keymap.set :n :gs
+       (fn [] (vim.cmd.terminal "git show <cword>"))
+       {:buffer args.buf})
      ; Re-run command
      (vim.keymap.set :n :r
        (fn []
