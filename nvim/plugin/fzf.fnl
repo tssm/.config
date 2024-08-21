@@ -170,4 +170,6 @@
       (set-map :<leader>h fzf.help_tags)
       (set-map :<leader>o fzf.oldfiles)
       (set-map :<leader>q fzf.quickfix)
+      (set-map :<leader>/ fzf.lgrep_curbuf)
+      (set-map :<leader>* fzf.grep_cword)
       (set-map :z= fzf.spell_suggest))))
