@@ -148,7 +148,7 @@
       (fzf.files
         {:fd_opts
          (string.format
-           "--color never --follow --hidden %s"
+           "--color never --follow --hidden --no-require-git %s"
            (if
              ; Without the last . fd only finds directories
              ; in Documents and Projects but not $HOME 🤔
