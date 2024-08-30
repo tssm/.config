@@ -115,7 +115,8 @@
       {:cmd_deleted (string.format "git diff HEAD {file} | %s" git-pager)
        :cmd_modified (string.format "git diff HEAD {file} | %s" git-pager)}}
      :winopts
-     {:hl
+     {:backdrop 100
+      :hl
       {:border :EndOfBuffer
        :preview_border :EndOfBuffer}
       :preview
