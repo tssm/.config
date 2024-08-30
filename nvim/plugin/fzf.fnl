@@ -117,7 +117,8 @@
        :cmd_deleted git-diff
        :cmd_modified git-diff}}
      :winopts
-     {:hl
+     {:backdrop 100
+      :hl
       {:border :EndOfBuffer
        :preview_border :EndOfBuffer}
       :preview
