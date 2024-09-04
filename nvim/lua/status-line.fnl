@@ -8,7 +8,7 @@
     (if
       (= buftype "")
       (let [position (call.getcurpos)]
-        (string.format "%s%i%sשּׂ  %s%i%sﭩ " :%#StatusLine# (. position 2) :%#StatusLineNC# :%#StatusLine# (. position 3) :%#StatusLineNC#))
+        (string.format "%s%i%sשּׂ  %s%i%sﭩ" :%1* (. position 2) :%2* :%1* (. position 3) :%2*))
       (= buftype :quickfix)
       (string.format :%s/%s (call.line :.) (call.line :$))
       ""))
@@ -40,7 +40,7 @@
         (= filetype :gitcommit)
         (vim.endswith bufname edit-patch)) ""
       (string.format
-        :%%#StatusLineNC#%s
+        :%%2*%s
         (relative-file-directory bufname))))
 
   (fn file-status [bufname buftype]
@@ -85,17 +85,18 @@
       [bufname (call.bufname)
        buftype (opt.buftype:get)
        filetype (opt.filetype:get)]
-      (string.format "%s%s%s%s%%=%s%s"
+      (string.format "%s%s%s%s%s%%#WinSeparator#%%=%s%s"
         ; Left
         (if active?
           ""
-          (string.format "%s‹%s›%s " :%#StatusLine# (call.winnr) :%#StatusLineNC#))
+          (string.format "%s‹%s›%s" :%1* (call.winnr) :%2*))
+        (if active? "" " "); Space between window number and buffer
         (directory bufname buftype filetype)
         (string.format "%s%s%s"
-          (if active? :%#StatusLine# "")
+          (if active? :%1* "")
           (buffer bufname buftype filetype)
-          (if active? :%#StatusLineNC# ""))
+          (if active? :%2* ""))
         (file-status bufname buftype)
         ; Right
-        (if active? :%S%= "")
+        (if active? "%1*%S%#WinSeparator#%=" "")
         (if active? (cursor-position buftype) "")))))
