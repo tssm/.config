@@ -20,4 +20,9 @@
               "]h" :next_hunk
               "[h" :prev_hunk})]
          (set-map lhs rhs bufnr)))
-     :preview_config {:border :solid}}))
+     :preview_config {:border :solid}
+     :signs
+     {:add {:text :│}
+      :change {:text :│}
+      :changedelete {:text :│}}
+     :signs_staged {:changedelete {:text :┃}}}))
