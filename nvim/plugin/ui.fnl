@@ -19,8 +19,11 @@
            :FoldColumn {:bg normal-bg}
            :SignColumn {:bg normal-bg}
            :SpecialKey {:bg normal-bg}
-           :StatusLine {:bg (if sl-reverse sl-fg sl-bg) :fg (. (get-hl :Identifier) :fg) :bold true}
+           :StatusLine {:bg (if sl-reverse sl-fg sl-bg) :fg (if sl-reverse sl-fg sl-bg)}
+           :StatusLineNC {:bg (if sl-reverse sl-fg sl-bg) :fg (if sl-reverse sl-fg sl-bg)}
            :TermCursorNC {:bg normal-bg :fg normal-bg}
+           :User1 {:bg (if sl-reverse sl-fg sl-bg) :fg (. (get-hl :Identifier) :fg)}
+           :User2 {:bg (if sl-reverse sl-fg sl-bg) :fg (if sl-reverse sl-bg sl-fg)}
            :WinSeparator {:bg normal-bg :fg (if sl-reverse sl-fg sl-bg)}})]
       (extend-hl name extension))
     (each
@@ -55,7 +58,7 @@
 ; Set options
 
 (let [opt vim.opt]
-  (set opt.fillchars {:fold " "})
+  (set opt.fillchars {:fold " " :stl :─ :stlnc :─})
   (set opt.guicursor
     "n-v:block,i-c-ci-ve:ver35,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon600-Cursor")
   (set opt.guifont "JetBrainsMonoNL Nerd Font Mono:h13")
