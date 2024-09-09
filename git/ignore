@@ -3,3 +3,9 @@ Session.vim
 *.log
 
 .ccls-cache/
+
+.bloop/
+.bsp/
+.metals/
+metals.sbt
+# Scala

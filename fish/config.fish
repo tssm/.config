@@ -11,6 +11,9 @@ set --export XDG_CACHE_HOME $HOME/.cache
 set --export XDG_CONFIG_HOME $HOME/.config
 set --export XDG_DATA_HOME $HOME/.local/share
 
+# LESS
+set --export LESS --ignore-case --RAW-CONTROL-CHARS
+
 # Nix
 set --export NIX_PATH darwin-config=$XDG_CONFIG_HOME/darwin.nix:$HOME/.nix-defexpr/channels:$HOME/.nix-defexpr/channels_root
 set --export NIX_PROFILES $HOME/.nix-profile /run/current-system/sw
