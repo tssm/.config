@@ -1,6 +1,10 @@
 set --export EDITOR nvr -cc split --remote-wait-silent
 set --export MANPAGER "nvr +Man! -"
-set --export PAGER less --chop-long-lines --quit-if-one-screen --tabs=2
+set --export PAGER less \
+	--chop-long-lines \
+	--ignore-case --RAW-CONTROL-CHARS \
+	--quit-if-one-screen \
+	--tabs=2
 
 # Locale
 set --export LANG en_GB.UTF-8
