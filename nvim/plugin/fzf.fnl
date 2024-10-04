@@ -69,6 +69,7 @@
      :defaults
      {:copen false
       :file_icons :mini
+      :formatter :path.filename_first
       :git_icons false
       :header false
       :lopen false}
