@@ -6,7 +6,7 @@
    fzf-actions (require :fzf-lua.actions)
    fzf-path (require :fzf-lua.path)
    git-pager "diffr --colors refine-added:foreground:black --colors refine-removed:foreground:black"
-   git-diff (string.format "git diff HEAD -- {file} | %s" git-pager)
+   git-diff (string.format "git diff HEAD -- {file} | tail --lines +5 | %s" git-pager)
    rg-opts "--color always --column --glob !.git --glob !.pijul --hidden --no-heading --no-require-git --smart-case --trim"
    {: delete-buffer-and-file} (require :reflex)
 
@@ -116,7 +116,8 @@
      {:git_diff
       {:cmd_added git-diff
        :cmd_deleted git-diff
-       :cmd_modified git-diff}}
+       :cmd_modified git-diff
+       :cmd_untracked "git diff --no-index /dev/null {file} | tail --lines +7"}}
      :winopts
      {:backdrop 100
       :hl
