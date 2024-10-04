@@ -113,8 +113,9 @@
      :lsp {:trim_entry true}
      :previewers
      {:git_diff
-      {:cmd_deleted (string.format "git diff HEAD {file} | %s" git-pager)
-       :cmd_modified (string.format "git diff HEAD {file} | %s" git-pager)}}
+      {:cmd_deleted (string.format "git diff HEAD {file} | tail --lines +5 | %s" git-pager)
+       :cmd_modified (string.format "git diff HEAD {file} | tail --lines +5 | %s" git-pager)
+       :cmd_untracked "git diff --color --no-index /dev/null {file} | tail --lines +7"}}
      :winopts
      {:backdrop 100
       :hl
