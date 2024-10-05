@@ -1,18 +1,18 @@
-diff --git i/lua/fzf-lua/actions.lua w/lua/fzf-lua/actions.lua
-index 8b093d6..e205144 100644
---- i/lua/fzf-lua/actions.lua
-+++ w/lua/fzf-lua/actions.lua
-@@ -487,6 +487,28 @@ local function helptags(s)
+diff --git a/lua/fzf-lua/actions.lua b/lua/fzf-lua/actions.lua
+index 08b9ff7..f10b438 100644
+--- a/lua/fzf-lua/actions.lua
++++ b/lua/fzf-lua/actions.lua
+@@ -547,6 +547,28 @@ local function helptags(s, opts)
  end
  
- M.help = function(selected)
-+  local vimcmd
+ M.help = function(selected, opts)
++  local helpcmd
 +  local is_shown = false
 +  local current_win_number = 1
 +  local last_win_number = vim.fn.winnr("$")
 +  while current_win_number <= last_win_number do
 +    local buffer = vim.api.nvim_win_get_buf(vim.fn.win_getid(current_win_number))
-+    local type = vim.api.nvim_buf_get_option(buffer, "buftype")
++    local type = vim.api.nvim_get_option_value("buftype")
 +    if type == "help" then
 +      is_shown = true
 +      break
@@ -20,22 +20,22 @@ index 8b093d6..e205144 100644
 +    current_win_number = current_win_number + 1
 +  end
 +  if is_shown then
-+    vimcmd = "help"
++    helpcmd = "help "
 +  else
-+    vimcmd = "enew | setlocal bufhidden=wipe | setlocal buftype=help | keepjumps help"
++    helpcmd = "enew | setlocal bufhidden=wipe | setlocal buftype=help | keepjumps help "
 +  end
-+  M.vimcmd(vimcmd, helptags(selected), true)
++  vim.cmd(helpcmd .. helptags(selected, opts)[1])
 +end
 +
-+M.help_split = function(selected)
-   local vimcmd = "help"
-   M.vimcmd(vimcmd, helptags(selected), true)
++M.help_split = function(selected, opts)
+   vim.cmd("help " .. helptags(selected, opts)[1])
  end
-diff --git i/lua/fzf-lua/config.lua w/lua/fzf-lua/config.lua
-index 8998cf5..1355869 100644
---- i/lua/fzf-lua/config.lua
-+++ w/lua/fzf-lua/config.lua
-@@ -407,6 +407,7 @@ M._action_to_helpstr = {
+ 
+diff --git a/lua/fzf-lua/config.lua b/lua/fzf-lua/config.lua
+index 0fb4373..95e59e1 100644
+--- a/lua/fzf-lua/config.lua
++++ b/lua/fzf-lua/config.lua
+@@ -660,6 +660,7 @@ M._action_to_helpstr = {
    [actions.set_filetype]        = "set-filetype",
    [actions.packadd]             = "packadd",
    [actions.help]                = "help-open",
@@ -43,16 +43,16 @@ index 8998cf5..1355869 100644
    [actions.help_vert]           = "help-vertical",
    [actions.help_tab]            = "help-tab",
    [actions.man]                 = "man-open",
-diff --git i/lua/fzf-lua/defaults.lua w/lua/fzf-lua/defaults.lua
-index bd027f5..74325ea 100644
---- i/lua/fzf-lua/defaults.lua
-+++ w/lua/fzf-lua/defaults.lua
-@@ -520,7 +520,7 @@ M.defaults.helptags = {
+diff --git a/lua/fzf-lua/defaults.lua b/lua/fzf-lua/defaults.lua
+index 44c04ad..2abcd82 100644
+--- a/lua/fzf-lua/defaults.lua
++++ b/lua/fzf-lua/defaults.lua
+@@ -759,7 +759,7 @@ M.defaults.helptags             = {
    prompt    = "Help> ",
    actions   = {
-     ["default"] = actions.help,
--    ["ctrl-s"]  = actions.help,
-+    ["ctrl-s"]  = actions.help_split,
-     ["ctrl-v"]  = actions.help_vert,
-     ["ctrl-t"]  = actions.help_tab,
+     ["enter"]  = actions.help,
+-    ["ctrl-s"] = actions.help,
++    ["ctrl-s"] = actions.help_split,
+     ["ctrl-v"] = actions.help_vert,
+     ["ctrl-t"] = actions.help_tab,
    },
