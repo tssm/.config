@@ -30,7 +30,7 @@
     pkgs.tree
   ];
 
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
   nix.configureBuildUsers = true;
   nix.package = pkgs.lix;
