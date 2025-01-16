@@ -2,6 +2,7 @@ self: super:
 
 let
   plug = user: repo: patches: super.vimUtils.buildVimPlugin {
+    doCheck = false;
     patches = patches;
     pname =
       if repo == "nvim" || repo == "vim"
