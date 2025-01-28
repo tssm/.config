@@ -51,7 +51,8 @@
      (fn [selected] (cmd (string.format "edit %s" (parent (path-from-selection selected)))))]
 
   (fzf.setup
-    {:actions
+    {1 :default-prompt ; Set profile without title
+     :actions
      {:files
       {:default open-file
        :ctrl-e create-from-selected
@@ -116,11 +117,11 @@
       {:cmd_deleted (string.format "git diff HEAD -- {file} | tail --lines +5 | %s" git-pager)
        :cmd_modified (string.format "git diff HEAD {file} | tail --lines +5 | %s" git-pager)
        :cmd_untracked "git diff --color --no-index /dev/null {file} | tail --lines +7"}}
+     :hls
+     {:border :EndOfBuffer
+      :preview_border :EndOfBuffer}
      :winopts
      {:backdrop 100
-      :hl
-      {:border :EndOfBuffer
-       :preview_border :EndOfBuffer}
       :preview
       {:border :noborder ; For git preview
        :scrollbar false
