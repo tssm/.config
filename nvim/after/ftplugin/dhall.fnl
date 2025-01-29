@@ -1,5 +1,5 @@
-(let [{: repo} (require :procedures)]
+(let [root (require :root)]
   (vim.lsp.start
     {:cmd [:dhall-lsp-server]
      :filetypes [:dhall]
-     :root_dir (repo (vim.api.nvim_buf_get_name 0))}))
+     :root_dir (root [])}))
