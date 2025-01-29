@@ -1,8 +1,8 @@
-(let [{: root} (require :procedures)]
+(let [root (require :root)]
   (vim.lsp.start
     {:cmd [:lua-language-server]
      :filetypes [:lua]
-     :root_dir (root [:lua] (vim.api.nvim_buf_get_name 0))
+     :root_dir (root [:lua])
      :settings
      {:Lua
       {:diagnostics {:globals [:vim]}
