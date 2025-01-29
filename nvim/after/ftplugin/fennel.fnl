@@ -1,11 +1,11 @@
 (vim.opt.iskeyword:append [:_])
 
-(let [{: root} (require :procedures)]
+(let [root (require :root)]
   (vim.lsp.start
     {:cmd [:fennel-language-server]
      :filetypes [:fennel]
      :single_file_support true
-     :root_dir (root [:fnl :lua] (vim.api.nvim_buf_get_name 0))
+     :root_dir (root [:fnl :lua])
      :settings
      {:fennel
       {:diagnostics {:globals [:vim]}
