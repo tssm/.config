@@ -1,5 +1,5 @@
-(let [{: root} (require :procedures)]
+(let [root (require :root)]
   (vim.lsp.start
     {:cmd [:rust-analyzer]
      :filetypes [:rust]
-     :root_dir (root [:Cargo.toml] (vim.api.nvim_buf_get_name 0))}))
+     :root_dir (root [:Cargo.toml])}))
