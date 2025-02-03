@@ -75,10 +75,10 @@
       :header false
       :lopen false}
      :files {:fzf_opts {:--info :inline}}
+     :fzf_colors {1 true :bg+ "-1"}
      :fzf_opts
      {:--ansi ""
       :--border :none
-      :--color "bg+:-1,fg+:white" ; Removes the gutter while keeping the text visible
       :--cycle ""
       :--ellipsis :…
       :--info :inline
