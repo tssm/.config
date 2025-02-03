@@ -52,7 +52,8 @@
      (fn [selected] (cmd (string.format "edit %s" (parent (path-from-selection selected)))))]
 
   (fzf.setup
-    {:actions
+    {1 :ivy
+     :actions
      {:files
       {:default open-file
        :ctrl-e create-from-selected
@@ -120,9 +121,7 @@
        :cmd_untracked "git diff --no-index /dev/null {file} | tail --lines +7"}}
      :winopts
      {:backdrop 100
-      :hl
-      {:border :EndOfBuffer
-       :preview_border :EndOfBuffer}
+      :border :none
       :preview
       {:border :noborder ; For git preview
        :scrollbar false
