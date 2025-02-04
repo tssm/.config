@@ -29,7 +29,8 @@
     (each
       [name link
         (pairs
-          {:Folded :FoldColumn
+          {:FloatBorder :EndOfBuffer
+           :Folded :FoldColumn
            ; Plug-ins
            :ContextVt :NonText
            :LeapBackdrop :NonText
