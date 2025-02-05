@@ -34,7 +34,6 @@
                   (vim.keymap.set
                     :n lhs rhs
                     {:buffer buffer-number :silent true}))]
-             (set-map buffer-number :K lsp-buf.hover)
              (when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
                (set-map buffer-number :<localleader>hi lsp-buf.document_highlight))
              (set-map buffer-number :<localleader>a fzf-lua.lsp_code_actions)
