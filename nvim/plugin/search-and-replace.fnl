@@ -9,7 +9,7 @@
   (set-map :n :N :Nzz)
   (set-map :v :n :nzz)
   (set-map :v :N :Nzz)
-  (set-map :n :<leader>s ":%s/\\<<C-r><C-w>\\>/"))
+  (set-map :n :cA ":%s/\\<<C-r><C-w>\\>/"))
 
 (let
   [augroup
