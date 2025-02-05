@@ -29,19 +29,15 @@
 
            (let
              [fzf-lua (require :fzf-lua)
-              set-map
-                (fn [buffer-number lhs rhs]
-                  (vim.keymap.set
-                    :n lhs rhs
-                    {:buffer buffer-number :silent true}))]
+              set-map (fn [b lhs rhs] (vim.keymap.set :n lhs rhs {:buffer b :silent true}))]
+             (set-map false :<leader>d fzf-lua.lsp_workspace_diagnostics)
+             (set-map false :<leader>s fzf-lua.lsp_live_workspace_symbols)
              (when (= (vim.fn.mapcheck :<localleader>hi :n) :<Nop>)
-               (set-map buffer-number :<localleader>hi lsp-buf.document_highlight))
-             (set-map buffer-number :<localleader>a fzf-lua.lsp_code_actions)
-             (set-map buffer-number :<localleader>r lsp-buf.rename)
-             (set-map buffer-number :<localleader>ds fzf-lua.lsp_document_symbols)
-             (set-map buffer-number :<localleader>wd fzf-lua.lsp_workspace_diagnostics)
-             (set-map buffer-number :<localleader>ws fzf-lua.lsp_live_workspace_symbols)
-             (set-map buffer-number :<localleader>u
+               (set-map true :<localleader>hi lsp-buf.document_highlight))
+             (set-map true :<localleader>a fzf-lua.lsp_code_actions)
+             (set-map true :<localleader>r lsp-buf.rename)
+             (set-map true :<localleader>s fzf-lua.lsp_document_symbols)
+             (set-map true :<localleader>u
                (fn [] (fzf-lua.lsp_references {:ignore_current_line true :jump_to_single_result true}))))
 
            (autocmd
