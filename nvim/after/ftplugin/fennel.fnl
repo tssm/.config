@@ -1,13 +1,12 @@
 (vim.opt.iskeyword:append [:_])
 
-(let [root (require :root)]
+(let
+  [capabilities (vim.lsp.protocol.make_client_capabilities)
+   root (require :root)]
+  (set capabilities.textDocument.formatting.dynamicRegistration false)
+  (set capabilities.offsetEncoding [:utf-8 :utf-16])
   (vim.lsp.start
-    {:cmd [:fennel-language-server]
+    {:capabilities capabilities
+     :cmd [:fennel-ls]
      :filetypes [:fennel]
-     :single_file_support true
-     :root_dir (root [:fnl :lua])
-     :settings
-     {:fennel
-      {:diagnostics {:globals [:vim]}
-       :workspace
-       {:library (vim.api.nvim_list_runtime_paths)}}}}))
+     :root_dir (root [:flsproject.fnl])}))
