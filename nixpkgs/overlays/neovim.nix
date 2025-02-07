@@ -37,7 +37,6 @@ in
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
           (plug "echasnovski" "mini.nvim" [ ])
-          (plug "ahmedkhalf" "project.nvim" [ ./stop-project.patch ])
           (plug "tssm" "nvim-reflex" [ ])
           (plug "tssm" "sessionmatic" [ ])
           (plug "tpope" "vim-sleuth" [ ])
