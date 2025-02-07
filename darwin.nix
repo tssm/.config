@@ -11,6 +11,7 @@
     pkgs.diffr
     pkgs.erlang
     pkgs.fd
+    pkgs.fennel-ls
     pkgs.fish
     pkgs.fzf
     pkgs.gh
