@@ -17,17 +17,39 @@
   (set opt.splitbelow true)
   (set opt.splitright true))
 
-(let
-  [augroup
-    (vim.api.nvim_create_augroup
-      :behaviour
-      {:clear true})
-   autocmd vim.api.nvim_create_autocmd]
-  (autocmd
-    :VimEnter
-    {:command :clearjumps
-     :group augroup})
-  (autocmd
-    :VimResized
-    {:command "wincmd ="
-     :group augroup}))
+(let [autocmd vim.api.nvim_create_autocmd]
+  (let [augroup (vim.api.nvim_create_augroup :behaviour {:clear true})]
+    (autocmd
+      :VimEnter
+      {:command :clearjumps
+       :group augroup})
+    (autocmd
+      :VimResized
+      {:command "wincmd ="
+       :group augroup}))
+  (let
+     [group (vim.api.nvim_create_augroup :cd {:clear true})
+      root (require :root)]
+     (autocmd
+       :BufEnter
+       {:callback
+         (fn []
+           (when
+             (and ; Nnormal or dirvish buffer...
+               (or (= (vim.opt.buftype:get) "") (= (vim.opt.filetype:get) :dirvish))
+               ; ...while CWD is $HOME
+               (= (vim.fn.getcwd) (os.getenv :HOME)))
+             (vim.fn.chdir
+               (case (root [])
+                 root root
+                 _ (vim.fn.expand :%:h:p)))
+             nil)) ; Throws without this
+        :group group})
+     (autocmd
+       :LspAttach
+       {:callback
+         (fn [args]
+           (case (vim.lsp.get_client_by_id args.data.client_id)
+             ; TODO: Only if CWD hasn't been changed yet
+             client (vim.fn.chdir client.root_dir)))
+        :group group})))
