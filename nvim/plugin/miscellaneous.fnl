@@ -102,13 +102,6 @@
 
 (let [{: setup} (require :octo)] (setup {:picker :fzf-lua}))
 
-; Project
-
-(let [{: setup} (require :project_nvim)]
-  (setup
-    {:patterns [:.git :.pijul :shell.nix]
-     :show_hidden true}))
-
 ; Undotree
 
 (let [{: setup : toggle} (require :undotree)]
