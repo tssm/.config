@@ -1,4 +1,4 @@
-FNL = $(shell find nvim -type f -iname '*.fnl')
+FNL = $(shell find . -type f -iname '*.fnl')
 
 LUA = $(FNL:.fnl=.lua)
 
