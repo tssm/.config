@@ -1,8 +1,8 @@
 diff --git a/lua/fzf-lua/actions.lua b/lua/fzf-lua/actions.lua
-index 08b9ff7..f10b438 100644
+index 106c14d..e1682fd 100644
 --- a/lua/fzf-lua/actions.lua
 +++ b/lua/fzf-lua/actions.lua
-@@ -547,6 +547,28 @@ local function helptags(s, opts)
+@@ -660,6 +660,28 @@ local function helptags(s, opts)
  end
  
  M.help = function(selected, opts)
@@ -12,7 +12,7 @@ index 08b9ff7..f10b438 100644
 +  local last_win_number = vim.fn.winnr("$")
 +  while current_win_number <= last_win_number do
 +    local buffer = vim.api.nvim_win_get_buf(vim.fn.win_getid(current_win_number))
-+    local type = vim.api.nvim_get_option_value("buftype")
++    local type = vim.api.nvim_get_option_value("buftype", {})
 +    if type == "help" then
 +      is_shown = true
 +      break
@@ -31,24 +31,12 @@ index 08b9ff7..f10b438 100644
    vim.cmd("help " .. helptags(selected, opts)[1])
  end
  
-diff --git a/lua/fzf-lua/config.lua b/lua/fzf-lua/config.lua
-index 0fb4373..95e59e1 100644
---- a/lua/fzf-lua/config.lua
-+++ b/lua/fzf-lua/config.lua
-@@ -660,6 +660,7 @@ M._action_to_helpstr = {
-   [actions.set_filetype]        = "set-filetype",
-   [actions.packadd]             = "packadd",
-   [actions.help]                = "help-open",
-+  [actions.help_split]          = "help-split",
-   [actions.help_vert]           = "help-vertical",
-   [actions.help_tab]            = "help-tab",
-   [actions.man]                 = "man-open",
 diff --git a/lua/fzf-lua/defaults.lua b/lua/fzf-lua/defaults.lua
-index 44c04ad..2abcd82 100644
+index c4d85d3..246db6d 100644
 --- a/lua/fzf-lua/defaults.lua
 +++ b/lua/fzf-lua/defaults.lua
-@@ -759,7 +759,7 @@ M.defaults.helptags             = {
-   prompt    = "Help> ",
+@@ -776,7 +776,7 @@ M.defaults.awesome_colorschemes = {
+ M.defaults.helptags             = {
    actions   = {
      ["enter"]  = actions.help,
 -    ["ctrl-s"] = actions.help,
