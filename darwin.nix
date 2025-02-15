@@ -33,7 +33,7 @@
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
-  nix.configureBuildUsers = true;
+  nix.enable = true;
   nix.package = pkgs.lix;
   nix.settings.cores = 8; # $ sysctl -n hw.ncpu
   nix.settings.max-jobs = 8; # $ sysctl -n hw.ncpu
@@ -42,6 +42,4 @@
 
   nixpkgs.config = { allowUnfree = true; };
   nixpkgs.overlays = [ (import nixpkgs/overlays/neovim.nix) ];
-
-  services.nix-daemon.enable = true;
 }
