@@ -32,7 +32,10 @@ in
           (plug "whiteinge" "diffconflicts" [ ])
           (plug "lifecrisis" "vim-difforig" [ ./difforig-mapcheck.patch ])
           (plug "justinmk" "vim-dirvish" [ ])
-          (plug "ibhagwan" "fzf-lua" [ ./fzf-lua-help-in-current-window.patch ])
+          (plug "ibhagwan" "fzf-lua" [
+            ./fzf-lua-help-in-current-window.patch
+            ./fzf-lua-ivy-preview-always-at-bottom.patch
+          ])
           (plug "lewis6991" "gitsigns.nvim" [ ])
           (plug "kosayoda" "nvim-lightbulb" [ ])
           (plug "AndrewRadev" "linediff.vim" [ ])
