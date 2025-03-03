@@ -130,14 +130,16 @@
 
   (fzf.register_ui_select)
 
-  (let [create-command vim.api.nvim_create_user_command]
-    (create-command :Branches fzf.git_branches {})
+  (let
+    [create-command vim.api.nvim_create_user_command
+     opts {:winopts {:fullscreen true}}]
+    (create-command :Branches (fn [] (fzf.git_branches opts)) {})
     (create-command
       :Commits
-      (fn [args] (if args.bang (fzf.git_bcommits) (fzf.git_commits)))
+      (fn [args] (if args.bang (fzf.git_bcommits opts) (fzf.git_commits opts)))
       {:bang true})
-    (create-command :Stashed fzf.git_stash {})
-    (create-command :Status fzf.git_status {}))
+    (create-command :Stashed (fn [] (fzf.git_stash opts)) {})
+    (create-command :Status (fn [] (fzf.git_status opts)) {}))
 
   (let
     [with-pijulignore?
