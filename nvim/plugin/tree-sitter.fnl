@@ -33,8 +33,8 @@
   [autocmd vim.api.nvim_create_autocmd
    create-augroup vim.api.nvim_create_augroup
    delete-augroup vim.api.nvim_del_augroup_by_name
-   identifier-map :<localleader>hi
-   scope-map :<localleader>hs
+   identifier-map :grh
+   scope-map :grs
    map vim.keymap
    opt vim.opt
    query (require :nvim-treesitter.query)
