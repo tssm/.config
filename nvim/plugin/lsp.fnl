@@ -37,7 +37,7 @@
              (when (= (vim.fn.mapcheck :grh :n) :<Nop>)
                (set-map true :grh lsp-buf.document_highlight))
              (set-map true :grr
-               (fn [] (fzf-lua.lsp_references {:ignore_current_line true :jump_to_single_result true}))))
+               (fn [] (fzf-lua.lsp_references {:ignore_current_line true :jump1 true}))))
 
            (autocmd
              :InsertEnter
