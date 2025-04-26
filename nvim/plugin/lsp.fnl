@@ -45,3 +45,15 @@
               :callback lsp-buf.clear_references
               :group augroup})))
        :group augroup})))
+
+(vim.lsp.enable
+  [:ccls
+   :dhall
+   :fennel
+   :gleam
+   :haskell
+   :lua
+   :nil
+   :purescript
+   :rust-analyzer
+   :sql])
