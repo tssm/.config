@@ -1,11 +1,11 @@
 diff --git a/lua/fzf-lua/actions.lua b/lua/fzf-lua/actions.lua
-index 106c14d..e1682fd 100644
+index 40c37d4..05bf620 100644
 --- a/lua/fzf-lua/actions.lua
 +++ b/lua/fzf-lua/actions.lua
-@@ -660,6 +660,28 @@ local function helptags(s, opts)
- end
+@@ -682,6 +682,28 @@ end
  
  M.help = function(selected, opts)
+   if #selected == 0 then return end
 +  local helpcmd
 +  local is_shown = false
 +  local current_win_number = 1
@@ -32,10 +32,10 @@ index 106c14d..e1682fd 100644
  end
  
 diff --git a/lua/fzf-lua/defaults.lua b/lua/fzf-lua/defaults.lua
-index c4d85d3..246db6d 100644
+index 8e407a8..be47ca5 100644
 --- a/lua/fzf-lua/defaults.lua
 +++ b/lua/fzf-lua/defaults.lua
-@@ -776,7 +776,7 @@ M.defaults.awesome_colorschemes = {
+@@ -781,7 +781,7 @@ M.defaults.awesome_colorschemes = {
  M.defaults.helptags             = {
    actions   = {
      ["enter"]  = actions.help,
